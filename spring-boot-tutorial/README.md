@@ -87,32 +87,32 @@ Chapters marked ✅ are written. The others are coming next.
 ### Part 4 – More Java You Need for Spring Boot
 | # | Chapter | Status |
 |---|---|---|
-| 30 | Lists (ArrayList) | ⏳ |
-| 31 | Maps (HashMap) | ⏳ |
-| 32 | Sets (HashSet) | ⏳ |
-| 33 | Errors and exceptions (try and catch) | ⏳ |
-| 34 | Generics: the `<...>` signs | ⏳ |
-| 35 | Lambdas: small functions | ⏳ |
-| 36 | Streams: working with lists easily | ⏳ |
-| 37 | Optional: maybe there is a value, maybe not | ⏳ |
-| 38 | Annotations: the `@` sign | ⏳ |
-| 39 | Dates and times | ⏳ |
+| 30 | [Lists (ArrayList)](part-04-more-java/30-lists.md) | ✅ |
+| 31 | [Maps (HashMap)](part-04-more-java/31-maps.md) | ✅ |
+| 32 | [Sets (HashSet)](part-04-more-java/32-sets.md) | ✅ |
+| 33 | [Errors and exceptions (try and catch)](part-04-more-java/33-exceptions.md) | ✅ |
+| 34 | [Generics: the `<...>` signs](part-04-more-java/34-generics.md) | ✅ |
+| 35 | [Lambdas: small functions](part-04-more-java/35-lambdas.md) | ✅ |
+| 36 | [Streams: working with lists easily](part-04-more-java/36-streams.md) | ✅ |
+| 37 | [Optional: maybe there is a value, maybe not](part-04-more-java/37-optional.md) | ✅ |
+| 38 | [Annotations: the `@` sign](part-04-more-java/38-annotations.md) | ✅ |
+| 39 | [Dates and times](part-04-more-java/39-dates-and-times.md) | ✅ |
 
 ### Part 5 – Tools
 | # | Chapter | Status |
 |---|---|---|
-| 40 | Maven: the helper that downloads libraries | ⏳ |
-| 41 | The pom.xml file, line by line | ⏳ |
-| 42 | Git: saving the history of your code | ⏳ |
+| 40 | [Maven: the helper that downloads libraries](part-05-tools/40-maven.md) | ✅ |
+| 41 | [The pom.xml file, line by line](part-05-tools/41-pom-xml.md) | ✅ |
+| 42 | [Git: saving the history of your code](part-05-tools/42-git.md) | ✅ |
 
 ### Part 6 – How the Web Works
 | # | Chapter | Status |
 |---|---|---|
-| 43 | Client and server: the restaurant story | ⏳ |
-| 44 | HTTP: GET, POST, PUT, DELETE | ⏳ |
-| 45 | JSON: how computers send data | ⏳ |
-| 46 | What is a REST API? | ⏳ |
-| 47 | Testing APIs with Postman and curl | ⏳ |
+| 43 | [Client and server: the restaurant story](part-06-web/43-client-and-server.md) | ✅ |
+| 44 | [HTTP: GET, POST, PUT, DELETE](part-06-web/44-http.md) | ✅ |
+| 45 | [JSON: how computers send data](part-06-web/45-json.md) | ✅ |
+| 46 | [What is a REST API?](part-06-web/46-rest-api.md) | ✅ |
+| 47 | [Testing APIs with Postman and curl](part-06-web/47-postman-and-curl.md) | ✅ |
 
 ### Part 7 – Spring Boot Starts Here
 | # | Chapter | Status |
