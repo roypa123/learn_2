@@ -71,18 +71,18 @@ Chapters marked ✅ are written. The others are coming next.
 ### Part 3 – Objects in Java (Object-Oriented Programming)
 | # | Chapter | Status |
 |---|---|---|
-| 18 | Classes and objects: the cookie cutter and the cookies | ⏳ |
-| 19 | Constructors: building a new object | ⏳ |
-| 20 | Fields, methods and the word `this` | ⏳ |
-| 21 | Hiding data: private, getters and setters | ⏳ |
-| 22 | Inheritance: children get things from parents | ⏳ |
-| 23 | Polymorphism: one name, many shapes | ⏳ |
-| 24 | Abstract classes | ⏳ |
-| 25 | Interfaces: a promise | ⏳ |
-| 26 | Packages and import | ⏳ |
-| 27 | The word `static` | ⏳ |
-| 28 | Enums: a fixed list of choices | ⏳ |
-| 29 | Records: small classes for data | ⏳ |
+| 18 | [Classes and objects: the cookie cutter and the cookies](part-03-objects/18-classes-and-objects.md) | ✅ |
+| 19 | [Constructors: building a new object](part-03-objects/19-constructors.md) | ✅ |
+| 20 | [Fields, methods and the word `this`](part-03-objects/20-fields-methods-this.md) | ✅ |
+| 21 | [Hiding data: private, getters and setters](part-03-objects/21-encapsulation.md) | ✅ |
+| 22 | [Inheritance: children get things from parents](part-03-objects/22-inheritance.md) | ✅ |
+| 23 | [Polymorphism: one name, many shapes](part-03-objects/23-polymorphism.md) | ✅ |
+| 24 | [Abstract classes](part-03-objects/24-abstract-classes.md) | ✅ |
+| 25 | [Interfaces: a promise](part-03-objects/25-interfaces.md) | ✅ |
+| 26 | [Packages and import](part-03-objects/26-packages-import.md) | ✅ |
+| 27 | [The word `static`](part-03-objects/27-static.md) | ✅ |
+| 28 | [Enums: a fixed list of choices](part-03-objects/28-enums.md) | ✅ |
+| 29 | [Records: small classes for data](part-03-objects/29-records.md) | ✅ |
 
 ### Part 4 – More Java You Need for Spring Boot
 | # | Chapter | Status |
