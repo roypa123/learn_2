@@ -117,15 +117,15 @@ Chapters marked ✅ are written. The others are coming next.
 ### Part 7 – Spring Boot Starts Here
 | # | Chapter | Status |
 |---|---|---|
-| 48 | What are Spring and Spring Boot (deeper look) | ⏳ |
-| 49 | Create a project with Spring Initializr | ⏳ |
-| 50 | A tour of the project folders | ⏳ |
-| 51 | Run your first Spring Boot app | ⏳ |
-| 52 | Your first web page answer: Hello endpoint | ⏳ |
-| 53 | Dependency Injection: the big idea | ⏳ |
-| 54 | Beans: @Component, @Service, @Repository | ⏳ |
-| 55 | Settings: application.properties | ⏳ |
-| 56 | Profiles: dev and prod settings | ⏳ |
+| 48 | [What are Spring and Spring Boot? (a deeper look)](part-07-spring-boot-basics/48-spring-and-spring-boot.md) | ✅ |
+| 49 | [Create a project with Spring Initializr](part-07-spring-boot-basics/49-spring-initializr.md) | ✅ |
+| 50 | [A tour of the project folders](part-07-spring-boot-basics/50-project-tour.md) | ✅ |
+| 51 | [Run your first Spring Boot app](part-07-spring-boot-basics/51-run-first-app.md) | ✅ |
+| 52 | [Your first web page answer: Hello endpoint](part-07-spring-boot-basics/52-hello-endpoint.md) | ✅ |
+| 53 | [Dependency Injection: the big idea](part-07-spring-boot-basics/53-dependency-injection.md) | ✅ |
+| 54 | [Beans: @Component, @Service, @Repository](part-07-spring-boot-basics/54-beans.md) | ✅ |
+| 55 | [Settings: application.properties](part-07-spring-boot-basics/55-application-properties.md) | ✅ |
+| 56 | [Profiles: dev and prod settings](part-07-spring-boot-basics/56-profiles.md) | ✅ |
 
 ### Part 8 – Building REST APIs
 | # | Chapter | Status |
