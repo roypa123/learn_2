@@ -521,7 +521,13 @@ Without `spring-boot-starter-validation`, IntelliJ can't even find `jakarta.vali
 @NotBlank Integer age   // ❌
 ```
 
-`@NotBlank` is only for **text**. The app compiles, but the first request with an age fails with a **`UnexpectedTypeException`** ("No validator could be found for constraint 'NotBlank' validating type 'Integer'") → 500. **Fix:** `@NotNull` for numbers.
+`@NotBlank` is only for **text**. The app compiles and starts, but the first request fails with **500**. We tested it — the console says:
+
+```
+UnexpectedTypeException: HV000030: No validator could be found for constraint 'jakarta.validation.constraints.NotBlank' validating type 'java.lang.Integer'. Check configuration for 'age'
+```
+
+"I don't know how to check if a **number** is blank!" 🤷 **Fix:** `@NotNull` for numbers.
 
 ### Mistake 4: `@Min` without `@NotNull`
 

@@ -130,16 +130,16 @@ Chapters marked ✅ are written. The others are coming next.
 ### Part 8 – Building REST APIs
 | # | Chapter | Status |
 |---|---|---|
-| 57 | @RestController and @GetMapping | ⏳ |
-| 58 | Path variables: `/students/5` | ⏳ |
-| 59 | Request parameters: `?name=Ali` | ⏳ |
-| 60 | Sending data: @PostMapping and @RequestBody | ⏳ |
-| 61 | Changing and deleting: PUT and DELETE | ⏳ |
-| 62 | ResponseEntity and status codes | ⏳ |
-| 63 | Layers: Controller, Service, Repository | ⏳ |
-| 64 | DTOs: safe boxes for data | ⏳ |
-| 65 | Validation: checking the data | ⏳ |
-| 66 | Handling errors nicely (@ControllerAdvice) | ⏳ |
+| 57 | [@RestController and @GetMapping: the Student API begins](part-08-rest-apis/57-rest-controller.md) | ✅ |
+| 58 | [Path variables: `/students/5`](part-08-rest-apis/58-path-variables.md) | ✅ |
+| 59 | [Request parameters: `?name=Ali`](part-08-rest-apis/59-request-params.md) | ✅ |
+| 60 | [Sending data: @PostMapping and @RequestBody](part-08-rest-apis/60-post-request-body.md) | ✅ |
+| 61 | [Changing and deleting: PUT, PATCH and DELETE](part-08-rest-apis/61-put-delete.md) | ✅ |
+| 62 | [ResponseEntity and status codes](part-08-rest-apis/62-response-entity.md) | ✅ |
+| 63 | [Layers: Controller, Service, Repository](part-08-rest-apis/63-layers.md) | ✅ |
+| 64 | [DTOs: safe boxes for data](part-08-rest-apis/64-dtos.md) | ✅ |
+| 65 | [Validation: checking the data](part-08-rest-apis/65-validation.md) | ✅ |
+| 66 | [Handling errors nicely (@RestControllerAdvice)](part-08-rest-apis/66-error-handling.md) | ✅ |
 
 ### Part 9 – Databases
 | # | Chapter | Status |
