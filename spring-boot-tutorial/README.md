@@ -161,10 +161,10 @@ Chapters marked ✅ are written. The others are coming next.
 ### Part 10 – Security
 | # | Chapter | Status |
 |---|---|---|
-| 80 | Spring Security: the introduction | ⏳ |
-| 81 | Users and passwords | ⏳ |
-| 82 | Roles: admin and user | ⏳ |
-| 83 | JWT tokens | ⏳ |
+| 80 | [Spring Security: the introduction](part-10-security/80-spring-security.md) | ✅ |
+| 81 | [Users and passwords](part-10-security/81-users-and-passwords.md) | ✅ |
+| 82 | [Roles: admin and user](part-10-security/82-roles.md) | ✅ |
+| 83 | [JWT tokens](part-10-security/83-jwt.md) | ✅ |
 
 ### Part 11 – Testing
 | # | Chapter | Status |
