@@ -144,19 +144,19 @@ Chapters marked ✅ are written. The others are coming next.
 ### Part 9 – Databases
 | # | Chapter | Status |
 |---|---|---|
-| 67 | What is a database? | ⏳ |
-| 68 | SQL basics | ⏳ |
-| 69 | H2: a small database for learning | ⏳ |
-| 70 | Spring Data JPA: the introduction | ⏳ |
-| 71 | Entities: Java classes that become tables | ⏳ |
-| 72 | Repositories: save, find, delete | ⏳ |
-| 73 | Full CRUD project: Student app | ⏳ |
-| 74 | Your own queries | ⏳ |
-| 75 | Relationships: One-to-Many | ⏳ |
-| 76 | Relationships: Many-to-Many | ⏳ |
-| 77 | Using MySQL or PostgreSQL | ⏳ |
-| 78 | Pages and sorting | ⏳ |
-| 79 | Transactions: all or nothing | ⏳ |
+| 67 | [What is a database?](part-09-databases/67-what-is-a-database.md) | ✅ |
+| 68 | [SQL basics](part-09-databases/68-sql-basics.md) | ✅ |
+| 69 | [H2: a small database for learning](part-09-databases/69-h2-database.md) | ✅ |
+| 70 | [Spring Data JPA: the introduction](part-09-databases/70-spring-data-jpa.md) | ✅ |
+| 71 | [Entities: Java classes that become tables](part-09-databases/71-entities.md) | ✅ |
+| 72 | [Repositories: save, find, delete](part-09-databases/72-repositories.md) | ✅ |
+| 73 | [Full CRUD project: Student app](part-09-databases/73-crud-student-app.md) | ✅ |
+| 74 | [Your own queries](part-09-databases/74-custom-queries.md) | ✅ |
+| 75 | [Relationships: One-to-Many](part-09-databases/75-one-to-many.md) | ✅ |
+| 76 | [Relationships: Many-to-Many](part-09-databases/76-many-to-many.md) | ✅ |
+| 77 | [Using MySQL or PostgreSQL](part-09-databases/77-mysql-postgresql.md) | ✅ |
+| 78 | [Pages and sorting](part-09-databases/78-paging-sorting.md) | ✅ |
+| 79 | [Transactions: all or nothing](part-09-databases/79-transactions.md) | ✅ |
 
 ### Part 10 – Security
 | # | Chapter | Status |

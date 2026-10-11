@@ -291,7 +291,7 @@ spring.jpa.open-in-view=false
 | Setting | Meaning |
 |---|---|
 | `spring.datasource.url=jdbc:h2:file:./data/school` | ⭐ A **file** database: `./` = the project folder, so H2 creates **`data/school.mv.db`**. 💾 |
-| `spring.jpa.hibernate.ddl-auto=update` | ⭐ **Very important!** For an H2 **file**, Spring Boot would still use `create-drop` (it's still an "embedded" database) — and **delete everything** at every start! 😱 `update` means: "create missing tables, but **never** delete data." |
+| `spring.jpa.hibernate.ddl-auto=update` | ⭐ **Very important!** For a **file** database, Spring Boot's default is `none` — Hibernate creates **no** tables at all! We tested it: the app fails with `Table "BOOKS" not found (this database is empty)`. 😱 `update` means: "create **missing** tables and columns, but **never** delete data." |
 | *(removed)* `defer-datasource-initialization` | Not needed anymore — no `data.sql`. |
 
 ### 🙈 Don't save the database in Git
@@ -588,9 +588,9 @@ Because the controller only talks to the **service**, using **DTOs**. The servic
 
 ## ⚠️ Common mistakes
 
-### Mistake 1: A file database with `create-drop`
+### Mistake 1: A file database without `ddl-auto=update`
 
-Without `ddl-auto=update`, Spring Boot treats the H2 **file** like any embedded database and uses `create-drop` → **all data is deleted at every start**. 😱 **Fix:** `spring.jpa.hibernate.ddl-auto=update`.
+Without the setting, Spring Boot uses `none` for a **file** database → Hibernate creates **no** tables → `Table "STUDENTS" not found (this database is empty)`. 😱 And with `create-drop` (Task 1), **all data is deleted at every start**. **Fix:** `spring.jpa.hibernate.ddl-auto=update`.
 
 ### Mistake 2: A `DataLoader` without the `count()` check
 
@@ -639,7 +639,7 @@ The app uses `jdbc:h2:file:./data/school`, the console uses `jdbc:h2:mem:school`
 2. It loads the entity (`findById`), changes it with setters, and calls `save` (which does an UPDATE).
 3. So it only adds the starting students to an **empty** database — otherwise it would try to add them again at every start (and fail on the unique email).
 4. An H2 database stored in a file: the folder `data` in the project, file name `school.mv.db`.
-5. Because otherwise Spring Boot uses `create-drop` for H2, which deletes all tables (and data) at every start.
+5. Because otherwise Spring Boot uses `none` for a file database, so Hibernate creates no tables at all ("Table not found"). `update` creates missing tables but never deletes data.
 6. In `data/school.mv.db` in the project folder. No — add `data/` to `.gitignore`.
 7. `DataLoader: the database already has ... students`
 

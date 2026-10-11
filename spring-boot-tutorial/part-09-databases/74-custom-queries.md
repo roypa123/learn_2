@@ -462,7 +462,7 @@ d) does a student with this **name** exist?
 
 a) `List<Student> findByNameStartingWithIgnoreCase(String start);`
 b) `List<Student> findByAgeLessThanOrderByAgeAsc(int age);`
-c) `void deleteByAge(int age);` (needs a transaction to run — Chapter 79!)
+c) `void deleteByAge(int age);` (call it from a `@Transactional` service method, so all the deletes happen together — Chapter 79!)
 d) `boolean existsByName(String name);`
 
 </details>
@@ -510,7 +510,13 @@ The **first** field in the name (`Age`) gets the **first** parameter. Here, Java
 
 ### Mistake 4: Table names in JPQL
 
-`@Query("SELECT s FROM students s")` → an error at startup: JPQL doesn't know `students`. **Fix:** Use the **class** name: `FROM Student s`.
+`@Query("SELECT s FROM students s")` → the app doesn't start. We tested it:
+
+```
+Caused by: org.hibernate.query.sqm.UnknownEntityException: Could not resolve root entity 'students'
+```
+
+JPQL doesn't know `students` — that's a **table**, not an **entity**. **Fix:** Use the **class** name: `FROM Student s`.
 
 ### Mistake 5: `double` for an average
 

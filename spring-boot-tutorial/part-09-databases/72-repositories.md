@@ -502,7 +502,13 @@ public class StudentRepositoryImpl implements StudentRepository { ... }   // ❌
 public interface StudentRepository extends JpaRepository<Student, Integer> { }   // ❌ id is a Long!
 ```
 
-The app **fails at startup** (the id types don't match). **Fix:** The second type must be the **type of the `@Id` field**: `Long`.
+We tried it: the code doesn't even **compile** — everywhere we call `findById(id)` with a `Long`, Java says:
+
+```
+incompatible types: java.lang.Long cannot be converted to java.lang.Integer
+```
+
+**Fix:** The second type must be the **type of the `@Id` field**: `Long`.
 
 ### Mistake 3: Forgetting that `save` returns the saved object
 

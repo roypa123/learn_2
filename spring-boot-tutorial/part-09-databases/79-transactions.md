@@ -452,7 +452,13 @@ Test (starting data: 5A has Sara and Lina, 6B has Tom):
 <details>
 <summary>Click to see the answer</summary>
 
-Without a transaction, the request still answers **409**... but did anything move? Each student is loaded, and `setClassroom` changes the object — but with **no** transaction, there's **no dirty checking**, so nothing is saved... and worse: `from.getStudents()` is a **lazy** list → `LazyInitializationException` → **500**! 😵 Either way: **always** use `@Transactional` for jobs that change data in several steps.
+We tried it: **500**! The log says:
+
+```
+LazyInitializationException: Cannot lazily initialize collection of role 'com.example.school.entity.Classroom.students' with key '1' (no session)
+```
+
+Without a transaction, the session closes right after `findClassroom(...)`, so the **lazy** list `from.getStudents()` can't be loaded (Chapter 75). 😵 And even if it could: with **no** transaction, there's **no dirty checking**, so the `setClassroom` changes would never be saved. **Always** use `@Transactional` for jobs that change data in several steps.
 
 </details>
 
