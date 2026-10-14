@@ -134,20 +134,20 @@ Inside chapters you will also see:
 
 | # | Chapter | Status |
 |---|---|---|
-| 56 | Saving Small Data (`@AppStorage`) | ⏳ Coming |
-| 57 | Saving Big Data (SwiftData) | ⏳ Coming |
-| 58 | Getting Data From the Internet | ⏳ Coming |
-| 59 | Reading JSON | ⏳ Coming |
-| 60 | Showing Images From the Internet | ⏳ Coming |
-| 61 | Project: To-Do List App | ⏳ Coming |
-| 62 | Project: Weather App | ⏳ Coming |
-| 63 | Project: Notes App | ⏳ Coming |
-| 64 | Testing Your App | ⏳ Coming |
-| 65 | Putting Your App on the App Store | ⏳ Coming |
+| 56 | [Saving Small Data (`@AppStorage`)](part-06-real-app-skills/56-appstorage.md) | ✅ Ready |
+| 57 | [Saving Big Data (SwiftData)](part-06-real-app-skills/57-swiftdata.md) | ✅ Ready |
+| 58 | [Getting Data From the Internet](part-06-real-app-skills/58-networking.md) | ✅ Ready |
+| 59 | [Reading JSON](part-06-real-app-skills/59-json-codable.md) | ✅ Ready |
+| 60 | [Showing Images From the Internet](part-06-real-app-skills/60-async-image.md) | ✅ Ready |
+| 61 | [Project: To-Do List App](part-06-real-app-skills/61-project-todo.md) | ✅ Ready |
+| 62 | [Project: Weather App](part-06-real-app-skills/62-project-weather.md) | ✅ Ready |
+| 63 | [Project: Notes App](part-06-real-app-skills/63-project-notes.md) | ✅ Ready |
+| 64 | [Testing Your App](part-06-real-app-skills/64-testing.md) | ✅ Ready |
+| 65 | [Putting Your App on the App Store](part-06-real-app-skills/65-app-store.md) | ✅ Ready |
 
 ### Extra
 
 | Chapter | Status |
 |---|---|
-| Glossary (All New Words in One Place) | ⏳ Coming |
-| Common Errors and How to Fix Them | ⏳ Coming |
+| [Glossary (All New Words in One Place)](extras/glossary.md) | ✅ Ready |
+| [Common Errors and How to Fix Them](extras/common-errors.md) | ✅ Ready |

@@ -643,4 +643,4 @@ In **Part 6**, you'll learn real app skills: **saving data**, **loading from the
 ---
 
 ⬅️ **Back:** [Chapter 54 — Colors, Fonts and Dark Mode](54-colors-fonts-dark-mode.md)
-➡️ **Next:** Chapter 56 — Saving Small Data (`@AppStorage`) *(coming soon)*
+➡️ **Next:** [Chapter 56 — Saving Small Data (`@AppStorage`)](../part-06-real-app-skills/56-appstorage.md)
