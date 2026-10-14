@@ -611,4 +611,4 @@ In **Part 3**, you will learn to build your **own types** with `struct`, `class`
 ---
 
 ⬅️ **Back:** [Chapter 18 — Functions](18-functions.md)
-➡️ **Next:** Chapter 20 — Structs *(coming soon)*
+➡️ **Next:** [Chapter 20 — Structs](../part-03-building-types/20-structs.md)

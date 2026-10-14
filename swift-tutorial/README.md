@@ -83,16 +83,16 @@ Inside chapters you will also see:
 
 | # | Chapter | Status |
 |---|---|---|
-| 20 | Structs | ⏳ Coming |
-| 21 | Classes | ⏳ Coming |
-| 22 | Struct vs Class — When to Use Which | ⏳ Coming |
-| 23 | Enums | ⏳ Coming |
-| 24 | Protocols | ⏳ Coming |
-| 25 | Extensions | ⏳ Coming |
-| 26 | Error Handling (`throws`, `try`, `catch`) | ⏳ Coming |
-| 27 | Generics (Simple Introduction) | ⏳ Coming |
-| 28 | `async` and `await` (Waiting for Slow Things) | ⏳ Coming |
-| 29 | Mini Project: Text Adventure Game | ⏳ Coming |
+| 20 | [Structs](part-03-building-types/20-structs.md) | ✅ Ready |
+| 21 | [Classes](part-03-building-types/21-classes.md) | ✅ Ready |
+| 22 | [Struct vs Class — When to Use Which](part-03-building-types/22-struct-vs-class.md) | ✅ Ready |
+| 23 | [Enums](part-03-building-types/23-enums.md) | ✅ Ready |
+| 24 | [Protocols](part-03-building-types/24-protocols.md) | ✅ Ready |
+| 25 | [Extensions](part-03-building-types/25-extensions.md) | ✅ Ready |
+| 26 | [Error Handling (`throws`, `try`, `catch`)](part-03-building-types/26-error-handling.md) | ✅ Ready |
+| 27 | [Generics (Simple Introduction)](part-03-building-types/27-generics.md) | ✅ Ready |
+| 28 | [`async` and `await` (Waiting for Slow Things)](part-03-building-types/28-async-await.md) | ✅ Ready |
+| 29 | [Mini Project: Text Adventure Game](part-03-building-types/29-project-text-adventure.md) | ✅ Ready |
 
 ### Part 4 — Getting a Mac and Xcode 🍎
 
