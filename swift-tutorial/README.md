@@ -64,20 +64,20 @@ Inside chapters you will also see:
 
 | # | Chapter | Status |
 |---|---|---|
-| 06 | Variables and Constants (`var` and `let`) | ⏳ Coming |
-| 07 | Data Types: Numbers, Text, True/False | ⏳ Coming |
-| 08 | Doing Math | ⏳ Coming |
-| 09 | Working With Text (Strings) | ⏳ Coming |
-| 10 | Making Decisions: `if` and `else` | ⏳ Coming |
-| 11 | Many Choices: `switch` | ⏳ Coming |
-| 12 | Repeating: `for` Loops | ⏳ Coming |
-| 13 | Repeating: `while` Loops | ⏳ Coming |
-| 14 | Lists of Things: Arrays | ⏳ Coming |
-| 15 | Labels and Values: Dictionaries | ⏳ Coming |
-| 16 | No Duplicates: Sets | ⏳ Coming |
-| 17 | Maybe There, Maybe Not: Optionals | ⏳ Coming |
-| 18 | Functions: Reusable Blocks of Code | ⏳ Coming |
-| 19 | Closures: Functions Without Names | ⏳ Coming |
+| 06 | [Variables and Constants (`var` and `let`)](part-02-swift-basics/06-variables-and-constants.md) | ✅ Ready |
+| 07 | [Data Types: Numbers, Text, True/False](part-02-swift-basics/07-data-types.md) | ✅ Ready |
+| 08 | [Doing Math](part-02-swift-basics/08-doing-math.md) | ✅ Ready |
+| 09 | [Working With Text (Strings)](part-02-swift-basics/09-working-with-text.md) | ✅ Ready |
+| 10 | [Making Decisions: `if` and `else`](part-02-swift-basics/10-if-else.md) | ✅ Ready |
+| 11 | [Many Choices: `switch`](part-02-swift-basics/11-switch.md) | ✅ Ready |
+| 12 | [Repeating: `for` Loops](part-02-swift-basics/12-for-loops.md) | ✅ Ready |
+| 13 | [Repeating: `while` Loops](part-02-swift-basics/13-while-loops.md) | ✅ Ready |
+| 14 | [Lists of Things: Arrays](part-02-swift-basics/14-arrays.md) | ✅ Ready |
+| 15 | [Labels and Values: Dictionaries](part-02-swift-basics/15-dictionaries.md) | ✅ Ready |
+| 16 | [No Duplicates: Sets](part-02-swift-basics/16-sets.md) | ✅ Ready |
+| 17 | [Maybe There, Maybe Not: Optionals](part-02-swift-basics/17-optionals.md) | ✅ Ready |
+| 18 | [Functions: Reusable Blocks of Code](part-02-swift-basics/18-functions.md) | ✅ Ready |
+| 19 | [Closures: Functions Without Names](part-02-swift-basics/19-closures.md) | ✅ Ready |
 
 ### Part 3 — Building Your Own Types ✅
 

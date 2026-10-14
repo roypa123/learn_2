@@ -210,4 +210,4 @@ In **Part 2**, we start learning real Swift: storing information with **variable
 ---
 
 ⬅️ **Back:** [Chapter 04 — Your First Program: `print`](04-first-program-print.md)
-➡️ **Next:** Chapter 06 — Variables and Constants *(coming soon)*
+➡️ **Next:** [Chapter 06 — Variables and Constants](../part-02-swift-basics/06-variables-and-constants.md)
