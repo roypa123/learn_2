@@ -87,7 +87,7 @@ There are **28 chapters**, in **7 parts**.
 
 | # | Chapter | What you will learn | Status |
 |---|---|---|---|
-| 27 | Testing and Debugging | Logcat, breakpoints, unit tests, Compose UI tests, finding crashes | ⏳ |
+| 27 | [Testing and Debugging](chapter27_testing_debugging.md) | Logcat, stack traces, the debugger, unit tests, `runTest` and virtual time, ViewModel tests with fakes, Compose UI tests, Hilt tests, common crashes | ✅ |
 | 28 | Publishing Your App on Google Play | App icon, signing, release build, App Bundle, Play Console, store listing | ⏳ |
 
 ---
@@ -133,6 +133,7 @@ android_kotlin_tutorial/
  ├── chapter24_project_notes_app.md
  ├── chapter25_phone_features.md
  ├── chapter26_animations.md
+ ├── chapter27_testing_debugging.md
  └── ... (more chapters coming)
 ```
 
