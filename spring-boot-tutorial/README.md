@@ -169,31 +169,31 @@ Chapters marked ✅ are written. The others are coming next.
 ### Part 11 – Testing
 | # | Chapter | Status |
 |---|---|---|
-| 84 | Why we test, and JUnit | ⏳ |
-| 85 | Mockito: fake helpers for tests | ⏳ |
-| 86 | Testing controllers | ⏳ |
-| 87 | Testing with a database | ⏳ |
+| 84 | [Why we test, and JUnit](part-11-testing/84-junit.md) | ✅ |
+| 85 | [Mockito: fake helpers for tests](part-11-testing/85-mockito.md) | ✅ |
+| 86 | [Testing controllers](part-11-testing/86-testing-controllers.md) | ✅ |
+| 87 | [Testing with a database](part-11-testing/87-testing-with-database.md) | ✅ |
 
 ### Part 12 – Useful Extras
 | # | Chapter | Status |
 |---|---|---|
-| 88 | Logging: writing a diary for your app | ⏳ |
-| 89 | Thymeleaf: making HTML pages | ⏳ |
-| 90 | Calling other APIs | ⏳ |
-| 91 | Doing jobs on a timer (Scheduling) | ⏳ |
-| 92 | Uploading files | ⏳ |
-| 93 | API documentation with Swagger | ⏳ |
-| 94 | Actuator: checking your app's health | ⏳ |
+| 88 | [Logging: writing a diary for your app](part-12-extras/88-logging.md) | ✅ |
+| 89 | [Thymeleaf: making HTML pages](part-12-extras/89-thymeleaf.md) | ✅ |
+| 90 | [Calling other APIs](part-12-extras/90-calling-apis.md) | ✅ |
+| 91 | [Doing jobs on a timer (Scheduling)](part-12-extras/91-scheduling.md) | ✅ |
+| 92 | [Uploading files](part-12-extras/92-file-upload.md) | ✅ |
+| 93 | [API documentation with Swagger](part-12-extras/93-swagger.md) | ✅ |
+| 94 | [Actuator: checking your app's health](part-12-extras/94-actuator.md) | ✅ |
 
 ### Part 13 – Final Project and Going Live
 | # | Chapter | Status |
 |---|---|---|
-| 95 | Final project: Library app – planning | ⏳ |
-| 96 | Final project: Library app – building | ⏳ |
-| 97 | Final project: Library app – security and tests | ⏳ |
-| 98 | Making a .jar file | ⏳ |
-| 99 | Docker basics | ⏳ |
-| 100 | Putting your app on the internet | ⏳ |
+| 95 | [Final project: Library app – planning](part-13-final-project/95-library-planning.md) | ✅ |
+| 96 | [Final project: Library app – building](part-13-final-project/96-library-building.md) | ✅ |
+| 97 | [Final project: Library app – security and tests](part-13-final-project/97-library-security-tests.md) | ✅ |
+| 98 | [Making a .jar file](part-13-final-project/98-making-a-jar.md) | ✅ |
+| 99 | [Docker basics](part-13-final-project/99-docker.md) | ✅ |
+| 100 | [Putting your app on the internet](part-13-final-project/100-going-live.md) | ✅ |
 
 ---
 
