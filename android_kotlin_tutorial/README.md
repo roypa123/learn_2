@@ -52,15 +52,15 @@ There are **28 chapters**, in **7 parts**.
 | 9 | [Getting Input From the User](chapter09_user_input.md) | `TextField`, keyboards, passwords, validation, `Checkbox`, `RadioButton`, `Switch`, `Slider`, chips, dropdowns, Sign-Up form | ✅ |
 | 10 | [Lists and Grids](chapter10_lists_and_grids.md) | `LazyColumn`, `LazyRow`, `LazyVerticalGrid`, items, keys, sticky headers, scroll control, Contacts app | ✅ |
 | 11 | [Screen Frames and Pop-ups](chapter11_scaffold_and_popups.md) | `Scaffold`, `TopAppBar`, menus, FABs, `NavigationBar`, Snackbars with Undo, dialogs, bottom sheets, Notes app | ✅ |
-| 12 | 🛠️ Mini Project: Tip Calculator App | Build a full small app using Parts 1–3 | ⏳ |
+| 12 | [🛠️ Mini Project: Tip Calculator App](chapter12_project_tip_calculator.md) | Plan, build, and test a complete app using Parts 1–3 | ✅ |
 
 ### Part 4 — Many Screens and App Structure 🏗️
 
 | # | Chapter | What you will learn | Status |
 |---|---|---|---|
-| 13 | Moving Between Screens — Navigation | Navigation Compose, routes, passing data, back button, bottom navigation | ⏳ |
-| 14 | The Life of an App — Activity Lifecycle | `onCreate`, `onStart`, `onResume`…, screen rotation, saving state | ⏳ |
-| 15 | ViewModel — The Screen's Brain | `ViewModel`, why we need it, `UiState`, `StateFlow` | ⏳ |
+| 13 | [Moving Between Screens — Navigation](chapter13_navigation.md) | Navigation Compose, type-safe routes, passing data, back stack, bottom navigation, Recipe Book app | ✅ |
+| 14 | [The Life of an App — Activity Lifecycle](chapter14_lifecycle.md) | `onCreate` … `onDestroy`, rotation, configuration changes, process death, lifecycle in Compose, Lifecycle Explorer app | ✅ |
+| 15 | [ViewModel — The Screen's Brain](chapter15_viewmodel.md) | `ViewModel`, `StateFlow`, `UiState`, events, Route + Screen pattern, `SavedStateHandle`, Coffee Order rebuilt | ✅ |
 | 16 | Clean App Structure — MVVM | Layers (UI, ViewModel, Repository, Data), one-way data flow | ⏳ |
 | 17 | 🛠️ Mini Project: Quiz App | Build a quiz app with many screens and a ViewModel | ⏳ |
 
@@ -118,6 +118,10 @@ android_kotlin_tutorial/
  ├── chapter09_user_input.md
  ├── chapter10_lists_and_grids.md
  ├── chapter11_scaffold_and_popups.md
+ ├── chapter12_project_tip_calculator.md
+ ├── chapter13_navigation.md
+ ├── chapter14_lifecycle.md
+ ├── chapter15_viewmodel.md
  └── ... (more chapters coming)
 ```
 
