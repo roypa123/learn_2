@@ -45,12 +45,12 @@ There are **28 chapters**, in **7 parts**.
 
 | # | Chapter | What you will learn | Status |
 |---|---|---|---|
-| 5 | Your First Compose Screen | Composable functions, `Text`, `Image`, `Button`, `Icon`, Preview, Modifiers | ⏳ |
-| 6 | Layouts — Putting Things in Place | `Column`, `Row`, `Box`, `Spacer`, alignment, arrangement, padding, size, weight | ⏳ |
-| 7 | Making It Beautiful — Material 3 | Themes, colors, fonts, shapes, `Card`, `Surface`, icons, dark mode | ⏳ |
-| 8 | State — Making Screens Change | `remember`, `mutableStateOf`, recomposition, state hoisting | ⏳ |
-| 9 | Getting Input From the User | `TextField`, `Checkbox`, `Switch`, `Slider`, `RadioButton`, keyboard options | ⏳ |
-| 10 | Lists and Grids | `LazyColumn`, `LazyRow`, `LazyVerticalGrid`, items, keys, list item design | ⏳ |
+| 5 | [Your First Compose Screen — Text, Images, Buttons, and Modifiers](chapter05_first_compose_screen.md) | Composable functions, `Text`, `Image`, `Button`, `Icon`, Preview, Modifiers, Profile Card screen | ✅ |
+| 6 | [Layouts — Putting Things in Place](chapter06_layouts.md) | `Column`, `Row`, `Box`, `Spacer`, alignment, arrangement, padding, size, weight, scrolling, Weather screen | ✅ |
+| 7 | [Making It Beautiful — Material 3](chapter07_material3.md) | Themes, colors, color roles, dynamic color, dark mode, fonts, shapes, `Surface`, `Card`, Plant Shop screen | ✅ |
+| 8 | [State — Making Screens Change](chapter08_state.md) | `remember`, `mutableStateOf`, recomposition, `rememberSaveable`, state hoisting, Coffee Order app | ✅ |
+| 9 | [Getting Input From the User](chapter09_user_input.md) | `TextField`, keyboards, passwords, validation, `Checkbox`, `RadioButton`, `Switch`, `Slider`, chips, dropdowns, Sign-Up form | ✅ |
+| 10 | [Lists and Grids](chapter10_lists_and_grids.md) | `LazyColumn`, `LazyRow`, `LazyVerticalGrid`, items, keys, sticky headers, scroll control, Contacts app | ✅ |
 | 11 | Screen Frames and Pop-ups | `Scaffold`, `TopAppBar`, bottom bar, floating button, `Snackbar`, dialogs, bottom sheets | ⏳ |
 | 12 | 🛠️ Mini Project: Tip Calculator App | Build a full small app using Parts 1–3 | ⏳ |
 
@@ -111,6 +111,12 @@ android_kotlin_tutorial/
  ├── chapter02_kotlin_basics.md
  ├── chapter03_kotlin_next_steps.md
  ├── chapter04_kotlin_power_tools.md
+ ├── chapter05_first_compose_screen.md
+ ├── chapter06_layouts.md
+ ├── chapter07_material3.md
+ ├── chapter08_state.md
+ ├── chapter09_user_input.md
+ ├── chapter10_lists_and_grids.md
  └── ... (more chapters coming)
 ```
 
