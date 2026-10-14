@@ -51,7 +51,7 @@ There are **28 chapters**, in **7 parts**.
 | 8 | [State — Making Screens Change](chapter08_state.md) | `remember`, `mutableStateOf`, recomposition, `rememberSaveable`, state hoisting, Coffee Order app | ✅ |
 | 9 | [Getting Input From the User](chapter09_user_input.md) | `TextField`, keyboards, passwords, validation, `Checkbox`, `RadioButton`, `Switch`, `Slider`, chips, dropdowns, Sign-Up form | ✅ |
 | 10 | [Lists and Grids](chapter10_lists_and_grids.md) | `LazyColumn`, `LazyRow`, `LazyVerticalGrid`, items, keys, sticky headers, scroll control, Contacts app | ✅ |
-| 11 | Screen Frames and Pop-ups | `Scaffold`, `TopAppBar`, bottom bar, floating button, `Snackbar`, dialogs, bottom sheets | ⏳ |
+| 11 | [Screen Frames and Pop-ups](chapter11_scaffold_and_popups.md) | `Scaffold`, `TopAppBar`, menus, FABs, `NavigationBar`, Snackbars with Undo, dialogs, bottom sheets, Notes app | ✅ |
 | 12 | 🛠️ Mini Project: Tip Calculator App | Build a full small app using Parts 1–3 | ⏳ |
 
 ### Part 4 — Many Screens and App Structure 🏗️
@@ -117,6 +117,7 @@ android_kotlin_tutorial/
  ├── chapter08_state.md
  ├── chapter09_user_input.md
  ├── chapter10_lists_and_grids.md
+ ├── chapter11_scaffold_and_popups.md
  └── ... (more chapters coming)
 ```
 
