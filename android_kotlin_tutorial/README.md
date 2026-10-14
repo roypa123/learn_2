@@ -25,7 +25,7 @@ This book teaches you how to make **Android apps** with **Kotlin** and **Jetpack
 
 There are **28 chapters**, in **7 parts**.
 
-**Status:** ✅ = ready to read  ⏳ = coming soon
+**Status:** ✅ = ready to read — all 28 chapters are ready! 🎉
 
 ### Part 1 — Getting Started 🚀
 
@@ -88,7 +88,7 @@ There are **28 chapters**, in **7 parts**.
 | # | Chapter | What you will learn | Status |
 |---|---|---|---|
 | 27 | [Testing and Debugging](chapter27_testing_debugging.md) | Logcat, stack traces, the debugger, unit tests, `runTest` and virtual time, ViewModel tests with fakes, Compose UI tests, Hilt tests, common crashes | ✅ |
-| 28 | Publishing Your App on Google Play | App icon, signing, release build, App Bundle, Play Console, store listing | ⏳ |
+| 28 | [Publishing Your App on Google Play](chapter28_publishing_google_play.md) | `applicationId`, adaptive app icon, versions, R8 release build, signing and Play App Signing, App Bundle, Play Console, policy forms and Data safety, store listing, testing tracks, updates | ✅ |
 
 ---
 
@@ -134,7 +134,7 @@ android_kotlin_tutorial/
  ├── chapter25_phone_features.md
  ├── chapter26_animations.md
  ├── chapter27_testing_debugging.md
- └── ... (more chapters coming)
+ └── chapter28_publishing_google_play.md
 ```
 
 **Happy learning! 🎉**
