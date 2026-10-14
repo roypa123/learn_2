@@ -552,4 +552,4 @@ Next is **Part 5: SwiftUI** — where you'll build beautiful iPhone screens, ste
 ---
 
 ⬅️ **Back:** [Chapter 39 — Running on a Real iPhone](39-running-on-iphone.md)
-➡️ **Next:** Chapter 41 — What Is SwiftUI? *(coming soon)*
+➡️ **Next:** [Chapter 41 — What Is SwiftUI?](../part-05-swiftui/41-what-is-swiftui.md)

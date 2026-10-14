@@ -114,21 +114,21 @@ Inside chapters you will also see:
 
 | # | Chapter | Status |
 |---|---|---|
-| 41 | What Is SwiftUI? | ⏳ Coming |
-| 42 | `Text`, `Image` and Modifiers | ⏳ Coming |
-| 43 | Stacks: `VStack`, `HStack`, `ZStack` | ⏳ Coming |
-| 44 | Spacing, Padding and Frames | ⏳ Coming |
-| 45 | Buttons | ⏳ Coming |
-| 46 | `@State`: Making Screens Change | ⏳ Coming |
-| 47 | Text Fields, Toggles, Sliders, Pickers | ⏳ Coming |
-| 48 | Lists and `ForEach` | ⏳ Coming |
-| 49 | Navigation: Moving Between Screens | ⏳ Coming |
-| 50 | Tabs | ⏳ Coming |
-| 51 | Sheets and Alerts | ⏳ Coming |
-| 52 | `@Binding`: Sharing State With Child Views | ⏳ Coming |
-| 53 | `@Observable`: Sharing Data Across the App | ⏳ Coming |
-| 54 | Colors, Fonts and Dark Mode | ⏳ Coming |
-| 55 | Animations | ⏳ Coming |
+| 41 | [What Is SwiftUI?](part-05-swiftui/41-what-is-swiftui.md) | ✅ Ready |
+| 42 | [`Text`, `Image` and Modifiers](part-05-swiftui/42-text-image-modifiers.md) | ✅ Ready |
+| 43 | [Stacks: `VStack`, `HStack`, `ZStack`](part-05-swiftui/43-stacks.md) | ✅ Ready |
+| 44 | [Spacing, Padding and Frames](part-05-swiftui/44-padding-frames.md) | ✅ Ready |
+| 45 | [Buttons](part-05-swiftui/45-buttons.md) | ✅ Ready |
+| 46 | [`@State`: Making Screens Change](part-05-swiftui/46-state.md) | ✅ Ready |
+| 47 | [Text Fields, Toggles, Sliders, Pickers](part-05-swiftui/47-input-controls.md) | ✅ Ready |
+| 48 | [Lists and `ForEach`](part-05-swiftui/48-lists-foreach.md) | ✅ Ready |
+| 49 | [Navigation: Moving Between Screens](part-05-swiftui/49-navigation.md) | ✅ Ready |
+| 50 | [Tabs](part-05-swiftui/50-tabs.md) | ✅ Ready |
+| 51 | [Sheets and Alerts](part-05-swiftui/51-sheets-alerts.md) | ✅ Ready |
+| 52 | [`@Binding`: Sharing State With Child Views](part-05-swiftui/52-binding.md) | ✅ Ready |
+| 53 | [`@Observable`: Sharing Data Across the App](part-05-swiftui/53-observable.md) | ✅ Ready |
+| 54 | [Colors, Fonts and Dark Mode](part-05-swiftui/54-colors-fonts-dark-mode.md) | ✅ Ready |
+| 55 | [Animations](part-05-swiftui/55-animations.md) | ✅ Ready |
 
 ### Part 6 — Real App Skills 🍎
 
