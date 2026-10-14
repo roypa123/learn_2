@@ -662,4 +662,4 @@ Next is **Part 4**: getting access to a Mac, installing **Xcode**, and learning 
 ---
 
 ⬅️ **Back:** [Chapter 28 — `async` and `await`](28-async-await.md)
-➡️ **Next:** Chapter 30 — Options When You Don't Own a Mac *(coming soon)*
+➡️ **Next:** [Chapter 30 — Options When You Don't Own a Mac](../part-04-xcode/30-options-without-a-mac.md)

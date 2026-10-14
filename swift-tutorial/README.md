@@ -98,17 +98,17 @@ Inside chapters you will also see:
 
 | # | Chapter | Status |
 |---|---|---|
-| 30 | Options When You Don't Own a Mac | ⏳ Coming |
-| 31 | Installing Xcode | ⏳ Coming |
-| 32 | A Tour of Xcode (Every Button Explained) | ⏳ Coming |
-| 33 | Your First Xcode Project | ⏳ Coming |
-| 34 | The Simulator: A Fake iPhone on Your Screen | ⏳ Coming |
-| 35 | Xcode Configurations: Debug vs Release | ⏳ Coming |
-| 36 | Targets, Schemes and Build Settings | ⏳ Coming |
-| 37 | Info.plist, App Icons and Launch Screen | ⏳ Coming |
-| 38 | Signing, Certificates and Bundle IDs | ⏳ Coming |
-| 39 | Running on a Real iPhone | ⏳ Coming |
-| 40 | Finding and Fixing Bugs (Debugger and Breakpoints) | ⏳ Coming |
+| 30 | [Options When You Don't Own a Mac](part-04-xcode/30-options-without-a-mac.md) | ✅ Ready |
+| 31 | [Installing Xcode](part-04-xcode/31-installing-xcode.md) | ✅ Ready |
+| 32 | [A Tour of Xcode (Every Button Explained)](part-04-xcode/32-xcode-tour.md) | ✅ Ready |
+| 33 | [Your First Xcode Project](part-04-xcode/33-first-xcode-project.md) | ✅ Ready |
+| 34 | [The Simulator: A Fake iPhone on Your Screen](part-04-xcode/34-simulator.md) | ✅ Ready |
+| 35 | [Xcode Configurations: Debug vs Release](part-04-xcode/35-debug-vs-release.md) | ✅ Ready |
+| 36 | [Targets, Schemes and Build Settings](part-04-xcode/36-targets-schemes-build-settings.md) | ✅ Ready |
+| 37 | [Info.plist, App Icons and Launch Screen](part-04-xcode/37-info-plist-icons-launch.md) | ✅ Ready |
+| 38 | [Signing, Certificates and Bundle IDs](part-04-xcode/38-signing-certificates.md) | ✅ Ready |
+| 39 | [Running on a Real iPhone](part-04-xcode/39-running-on-iphone.md) | ✅ Ready |
+| 40 | [Finding and Fixing Bugs (Debugger and Breakpoints)](part-04-xcode/40-debugging.md) | ✅ Ready |
 
 ### Part 5 — SwiftUI: Building Screens 🍎
 
