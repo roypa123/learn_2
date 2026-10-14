@@ -61,18 +61,18 @@ There are **28 chapters**, in **7 parts**.
 | 13 | [Moving Between Screens — Navigation](chapter13_navigation.md) | Navigation Compose, type-safe routes, passing data, back stack, bottom navigation, Recipe Book app | ✅ |
 | 14 | [The Life of an App — Activity Lifecycle](chapter14_lifecycle.md) | `onCreate` … `onDestroy`, rotation, configuration changes, process death, lifecycle in Compose, Lifecycle Explorer app | ✅ |
 | 15 | [ViewModel — The Screen's Brain](chapter15_viewmodel.md) | `ViewModel`, `StateFlow`, `UiState`, events, Route + Screen pattern, `SavedStateHandle`, Coffee Order rebuilt | ✅ |
-| 16 | Clean App Structure — MVVM | Layers (UI, ViewModel, Repository, Data), one-way data flow | ⏳ |
-| 17 | 🛠️ Mini Project: Quiz App | Build a quiz app with many screens and a ViewModel | ⏳ |
+| 16 | [Clean App Structure — MVVM](chapter16_mvvm_architecture.md) | Layers, Repository, single source of truth, interfaces, packages, AppContainer, ViewModel factories, Recipe Book with MVVM | ✅ |
+| 17 | [🛠️ Mini Project: Quiz App](chapter17_project_quiz_app.md) | A 3-screen quiz with Navigation, ViewModel, repository, scoring, and process-death safety | ✅ |
 
 ### Part 5 — Data, Internet, and Saving 🌐💾
 
 | # | Chapter | What you will learn | Status |
 |---|---|---|---|
-| 18 | Doing Things in the Background — Coroutines and Flow | `suspend`, `launch`, `viewModelScope`, `Flow`, `collectAsState` | ⏳ |
-| 19 | Getting Data From the Internet | Internet permission, Retrofit, JSON with kotlinx.serialization, loading and error states | ⏳ |
-| 20 | Showing Pictures From the Internet | Coil, `AsyncImage`, placeholders, caching | ⏳ |
-| 21 | Saving Small Settings — DataStore | Preferences DataStore, saving dark mode, user name, etc. | ⏳ |
-| 22 | Saving Lots of Data — Room Database | Entities, DAO, database, queries, Room + Flow | ⏳ |
+| 18 | [Doing Things in the Background — Coroutines and Flow](chapter18_coroutines_flow.md) | Frozen apps, threads, `suspend`, `launch`, `async`, cancelling, Dispatchers, `LaunchedEffect`, `Flow`, `combine`, `stateIn`, Stopwatch and fake download | ✅ |
+| 19 | [Getting Data From the Internet](chapter19_internet.md) | Requests and responses, URLs, HTTP, JSON, Internet permission, kotlinx.serialization, Retrofit, error handling, loading/success/error states, Joke Machine app | ✅ |
+| 20 | [Showing Pictures From the Internet](chapter20_images_coil.md) | Why images are hard, Coil 3, `AsyncImage`, crop/clip/circles, placeholders and errors, crossfade, `SubcomposeAsyncImage`, caching, Dog Gallery app | ✅ |
+| 21 | [Saving Small Settings — DataStore](chapter21_datastore.md) | What survives what, Preferences DataStore, keys, reading with Flow, `edit`, repository + AppContainer, Welcome-once, live dark mode, My Space app, Quiz best scores | ✅ |
+| 22 | [Saving Lots of Data — Room Database](chapter22_room.md) | Tables and SQL basics, KSP setup, Entity/DAO/Database, Room + Flow, Database Inspector, migrations, type converters, Shopping List app, Recipe Book swapped to Room | ✅ |
 | 23 | Connecting the Pieces — Dependency Injection with Hilt | What DI is, Hilt setup, `@Inject`, modules, `hiltViewModel()` | ⏳ |
 | 24 | 🛠️ Mini Project: Notes App | Full app with Room, ViewModel, Navigation, and Hilt | ⏳ |
 
@@ -122,6 +122,13 @@ android_kotlin_tutorial/
  ├── chapter13_navigation.md
  ├── chapter14_lifecycle.md
  ├── chapter15_viewmodel.md
+ ├── chapter16_mvvm_architecture.md
+ ├── chapter17_project_quiz_app.md
+ ├── chapter18_coroutines_flow.md
+ ├── chapter19_internet.md
+ ├── chapter20_images_coil.md
+ ├── chapter21_datastore.md
+ ├── chapter22_room.md
  └── ... (more chapters coming)
 ```
 
