@@ -73,8 +73,8 @@ There are **28 chapters**, in **7 parts**.
 | 20 | [Showing Pictures From the Internet](chapter20_images_coil.md) | Why images are hard, Coil 3, `AsyncImage`, crop/clip/circles, placeholders and errors, crossfade, `SubcomposeAsyncImage`, caching, Dog Gallery app | ✅ |
 | 21 | [Saving Small Settings — DataStore](chapter21_datastore.md) | What survives what, Preferences DataStore, keys, reading with Flow, `edit`, repository + AppContainer, Welcome-once, live dark mode, My Space app, Quiz best scores | ✅ |
 | 22 | [Saving Lots of Data — Room Database](chapter22_room.md) | Tables and SQL basics, KSP setup, Entity/DAO/Database, Room + Flow, Database Inspector, migrations, type converters, Shopping List app, Recipe Book swapped to Room | ✅ |
-| 23 | Connecting the Pieces — Dependency Injection with Hilt | What DI is, Hilt setup, `@Inject`, modules, `hiltViewModel()` | ⏳ |
-| 24 | 🛠️ Mini Project: Notes App | Full app with Room, ViewModel, Navigation, and Hilt | ⏳ |
+| 23 | [Connecting the Pieces — Dependency Injection with Hilt](chapter23_hilt.md) | What DI is, manual DI vs Hilt, setup, `@Inject`, modules (`@Provides`, `@Binds`), `@Singleton`, `@HiltViewModel` + `hiltViewModel()`, assisted injection, reading Hilt errors, Recipe Book and Joke Machine converted | ✅ |
+| 24 | [🛠️ Mini Project: Notes App](chapter24_project_notes_app.md) | A complete app with Room, DataStore, Hilt, and Navigation: search, sort, pin, colors, swipe-to-delete with Undo, auto-save, process-death safety | ✅ |
 
 ### Part 6 — Phone Features and Polish ✨
 
@@ -129,6 +129,8 @@ android_kotlin_tutorial/
  ├── chapter20_images_coil.md
  ├── chapter21_datastore.md
  ├── chapter22_room.md
+ ├── chapter23_hilt.md
+ ├── chapter24_project_notes_app.md
  └── ... (more chapters coming)
 ```
 
