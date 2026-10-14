@@ -80,8 +80,8 @@ There are **28 chapters**, in **7 parts**.
 
 | # | Chapter | What you will learn | Status |
 |---|---|---|---|
-| 25 | Using Phone Features | Permissions, camera, photo picker, location, notifications, WorkManager | ⏳ |
-| 26 | Animations | `AnimatedVisibility`, `animate*AsState`, `Crossfade`, transitions | ⏳ |
+| 25 | [Using Phone Features](chapter25_phone_features.md) | Permissions and the Activity Result API, location (Where Am I?), Photo Picker, camera with FileProvider, notifications, WorkManager, Notes app with photos and a daily reminder | ✅ |
+| 26 | [Animations](chapter26_animations.md) | `animate*AsState`, tween/spring/keyframes, `AnimatedVisibility`, `animateContentSize`, `Crossfade`, `AnimatedContent`, `updateTransition`, infinite animations, `Animatable`, gestures, screen transitions, polishing Quiz and Notes | ✅ |
 
 ### Part 7 — Testing and Sharing Your App 🏁
 
@@ -131,6 +131,8 @@ android_kotlin_tutorial/
  ├── chapter22_room.md
  ├── chapter23_hilt.md
  ├── chapter24_project_notes_app.md
+ ├── chapter25_phone_features.md
+ ├── chapter26_animations.md
  └── ... (more chapters coming)
 ```
 
