@@ -44,6 +44,11 @@ Copy this table into your notebook, or fill it here.
 | L-008 | | | | | | | |
 | L-009 | | | | | | | |
 | L-010 | | | | | | | |
+| L-011 | | | | | | | |
+| L-012 | | | | | | | |
+| L-013 | | | | | | | |
+| L-014 | | | | | | | |
+| L-015 | | | | | | | |
 
 ## Review materials in this course
 
@@ -51,6 +56,8 @@ Copy this table into your notebook, or fill it here.
 |---|---|---|
 | Flashcards for L-001–L-005 | [12-revision-and-spaced-repetition/flashcards/flashcards-001-foundations.md](12-revision-and-spaced-repetition/flashcards/flashcards-001-foundations.md) | L-001–L-005 |
 | Flashcards for L-006–L-010 | [12-revision-and-spaced-repetition/flashcards/flashcards-002-foundations.md](12-revision-and-spaced-repetition/flashcards/flashcards-002-foundations.md) | L-006–L-010 |
+| Flashcards for L-011–L-015 | [12-revision-and-spaced-repetition/flashcards/flashcards-003-foundations.md](12-revision-and-spaced-repetition/flashcards/flashcards-003-foundations.md) | L-011–L-015 |
+| Dialogue practice (role-play) | [06-spoken-english/daily-conversations/dialogue-001-meeting-someone-new.md](06-spoken-english/daily-conversations/dialogue-001-meeting-someone-new.md) | L-011–L-015 |
 | Mixed exercise (7-day review) | [11-exercises-and-tests/beginner/exercise-001-foundations-lessons-001-010.md](11-exercises-and-tests/beginner/exercise-001-foundations-lessons-001-010.md) | L-001–L-010 |
 
 This table grows as new review materials are written.

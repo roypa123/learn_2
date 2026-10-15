@@ -96,3 +96,35 @@ Part of speech: n = noun (naming word) · v = verb (action/state word) · adj = 
 | V-0086 | here | adv | in this place | L-010 |
 | V-0087 | she | pron | a girl/woman already mentioned | L-010 |
 | V-0088 | hungry | adj | wanting food | L-010 |
+| V-0089 | sing | v | make music with your voice 🎤 | L-011 |
+| V-0090 | next door | phr | in the house beside this one | L-011 |
+| V-0091 | hot | adj | very warm 🥵 | L-011 |
+| V-0092 | brother | n | a boy/man with the same parents as you | L-011 |
+| V-0093 | chess | n | a board game ♟️ | L-011 |
+| V-0094 | windy / sunny | adj | with a lot of wind / with a lot of sun | L-011 |
+| V-0095 | laugh | v | make happy sounds when something is funny 😂 | L-012 |
+| V-0096 | doctor | n | a person who helps sick people | L-012 |
+| V-0097 | walk | v | move on foot 🚶 | L-012 |
+| V-0098 | school | n | a place where children learn 🏫 | L-012 |
+| V-0099 | yesterday | n / adv | the day before today | L-012 |
+| V-0100 | tomorrow | n / adv | the day after today | L-012 |
+| V-0101 | swim | v | move in water 🏊 | L-012 |
+| V-0102 | help | v / n | make things easier for someone 🤝 | L-013 |
+| V-0103 | make | v | create, build or cook something | L-013 |
+| V-0104 | delicious | adj | tastes very good 😋 | L-013 |
+| V-0105 | cake | n | a sweet baked food 🎂 | L-013 |
+| V-0106 | birthday | n | the day you were born, each year | L-013 |
+| V-0107 | afternoon | n | the time after 12:00 and before evening | L-013 |
+| V-0108 | chase | v | run after to catch | L-014 |
+| V-0109 | meet | v | come together with someone | L-014 |
+| V-0110 | café / cafe | n | a small place to drink coffee and eat ☕ | L-014 |
+| V-0111 | only | adv | no one / nothing else | L-014 |
+| V-0112 | teacher | n | a person who teaches | L-015 |
+| V-0113 | of course | phr | yes, certainly | L-015 |
+| V-0114 | seat | n | a place to sit | D-001 |
+| V-0115 | free | adj | (1) not being used (2) costs no money | D-001 |
+| V-0116 | Nice to meet you. | phr | polite words when you meet a new person | D-001 |
+| V-0117 | job | n | the work you do for money | D-001 |
+| V-0118 | busy | adj | with a lot to do | D-001 |
+| V-0119 | What do you do? | phr | What is your job? | D-001 |
+| V-0120 | See you! | phr | goodbye (we'll meet again) | D-001 |

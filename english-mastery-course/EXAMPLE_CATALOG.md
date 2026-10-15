@@ -8,7 +8,7 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 
 | Area | Examples explained in full | Target | Status |
 |---|---|---|---|
-| Level 0 (L-001–L-020) | 32 | ~70 | 🟡 |
+| Level 0 (L-001–L-020) | 52 | ~75 | 🟡 |
 | All grammar topics | 0 | 100 per topic | ⬜ |
 | Combinations | 0 | 100 per combination | ⬜ |
 | Integrated examples | 0 | 10,000+ | ⬜ |
@@ -51,3 +51,29 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | EX-010-002 | My name is Leo. I am ten years old. I live in Rome. | several sentences; age with "be" | L-010 |
 | EX-010-003 | Are you ready? The taxi is here! | ? and ! end marks | L-010 |
 | EX-010-004 | This is my friend Sara. She is from Egypt. She speaks Arabic and English. | fixing a run-on text | L-010 |
+| EX-011-001 | Maria sings. | one-word subject; question test | L-011 |
+| EX-011-002 | The old man with the black dog lives next door. | long subject; main word; agreement | L-011 |
+| EX-011-003 | It is very hot today. | empty "it" subject | L-011 |
+| EX-011-004 | My brother and I play chess every Sunday. | compound subject; I not me | L-011 |
+| EX-012-001 | The children laugh. | action verb; plural subject | L-012 |
+| EX-012-002 | My father is a doctor. | be as main verb; a + job | L-012 |
+| EX-012-003 | I walked to school yesterday. | verb shows past time | L-012 |
+| EX-012-004 | I am cooking dinner. | helping verb + main verb; not "I am cook" | L-012 |
+| EX-013-001 | Sara reads books. | S-V-O | L-013 |
+| EX-013-002 | Tom helps me. | object pronoun | L-013 |
+| EX-013-003 | My mother makes delicious cakes for my birthday. | long object; extra info is not object | L-013 |
+| EX-013-004 | The baby sleeps in the afternoon. | no object (intransitive) | L-013 |
+| EX-014-001 | Lions chase zebras. / Zebras chase lions. | swapping S and O changes meaning | L-014 |
+| EX-014-002 | I meet my friends at the café on Saturdays. | S-V-O-Place-Time | L-014 |
+| EX-014-003 | On Saturdays, I meet my friends at the café. | time moved to the front | L-014 |
+| EX-014-004 | Only Ana speaks French. / Ana speaks only French. | position of "only" | L-014 |
+| EX-015-001 | Is she a teacher? — Yes, she is. | question with be; short answer | L-015 |
+| EX-015-002 | Can you help me, please? — Yes, of course. | question with helper; polite request | L-015 |
+| EX-015-003 | Does your brother like football? — No, he doesn't. | question with does; verb loses -s | L-015 |
+| EX-015-004 | Where do you live? — I live in Lagos. | wh-question with do | L-015 |
+
+## Dialogues
+
+| ID | Title | Lines analysed | File |
+|---|---|---|---|
+| D-001 | Meeting someone new | 5 | [dialogue-001](06-spoken-english/daily-conversations/dialogue-001-meeting-someone-new.md) |

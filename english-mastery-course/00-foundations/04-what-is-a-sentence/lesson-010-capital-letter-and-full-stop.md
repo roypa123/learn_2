@@ -309,6 +309,6 @@ Read EX-010-002 and EX-010-003 aloud, using these pauses.
 
 ## 13. Next lesson and review
 
-- **Next:** [Lesson 011 — The Subject](lesson-011-the-subject.md) *(next batch)*
+- **Next:** [Lesson 011 — The Subject](lesson-011-the-subject.md)
 - **Level 0 practice:** [exercise-001](../../11-exercises-and-tests/beginner/exercise-001-foundations-lessons-001-010.md) — mixed practice on Lessons 001–010.
 - **Review:** tomorrow, +3 days, +7 days. Also review [Lesson 004](../02-letters-and-sounds/lesson-004-capital-and-small-letters.md) and [Lesson 009](lesson-009-what-is-a-sentence.md).
