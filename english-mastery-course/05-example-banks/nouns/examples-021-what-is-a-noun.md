@@ -9,13 +9,13 @@
 | [Part 01](examples-021-what-is-a-noun-part-01.md) | EX-021-013 – 050 | everyday life (short → pronouns → questions) | ✅ written (21-step) |
 | [Part 02](examples-021-what-is-a-noun-part-02.md) | EX-021-051 – 100 | everyday life (times, adjectives, places, long sentences) | ✅ written (21-step) |
 | [Part 03](examples-021-what-is-a-noun-part-03.md) | EX-021-101 – 150 | home & family | ✅ written (21-step) |
-| Part 04 | EX-021-151 – 200 | home & family | ⬜ to do |
-| Part 05 | EX-021-201 – 250 | school & study | ⬜ to do |
-| Part 06 | EX-021-251 – 300 | school & study | ⬜ to do |
-| Part 07 | EX-021-301 – 350 | work & jobs | ⬜ to do |
-| Part 08 | EX-021-351 – 400 | work & jobs | ⬜ to do |
-| Part 09 | EX-021-401 – 450 | shopping & money | ⬜ to do |
-| Part 10 | EX-021-451 – 500 | shopping & money | ⬜ to do |
+| [Part 04](examples-021-what-is-a-noun-part-04.md) | EX-021-151 – 200 | home & family | ✅ written (21-step) |
+| [Part 05](examples-021-what-is-a-noun-part-05.md) | EX-021-201 – 250 | school & study | ✅ written (21-step) |
+| [Part 06](examples-021-what-is-a-noun-part-06.md) | EX-021-251 – 300 | school & study | ✅ written (21-step) |
+| [Part 07](examples-021-what-is-a-noun-part-07.md) | EX-021-301 – 350 | work & jobs | ✅ written (21-step) |
+| [Part 08](examples-021-what-is-a-noun-part-08.md) | EX-021-351 – 400 | work & jobs | ✅ written (21-step) |
+| [Part 09](examples-021-what-is-a-noun-part-09.md) | EX-021-401 – 450 | shopping & money | ✅ written (21-step) |
+| [Part 10](examples-021-what-is-a-noun-part-10.md) | EX-021-451 – 500 | shopping & money | ✅ written (21-step) |
 | Part 11 | EX-021-501 – 550 | food & restaurants | ⬜ to do |
 | Part 12 | EX-021-551 – 600 | food & restaurants | ⬜ to do |
 | Part 13 | EX-021-601 – 650 | travel & transport | ⬜ to do |
@@ -47,4 +47,4 @@
 | Part 39 | EX-021-1901 – 1950 | stories | ⬜ to do |
 | Part 40 | EX-021-1951 – 2000 | mixed review & tricky cases | ⬜ to do |
 
-**Progress:** **150 of 2,000** fully explained (12 in the lesson + 138 in parts 01–03).
+**Progress:** **500 of 2,000** fully explained (12 in the lesson + 488 in parts 01–10).
