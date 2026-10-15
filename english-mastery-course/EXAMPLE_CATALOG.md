@@ -8,7 +8,7 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 
 | Area | Examples explained in full | Target | Status |
 |---|---|---|---|
-| Level 0 (L-001–L-020) | 52 | ~75 | 🟡 |
+| Level 0 (L-001–L-020) | 70 | ~70 | ✅ |
 | All grammar topics | 0 | 100 per topic | ⬜ |
 | Combinations | 0 | 100 per combination | ⬜ |
 | Integrated examples | 0 | 10,000+ | ⬜ |
@@ -71,9 +71,33 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | EX-015-002 | Can you help me, please? — Yes, of course. | question with helper; polite request | L-015 |
 | EX-015-003 | Does your brother like football? — No, he doesn't. | question with does; verb loses -s | L-015 |
 | EX-015-004 | Where do you live? — I live in Lagos. | wh-question with do | L-015 |
+| EX-016-001 | I am twenty-three years old. | hyphenated numbers; age with be | L-016 |
+| EX-016-002 | How many students are in your class? — Fifteen. | how many + plural; -teen vs -ty | L-016 |
+| EX-016-003 | My phone number is 0 7 9 4 4 1 2 6 5 0 3. | saying phone numbers | L-016 |
+| EX-016-004 | This book costs twelve dollars fifty. | saying prices | L-016 |
+| EX-017-001 | Good morning, Mrs Brown. How are you? — I'm very well, thank you. And you? | formal greeting; titles | L-017 |
+| EX-017-002 | What does 'busy' mean? | does + mean; not "what means" | L-017 |
+| EX-017-003 | How do you say 'gato' in English? — Cat. | asking for a word | L-017 |
+| EX-017-004 | Sorry, I don't understand. Can you speak more slowly, please? | don't + verb; polite request | L-017 |
+| EX-018-001 | I'm a nurse. I'm not a doctor. | am / am not | L-018 |
+| EX-018-002 | My parents are from Ghana, but they live in London. | are + plural; be vs normal verb | L-018 |
+| EX-018-003 | Is Tom at work? — No, he isn't. He's at home. He's sick. | is: question, negative, positive | L-018 |
+| EX-018-004 | We aren't tired. We're excited! | aren't / we're | L-018 |
+| EX-018-005 | The flowers in your garden are beautiful. | is/are by main word | L-018 |
+| EX-019-001 | This is my phone. That is your phone. | this vs that | L-019 |
+| EX-019-002 | What's that? — It's a bird. | answer with it | L-019 |
+| EX-019-003 | Mum, this is my friend Leo. Leo, this is my mum. | introductions | L-019 |
+| EX-019-004 | These are my keys, and those are your keys. | these / those + are | L-019 |
+| EX-019-005 | I have a new job! — That's great! | that's for reactions | L-019 |
 
 ## Dialogues
 
 | ID | Title | Lines analysed | File |
 |---|---|---|---|
 | D-001 | Meeting someone new | 5 | [dialogue-001](06-spoken-english/daily-conversations/dialogue-001-meeting-someone-new.md) |
+
+## Stories
+
+| ID | Title | Sentences analysed | File |
+|---|---|---|---|
+| S-001 | A New Student | 8 | [story-001](07-reading-and-stories/beginner-stories/story-001-a-new-student.md) |

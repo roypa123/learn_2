@@ -128,3 +128,43 @@ Part of speech: n = noun (naming word) · v = verb (action/state word) · adj = 
 | V-0118 | busy | adj | with a lot to do | D-001 |
 | V-0119 | What do you do? | phr | What is your job? | D-001 |
 | V-0120 | See you! | phr | goodbye (we'll meet again) | D-001 |
+| V-0121 | numbers 0–100 | n | zero … one hundred | L-016 |
+| V-0122 | How old…? | phr | asks about age | L-016 |
+| V-0123 | How many…? | phr | asks about a number of things | L-016 |
+| V-0124 | student | n | a person who studies | L-016 |
+| V-0125 | phone number | n | the digits to call a phone | L-016 |
+| V-0126 | cost | v | have a price | L-016 |
+| V-0127 | dollar / pound / euro | n | money: $ / £ / € | L-016 |
+| V-0128 | double (four) | phr | the same digit two times (UK) | L-016 |
+| V-0129 | good afternoon / good evening | phr | formal greetings | L-017 |
+| V-0130 | good night | phr | goodbye at night / before bed | L-017 |
+| V-0131 | How are you? | phr | friendly question after hello | L-017 |
+| V-0132 | fine / well | adj | good, healthy | L-017 |
+| V-0133 | You're welcome. | phr | answer to "thank you" | L-017 |
+| V-0134 | excuse me / sorry / pardon? | phr | before disturbing / after a mistake / didn't hear | L-017 |
+| V-0135 | Mr / Mrs / Ms / Miss | n | titles before a family name | L-017 |
+| V-0136 | understand | v | know the meaning | L-017 |
+| V-0137 | repeat | v | say again | L-017 |
+| V-0138 | slowly | adv | not fast | L-017 |
+| V-0139 | mean | v | have a meaning | L-017 |
+| V-0140 | nurse | n | a person who cares for sick people | L-018 |
+| V-0141 | parents | n | mother and father | L-018 |
+| V-0142 | at work / at home / at school | phr | places (no *the*) | L-018 |
+| V-0143 | sick | adj | ill, not healthy | L-018 |
+| V-0144 | excited | adj | very happy about something coming 🤩 | L-018 |
+| V-0145 | flower | n | the coloured part of a plant 🌸 | L-018 |
+| V-0146 | garden | n | land with plants next to a house | L-018 |
+| V-0147 | this / that / these / those | det / pron | pointing words (near / far) | L-019 |
+| V-0148 | phone | n | 📱 | L-019 |
+| V-0149 | key | n | 🔑 | L-019 |
+| V-0150 | mum (US: mom) | n | informal: mother | L-019 |
+| V-0151 | great | adj | very good | L-019 |
+| V-0152 | terrible | adj | very bad | L-019 |
+| V-0153 | nervous | adj | a little afraid of something new | S-001 |
+| V-0154 | tall | adj | high (person) | S-001 |
+| V-0155 | smile (at) | v | make a happy face 😊 | S-001 |
+| V-0156 | welcome | interj | friendly word for someone arriving | S-001 |
+| V-0157 | perfect | adj | with no mistakes | S-001 |
+| V-0158 | together | adv | with each other | S-001 |
+| V-0159 | library | n | a place with many books 📚 | S-001 |
+| V-0160 | either (end of negative) | adv | also (negative) | S-001 |
