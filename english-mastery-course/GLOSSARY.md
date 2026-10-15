@@ -6,21 +6,29 @@ Every grammar word used in this course is explained here in easy English. Words 
 
 | Word | Simple meaning | Example | First taught |
 |---|---|---|---|
+| **abstract noun** | a noun for an idea or feeling; you cannot touch it | love, time, fear | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) |
 | **accent** | the way a person's speech sounds, often because of where they are from | British accent, Indian accent | [L-002](00-foundations/01-what-is-language/lesson-002-what-is-english-used-for.md) |
 | **action verb** | a verb for something you do | run, eat, write | [L-012](00-foundations/04-what-is-a-sentence/lesson-012-the-verb.md) |
 | **adjective** (describing word) | a word that tells what a person or thing is like | big, happy, red | [L-008](00-foundations/03-words-and-meaning/lesson-008-things-actions-describing-words.md) |
 | **adverbial** | a word or group that tells where, when or how | *at home, every day* | [L-014](00-foundations/05-basic-word-order/lesson-014-why-word-order-matters.md) |
 | **alphabet** | all the letters of a language, in a fixed order | A, B, C … Z | [L-003](00-foundations/02-letters-and-sounds/lesson-003-the-english-alphabet.md) |
 | **apostrophe** | the small mark **'** ; it can show a missing letter | *What's* = What **i**s | L-003 |
+| **article** | the words a, an, the | *the Nile* | [L-022](01-beginner-grammar/nouns/lesson-022-common-and-proper-nouns.md) (first look) |
 | **be** | the base (dictionary) form of am / is / are |  | [L-018](00-foundations/06-first-words/lesson-018-first-sentences-with-am-is-are.md) |
+| **brand** | the name of a company's product | Toyota, Nike | [L-022](01-beginner-grammar/nouns/lesson-022-common-and-proper-nouns.md) |
 | **capital letter** (uppercase) | the big form of a letter | **A**, **B**, **C** | [L-004](00-foundations/02-letters-and-sounds/lesson-004-capital-and-small-letters.md) |
+| **collective noun** | one noun for a group of people or animals | team, family | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) (bank, first look) |
 | **comma** | the mark **,** ; a small pause inside a sentence | *Today is Monday, and…* | L-004 (first look) |
+| **common noun** | a general name for any person, place or thing of one type; small letter | city, girl, river | [L-022](01-beginner-grammar/nouns/lesson-022-common-and-proper-nouns.md) |
 | **complement** | the part after *be* that completes the meaning (not an object) | *My father is **a doctor**.* | [L-013](00-foundations/05-basic-word-order/lesson-013-the-object.md) (first look) |
 | **complete** | full; nothing important is missing | a complete sentence | [L-009](00-foundations/04-what-is-a-sentence/lesson-009-what-is-a-sentence.md) |
+| **compound noun** | one noun made of two words | post office, bus stop | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) (bank, first look) |
+| **concrete noun** | a noun you can see, touch, hear, smell or taste | apple, music, rain | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) |
 | **consonant** | a letter or sound where lips, tongue or teeth block the air a little | b, t, s | [L-005](00-foundations/02-letters-and-sounds/lesson-005-vowels-and-consonants.md) |
 | **context** | the words (or situation) around a word that help show its meaning | | [L-007](00-foundations/03-words-and-meaning/lesson-007-what-is-a-word.md) |
 | **contraction** | two words joined into one short form with an apostrophe | I am → I'm | L-007 |
 | **demonstrative** | a pointing word: this, that, these, those | *This is my bag.* | [L-019](00-foundations/06-first-words/lesson-019-this-is-and-that-is.md) |
+| **determiner** | a small word before a noun | a, the, my, this, some | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) |
 | **dictionary** | a book or app that gives the meanings (and sounds) of words | | L-007 |
 | **digit** | one number sign from 0 to 9 | *45* has two digits | [L-016](00-foundations/06-first-words/lesson-016-numbers-0-100.md) |
 | **doer** | the one who does the action |  | [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md) |
@@ -34,6 +42,7 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **full stop** (US: **period**) | the mark **.** at the end of a statement or instruction | *I am Sam**.*** | L-010 |
 | **grammar** | the rules for putting words together | | [L-001](00-foundations/01-what-is-language/lesson-001-what-is-a-language.md) |
 | **greeting** | a word we say when we meet someone | Hello, Hi | L-001 |
+| **head noun** | the main noun in a noun phrase; the verb agrees with it | *the old **man** with the dog* | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) |
 | **helping verb (auxiliary verb)** | a verb that helps the main verb: am, is, are, do, does, can, will… | *She **can** swim.* | [L-012](00-foundations/04-what-is-a-sentence/lesson-012-the-verb.md) |
 | **helping word** | see *helping verb* | *I **am** learning.* | L-002 (first look) |
 | **homophone** | words that sound the same but have different spelling and meaning | know / no, write / right | [L-006](00-foundations/02-letters-and-sounds/lesson-006-letters-and-sounds.md) |
@@ -52,7 +61,7 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **minimal pair** | two words that differ by only one sound | ship / sheep | [sounds-001](08-pronunciation-and-listening/sounds/sounds-001-english-vowel-and-consonant-sounds.md) |
 | **negative** | a sentence that says something is not true | *She isn't here.* | [L-018](00-foundations/06-first-words/lesson-018-first-sentences-with-am-is-are.md) |
 | **neutral** | language that is fine in most situations | *Hello.* | [L-017](00-foundations/06-first-words/lesson-017-greetings-and-classroom-english.md) |
-| **noun phrase** | a group of words built around one noun | *the big red bus* | [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md) |
+| **noun phrase** | a noun + the words that go with it (determiner, adjectives…) | *the big red bus* | [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md) |
 | **noun** (thing word) | a word that names a person, animal, place, thing or idea | mother, cat, school, love | L-008 |
 | **object** | the person or thing that receives the action | *Tom eats **an apple**.* | [L-013](00-foundations/05-basic-word-order/lesson-013-the-object.md) |
 | **object pronoun** | a pronoun used as an object | me, him, her, us, them | [L-013](00-foundations/05-basic-word-order/lesson-013-the-object.md) |
@@ -63,6 +72,7 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **positive (affirmative)** | a sentence that says something is true | *She is here.* | [L-018](00-foundations/06-first-words/lesson-018-first-sentences-with-am-is-are.md) |
 | **pronoun** | a short word used instead of a noun | I, you, he, she, it, we, they | [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md) |
 | **pronounce / pronunciation** | to say a word / the way a word is said | | L-006 |
+| **proper noun** | the special name of one particular person, place, day, etc.; capital letter | Paris, Ana, Monday | [L-022](01-beginner-grammar/nouns/lesson-022-common-and-proper-nouns.md) |
 | **punctuation** | the small signs used in writing | . , ? ! ' | L-010 |
 | **question** | a sentence that asks for information | *Where is the station?* | L-009 |
 | **question mark** | the mark **?** at the end of a question | *What's your name**?*** | L-003 |

@@ -168,3 +168,39 @@ Part of speech: n = noun (naming word) · v = verb (action/state word) · adj = 
 | V-0158 | together | adv | with each other | S-001 |
 | V-0159 | library | n | a place with many books 📚 | S-001 |
 | V-0160 | either (end of negative) | adv | also (negative) | S-001 |
+| V-0161 | baby (plural: babies) | n | a very young child 👶 | L-021 |
+| V-0162 | cry | v | make sounds with tears 😭 | L-021 |
+| V-0163 | pilot | n | a person who flies planes | L-021 |
+| V-0164 | table | n | a piece of furniture with a flat top | L-021 |
+| V-0165 | kitchen | n | the room where you cook | L-021 |
+| V-0166 | love | n / v | a deep caring feeling ❤️ | L-021 |
+| V-0167 | important | adj | it matters a lot | L-021 |
+| V-0168 | bank | n | a place that keeps money 🏦 | L-021 |
+| V-0169 | coffee | n | a hot brown drink ☕ | L-021 |
+| V-0170 | hospital | n | a place where sick people get care 🏥 | L-021 |
+| V-0171 | nearest | adj | most near; closest | L-021 |
+| V-0172 | money | n | coins and notes 💰 | L-021 |
+| V-0173 | time | n | minutes, hours, days ⏰ | L-021 |
+| V-0174 | work | n / v | a job; to do a job | L-021 |
+| V-0175 | farmer / baker / neighbour | n | person jobs/roles (bank) | L-021 bank |
+| V-0176 | honey / bread / milk / rice | n | foods (uncountable) | L-021 bank |
+| V-0177 | team / coach | n | sports group / trainer | L-021 bank |
+| V-0178 | friendship | n | the relationship between friends | L-021 bank |
+| V-0179 | expensive | adj | costs a lot of money | L-021 bank |
+| V-0180 | favourite (US: favorite) | adj | the one you like most | L-021 bank |
+| V-0181 | present (n) | n | a gift 🎁 | L-021 bank |
+| V-0182 | customer | n | a person who buys in a shop | L-021 bank |
+| V-0183 | email | n / v | an electronic message; to send one | L-021 bank |
+| V-0184 | dream | n / v | pictures in your mind when you sleep | L-021 bank |
+| V-0185 | city / country / continent | n | place words | L-022 |
+| V-0186 | river / sea / ocean / lake / mountain | n | nature place words | L-022 |
+| V-0187 | longest | adj | most long | L-022 |
+| V-0188 | holiday (US: vacation) | n | time with no school/work | L-022 |
+| V-0189 | company | n | a business | L-022 |
+| V-0190 | work for | phr v | be employed by | L-022 |
+| V-0191 | street / road | n | where cars go in a town | L-022 |
+| V-0192 | tower | n | a tall narrow building | L-022 |
+| V-0193 | capital (city) | n | the main city of a country | L-022 bank |
+| V-0194 | cousin | n | the child of your aunt or uncle | L-022 bank |
+| V-0195 | china | n | plates and cups of fine white clay | L-022 bank |
+| V-0196 | turkey | n | a large bird / its meat 🦃 | L-022 bank |

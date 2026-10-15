@@ -9,7 +9,7 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | Area | Examples explained in full | Target | Status |
 |---|---|---|---|
 | Level 0 (L-001–L-020) | 70 | ~70 | ✅ |
-| All grammar topics | 0 | 100 per topic | ⬜ |
+| Level 1 grammar topics | 200 (L-021, L-022) | 100 per topic | 🟡 2 topics at target |
 | Combinations | 0 | 100 per combination | ⬜ |
 | Integrated examples | 0 | 10,000+ | ⬜ |
 
@@ -89,6 +89,39 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | EX-019-003 | Mum, this is my friend Leo. Leo, this is my mum. | introductions | L-019 |
 | EX-019-004 | These are my keys, and those are your keys. | these / those + are | L-019 |
 | EX-019-005 | I have a new job! — That's great! | that's for reactions | L-019 |
+
+## Level 1
+
+Full-template examples are listed one by one. Bank examples are listed by range (see each bank file for the sentences).
+
+| ID | Sentence | Main point | Lesson |
+|---|---|---|---|
+| EX-021-001 | Babies cry. | noun as subject | L-021 |
+| EX-021-002 | Cats eat fish. | nouns as subject and object | L-021 |
+| EX-021-003 | My father is a pilot. | noun after be; a + job | L-021 |
+| EX-021-004 | The keys are on the table. | noun after preposition | L-021 |
+| EX-021-005 | Maria cooks dinner for her family in the kitchen. | nouns in 4 positions | L-021 |
+| EX-021-006 | Love is important. | abstract noun | L-021 |
+| EX-021-007 | The old man with the black dog lives next door. | noun phrase; head noun | L-021 |
+| EX-021-008 | Thanks for your help. / Can you help me? | noun vs verb | L-021 |
+| EX-021-009 | Is the bank open? — No, it isn't. | noun in a question | L-021 |
+| EX-021-010 | My sister doesn't like coffee. | nouns in a negative | L-021 |
+| EX-021-011 | Where is the nearest hospital? | noun phrase in wh-question | L-021 |
+| EX-021-012 | Time is money. | general abstract nouns | L-021 |
+| EX-021-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-021](05-example-banks/nouns/examples-021-what-is-a-noun.md) |
+| EX-022-001 | Rome is a beautiful city. | proper vs common for one place | L-022 |
+| EX-022-002 | My teacher is Mrs Clark. | common + proper (title) | L-022 |
+| EX-022-003 | Kofi is from Ghana. He speaks English and Twi. | person, country, languages | L-022 |
+| EX-022-004 | The Nile is the longest river in Africa. | the + river; no the + continent | L-022 |
+| EX-022-005 | My birthday is in May. | months; May vs may | L-022 |
+| EX-022-006 | We have a holiday in summer, but not in winter. | seasons are common | L-022 |
+| EX-022-007 | I go to a big school. Its name is Riverside School. | common noun becomes a name | L-022 |
+| EX-022-008 | Can I watch TV, Mum? / My mum is a nurse. | Mum vs my mum | L-022 |
+| EX-022-009 | Is the Eiffel Tower in Paris? — Yes, it is. | the + famous building | L-022 |
+| EX-022-010 | My brother doesn't work for Google. He works for a small company. | company names | L-022 |
+| EX-022-011 | The Smiths live on Oak Street, next to the park. | plural family name; street | L-022 |
+| EX-022-012 | Have you read Harry Potter? It's my favourite book. | titles | L-022 |
+| EX-022-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-022](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) |
 
 ## Dialogues
 
