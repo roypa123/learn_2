@@ -1,8 +1,8 @@
 # Progress Tracker
 
-**Last updated:** 2026-10-15 · **Batch:** 8
+**Last updated:** 2026-10-15 · **Batch:** 9 (expansion phase)
 
-> Honest status: **Level 0 is complete.** **Level 1**: the **noun unit (L-021 – L-026) is complete** — 100 explained examples per lesson, 3 exercise files, and flashcard set 005. **Pronoun unit started**: L-027 and L-028 written (100 examples each + exercise-006); flashcards come with the *be* lessons in Batch 9. Levels 2–9 have not started. The course is roughly 5% of its planned lesson count.
+> Honest status: **Level 0 is complete.** In Level 1, L-021 – L-028 are written with 100 examples each — **but on 2026-10-15 the target changed to 2,000 fully explained (21-step) examples per topic.** So L-021 – L-028 are now **🟡 in expansion**. Current: L-021 has **150 / 2,000** fully explained examples; L-022 – L-028 have 12 / 2,000 fully explained (+ 88 shorter drafts each). No new lessons will be written until L-021 – L-028 reach 2,000.
 
 ---
 
@@ -42,15 +42,35 @@
 | L-018 | First sentences with am / is / are | 5 | ✅ | R-004 | ✅ |
 | L-019 | This is / that is | 5 | ✅ | R-004 | ✅ |
 | L-020 | Foundations review and test | — | test-001 ✅ | all | ✅ |
-| L-021 | What is a noun? | 12 + 88 in [bank](05-example-banks/nouns/examples-021-what-is-a-noun.md) = **100** | E-003 Part A ✅ | R-005 | ✅ |
-| L-022 | Common and proper nouns | 12 + 88 in [bank](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) = **100** | E-003 Part B ✅ | R-005 | ✅ |
-| L-023 | Singular and plural nouns | 12 + 88 in [bank](05-example-banks/nouns/examples-023-singular-and-plural-nouns.md) = **100** | E-004 Part A ✅ | R-005 | ✅ |
-| L-024 | Plural spelling rules | 12 + 88 in [bank](05-example-banks/nouns/examples-024-plural-spelling-rules.md) = **100** | E-004 Part B ✅ | R-005 | ✅ |
-| L-025 | Irregular plurals | 12 + 88 in [bank](05-example-banks/nouns/examples-025-irregular-plurals.md) = **100** | E-005 Part A ✅ | R-005 | ✅ |
-| L-026 | Countable and uncountable (intro) | 12 + 88 in [bank](05-example-banks/nouns/examples-026-countable-and-uncountable-nouns.md) = **100** | E-005 Part B ✅ | R-005 | ✅ |
-| L-027 | Subject pronouns | 12 + 88 in [bank](05-example-banks/pronouns/examples-027-subject-pronouns.md) = **100** | E-006 Part A ✅ | (set 006) | 🟡 flashcards pending |
-| L-028 | Object pronouns | 12 + 88 in [bank](05-example-banks/pronouns/examples-028-object-pronouns.md) = **100** | E-006 Part B ✅ | (set 006) | 🟡 flashcards pending |
+| L-021 | What is a noun? | 12 + 88 in [bank](05-example-banks/nouns/examples-021-what-is-a-noun.md) = **100** | E-003 Part A ✅ | R-005 | 🟡 expanding to 2,000 |
+| L-022 | Common and proper nouns | 12 + 88 in [bank](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) = **100** | E-003 Part B ✅ | R-005 | 🟡 expanding to 2,000 |
+| L-023 | Singular and plural nouns | 12 + 88 in [bank](05-example-banks/nouns/examples-023-singular-and-plural-nouns.md) = **100** | E-004 Part A ✅ | R-005 | 🟡 expanding to 2,000 |
+| L-024 | Plural spelling rules | 12 + 88 in [bank](05-example-banks/nouns/examples-024-plural-spelling-rules.md) = **100** | E-004 Part B ✅ | R-005 | 🟡 expanding to 2,000 |
+| L-025 | Irregular plurals | 12 + 88 in [bank](05-example-banks/nouns/examples-025-irregular-plurals.md) = **100** | E-005 Part A ✅ | R-005 | 🟡 expanding to 2,000 |
+| L-026 | Countable and uncountable (intro) | 12 + 88 in [bank](05-example-banks/nouns/examples-026-countable-and-uncountable-nouns.md) = **100** | E-005 Part B ✅ | R-005 | 🟡 expanding to 2,000 |
+| L-027 | Subject pronouns | 12 + 88 in [bank](05-example-banks/pronouns/examples-027-subject-pronouns.md) = **100** | E-006 Part A ✅ | (set 006) | 🟡 expanding to 2,000 |
+| L-028 | Object pronouns | 12 + 88 in [bank](05-example-banks/pronouns/examples-028-object-pronouns.md) = **100** | E-006 Part B ✅ | (set 006) | 🟡 expanding to 2,000 |
 | L-029+ | rest of Level 1 onward | | | | ⬜ |
+
+## 2b. Expansion tracker — 2,000 fully explained examples per topic
+
+Each topic = lesson (12) + **40 bank parts of 50** (part 01 = 013–050). Every example uses the **21-step ordered template** ([MASTER_PLAN §7](MASTER_PLAN.md)).
+
+| Topic | Index | Full 21-step examples | Short drafts still to rewrite | Parts done |
+|---|---|---|---|---|
+| L-021 What is a noun? | [index](05-example-banks/nouns/examples-021-what-is-a-noun.md) | **150** / 2,000 | — | 3 / 40 |
+| L-022 Common & proper nouns | [bank](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
+| L-023 Singular & plural | [bank](05-example-banks/nouns/examples-023-singular-and-plural-nouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
+| L-024 Plural spelling | [bank](05-example-banks/nouns/examples-024-plural-spelling-rules.md) | 12 / 2,000 | 013–100 | 0 / 40 |
+| L-025 Irregular plurals | [bank](05-example-banks/nouns/examples-025-irregular-plurals.md) | 12 / 2,000 | 013–100 | 0 / 40 |
+| L-026 Countable / uncountable | [bank](05-example-banks/nouns/examples-026-countable-and-uncountable-nouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
+| L-027 Subject pronouns | [bank](05-example-banks/pronouns/examples-027-subject-pronouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
+| L-028 Object pronouns | [bank](05-example-banks/pronouns/examples-028-object-pronouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
+| **Total** | | **234 / 16,000** | | **3 / 320** |
+
+**Honest pace estimate:** one part (50 full examples) is about one large response. 319 parts remain for these 8 topics, so the expansion will take **many sessions** (roughly 100–300 "continue" steps, depending on how many parts fit per step). After that, every new topic (≈ 400 topics in the curriculum) needs the same 40 parts.
+
+**Order of work:** L-021 parts 02 → 40, then L-022, L-023 … L-028.
 
 ## 3. Other files
 
@@ -76,7 +96,7 @@ Note: the planned separate `exercise-002` (L-011–020) was merged into **test-0
 | Item | Done | Planned |
 |---|---|---|
 | Lessons | 28 | ~420 |
-| Explained examples | 870 (70 Level 0 + 800 Level 1) | 50,000+ |
+| Explained examples | 70 Level 0 + 800 Level 1 (of which **234 in full 21-step form**) | **2,000 per topic** (≈ 800,000+ total) |
 | Integrated examples (IX) | 0 | 10,000+ |
 | Combinations (C) | 0 | ~250 |
 | Stories (S) | 1 | ~120 |
@@ -86,19 +106,13 @@ Note: the planned separate `exercise-002` (L-011–020) was merged into **test-0
 | Glossary terms | 119 | — |
 | Vocabulary entries | 264 | — |
 
-## 5. Next batch (Batch 9) — the verb *be* in full
+## 5. Next batch
 
-Method for Level 1 (keep it): lesson file with ~12 full-template examples + example bank with 88 more (12-step ladder) = 100 per topic; exercises in a separate file with answers; one flashcard set per unit.
+1. `05-example-banks/nouns/examples-021-what-is-a-noun-part-02.md` — EX-021-051 – 100 (rewrite the short drafts in full 21-step form; theme: everyday life — times, adjectives, places, long sentences, conversations).
+2. `…-part-03.md` — EX-021-101 – 150 (theme: home & family) — as many parts as fit.
+3. After each part: update the L-021 index table, the tracker above, EXAMPLE_CATALOG totals.
 
-Batch 9 files (3 short lessons — *be* was already introduced in L-018, so the lessons can build on it):
-1. `01-beginner-grammar/verbs/lesson-029-be-positive.md` + `05-example-banks/verbs/examples-029-be-positive.md`
-2. `01-beginner-grammar/verbs/lesson-030-be-negative.md` + `05-example-banks/verbs/examples-030-be-negative.md`
-3. `01-beginner-grammar/verbs/lesson-031-be-questions-and-short-answers.md` + `05-example-banks/verbs/examples-031-be-questions-and-short-answers.md`
-4. `11-exercises-and-tests/beginner/exercise-007-be-029-031.md` + answers
-5. `12-revision-and-spaced-repetition/flashcards/flashcards-006-pronouns-and-be.md` (L-027 – L-031) → then mark L-027 – L-031 ✅
-6. Update index files.
-
-Also planned soon: **D-002** (dialogue at a market — countable/uncountable + pronouns), **S-002** (story using nouns + pronouns).
+(The *be* lessons L-029 – L-031 and flashcards-006 are **paused** until L-021 – L-028 reach 2,000.)
 
 ## 6. Planned file names already linked from written files
 

@@ -9,7 +9,7 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | Area | Examples explained in full | Target | Status |
 |---|---|---|---|
 | Level 0 (L-001–L-020) | 70 | ~70 | ✅ |
-| Level 1 grammar topics | 800 (L-021 – L-028) | 100 per topic | 🟡 8 topics at target |
+| Level 1 grammar topics | 800 written (234 in full 21-step form) | **2,000 per topic, all 21-step** | 🟡 expanding (L-021: 150 / 2,000) |
 | Combinations | 0 | 100 per combination | ⬜ |
 | Integrated examples | 0 | 10,000+ | ⬜ |
 
@@ -108,7 +108,9 @@ Full-template examples are listed one by one. Bank examples are listed by range 
 | EX-021-010 | My sister doesn't like coffee. | nouns in a negative | L-021 |
 | EX-021-011 | Where is the nearest hospital? | noun phrase in wh-question | L-021 |
 | EX-021-012 | Time is money. | general abstract nouns | L-021 |
-| EX-021-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-021](05-example-banks/nouns/examples-021-what-is-a-noun.md) |
+| EX-021-013 – 050 | (38 examples, full 21-step) | everyday life | [part 01](05-example-banks/nouns/examples-021-what-is-a-noun-part-01.md) |
+| EX-021-051 – 100 | (50 examples, full 21-step) | see part | [part 02](05-example-banks/nouns/examples-021-what-is-a-noun-part-02.md) |
+| EX-021-101 – 150 | (50 examples, full 21-step) | see part | [part 03](05-example-banks/nouns/examples-021-what-is-a-noun-part-03.md) |
 | EX-022-001 | Rome is a beautiful city. | proper vs common for one place | L-022 |
 | EX-022-002 | My teacher is Mrs Clark. | common + proper (title) | L-022 |
 | EX-022-003 | Kofi is from Ghana. He speaks English and Twi. | person, country, languages | L-022 |
