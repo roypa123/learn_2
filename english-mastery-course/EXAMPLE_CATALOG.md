@@ -9,7 +9,7 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | Area | Examples explained in full | Target | Status |
 |---|---|---|---|
 | Level 0 (L-001–L-020) | 70 | ~70 | ✅ |
-| Level 1 grammar topics | 200 (L-021, L-022) | 100 per topic | 🟡 2 topics at target |
+| Level 1 grammar topics | 400 (L-021 – L-024) | 100 per topic | 🟡 4 topics at target |
 | Combinations | 0 | 100 per combination | ⬜ |
 | Integrated examples | 0 | 10,000+ | ⬜ |
 
@@ -122,6 +122,32 @@ Full-template examples are listed one by one. Bank examples are listed by range 
 | EX-022-011 | The Smiths live on Oak Street, next to the park. | plural family name; street | L-022 |
 | EX-022-012 | Have you read Harry Potter? It's my favourite book. | titles | L-022 |
 | EX-022-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-022](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) |
+| EX-023-001 | I have a brother and two sisters. | a + singular; number + plural | L-023 |
+| EX-023-002 | This cat is hungry. These cats are hungry. | this/these, is/are agreement | L-023 |
+| EX-023-003 | The dog barks at night. The dogs bark at night. | verb -s vs noun -s | L-023 |
+| EX-023-004 | Is the window open? — No, it isn't. / Are the windows open? — No, they aren't. | it/they in short answers | L-023 |
+| EX-023-005 | Dogs are loyal animals. | plural for general statements | L-023 |
+| EX-023-006 | We need three tickets, please. | number + plural | L-023 |
+| EX-023-007 | How many languages do you speak? — Two: Hindi and English. | how many + plural | L-023 |
+| EX-023-008 | Every student has a laptop. | every + singular | L-023 |
+| EX-023-009 | One of my friends is a chef. | one of + plural + singular verb | L-023 |
+| EX-023-010 | My new jeans are too long. | always-plural nouns | L-023 |
+| EX-023-011 | Can you give me some information about the trains? | uncountable vs plural | L-023 |
+| EX-023-012 | The news is good: the tickets are cheap! | news is singular | L-023 |
+| EX-023-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-023](05-example-banks/nouns/examples-023-singular-and-plural-nouns.md) |
+| EX-024-001 | The buses are full. | -s → -es | L-024 |
+| EX-024-002 | Please wash the dishes. | -sh → -shes | L-024 |
+| EX-024-003 | I have two watches, but they are both broken. | -ch → -ches | L-024 |
+| EX-024-004 | Put the books in those boxes. | +s vs -x + es | L-024 |
+| EX-024-005 | London and Paris are big cities. | consonant + y → ies | L-024 |
+| EX-024-006 | We go on holiday for two weeks, and we stay with friends for three days. | vowel + y → s | L-024 |
+| EX-024-007 | The leaves are yellow and red in autumn. | -f → -ves | L-024 |
+| EX-024-008 | Be careful — the knives are sharp. | -fe → -ves | L-024 |
+| EX-024-009 | Many houses in this street have flat roofs. | -f exception (roofs) | L-024 |
+| EX-024-010 | I need two kilos of potatoes and some tomatoes. | -o → -oes / -os | L-024 |
+| EX-024-011 | Do you have any photos of the zoos you visited? | -o → -os | L-024 |
+| EX-024-012 | She watches videos and carries her phone everywhere. | same rules for verbs | L-024 |
+| EX-024-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-024](05-example-banks/nouns/examples-024-plural-spelling-rules.md) |
 
 ## Dialogues
 

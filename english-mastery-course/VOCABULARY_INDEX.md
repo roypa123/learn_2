@@ -204,3 +204,28 @@ Part of speech: n = noun (naming word) · v = verb (action/state word) · adj = 
 | V-0194 | cousin | n | the child of your aunt or uncle | L-022 bank |
 | V-0195 | china | n | plates and cups of fine white clay | L-022 bank |
 | V-0196 | turkey | n | a large bird / its meat 🦃 | L-022 bank |
+| V-0197 | loyal | adj | always supporting someone; faithful | L-023 |
+| V-0198 | ticket | n | a pass for a train, film, concert 🎟️ | L-023 |
+| V-0199 | laptop | n | a small computer you can carry 💻 | L-023 |
+| V-0200 | chef | n | a professional cook | L-023 |
+| V-0201 | jeans / trousers (US pants) / shorts | n (always plural) | clothes for legs 👖 | L-023 |
+| V-0202 | glasses | n (always plural) | things you wear to see better 👓 | L-023 |
+| V-0203 | scissors | n (always plural) | a tool for cutting ✂️ | L-023 |
+| V-0204 | a pair of | phr | two things used together / one two-part thing | L-023 |
+| V-0205 | information / advice | n (uncountable) | facts / helpful ideas from someone | L-023 |
+| V-0206 | news | n (singular) | new information about events | L-023 |
+| V-0207 | cheap | adj | costs little money | L-023 |
+| V-0208 | every / each | det | all, one by one (+ singular) | L-023 |
+| V-0209 | absent | adj | not here | L-023 bank |
+| V-0210 | clothes | n (always plural) | things you wear | L-023 bank |
+| V-0211 | loaf (plural loaves) | n | one whole bread 🍞 | L-023 bank |
+| V-0212 | dish / brush / watch / church / fox / quiz | n | R2 nouns | L-024 |
+| V-0213 | leaf / knife / wife / life / half / shelf / wolf / thief | n | f → ves nouns | L-024 |
+| V-0214 | roof / chef / cliff / belief / chief | n | f + s exceptions | L-024 |
+| V-0215 | potato / tomato / hero / echo | n | -o + es nouns | L-024 |
+| V-0216 | photo / piano / radio / video / zoo / kilo | n | -o + s nouns | L-024 |
+| V-0217 | broken | adj | not working | L-024 |
+| V-0218 | sharp / blunt | adj | can cut easily / cannot cut well | L-024 |
+| V-0219 | battery | n | 🔋 | L-024 bank |
+| V-0220 | hobby | n | something you enjoy doing in free time | L-024 bank |
+| V-0221 | currency | n | a country's money | L-024 bank |

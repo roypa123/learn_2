@@ -54,6 +54,8 @@ Copy this table into your notebook, or fill it here.
 | L-018 | | | | | | | |
 | L-019 | | | | | | | |
 | L-020 (test) | | | | | | | |
+| L-021 | | | | | | | |
+| L-022 | | | | | | | |
 
 ## Review materials in this course
 
@@ -66,6 +68,8 @@ Copy this table into your notebook, or fill it here.
 | Flashcards for L-016–L-019 | [12-revision-and-spaced-repetition/flashcards/flashcards-004-foundations.md](12-revision-and-spaced-repetition/flashcards/flashcards-004-foundations.md) | L-016–L-019 |
 | Story reading | [07-reading-and-stories/beginner-stories/story-001-a-new-student.md](07-reading-and-stories/beginner-stories/story-001-a-new-student.md) | L-015–L-019 |
 | Level 0 test (30-day review) | [11-exercises-and-tests/beginner/test-001-level-0.md](11-exercises-and-tests/beginner/test-001-level-0.md) | L-001–L-019 |
+| Nouns exercise (3-day review) | [11-exercises-and-tests/beginner/exercise-003-nouns-021-022.md](11-exercises-and-tests/beginner/exercise-003-nouns-021-022.md) | L-021–L-022 |
+| Example banks (1-day review: 10 examples) | [05-example-banks/nouns/](05-example-banks/nouns/examples-021-what-is-a-noun.md) | L-021–L-022 |
 | Mixed exercise (7-day review) | [11-exercises-and-tests/beginner/exercise-001-foundations-lessons-001-010.md](11-exercises-and-tests/beginner/exercise-001-foundations-lessons-001-010.md) | L-001–L-010 |
 
 This table grows as new review materials are written.
