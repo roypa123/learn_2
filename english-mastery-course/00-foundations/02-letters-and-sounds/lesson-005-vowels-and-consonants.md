@@ -282,5 +282,5 @@ Many English spelling rules depend on vowels and consonants. For example, how to
 
 ## 13. Next lesson and review
 
-- **Next:** Lesson 006 — Letters Are Not Sounds *(coming in the next batch)*
+- **Next:** [Lesson 006 — Letters Are Not Sounds](lesson-006-letters-and-sounds.md)
 - **Review:** tomorrow, +3 days, +7 days. Use the [flashcards](../../12-revision-and-spaced-repetition/flashcards/flashcards-001-foundations.md).

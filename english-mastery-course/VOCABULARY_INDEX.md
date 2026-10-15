@@ -50,3 +50,49 @@ Part of speech: n = noun (naming word) · v = verb (action/state word) · adj = 
 | V-0040 | idea | n | a thought or plan in your head | L-005 |
 | V-0041 | elephant / mouse | n | a very big animal / a very small animal | L-005 |
 | V-0042 | umbrella | n | ☂️ keeps rain off you | L-005 |
+| V-0043 | city | n | a big town | L-006 |
+| V-0044 | like | v | enjoy; feel good about | L-006 |
+| V-0045 | know | v | have information in your head | L-006 |
+| V-0046 | answer | n / v | what you say after a question | L-006 |
+| V-0047 | green | adj | the colour of grass | L-006 |
+| V-0048 | beans | n | a kind of vegetable | L-006 |
+| V-0049 | knife | n | 🔪 a tool for cutting | L-006 |
+| V-0050 | write | v | put words on paper or a screen | L-006 |
+| V-0051 | hour | n | 60 minutes | L-006 |
+| V-0052 | bird | n | an animal with wings and feathers 🐦 | L-007 |
+| V-0053 | fly | v | move through the air | L-007 |
+| V-0054 | sister | n | a girl/woman with the same parents as you | L-007 |
+| V-0055 | football (US: soccer) | n | a ball game played with the feet ⚽ | L-007 |
+| V-0056 | every day | phr | each day | L-007 |
+| V-0057 | everyday | adj | normal, usual | L-007 |
+| V-0058 | turn on / turn off | phr v | make a machine or lamp start / stop | L-007 |
+| V-0059 | light | n / adj | a lamp 💡 / not heavy | L-007 |
+| V-0060 | watch | n / v | a small clock ⌚ / look at for some time | L-007 |
+| V-0061 | right | adj | correct; the opposite of left | L-007 |
+| V-0062 | bag | n | 🎒 a thing for carrying things | L-007 |
+| V-0063 | child (plural: children) | n | a young person | L-008 |
+| V-0064 | happy | adj | feeling good 😀 | L-008 |
+| V-0065 | run | v / n | move fast with your legs | L-008 |
+| V-0066 | big / small | adj | large / not large | L-008 |
+| V-0067 | dinner | n | the main meal in the evening | L-008 |
+| V-0068 | family | n | parents, children, brothers, sisters… | L-008 |
+| V-0069 | plant | n | a living green thing that grows 🪴 | L-008 |
+| V-0070 | water | v | give water to (a plant) | L-008 |
+| V-0071 | tired | adj | needing rest or sleep | L-008 |
+| V-0072 | old / new / young | adj | age words | L-008 |
+| V-0073 | bus | n | 🚌 a big vehicle for many passengers | L-009 |
+| V-0074 | late / early | adj | after / before the correct time | L-009 |
+| V-0075 | where | question word | asks about a place | L-009 |
+| V-0076 | station | n | a place where trains or buses stop 🚉 | L-009 |
+| V-0077 | excuse me | phr | polite words to start talking to a stranger | L-009 |
+| V-0078 | close / open | v | shut / make not shut | L-009 |
+| V-0079 | window | n | 🪟 glass in a wall | L-009 |
+| V-0080 | beautiful | adj | very nice to look at | L-009 |
+| V-0081 | want (to) | v | wish to have or do | L-010 |
+| V-0082 | sleep | v | rest with your eyes closed 😴 | L-010 |
+| V-0083 | ___ years old | phr | how we say age: *I am ten years old.* | L-010 |
+| V-0084 | ready | adj | prepared to start | L-010 |
+| V-0085 | taxi | n | 🚕 a car you pay to drive you | L-010 |
+| V-0086 | here | adv | in this place | L-010 |
+| V-0087 | she | pron | a girl/woman already mentioned | L-010 |
+| V-0088 | hungry | adj | wanting food | L-010 |
