@@ -56,6 +56,12 @@ Copy this table into your notebook, or fill it here.
 | L-020 (test) | | | | | | | |
 | L-021 | | | | | | | |
 | L-022 | | | | | | | |
+| L-023 | | | | | | | |
+| L-024 | | | | | | | |
+| L-025 | | | | | | | |
+| L-026 | | | | | | | |
+| L-027 | | | | | | | |
+| L-028 | | | | | | | |
 
 ## Review materials in this course
 
@@ -69,6 +75,10 @@ Copy this table into your notebook, or fill it here.
 | Story reading | [07-reading-and-stories/beginner-stories/story-001-a-new-student.md](07-reading-and-stories/beginner-stories/story-001-a-new-student.md) | L-015–L-019 |
 | Level 0 test (30-day review) | [11-exercises-and-tests/beginner/test-001-level-0.md](11-exercises-and-tests/beginner/test-001-level-0.md) | L-001–L-019 |
 | Nouns exercise (3-day review) | [11-exercises-and-tests/beginner/exercise-003-nouns-021-022.md](11-exercises-and-tests/beginner/exercise-003-nouns-021-022.md) | L-021–L-022 |
+| Plurals exercise (3-day review) | [11-exercises-and-tests/beginner/exercise-004-plurals-023-024.md](11-exercises-and-tests/beginner/exercise-004-plurals-023-024.md) | L-023–L-024 |
+| Nouns exercise 2 (3-day review) | [11-exercises-and-tests/beginner/exercise-005-nouns-025-026.md](11-exercises-and-tests/beginner/exercise-005-nouns-025-026.md) | L-025–L-026 |
+| Flashcards — noun unit (7-day review) | [12-revision-and-spaced-repetition/flashcards/flashcards-005-nouns.md](12-revision-and-spaced-repetition/flashcards/flashcards-005-nouns.md) | L-021–L-026 |
+| Pronouns exercise (3-day review) | [11-exercises-and-tests/beginner/exercise-006-pronouns-027-028.md](11-exercises-and-tests/beginner/exercise-006-pronouns-027-028.md) | L-027–L-028 |
 | Example banks (1-day review: 10 examples) | [05-example-banks/nouns/](05-example-banks/nouns/examples-021-what-is-a-noun.md) | L-021–L-022 |
 | Mixed exercise (7-day review) | [11-exercises-and-tests/beginner/exercise-001-foundations-lessons-001-010.md](11-exercises-and-tests/beginner/exercise-001-foundations-lessons-001-010.md) | L-001–L-010 |
 

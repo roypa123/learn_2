@@ -229,3 +229,46 @@ Part of speech: n = noun (naming word) · v = verb (action/state word) · adj = 
 | V-0219 | battery | n | 🔋 | L-024 bank |
 | V-0220 | hobby | n | something you enjoy doing in free time | L-024 bank |
 | V-0221 | currency | n | a country's money | L-024 bank |
+| V-0222 | man/men · woman/women · child/children · person/people | n | irregular plurals | L-025 |
+| V-0223 | foot/feet · tooth/teeth · mouse/mice · goose/geese | n | irregular plurals | L-025 |
+| V-0224 | sheep · fish · deer · aircraft · series · species | n | same-form plurals | L-025 |
+| V-0225 | police officer / firefighter | n | neutral job words | L-025 |
+| V-0226 | hurt | v | feel pain | L-025 |
+| V-0227 | toothbrush | n | 🪥 | L-025 |
+| V-0228 | data / media / crisis-crises | n | academic plurals | L-025 |
+| V-0229 | medicine | n | the study/treatment of illness; a drug | L-025 |
+| V-0230 | kids / adults | n | children (informal) / grown-ups | L-025 bank |
+| V-0231 | furniture | n (U) | chairs, tables, beds… | L-026 |
+| V-0232 | luggage / baggage | n (U) | bags for travel 🧳 | L-026 |
+| V-0233 | homework | n (U) | school work for home | L-026 |
+| V-0234 | traffic | n (U) | cars etc. on the road | L-026 |
+| V-0235 | equipment / research | n (U) | tools / careful study | L-026 |
+| V-0236 | trip / journey | n (C) | a travel from one place to another | L-026 |
+| V-0237 | suitcase | n (C) | a large travel bag | L-026 |
+| V-0238 | a glass / cup / bottle / bowl / slice / loaf / piece / bar of | phr | units for U nouns | L-026 |
+| V-0239 | flour / butter / cheese / salt / oil | n (U) | foods | L-026 |
+| V-0240 | advise (v) / advice (n) | v / n | give advice / helpful ideas | L-026 |
+| V-0241 | experience | n (U/C) | knowledge from doing / an event | L-026 bank |
+| V-0242 | pinch / spoonful | n | tiny amount / as much as a spoon holds | L-026 bank |
+| V-0243 | I / you / he / she / it / we / they | pron | subject pronouns | L-027 |
+| V-0244 | neighbour (US neighbor) | n | a person who lives near you | L-027 |
+| V-0245 | village | n | a very small town | L-027 |
+| V-0246 | museum | n | a building with old/art objects to see | L-027 |
+| V-0247 | message | n | words you send or leave for someone | L-027 |
+| V-0248 | someone / somebody | pron | a person (we don't know who) | L-027 |
+| V-0249 | colleague | n | a person you work with | L-027 |
+| V-0250 | It depends. | phr | the answer is not always the same | L-027 |
+| V-0251 | twins | n | two children born together | L-027 bank |
+| V-0252 | me / you / him / her / it / us / them | pron | object pronouns | L-028 |
+| V-0253 | feed | v | give food to | L-028 |
+| V-0254 | invite | v | ask someone to come | L-028 |
+| V-0255 | wedding | n | a marriage celebration 💒 | L-028 |
+| V-0256 | Me too. / Me neither. | phr | the same for me (+ / −) | L-028 |
+| V-0257 | Here you are. | phr | said when giving something | L-028 |
+| V-0258 | turn up / turn down | phr v | make louder / quieter | L-028 |
+| V-0259 | try on / put on / take off | phr v | test clothes / wear / remove | L-028 |
+| V-0260 | pick up / throw away / wake up / give back | phr v | lift or collect / put in rubbish / stop sleeping / return | L-028 bank |
+| V-0261 | Let me… / Let's… | phr | I'll… / I suggest we… | L-028 |
+| V-0262 | lend / borrow | v | give for a short time / take for a short time | L-028 bank |
+| V-0263 | miss | v | feel sad that someone isn't with you | L-028 bank |
+| V-0264 | trust | v | believe someone is honest | L-028 bank |

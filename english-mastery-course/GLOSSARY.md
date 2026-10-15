@@ -13,6 +13,7 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **adverbial** | a word or group that tells where, when or how | *at home, every day* | [L-014](00-foundations/05-basic-word-order/lesson-014-why-word-order-matters.md) |
 | **agreement** | when words in a sentence match in number (one/many) | *The dogs **are**… They…* | [L-023](01-beginner-grammar/nouns/lesson-023-singular-and-plural-nouns.md) |
 | **alphabet** | all the letters of a language, in a fixed order | A, B, C … Z | [L-003](00-foundations/02-letters-and-sounds/lesson-003-the-english-alphabet.md) |
+| **antecedent (reference)** | the noun a pronoun refers to | *my brother* → *he* | [L-027](01-beginner-grammar/pronouns/lesson-027-subject-pronouns.md) |
 | **apostrophe** | the small mark **'** ; it can show a missing letter | *What's* = What **i**s | L-003 |
 | **article** | the words a, an, the | *the Nile* | [L-022](01-beginner-grammar/nouns/lesson-022-common-and-proper-nouns.md) (first look) |
 | **be** | the base (dictionary) form of am / is / are |  | [L-018](00-foundations/06-first-words/lesson-018-first-sentences-with-am-is-are.md) |
@@ -26,13 +27,15 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **compound noun** | one noun made of two words | post office, bus stop | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) (bank, first look) |
 | **concrete noun** | a noun you can see, touch, hear, smell or taste | apple, music, rain | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) |
 | **consonant** | a letter or sound where lips, tongue or teeth block the air a little | b, t, s | [L-005](00-foundations/02-letters-and-sounds/lesson-005-vowels-and-consonants.md) |
+| **container** | a thing that holds something; used to count U nouns | *a glass of water* | [L-026](01-beginner-grammar/nouns/lesson-026-countable-and-uncountable-nouns.md) |
 | **context** | the words (or situation) around a word that help show its meaning | | [L-007](00-foundations/03-words-and-meaning/lesson-007-what-is-a-word.md) |
 | **contraction** | two words joined into one short form with an apostrophe | I am → I'm | L-007 |
-| **countable noun** | a noun you can count: one cup, two cups | cup, book, idea | [L-023](01-beginner-grammar/nouns/lesson-023-singular-and-plural-nouns.md) (first look) |
+| **countable noun** | a noun you can count: one cup, two cups | cup, book, idea | [L-023](01-beginner-grammar/nouns/lesson-023-singular-and-plural-nouns.md) (first look), [L-026](01-beginner-grammar/nouns/lesson-026-countable-and-uncountable-nouns.md) |
 | **demonstrative** | a pointing word: this, that, these, those | *This is my bag.* | [L-019](00-foundations/06-first-words/lesson-019-this-is-and-that-is.md) |
 | **determiner** | a small word before a noun | a, the, my, this, some | [L-021](01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) |
 | **dictionary** | a book or app that gives the meanings (and sounds) of words | | L-007 |
 | **digit** | one number sign from 0 to 9 | *45* has two digits | [L-016](00-foundations/06-first-words/lesson-016-numbers-0-100.md) |
+| **direct object** | the thing/person that receives the action directly | *Give **the book** to Ali.* | [L-028](01-beginner-grammar/pronouns/lesson-028-object-pronouns.md) |
 | **doer** | the one who does the action |  | [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md) |
 | **ending** | the last letter(s) of a word | -s, -es, -ies | [L-024](01-beginner-grammar/nouns/lesson-024-plural-spelling-rules.md) |
 | **exclamation** | a sentence that shows strong feeling | *What a beautiful day!* | L-009 |
@@ -50,6 +53,7 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **helping word** | see *helping verb* | *I **am** learning.* | L-002 (first look) |
 | **homophone** | words that sound the same but have different spelling and meaning | know / no, write / right | [L-006](00-foundations/02-letters-and-sounds/lesson-006-letters-and-sounds.md) |
 | **hyphen** | the short line - that joins two parts of a word | *twenty-one* | [L-016](00-foundations/06-first-words/lesson-016-numbers-0-100.md) |
+| **indirect object** | the person who receives the direct object | *Give **Ali** the book.* | [L-028](01-beginner-grammar/pronouns/lesson-028-object-pronouns.md) |
 | **informal** | relaxed, friendly language | *Hi! See you!* | [L-017](00-foundations/06-first-words/lesson-017-greetings-and-classroom-english.md) |
 | **instruction** (command, request) | a sentence that tells someone to do something | *Close the window, please.* | L-009 |
 | **intonation** | how your voice goes up ↗ and down ↘ |  | [L-015](00-foundations/05-basic-word-order/lesson-015-what-makes-a-question.md) |
@@ -57,10 +61,12 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **introduce** | tell people each other's names when they first meet | *This is my friend Leo.* | [L-019](00-foundations/06-first-words/lesson-019-this-is-and-that-is.md) |
 | **inversion** | swapping the subject and the verb to make a question | *You are* → *Are you?* | [L-015](00-foundations/05-basic-word-order/lesson-015-what-makes-a-question.md) |
 | **IPA** | International Phonetic Alphabet: symbols for sounds | /k/, /iː/ | L-006 |
-| **irregular plural** | a plural not made with -s | man → men, child → children | [L-023](01-beginner-grammar/nouns/lesson-023-singular-and-plural-nouns.md) (first look) |
+| **irregular** | not following the usual rule | *men, children* | [L-025](01-beginner-grammar/nouns/lesson-025-irregular-plurals.md) |
+| **irregular plural** | a plural not made with -s | man → men, child → children | [L-023](01-beginner-grammar/nouns/lesson-023-singular-and-plural-nouns.md) (first look), [L-025](01-beginner-grammar/nouns/lesson-025-irregular-plurals.md) |
 | **language** | a way to share ideas, feelings and information using words | English, Arabic | L-001 |
 | **letter** | a small written sign used to write words | a, b, c | L-003 |
 | **main verb** | the verb with the main meaning | *I am **cooking**.* | [L-012](00-foundations/04-what-is-a-sentence/lesson-012-the-verb.md) |
+| **mass** | a lot of something without separate pieces | sand, milk | [L-026](01-beginner-grammar/nouns/lesson-026-countable-and-uncountable-nouns.md) |
 | **meaning** | what something tells us; the idea inside it | | L-001 |
 | **minimal pair** | two words that differ by only one sound | ship / sheep | [sounds-001](08-pronunciation-and-listening/sounds/sounds-001-english-vowel-and-consonant-sounds.md) |
 | **negative** | a sentence that says something is not true | *She isn't here.* | [L-018](00-foundations/06-first-words/lesson-018-first-sentences-with-am-is-are.md) |
@@ -68,16 +74,20 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **noun phrase** | a noun + the words that go with it (determiner, adjectives…) | *the big red bus* | [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md) |
 | **noun** (thing word) | a word that names a person, animal, place, thing or idea | mother, cat, school, love | L-008 |
 | **object** | the person or thing that receives the action | *Tom eats **an apple**.* | [L-013](00-foundations/05-basic-word-order/lesson-013-the-object.md) |
-| **object pronoun** | a pronoun used as an object | me, him, her, us, them | [L-013](00-foundations/05-basic-word-order/lesson-013-the-object.md) |
+| **object pronoun** | a pronoun after a verb or preposition, or alone | me, you, him, her, it, us, them | [L-013](00-foundations/05-basic-word-order/lesson-013-the-object.md), [L-028](01-beginner-grammar/pronouns/lesson-028-object-pronouns.md) |
 | **parts of speech** (word classes) | the groups of words by their job | noun, verb, adjective… | L-008 |
+| **person (grammar)** | 1st = speaker (I, we), 2nd = listener (you), 3rd = others (he, she, it, they) |  | [L-027](01-beginner-grammar/pronouns/lesson-027-subject-pronouns.md) |
+| **phrasal verb** | a verb + a small word with a special meaning | turn off, pick up | [L-028](01-beginner-grammar/pronouns/lesson-028-object-pronouns.md) (first look) |
 | **plural** | more than one (usually + s) | books, children | [L-016](00-foundations/06-first-words/lesson-016-numbers-0-100.md) |
 | **polite** | kind and respectful in the way you speak | *please, thank you* | [L-017](00-foundations/06-first-words/lesson-017-greetings-and-classroom-english.md) |
 | **position** | the place of a word in a sentence |  | [L-014](00-foundations/05-basic-word-order/lesson-014-why-word-order-matters.md) |
 | **positive (affirmative)** | a sentence that says something is true | *She is here.* | [L-018](00-foundations/06-first-words/lesson-018-first-sentences-with-am-is-are.md) |
-| **pronoun** | a short word used instead of a noun | I, you, he, she, it, we, they | [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md) |
+| **preposition** | a small word for place, time, direction etc., before a noun/pronoun | in, on, with, for, to | [L-028](01-beginner-grammar/pronouns/lesson-028-object-pronouns.md) (first look) |
+| **pronoun** | a word that takes the place of a noun | I, you, he, she, it, we, they | [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md), [L-027](01-beginner-grammar/pronouns/lesson-027-subject-pronouns.md) |
 | **pronounce / pronunciation** | to say a word / the way a word is said | | L-006 |
 | **proper noun** | the special name of one particular person, place, day, etc.; capital letter | Paris, Ana, Monday | [L-022](01-beginner-grammar/nouns/lesson-022-common-and-proper-nouns.md) |
 | **punctuation** | the small signs used in writing | . , ? ! ' | L-010 |
+| **quantity word (quantifier)** | a word for how much / how many | some, many, much, a lot of | [L-026](01-beginner-grammar/nouns/lesson-026-countable-and-uncountable-nouns.md) (first look) |
 | **question** | a sentence that asks for information | *Where is the station?* | L-009 |
 | **question mark** | the mark **?** at the end of a question | *What's your name**?*** | L-003 |
 | **question word** | a word that starts a question to ask for information | what, where, how | L-003 (first look) |
@@ -88,6 +98,7 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **sibilant (hissing sound)** | the sounds /s/ /z/ /ʃ/ /tʃ/ /dʒ/ /ʒ/; after them, plural -es sounds /ɪz/ | bus, dish, watch, page | [L-024](01-beginner-grammar/nouns/lesson-024-plural-spelling-rules.md) |
 | **silent letter** | a letter we write but do not say | **k**now, **w**rite | L-006 |
 | **singular** | just one | book, child | [L-016](00-foundations/06-first-words/lesson-016-numbers-0-100.md) |
+| **singular they** | *they/them* for one person whose gender is unknown or not said | *Someone called. They…* | [L-027](01-beginner-grammar/pronouns/lesson-027-subject-pronouns.md) |
 | **small letter** (lowercase) | the small form of a letter | a, b, c | L-004 |
 | **sound** | something you hear | | L-001 |
 | **sound symbol** | a sign for one sound, written between slashes | /k/ | L-006 |
@@ -97,15 +108,18 @@ Every grammar word used in this course is explained here in easy English. Words 
 | **state verb** | a verb for a state, feeling or thought | be, have, know, like | [L-012](00-foundations/04-what-is-a-sentence/lesson-012-the-verb.md) |
 | **stress** | the strong (louder, longer) part of a word or sentence | thir**TEEN** | [L-016](00-foundations/06-first-words/lesson-016-numbers-0-100.md) |
 | **subject** | the person or thing a sentence is about; usually the doer | ***Birds** fly.* | L-009 (first look), [L-011](00-foundations/04-what-is-a-sentence/lesson-011-the-subject.md) |
+| **subject pronoun** | a pronoun used as the subject | I, you, he, she, it, we, they | [L-027](01-beginner-grammar/pronouns/lesson-027-subject-pronouns.md) |
 | **S-V-O** | Subject – Verb – Object, the basic English word order | *Sara reads books.* | [L-014](00-foundations/05-basic-word-order/lesson-014-why-word-order-matters.md) |
 | **syllable** | one "beat" of a word; each has a vowel sound | *ap·ple* = 2 | L-005 |
 | **tense** | the form of a verb that shows time | walk / walked | [L-012](00-foundations/04-what-is-a-sentence/lesson-012-the-verb.md) |
 | **title** | a word before a name: Mr, Mrs, Ms, Miss, Dr | *Mrs Brown* | [L-017](00-foundations/06-first-words/lesson-017-greetings-and-classroom-english.md) |
 | **transitive verb** | a verb that takes an object | eat, love, make | [L-013](00-foundations/05-basic-word-order/lesson-013-the-object.md) |
-| **uncountable noun** | a noun you don't count with numbers; no plural | water, music, information | [L-023](01-beginner-grammar/nouns/lesson-023-singular-and-plural-nouns.md) (first look) |
+| **uncountable noun** | a noun you don't count with numbers; no plural | water, music, information | [L-023](01-beginner-grammar/nouns/lesson-023-singular-and-plural-nouns.md) (first look), [L-026](01-beginner-grammar/nouns/lesson-026-countable-and-uncountable-nouns.md) |
+| **unit / piece** | one counted part of an uncountable thing | *a slice, a loaf, a piece* | [L-026](01-beginner-grammar/nouns/lesson-026-countable-and-uncountable-nouns.md) |
 | **verb** (action / being word) | a word that tells what someone does, or what something is | run, eat, is | L-008 |
 | **voiced / voiceless** | with / without shaking in the throat when you make a sound | /z/ voiced, /s/ voiceless | sounds-001 |
 | **vowel** | a letter (a, e, i, o, u) or sound made with an open mouth | a, e, i, o, u | L-005 |
+| **vowel change** | a plural made by changing a vowel inside the word | foot → feet | [L-025](01-beginner-grammar/nouns/lesson-025-irregular-plurals.md) |
 | **wh-question** | a question that starts with a question word | *Where do you live?* | [L-015](00-foundations/05-basic-word-order/lesson-015-what-makes-a-question.md) |
 | **word** | a small piece of language with a meaning | apple, eat | L-007 |
 | **word family** | words made from the same base word | happy, unhappy, happiness | L-007 |

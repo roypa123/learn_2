@@ -9,7 +9,7 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | Area | Examples explained in full | Target | Status |
 |---|---|---|---|
 | Level 0 (L-001–L-020) | 70 | ~70 | ✅ |
-| Level 1 grammar topics | 400 (L-021 – L-024) | 100 per topic | 🟡 4 topics at target |
+| Level 1 grammar topics | 800 (L-021 – L-028) | 100 per topic | 🟡 8 topics at target |
 | Combinations | 0 | 100 per combination | ⬜ |
 | Integrated examples | 0 | 10,000+ | ⬜ |
 
@@ -148,6 +148,58 @@ Full-template examples are listed one by one. Bank examples are listed by range 
 | EX-024-011 | Do you have any photos of the zoos you visited? | -o → -os | L-024 |
 | EX-024-012 | She watches videos and carries her phone everywhere. | same rules for verbs | L-024 |
 | EX-024-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-024](05-example-banks/nouns/examples-024-plural-spelling-rules.md) |
+| EX-025-001 | My children are at school. | child → children | L-025 |
+| EX-025-002 | There are three men and two women in the room. | men/women; women pronunciation | L-025 |
+| EX-025-003 | Many people live in big cities. | person → people + plural verb | L-025 |
+| EX-025-004 | He is a nice person. They are nice people. | a person / people | L-025 |
+| EX-025-005 | My feet hurt after the long walk. | foot → feet | L-025 |
+| EX-025-006 | Brush your teeth before bed. | tooth → teeth | L-025 |
+| EX-025-007 | Do you have any mice in your house? | mouse → mice | L-025 |
+| EX-025-008 | The farmer has fifty sheep and a few cows. | same-form plural | L-025 |
+| EX-025-009 | We caught five fish, but we only ate two. | fish / fishes | L-025 |
+| EX-025-010 | The children's toys are all over the floor. | irregular plural + 's | L-025 |
+| EX-025-011 | Two police officers are talking to the people in the street. | neutral words; the police are | L-025 |
+| EX-025-012 | The data shows that more women than men study medicine. | Latin plural data | L-025 |
+| EX-025-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-025](05-example-banks/nouns/examples-025-irregular-plurals.md) |
+| EX-026-001 | I'd like a glass of water, please. | counting U with a container | L-026 |
+| EX-026-002 | Can you give me some advice? | advice is U | L-026 |
+| EX-026-003 | The information on this website is correct. | U + singular verb | L-026 |
+| EX-026-004 | We need some new furniture for the living room. | group U noun | L-026 |
+| EX-026-005 | How much money do you have? — Only ten dollars. | how much + U | L-026 |
+| EX-026-006 | I have a lot of homework tonight. | a lot of + U | L-026 |
+| EX-026-007 | There is some cheese in the fridge, but there aren't any eggs. | there is + U / there are + C | L-026 |
+| EX-026-008 | Two coffees and a tea, please. | U as C for portions | L-026 |
+| EX-026-009 | We eat chicken on Sundays. My grandmother keeps chickens. | meat U / animal C | L-026 |
+| EX-026-010 | I'm sorry, I don't have time today. I called you three times! | time U / times C | L-026 |
+| EX-026-011 | How was your trip? Did you have a lot of luggage? | trip C / luggage U | L-026 |
+| EX-026-012 | There's a lot of traffic today, so the buses are late. | U + C in one sentence | L-026 |
+| EX-026-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-026](05-example-banks/nouns/examples-026-countable-and-uncountable-nouns.md) |
+| EX-027-001 | This is my friend Ana. She is from Brazil. | noun then pronoun | L-027 |
+| EX-027-002 | I am a student, and you are a teacher. | I am / you are | L-027 |
+| EX-027-003 | My phone is old. It doesn't work well. | it for things | L-027 |
+| EX-027-004 | My parents live in a village. They have a big garden. | they for people | L-027 |
+| EX-027-005 | Tom and I are neighbours. We live on the same street. | we = I + others | L-027 |
+| EX-027-006 | Are you ready, children? — Yes, we are! | plural you | L-027 |
+| EX-027-007 | It's raining, and it's very cold. | empty it (weather) | L-027 |
+| EX-027-008 | Someone called you. They didn't leave a message. | singular they | L-027 |
+| EX-027-009 | Who's at the door? — It's Grandma! | It's + person | L-027 |
+| EX-027-010 | My sister lives in Paris. She works in a museum. | don't repeat the subject | L-027 |
+| EX-027-011 | The bank is closed now. They open at nine. | they for organisations | L-027 |
+| EX-027-012 | Is your dog friendly? — Yes, he is. He loves people! | he/she for pets | L-027 |
+| EX-027-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-027](05-example-banks/pronouns/examples-027-subject-pronouns.md) |
+| EX-028-001 | I love you. / You love me. | I ↔ me | L-028 |
+| EX-028-002 | Do you know Tom? — Yes, I know him well. | him | L-028 |
+| EX-028-003 | Where's Ana? I need to talk to her. | after a preposition | L-028 |
+| EX-028-004 | The children are hungry. Can you feed them? | they ↔ them | L-028 |
+| EX-028-005 | This is a great book. Read it! | it as object | L-028 |
+| EX-028-006 | I'm tired. — Me too. | pronoun alone | L-028 |
+| EX-028-007 | Who's there? — It's me, Sam! | It's me | L-028 |
+| EX-028-008 | Please come with us to the beach. | us after with | L-028 |
+| EX-028-009 | She invited my brother and me to her wedding. | X and me (object) | L-028 |
+| EX-028-010 | Can you give me that bag? … Give it to Tom later. | two objects | L-028 |
+| EX-028-011 | The TV is too loud. Turn it down, please. | phrasal verb + pronoun | L-028 |
+| EX-028-012 | Let's ask the teacher. They can help us. | let's; singular they; us | L-028 |
+| EX-028-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-028](05-example-banks/pronouns/examples-028-object-pronouns.md) |
 
 ## Dialogues
 
