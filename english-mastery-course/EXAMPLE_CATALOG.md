@@ -9,7 +9,7 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | Area | Examples explained in full | Target | Status |
 |---|---|---|---|
 | Level 0 (L-001–L-020) | 70 | ~70 | ✅ |
-| Level 1 grammar topics | 800 written (1234 in full 21-step form) | **400 per topic, all 21-step** | 🟡 expanding (L-021 ✅ 1,150; L-022 – L-028: 12 / 400 each) |
+| Level 1 grammar topics | 800 written (1322 in full 21-step form) | **400 per topic, all 21-step** | 🟡 expanding (L-021 ✅ 1,150; L-022 – L-028: 12 / 400 each) |
 | Combinations | 0 | 100 per combination | ⬜ |
 | Integrated examples | 0 | 10,000+ | ⬜ |
 
@@ -143,7 +143,8 @@ Full-template examples are listed one by one. Bank examples are listed by range 
 | EX-022-010 | My brother doesn't work for Google. He works for a small company. | company names | L-022 |
 | EX-022-011 | The Smiths live on Oak Street, next to the park. | plural family name; street | L-022 |
 | EX-022-012 | Have you read Harry Potter? It's my favourite book. | titles | L-022 |
-| EX-022-013 – 100 | (88 examples, 12-step ladder) | see bank | [examples-022](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) |
+| EX-022-013 – 050 | (38 examples, full 21-step) | see part | [part 01](05-example-banks/nouns/examples-022-common-and-proper-nouns-part-01.md) |
+| EX-022-051 – 100 | (50 examples, full 21-step) | see part | [part 02](05-example-banks/nouns/examples-022-common-and-proper-nouns-part-02.md) |
 | EX-023-001 | I have a brother and two sisters. | a + singular; number + plural | L-023 |
 | EX-023-002 | This cat is hungry. These cats are hungry. | this/these, is/are agreement | L-023 |
 | EX-023-003 | The dog barks at night. The dogs bark at night. | verb -s vs noun -s | L-023 |
