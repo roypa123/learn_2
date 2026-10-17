@@ -41,8 +41,8 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 |---|---|
 | 13 | [Gradients and linear interpolation](part-03-mathematics-of-colour/ch13-gradients-and-linear-interpolation.md) |
 | 14 | [Colours as vectors: add, scale, clamp](part-03-mathematics-of-colour/ch14-colours-as-vectors.md) |
-| 15 | Turning colour into grey: luminance |
-| 16 | Hue, saturation, value (HSV and HSL) |
+| 15 | [Turning colour into grey: luminance](part-03-mathematics-of-colour/ch15-turning-colour-into-grey-luminance.md) |
+| 16 | [Hue, saturation, value (HSV and HSL)](part-03-mathematics-of-colour/ch16-hue-saturation-value-hsv-hsl.md) |
 | 17 | Gamma and sRGB: why 128 is not half bright |
 | 18 | Transparency: alpha and blending |
 

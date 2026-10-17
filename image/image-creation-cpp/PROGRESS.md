@@ -4,15 +4,17 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 3, Chapter 15 — Turning colour into grey: luminance.**
-File: `part-03-mathematics-of-colour/ch15-turning-colour-into-grey-luminance.md`, code in `code/ch15/`.
-It should cover: why the plain average (R+G+B)/3 looks wrong (eye sensitivity, Ch 2 cones), the luminance
-weights (Rec. 709: 0.2126, 0.7152, 0.0722; also the older Rec. 601: 0.299, 0.587, 0.114) with worked numbers,
-a test image of pure red/green/blue/yellow bars turned to grey both ways, saving the result as **PGM P5**
-(Ch 10) — add a `GreyImage` or a `saveGreyPGM(const Image&)` helper, desaturation by lerping toward grey,
-and a note that the "correct" way works on linear light (forward reference to Ch 17 gamma).
-New library code goes in a **new topic header** (e.g. `common/grey.h` including `colourf.h`), not by
-inserting lines into the middle of existing headers (that would break earlier line-number tables).
+**Part 3, Chapter 17 — Gamma and sRGB: why 128 is not half bright.**
+File: `part-03-mathematics-of-colour/ch17-gamma-and-srgb.md`, code in `code/ch17/` and a new `common/srgb.h`.
+It should cover: the eye's non-linear response (Weber-like: we notice ratios), why storing bytes "gamma
+encoded" uses the 256 levels better, the exact sRGB formulas (decode: v ≤ 0.04045 ? v/12.92 :
+((v+0.055)/1.055)^2.4 ; encode: l ≤ 0.0031308 ? 12.92 l : 1.055 l^(1/2.4) − 0.055) with worked numbers
+(128 → 0.2158 ≈ 22 %, promised in Ch 5 §5.5 and Ch 15 §15.5), the simple gamma 2.2 approximation,
+`std::pow` from <cmath>, a 256-entry lookup table for speed, **linear-light** blending (lerp in linear
+space vs. byte space: the dark band in the middle of a red→green gradient), true **luminance** vs luma
+(Ch 15 promised), and a test image: a checkerboard of 0/255 next to solid 128 and solid 188 (which matches
+when viewed from afar). Functions: `srgbToLinear(double)`, `linearToSrgb(double)`, `toLinear(ColourF)`,
+`fromLinear(ColourF)`, `lerpLinear`, `luminance(Colour)`.
 
 ## Chapters done
 
@@ -32,8 +34,10 @@ inserting lines into the middle of existing headers (that would break earlier li
 | 12 | part-02-first-image-files/ch12-reading-a-ppm-file.md | 6,544 | code/common/image.h (lines 91–213), code/ch12/read_ppm.cpp |
 | 13 | part-03-mathematics-of-colour/ch13-gradients-and-linear-interpolation.md | 6,571 | code/common/image.h (lines 215–232), code/ch13/gradients.cpp |
 | 14 | part-03-mathematics-of-colour/ch14-colours-as-vectors.md | 6,270 | code/common/colourf.h (new, 55 lines), code/ch14/colour_maths.cpp |
+| 15 | part-03-mathematics-of-colour/ch15-turning-colour-into-grey-luminance.md | 5,186 | code/common/grey.h (new, 51 lines), code/ch15/to_grey.cpp |
+| 16 | part-03-mathematics-of-colour/ch16-hue-saturation-value-hsv-hsl.md | 7,210 | code/common/hsv.h (new, 106 lines), code/ch16/hsv_hsl.cpp |
 
-**Parts 1 and 2 complete.** Part 3 in progress. Total so far: ~71,900 words.
+**Parts 1 and 2 complete.** Part 3 in progress. Total so far: ~84,300 words.
 
 ## The shared library: `code/common/image.h`
 
@@ -51,6 +55,13 @@ numbers are right. Free functions must be `inline`. Current contents:
 (scalar both sides, and colour×colour), `toColourF`, `toByte` (std::clamp + round), `toColour`, `length`.
 **Rule from Ch 14 on:** each new topic gets its own header that includes the previous ones, so existing
 line numbers never move. Append to the end of a header only when the topic really belongs there.
+
+`code/common/grey.h` (Ch 15, includes `colourf.h`): `luma` (Rec. 709 weights on gamma-encoded values —
+deliberately called *luma*, true luminance comes in Ch 17), `plainAverage`, `greyByte`, `toGrey`,
+`desaturate` (lerp toward own grey), `saveGreyPGM` (P5).
+
+`code/common/hsv.h` (Ch 16, includes `colourf.h`): `struct HSV {h,s,v}`, `struct HSL {h,s,l}` (h in
+degrees 0–360), `wrapHue`, `hueOf`, `rgbToHsv`, `rgbToHsl`, `hueToRgb`, `hsvToRgb`, `hslToRgb`, `shiftHue`.
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
 
