@@ -421,10 +421,7 @@ int main() {
 | 42 | `const std::vector<std::uint8_t>& pixels) {` | …so you can swap one for the other with no other change. |
 | 43 | `std::ofstream file(fileName, std::ios::binary);` | Open in **binary mode**. Here it is **required** (Section 9.5). |
 | 44–46 | `if (!file) { return false; }` | Stop if the file could not open. |
-| 47 | `file << "P6
-" << width << " " << height << "
-255
-";` | The text header: `P6`, new line, width, space, height, new line, `255`, and **exactly one** new line (Section 9.3). |
+| 47 | `file << "P6\n" << width << " " << height << "\n255\n";` | The text header: `P6`, new line, width, space, height, new line, `255`, and **exactly one** new line (Section 9.3). |
 | 48 | `file.write(reinterpret_cast<const char*>(pixels.data()),` | Write the **whole** pixel buffer in one go, starting at its first byte (Chapter 7, Section 7.6)… |
 | 49 | `static_cast<std::streamsize>(pixels.size()));` | …all `width × height × 3` bytes of it. |
 | 50 | `return static_cast<bool>(file);` | `true` if everything was written. |
@@ -442,12 +439,10 @@ int main() {
 | 84 | `ok = ok && writePPM_P3("gradient_p3.ppm", size, size, gradient);` | Save the gradient as P3. With `&&`, this only runs if `ok` is still `true`, and `ok` stays `true` only if this also works. |
 | 85 | `ok = ok && writePPM_P6("gradient_p6.ppm", size, size, gradient);` | Save the gradient as P6, the same way. |
 | 86 | `if (!ok) {` | If **any** of the three failed… |
-| 87 | `std::cout << "could not write the files
-";` | …say so… |
+| 87 | `std::cout << "could not write the files\n";` | …say so… |
 | 88 | `return 1;` | …and stop with "problem". |
 | 89 | `}` | End of the check. |
-| 91 | `std::cout << "first_binary.ppm: " << fileSize("first_binary.ppm") << " bytes
-";` | Print the size of the small P6 file. |
+| 91 | `std::cout << "first_binary.ppm: " << fileSize("first_binary.ppm") << " bytes\n";` | Print the size of the small P6 file. |
 | 92 | `std::cout << "gradient_p3.ppm:  " << ...` | Print the size of the P3 gradient. |
 | 93 | `std::cout << "gradient_p6.ppm:  " << ...` | Print the size of the P6 gradient. |
 | 94 | `return 0;` | The program finished with no problem. |
