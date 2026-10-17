@@ -4,16 +4,16 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 4, Chapter 21 — Lines, part 2: Bresenham's algorithm.**
-File: `part-04-drawing-shapes/ch21-lines-part-2-bresenham.md`, code in `code/ch21/`. Append the new functions
-to the END of `common/lines.h` (before `#endif`; lines.h is the line-drawing topic header, 43 lines now).
-It should cover: the decision idea (at each column, stay on the row or step one row), the error term
-(distance of the true line from the pixel centre), removing fractions by multiplying by dx (and by 2 for
-the 0.5 test), the integer recurrences err += 2·dy, err −= 2·dx, a full worked table for (0,0)→(5,2) and
-(0,0)→(2,6), handling all 8 octants with sx/sy = ±1 and the "both axes" form (err = dx − dy) that works
-in every direction with one loop, comparing pixels with DDA (identical or differing at .5 ties), skipping
-the last pixel for polylines (Ch 20 §20.6 promise), thick lines by drawing a small square per pixel,
-dashed lines (count steps), and a speed note. Images: the Ch 20 fan with Bresenham, dashed/thick lines.
+**Part 4, Chapter 23 — Ellipses.**
+File: `part-04-drawing-shapes/ch23-ellipses.md`, code in `code/ch23/` and a new `common/ellipses.h`
+(include `circles.h`).
+It should cover: an ellipse as a stretched circle (radii a and b), the equation (x/a)² + (y/b)² ≤ 1 and the
+integer form b²x² + a²y² ≤ a²b², filled ellipses with the pixel-centre test and bounding box (like
+fillCircle), four-way symmetry (not eight), the midpoint ellipse algorithm with its TWO regions (region 1
+where the slope is shallow: step x; region 2 where it is steep: step y; switch when 2b²x ≥ 2a²y), worked
+table for a = 6, b = 3, integer decision updates, use `long long` for a²b² products (overflow for big
+radii — Ch 12 promised long long), ellipse with a circle as a special case (a = b), and pictures: an eye,
+an egg, orbits. Rotated ellipses wait for Chapter 31.
 
 ## Chapters done
 
@@ -38,7 +38,7 @@ dashed lines (count steps), and a speed note. Images: the Ch 20 fan with Bresenh
 | 17 | part-03-mathematics-of-colour/ch17-gamma-and-srgb.md | 5,827 | code/common/srgb.h (new, 57 lines), code/ch17/gamma.cpp |
 | 18 | part-03-mathematics-of-colour/ch18-transparency-alpha-and-blending.md | 5,802 | code/common/alpha.h (new, 60 lines), code/ch18/alpha.cpp |
 
-**Parts 1, 2 and 3 complete.** Part 4 in progress. Total so far: ~108,000 words.
+**Parts 1, 2 and 3 complete.** Part 4 in progress. Total so far: ~122,100 words.
 
 ## The shared library: `code/common/image.h`
 
@@ -76,9 +76,15 @@ degrees 0–360), `wrapHue`, `hueOf`, `rgbToHsv`, `rgbToHsl`, `hueToRgb`, `hsvTo
 `fillRectAlpha`, `strokeRect` (inside, corners once; overlaps if 2t > side — Ch 19 P7 fix).
 
 `code/common/lines.h` (Ch 20, includes `draw.h`): `roundToInt` (floor(v+0.5)), `drawLineNaive`, `drawLineDDA`
-(both endpoints included).
+(both endpoints included). Ch 21 appended (lines 43–130, `#endif` on 132): `#include <vector>`, `struct Point`,
+`drawLineShallow` (teaching version, one octant), `drawLine(img, x0,y0,x1,y1, c, includeLast = true)` (general
+Bresenham — the default line function from now on), `linePoints`, `drawThickLine` (square brush),
+`drawDashedLine`.
 
-Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h}.
+`code/common/circles.h` (Ch 22, includes `lines.h`): `drawCircleNaive`, `plotEight`, `drawCircle` (midpoint,
+integer centre, width 2r+1), `fillCircle(img, cx, cy, r, c, alpha = 1.0)` (pixel-centre test, clipped box).
+
+Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h}.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.

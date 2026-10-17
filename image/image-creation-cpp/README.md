@@ -52,8 +52,8 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 |---|---|
 | 19 | [Pixels and rectangles](part-04-drawing-shapes/ch19-pixels-and-rectangles.md) |
 | 20 | [Lines, part 1: the slope and the DDA method](part-04-drawing-shapes/ch20-lines-part-1-slope-and-dda.md) |
-| 21 | Lines, part 2: Bresenham's algorithm |
-| 22 | Circles: the equation and the midpoint method |
+| 21 | [Lines, part 2: Bresenham's algorithm](part-04-drawing-shapes/ch21-lines-part-2-bresenham.md) |
+| 22 | [Circles: the equation and the midpoint method](part-04-drawing-shapes/ch22-circles-equation-and-midpoint.md) |
 | 23 | Ellipses |
 | 24 | Triangles and edge functions |
 | 25 | Filling shapes: scanline fill and flood fill |
