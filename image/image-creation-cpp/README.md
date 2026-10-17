@@ -28,19 +28,19 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 
 | Ch | Title | You will make |
 |---|---|---|
-| 7 | Writing files byte by byte | `bytes.bin` |
-| 8 | The PPM text format (P3) | `first.ppm` |
-| 9 | The PPM binary format (P6) | `first_binary.ppm` |
-| 10 | Grey and black-and-white images (PGM, PBM) | `grey.pgm`, `bw.pbm` |
-| 11 | Building an `Image` class | `image.h` |
-| 12 | Reading a PPM file back | a PPM reader |
+| 7 | [Writing files byte by byte](part-02-first-image-files/ch07-writing-files-byte-by-byte.md) | `bytes.bin` |
+| 8 | [The PPM text format (P3)](part-02-first-image-files/ch08-the-ppm-text-format-p3.md) | `first.ppm` |
+| 9 | [The PPM binary format (P6)](part-02-first-image-files/ch09-the-ppm-binary-format-p6.md) | `first_binary.ppm` |
+| 10 | [Grey and black-and-white images (PGM, PBM)](part-02-first-image-files/ch10-grey-and-black-white-pgm-pbm.md) | `grey.pgm`, `checker.pbm`, `disk.pbm` |
+| 11 | [Building an `Image` class](part-02-first-image-files/ch11-building-an-image-class.md) | `image.h` |
+| 12 | [Reading a PPM file back](part-02-first-image-files/ch12-reading-a-ppm-file.md) | a PPM reader |
 
 ## Part 3 — The Mathematics of Colour
 
 | Ch | Title |
 |---|---|
-| 13 | Gradients and linear interpolation |
-| 14 | Colours as vectors: add, scale, clamp |
+| 13 | [Gradients and linear interpolation](part-03-mathematics-of-colour/ch13-gradients-and-linear-interpolation.md) |
+| 14 | [Colours as vectors: add, scale, clamp](part-03-mathematics-of-colour/ch14-colours-as-vectors.md) |
 | 15 | Turning colour into grey: luminance |
 | 16 | Hue, saturation, value (HSV and HSL) |
 | 17 | Gamma and sRGB: why 128 is not half bright |

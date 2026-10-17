@@ -88,4 +88,147 @@ private:
     std::vector<std::uint8_t> pixels_;
 };
 
+inline bool readFileBytes(const std::string& fileName, std::vector<std::uint8_t>& bytes) {
+    std::ifstream file(fileName, std::ios::binary | std::ios::ate);
+    if (!file) {
+        return false;
+    }
+    const std::streamsize size = static_cast<std::streamsize>(file.tellg());
+    if (size < 0) {
+        return false;
+    }
+    file.seekg(0, std::ios::beg);
+    bytes.resize(size);
+    file.read(reinterpret_cast<char*>(bytes.data()), size);
+    return static_cast<bool>(file);
+}
+
+inline bool isSpace(std::uint8_t c) {
+    return c == ' ' || c == '\t' || c == '\n' || c == '\r';
+}
+
+inline void skipSpaceAndComments(const std::vector<std::uint8_t>& bytes, int& pos) {
+    const int n = static_cast<int>(bytes.size());
+    while (pos < n) {
+        if (isSpace(bytes[pos])) {
+            ++pos;
+        } else if (bytes[pos] == '#') {
+            while (pos < n && bytes[pos] != '\n') {
+                ++pos;
+            }
+        } else {
+            return;
+        }
+    }
+}
+
+inline bool readNumber(const std::vector<std::uint8_t>& bytes, int& pos, int& value) {
+    skipSpaceAndComments(bytes, pos);
+    const int n = static_cast<int>(bytes.size());
+    if (pos >= n || bytes[pos] < '0' || bytes[pos] > '9') {
+        return false;
+    }
+    value = 0;
+    while (pos < n && bytes[pos] >= '0' && bytes[pos] <= '9') {
+        value = value * 10 + (bytes[pos] - '0');
+        if (value > 1000000) {
+            return false;
+        }
+        ++pos;
+    }
+    return true;
+}
+
+inline std::uint8_t scaleToByte(int value, int maxval) {
+    if (value > maxval) {
+        value = maxval;
+    }
+    return static_cast<std::uint8_t>((value * 255 + maxval / 2) / maxval);
+}
+
+inline bool loadPPM(const std::string& fileName, Image& image) {
+    std::vector<std::uint8_t> bytes;
+    if (!readFileBytes(fileName, bytes) || bytes.size() < 2) {
+        return false;
+    }
+    if (bytes[0] != 'P' || (bytes[1] != '3' && bytes[1] != '6')) {
+        return false;
+    }
+    const bool binary = (bytes[1] == '6');
+    int pos = 2;
+    int width = 0;
+    int height = 0;
+    int maxval = 0;
+    if (!readNumber(bytes, pos, width) || !readNumber(bytes, pos, height) ||
+        !readNumber(bytes, pos, maxval)) {
+        return false;
+    }
+    if (width <= 0 || height <= 0 || maxval <= 0 || maxval > 255) {
+        return false;
+    }
+    if (static_cast<long long>(width) * height > 100000000LL) {
+        return false;
+    }
+
+    Image result(width, height);
+    if (binary) {
+        if (pos >= static_cast<int>(bytes.size()) || !isSpace(bytes[pos])) {
+            return false;
+        }
+        ++pos;
+        const long long needed = static_cast<long long>(width) * height * 3;
+        if (static_cast<long long>(bytes.size()) - pos < needed) {
+            return false;
+        }
+        for (int y = 0; y < height; ++y) {
+            for (int x = 0; x < width; ++x) {
+                Colour c{scaleToByte(bytes[pos], maxval),
+                         scaleToByte(bytes[pos + 1], maxval),
+                         scaleToByte(bytes[pos + 2], maxval)};
+                result.setPixel(x, y, c);
+                pos += 3;
+            }
+        }
+    } else {
+        for (int y = 0; y < height; ++y) {
+            for (int x = 0; x < width; ++x) {
+                int r = 0;
+                int g = 0;
+                int b = 0;
+                if (!readNumber(bytes, pos, r) || !readNumber(bytes, pos, g) ||
+                    !readNumber(bytes, pos, b)) {
+                    return false;
+                }
+                if (r > maxval || g > maxval || b > maxval) {
+                    return false;
+                }
+                result.setPixel(x, y, Colour{scaleToByte(r, maxval),
+                                             scaleToByte(g, maxval),
+                                             scaleToByte(b, maxval)});
+            }
+        }
+    }
+    image = result;
+    return true;
+}
+
+inline double lerp(double a, double b, double t) {
+    return a + (b - a) * t;
+}
+
+inline std::uint8_t lerpByte(std::uint8_t a, std::uint8_t b, double t) {
+    double v = lerp(a, b, t);
+    if (v < 0.0) {
+        v = 0.0;
+    }
+    if (v > 255.0) {
+        v = 255.0;
+    }
+    return static_cast<std::uint8_t>(v + 0.5);
+}
+
+inline Colour lerpColour(Colour a, Colour b, double t) {
+    return Colour{lerpByte(a.r, b.r, t), lerpByte(a.g, b.g, t), lerpByte(a.b, b.b, t)};
+}
+
 #endif
