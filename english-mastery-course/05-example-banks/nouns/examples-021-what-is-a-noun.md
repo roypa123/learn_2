@@ -22,10 +22,10 @@
 | [Part 14](examples-021-what-is-a-noun-part-14.md) | EX-021-651 – 700 | travel & transport | ✅ written (21-step) |
 | [Part 15](examples-021-what-is-a-noun-part-15.md) | EX-021-701 – 750 | city & places | ✅ written (21-step) |
 | [Part 16](examples-021-what-is-a-noun-part-16.md) | EX-021-751 – 800 | city & places | ✅ written (21-step) |
-| Part 17 | EX-021-801 – 850 | health & body | ⬜ to do |
-| Part 18 | EX-021-851 – 900 | health & body | ⬜ to do |
-| Part 19 | EX-021-901 – 950 | sports & free time | ⬜ to do |
-| Part 20 | EX-021-951 – 1000 | sports & free time | ⬜ to do |
+| [Part 17](examples-021-what-is-a-noun-part-17.md) | EX-021-801 – 850 | health & body | ✅ written (21-step) |
+| [Part 18](examples-021-what-is-a-noun-part-18.md) | EX-021-851 – 900 | health & body | ✅ written (21-step) |
+| [Part 19](examples-021-what-is-a-noun-part-19.md) | EX-021-901 – 950 | sports & free time | ✅ written (21-step) |
+| [Part 20](examples-021-what-is-a-noun-part-20.md) | EX-021-951 – 1000 | sports & free time | ✅ written (21-step) |
 | Part 21 | EX-021-1001 – 1050 | nature & weather | ⬜ to do |
 | Part 22 | EX-021-1051 – 1100 | nature & weather | ⬜ to do |
 | Part 23 | EX-021-1101 – 1150 | animals | ⬜ to do |
@@ -47,4 +47,4 @@
 | Part 39 | EX-021-1901 – 1950 | stories | ⬜ to do |
 | Part 40 | EX-021-1951 – 2000 | mixed review & tricky cases | ⬜ to do |
 
-**Progress:** **800 of 2,000** fully explained (12 in the lesson + 788 in parts 01–16).
+**Progress:** **1000 of 2,000** fully explained (12 in the lesson + 988 in parts 01–20).
