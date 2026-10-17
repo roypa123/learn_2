@@ -59,16 +59,16 @@ Target lowered to **400** on 2026-10-17. Each topic = lesson (12) + **8 bank par
 | Topic | Index | Full 21-step examples | Parts done |
 |---|---|---|---|
 | L-021 What is a noun? | [index](05-example-banks/nouns/examples-021-what-is-a-noun.md) | ✅ **1150** (target 400 — built under the old 2,000 target) | 23 (complete) |
-| L-022 Common & proper nouns | [index](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) | 100 / 400 | 2 / 8 |
+| L-022 Common & proper nouns | [index](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) | 250 / 400 | 5 / 8 |
 | L-023 Singular & plural | [bank](05-example-banks/nouns/examples-023-singular-and-plural-nouns.md) | 12 / 400 | 0 / 8 |
 | L-024 Plural spelling | [bank](05-example-banks/nouns/examples-024-plural-spelling-rules.md) | 12 / 400 | 0 / 8 |
 | L-025 Irregular plurals | [bank](05-example-banks/nouns/examples-025-irregular-plurals.md) | 12 / 400 | 0 / 8 |
 | L-026 Countable / uncountable | [bank](05-example-banks/nouns/examples-026-countable-and-uncountable-nouns.md) | 12 / 400 | 0 / 8 |
 | L-027 Subject pronouns | [bank](05-example-banks/pronouns/examples-027-subject-pronouns.md) | 12 / 400 | 0 / 8 |
 | L-028 Object pronouns | [bank](05-example-banks/pronouns/examples-028-object-pronouns.md) | 12 / 400 | 0 / 8 |
-| **Remaining** | | **L-022 – L-028: 172 / 2,800** | **2 / 56** |
+| **Remaining** | | **L-022 – L-028: 322 / 2,800** | **5 / 56** |
 
-**Honest pace estimate:** one part (50 full examples) is about one large response; 54 parts remain for L-022 – L-028 (roughly 28–56 "continue" steps). After that, new lessons (L-029 onward) each need 12 + 8 parts.
+**Honest pace estimate:** one part (50 full examples) is about one large response; 51 parts remain for L-022 – L-028 (roughly 28–56 "continue" steps). After that, new lessons (L-029 onward) each need 12 + 8 parts.
 
 **Order of work:** L-022 parts 01 → 08, then L-023, L-024 … L-028.
 
@@ -96,7 +96,7 @@ Note: the planned separate `exercise-002` (L-011–020) was merged into **test-0
 | Item | Done | Planned |
 |---|---|---|
 | Lessons | 28 | ~420 |
-| Explained examples | 70 Level 0 + 800 Level 1 (of which **1322 in full 21-step form**) | **400 per topic** (≈ 170,000 total for ~420 lessons) |
+| Explained examples | 70 Level 0 + 800 Level 1 (of which **1472 in full 21-step form**) | **400 per topic** (≈ 170,000 total for ~420 lessons) |
 | Integrated examples (IX) | 0 | 10,000+ |
 | Combinations (C) | 0 | ~250 |
 | Stories (S) | 1 | ~120 |
@@ -108,7 +108,7 @@ Note: the planned separate `exercise-002` (L-011–020) was merged into **test-0
 
 ## 5. Next batch
 
-1. `05-example-banks/nouns/examples-022-common-and-proper-nouns-part-03.md` — EX-022-101 – 150 (theme: see the part table in the [L-022 index](05-example-banks/nouns/examples-022-common-and-proper-nouns.md)).
+1. `05-example-banks/nouns/examples-022-common-and-proper-nouns-part-06.md` — EX-022-251 – 300 (theme: see the part table in the [L-022 index](05-example-banks/nouns/examples-022-common-and-proper-nouns.md)).
 2. Then part 02, and so on — as many parts as fit.
 3. After each part: update the L-022 index table, the tracker above, EXAMPLE_CATALOG.
 
