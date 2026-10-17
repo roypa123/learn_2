@@ -123,10 +123,10 @@ No field is left out. If a field truly has nothing (for example, no helping verb
 
 ## 7. Example production strategy
 
-- **Target (updated 2026-10-15 at the learner's request): 2,000 examples for every topic/concept** (Level 1 onward) and for every important combination; **10,000+ integrated examples** across the course.
+- **Target (updated 2026-10-17 at the learner's request): 400 examples for every topic/concept** (Level 1 onward; it was 2,000 from 2026-10-15 to 2026-10-17 — L-021 was built under that target and has 1,150) and for every important combination; **10,000+ integrated examples** across the course.
 - **Every example is fully explained, using all 21 steps of the ordered template below, always in the same order.** No short or one-line explanations. The learner may have forgotten everything, so each example must teach the whole sentence by itself.
 - **Storage:** the lesson file holds EX-001–012. Banks hold the rest in **parts of 50**:
-  - part 01 = EX-013–050 · part 02 = EX-051–100 · part 03 = EX-101–150 · … · part 40 = EX-1951–2000
+  - part 01 = EX-013–050 · part 02 = EX-051–100 · part 03 = EX-101–150 · … · part 08 = EX-351–400
   - file name: `05-example-banks/<unit>/examples-<lesson>-<slug>-part-NN.md`
 - **Themes** (so examples are genuinely different, never the same sentence with a new name): home & family · school & study · work & jobs · shopping & money · food & restaurants · travel & transport · city & places · health & body · sports & free time · nature, animals & weather · technology & media · feelings & relationships · ideas & opinions · formal writing · conversations · stories · tricky cases.
 - Inside each part, examples follow the difficulty ladder:

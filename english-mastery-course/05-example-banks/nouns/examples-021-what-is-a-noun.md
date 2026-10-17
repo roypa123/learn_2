@@ -2,7 +2,7 @@
 
 **Lesson:** [L-021 — What Is a Noun?](../../01-beginner-grammar/nouns/lesson-021-what-is-a-noun.md) (EX-021-001 – 012 are in the lesson)
 
-**Target:** 2,000 examples. **Every example is fully explained in 21 steps, always in the same order** (see [MASTER_PLAN §7](../../MASTER_PLAN.md)).
+**Target:** 400 examples per topic (lowered from 2,000 on 2026-10-17). **L-021 is complete with 1,150** — more than the target, because it was written while the target was 2,000. **Every example is fully explained in 21 steps, always in the same order** (see [MASTER_PLAN §7](../../MASTER_PLAN.md)).
 
 | Part | Examples | Theme | Status |
 |---|---|---|---|
@@ -28,23 +28,6 @@
 | [Part 20](examples-021-what-is-a-noun-part-20.md) | EX-021-951 – 1000 | sports & free time | ✅ written (21-step) |
 | [Part 21](examples-021-what-is-a-noun-part-21.md) | EX-021-1001 – 1050 | nature & weather | ✅ written (21-step) |
 | [Part 22](examples-021-what-is-a-noun-part-22.md) | EX-021-1051 – 1100 | nature & weather | ✅ written (21-step) |
-| Part 23 | EX-021-1101 – 1150 | animals | ⬜ to do |
-| Part 24 | EX-021-1151 – 1200 | animals | ⬜ to do |
-| Part 25 | EX-021-1201 – 1250 | technology & media | ⬜ to do |
-| Part 26 | EX-021-1251 – 1300 | technology & media | ⬜ to do |
-| Part 27 | EX-021-1301 – 1350 | feelings & relationships | ⬜ to do |
-| Part 28 | EX-021-1351 – 1400 | feelings & relationships | ⬜ to do |
-| Part 29 | EX-021-1401 – 1450 | ideas & opinions (abstract nouns) | ⬜ to do |
-| Part 30 | EX-021-1451 – 1500 | ideas & opinions (abstract nouns) | ⬜ to do |
-| Part 31 | EX-021-1501 – 1550 | noun phrases & head nouns | ⬜ to do |
-| Part 32 | EX-021-1551 – 1600 | noun phrases & head nouns | ⬜ to do |
-| Part 33 | EX-021-1601 – 1650 | noun or verb? | ⬜ to do |
-| Part 34 | EX-021-1651 – 1700 | noun or verb? | ⬜ to do |
-| Part 35 | EX-021-1701 – 1750 | formal writing | ⬜ to do |
-| Part 36 | EX-021-1751 – 1800 | conversations | ⬜ to do |
-| Part 37 | EX-021-1801 – 1850 | conversations | ⬜ to do |
-| Part 38 | EX-021-1851 – 1900 | stories | ⬜ to do |
-| Part 39 | EX-021-1901 – 1950 | stories | ⬜ to do |
-| Part 40 | EX-021-1951 – 2000 | mixed review & tricky cases | ⬜ to do |
+| [Part 23](examples-021-what-is-a-noun-part-23.md) | EX-021-1101 – 1150 | animals | ✅ written (21-step) |
 
-**Progress:** **1100 of 2,000** fully explained (12 in the lesson + 1088 in parts 01–22).
+**Progress:** ✅ **1,150 fully explained** (12 in the lesson + 1,138 in parts 01–23). Parts 24–40 are no longer planned.

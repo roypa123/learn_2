@@ -4,7 +4,7 @@
 
 ⬅️ [Lesson 021](lesson-021-what-is-a-noun.md) · ➡️ [Lesson 023](lesson-023-singular-and-plural-nouns.md)
 
-**Example bank:** [examples-022 (EX-022-013 to EX-022-100)](../../05-example-banks/nouns/examples-022-common-and-proper-nouns.md) · **Practice:** [exercise-003](../../11-exercises-and-tests/beginner/exercise-003-nouns-021-022.md) (Part B)
+**Example bank:** [examples-022 (EX-022-013 to EX-022-400, in 8 parts)](../../05-example-banks/nouns/examples-022-common-and-proper-nouns.md) · **Practice:** [exercise-003](../../11-exercises-and-tests/beginner/exercise-003-nouns-021-022.md) (Part B)
 
 ---
 
@@ -325,7 +325,7 @@ Exceptions: *the Smiths* (the Smith family), *There are two Annas in my class* (
 - **Wrong:** ❌ *It's my favourite Book.*
 - **Quick check:** Write the title of your favourite film with correct capitals.
 
-➡️ **88 more examples** (EX-022-013 to EX-022-100): [examples-022](../../05-example-banks/nouns/examples-022-common-and-proper-nouns.md)
+➡️ **388 more examples** (EX-022-013 to EX-022-400, fully explained, in 8 parts): [examples-022](../../05-example-banks/nouns/examples-022-common-and-proper-nouns.md)
 
 ---
 
