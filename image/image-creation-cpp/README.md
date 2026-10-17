@@ -43,15 +43,15 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 14 | [Colours as vectors: add, scale, clamp](part-03-mathematics-of-colour/ch14-colours-as-vectors.md) |
 | 15 | [Turning colour into grey: luminance](part-03-mathematics-of-colour/ch15-turning-colour-into-grey-luminance.md) |
 | 16 | [Hue, saturation, value (HSV and HSL)](part-03-mathematics-of-colour/ch16-hue-saturation-value-hsv-hsl.md) |
-| 17 | Gamma and sRGB: why 128 is not half bright |
-| 18 | Transparency: alpha and blending |
+| 17 | [Gamma and sRGB: why 128 is not half bright](part-03-mathematics-of-colour/ch17-gamma-and-srgb.md) |
+| 18 | [Transparency: alpha and blending](part-03-mathematics-of-colour/ch18-transparency-alpha-and-blending.md) |
 
 ## Part 4 — Drawing Shapes
 
 | Ch | Title |
 |---|---|
-| 19 | Pixels and rectangles |
-| 20 | Lines, part 1: the slope and the DDA method |
+| 19 | [Pixels and rectangles](part-04-drawing-shapes/ch19-pixels-and-rectangles.md) |
+| 20 | [Lines, part 1: the slope and the DDA method](part-04-drawing-shapes/ch20-lines-part-1-slope-and-dda.md) |
 | 21 | Lines, part 2: Bresenham's algorithm |
 | 22 | Circles: the equation and the midpoint method |
 | 23 | Ellipses |

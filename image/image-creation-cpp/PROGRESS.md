@@ -4,17 +4,16 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 3, Chapter 17 — Gamma and sRGB: why 128 is not half bright.**
-File: `part-03-mathematics-of-colour/ch17-gamma-and-srgb.md`, code in `code/ch17/` and a new `common/srgb.h`.
-It should cover: the eye's non-linear response (Weber-like: we notice ratios), why storing bytes "gamma
-encoded" uses the 256 levels better, the exact sRGB formulas (decode: v ≤ 0.04045 ? v/12.92 :
-((v+0.055)/1.055)^2.4 ; encode: l ≤ 0.0031308 ? 12.92 l : 1.055 l^(1/2.4) − 0.055) with worked numbers
-(128 → 0.2158 ≈ 22 %, promised in Ch 5 §5.5 and Ch 15 §15.5), the simple gamma 2.2 approximation,
-`std::pow` from <cmath>, a 256-entry lookup table for speed, **linear-light** blending (lerp in linear
-space vs. byte space: the dark band in the middle of a red→green gradient), true **luminance** vs luma
-(Ch 15 promised), and a test image: a checkerboard of 0/255 next to solid 128 and solid 188 (which matches
-when viewed from afar). Functions: `srgbToLinear(double)`, `linearToSrgb(double)`, `toLinear(ColourF)`,
-`fromLinear(ColourF)`, `lerpLinear`, `luminance(Colour)`.
+**Part 4, Chapter 21 — Lines, part 2: Bresenham's algorithm.**
+File: `part-04-drawing-shapes/ch21-lines-part-2-bresenham.md`, code in `code/ch21/`. Append the new functions
+to the END of `common/lines.h` (before `#endif`; lines.h is the line-drawing topic header, 43 lines now).
+It should cover: the decision idea (at each column, stay on the row or step one row), the error term
+(distance of the true line from the pixel centre), removing fractions by multiplying by dx (and by 2 for
+the 0.5 test), the integer recurrences err += 2·dy, err −= 2·dx, a full worked table for (0,0)→(5,2) and
+(0,0)→(2,6), handling all 8 octants with sx/sy = ±1 and the "both axes" form (err = dx − dy) that works
+in every direction with one loop, comparing pixels with DDA (identical or differing at .5 ties), skipping
+the last pixel for polylines (Ch 20 §20.6 promise), thick lines by drawing a small square per pixel,
+dashed lines (count steps), and a speed note. Images: the Ch 20 fan with Bresenham, dashed/thick lines.
 
 ## Chapters done
 
@@ -36,8 +35,10 @@ when viewed from afar). Functions: `srgbToLinear(double)`, `linearToSrgb(double)
 | 14 | part-03-mathematics-of-colour/ch14-colours-as-vectors.md | 6,270 | code/common/colourf.h (new, 55 lines), code/ch14/colour_maths.cpp |
 | 15 | part-03-mathematics-of-colour/ch15-turning-colour-into-grey-luminance.md | 5,186 | code/common/grey.h (new, 51 lines), code/ch15/to_grey.cpp |
 | 16 | part-03-mathematics-of-colour/ch16-hue-saturation-value-hsv-hsl.md | 7,210 | code/common/hsv.h (new, 106 lines), code/ch16/hsv_hsl.cpp |
+| 17 | part-03-mathematics-of-colour/ch17-gamma-and-srgb.md | 5,827 | code/common/srgb.h (new, 57 lines), code/ch17/gamma.cpp |
+| 18 | part-03-mathematics-of-colour/ch18-transparency-alpha-and-blending.md | 5,802 | code/common/alpha.h (new, 60 lines), code/ch18/alpha.cpp |
 
-**Parts 1 and 2 complete.** Part 3 in progress. Total so far: ~84,300 words.
+**Parts 1, 2 and 3 complete.** Part 4 in progress. Total so far: ~108,000 words.
 
 ## The shared library: `code/common/image.h`
 
@@ -63,6 +64,23 @@ deliberately called *luma*, true luminance comes in Ch 17), `plainAverage`, `gre
 `code/common/hsv.h` (Ch 16, includes `colourf.h`): `struct HSV {h,s,v}`, `struct HSL {h,s,l}` (h in
 degrees 0–360), `wrapHue`, `hueOf`, `rgbToHsv`, `rgbToHsl`, `hueToRgb`, `hsvToRgb`, `hslToRgb`, `shiftHue`.
 
+`code/common/srgb.h` (Ch 17, includes `colourf.h`): `srgbToLinear`, `linearToSrgb` (clamps), `makeLinearTable`,
+`linearTable` (static 256-entry table), `toLinear(Colour)`, `fromLinear(ColourF)`, `lerpLinear`, `luminance` (true, linear).
+
+`code/common/alpha.h` (Ch 18, includes `srgb.h`): `struct ColourFA {r,g,b,a}`, `withAlpha`, `overStraight`,
+`premultiply`, `unpremultiply`, `overPremultiplied`, `blendOver(dst, src, alpha)` (linear light, dst first!),
+`blendPixel(Image&, x, y, src, alpha)`.
+
+`code/common/draw.h` (Ch 19, includes `alpha.h`): `struct Rect {x0,y0,x1,y1}` (half-open), `fromCorners`,
+`makeRect`, `rectWidth`, `rectHeight`, `isEmpty`, `contains`, `intersect`, `clipToImage`, `fillRect`,
+`fillRectAlpha`, `strokeRect` (inside, corners once; overlaps if 2t > side — Ch 19 P7 fix).
+
+`code/common/lines.h` (Ch 20, includes `draw.h`): `roundToInt` (floor(v+0.5)), `drawLineNaive`, `drawLineDDA`
+(both endpoints included).
+
+Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h}.
+Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
+
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
 
 ## Ideas and promises already made to the reader (keep them!)
@@ -71,7 +89,8 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 
 - (Ch 13 and 14 delivered: rounding with floor, graphs, any-width gradients, clamping, overflow.)
 - Ch 20: line drawing fills the gaps in the Ch 13 graph of y = x².
-- Ch 27 / 50: averages of many colours (Ch 14 §14.9).
+- Ch 27 / 35 / 50: averages of many colours (Ch 14 §14.9) — do them in **linear light** (Ch 17 Ex 1) and with premultiplied alpha (Ch 18 §18.6); alpha = coverage (Ch 18 §18.2).
+- Ch 42: PNG with RGBA to really store transparency (Ch 18 §18.8). Ch 67: painter's algorithm (Ch 18 §18.4). Ch 80: fades (Ch 18 Ex 3).
 - Ch 47: invert via remap backwards (Ch 13 Ex 4); Ch 68/73: lighting = colour × colour (Ch 14 §14.5).
 - Ch 15: turning colour into grey (PGM output).
 - Ch 17: why (128,128,128) is only ~22 % of white's light (gamma).
