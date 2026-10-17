@@ -54,8 +54,8 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 20 | [Lines, part 1: the slope and the DDA method](part-04-drawing-shapes/ch20-lines-part-1-slope-and-dda.md) |
 | 21 | [Lines, part 2: Bresenham's algorithm](part-04-drawing-shapes/ch21-lines-part-2-bresenham.md) |
 | 22 | [Circles: the equation and the midpoint method](part-04-drawing-shapes/ch22-circles-equation-and-midpoint.md) |
-| 23 | Ellipses |
-| 24 | Triangles and edge functions |
+| 23 | [Ellipses](part-04-drawing-shapes/ch23-ellipses.md) |
+| 24 | [Triangles and edge functions](part-04-drawing-shapes/ch24-triangles-and-edge-functions.md) |
 | 25 | Filling shapes: scanline fill and flood fill |
 | 26 | Barycentric coordinates: colouring inside a triangle |
 | 27 | Smooth edges, part 1: supersampling |
