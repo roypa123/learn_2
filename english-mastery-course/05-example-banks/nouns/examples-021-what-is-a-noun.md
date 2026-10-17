@@ -20,8 +20,8 @@
 | [Part 12](examples-021-what-is-a-noun-part-12.md) | EX-021-551 – 600 | food & restaurants | ✅ written (21-step) |
 | [Part 13](examples-021-what-is-a-noun-part-13.md) | EX-021-601 – 650 | travel & transport | ✅ written (21-step) |
 | [Part 14](examples-021-what-is-a-noun-part-14.md) | EX-021-651 – 700 | travel & transport | ✅ written (21-step) |
-| Part 15 | EX-021-701 – 750 | city & places | ⬜ to do |
-| Part 16 | EX-021-751 – 800 | city & places | ⬜ to do |
+| [Part 15](examples-021-what-is-a-noun-part-15.md) | EX-021-701 – 750 | city & places | ✅ written (21-step) |
+| [Part 16](examples-021-what-is-a-noun-part-16.md) | EX-021-751 – 800 | city & places | ✅ written (21-step) |
 | Part 17 | EX-021-801 – 850 | health & body | ⬜ to do |
 | Part 18 | EX-021-851 – 900 | health & body | ⬜ to do |
 | Part 19 | EX-021-901 – 950 | sports & free time | ⬜ to do |
@@ -47,4 +47,4 @@
 | Part 39 | EX-021-1901 – 1950 | stories | ⬜ to do |
 | Part 40 | EX-021-1951 – 2000 | mixed review & tricky cases | ⬜ to do |
 
-**Progress:** **700 of 2,000** fully explained (12 in the lesson + 688 in parts 01–14).
+**Progress:** **800 of 2,000** fully explained (12 in the lesson + 788 in parts 01–16).

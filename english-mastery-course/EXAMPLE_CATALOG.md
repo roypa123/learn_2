@@ -9,7 +9,7 @@ Format: `EX-<lesson>-<number>` (lesson examples) · `IX-#####` (integrated, cros
 | Area | Examples explained in full | Target | Status |
 |---|---|---|---|
 | Level 0 (L-001–L-020) | 70 | ~70 | ✅ |
-| Level 1 grammar topics | 800 written (784 in full 21-step form) | **2,000 per topic, all 21-step** | 🟡 expanding (L-021: 700 / 2,000) |
+| Level 1 grammar topics | 800 written (884 in full 21-step form) | **2,000 per topic, all 21-step** | 🟡 expanding (L-021: 800 / 2,000) |
 | Combinations | 0 | 100 per combination | ⬜ |
 | Integrated examples | 0 | 10,000+ | ⬜ |
 
@@ -109,6 +109,8 @@ Full-template examples are listed one by one. Bank examples are listed by range 
 | EX-021-011 | Where is the nearest hospital? | noun phrase in wh-question | L-021 |
 | EX-021-012 | Time is money. | general abstract nouns | L-021 |
 | EX-021-013 – 050 | (38 examples, full 21-step) | everyday life | [part 01](05-example-banks/nouns/examples-021-what-is-a-noun-part-01.md) |
+| EX-021-751 – 800 | (50 examples, full 21-step) | see part | [part 16](05-example-banks/nouns/examples-021-what-is-a-noun-part-16.md) |
+| EX-021-701 – 750 | (50 examples, full 21-step) | see part | [part 15](05-example-banks/nouns/examples-021-what-is-a-noun-part-15.md) |
 | EX-021-651 – 700 | (50 examples, full 21-step) | see part | [part 14](05-example-banks/nouns/examples-021-what-is-a-noun-part-14.md) |
 | EX-021-601 – 650 | (50 examples, full 21-step) | see part | [part 13](05-example-banks/nouns/examples-021-what-is-a-noun-part-13.md) |
 | EX-021-551 – 600 | (50 examples, full 21-step) | see part | [part 12](05-example-banks/nouns/examples-021-what-is-a-noun-part-12.md) |
