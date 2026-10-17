@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-10-17 · **Batch:** 9 (expansion phase)
 
-> Honest status: **Level 0 is complete.** In Level 1, L-021 – L-028 are written with 100 examples each — **but on 2026-10-15 the target changed to 2,000 fully explained (21-step) examples per topic.** So L-021 – L-028 are now **🟡 in expansion**. Current: L-021 has **1000 / 2,000** fully explained examples; L-022 – L-028 have 12 / 2,000 fully explained (+ 88 shorter drafts each). No new lessons will be written until L-021 – L-028 reach 2,000.
+> Honest status: **Level 0 is complete.** In Level 1, L-021 – L-028 are written with 100 examples each — **but on 2026-10-15 the target changed to 2,000 fully explained (21-step) examples per topic.** So L-021 – L-028 are now **🟡 in expansion**. Current: L-021 has **1100 / 2,000** fully explained examples; L-022 – L-028 have 12 / 2,000 fully explained (+ 88 shorter drafts each). No new lessons will be written until L-021 – L-028 reach 2,000.
 
 ---
 
@@ -58,7 +58,7 @@ Each topic = lesson (12) + **40 bank parts of 50** (part 01 = 013–050). Every 
 
 | Topic | Index | Full 21-step examples | Short drafts still to rewrite | Parts done |
 |---|---|---|---|---|
-| L-021 What is a noun? | [index](05-example-banks/nouns/examples-021-what-is-a-noun.md) | **1000** / 2,000 | — | 20 / 40 |
+| L-021 What is a noun? | [index](05-example-banks/nouns/examples-021-what-is-a-noun.md) | **1100** / 2,000 | — | 22 / 40 |
 | L-022 Common & proper nouns | [bank](05-example-banks/nouns/examples-022-common-and-proper-nouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
 | L-023 Singular & plural | [bank](05-example-banks/nouns/examples-023-singular-and-plural-nouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
 | L-024 Plural spelling | [bank](05-example-banks/nouns/examples-024-plural-spelling-rules.md) | 12 / 2,000 | 013–100 | 0 / 40 |
@@ -66,9 +66,9 @@ Each topic = lesson (12) + **40 bank parts of 50** (part 01 = 013–050). Every 
 | L-026 Countable / uncountable | [bank](05-example-banks/nouns/examples-026-countable-and-uncountable-nouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
 | L-027 Subject pronouns | [bank](05-example-banks/pronouns/examples-027-subject-pronouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
 | L-028 Object pronouns | [bank](05-example-banks/pronouns/examples-028-object-pronouns.md) | 12 / 2,000 | 013–100 | 0 / 40 |
-| **Total** | | **1084 / 16,000** | | **20 / 320** |
+| **Total** | | **1184 / 16,000** | | **22 / 320** |
 
-**Honest pace estimate:** one part (50 full examples) is about one large response. 300 parts remain for these 8 topics, so the expansion will take **many sessions** (roughly 100–300 "continue" steps, depending on how many parts fit per step). After that, every new topic (≈ 400 topics in the curriculum) needs the same 40 parts.
+**Honest pace estimate:** one part (50 full examples) is about one large response. 298 parts remain for these 8 topics, so the expansion will take **many sessions** (roughly 100–300 "continue" steps, depending on how many parts fit per step). After that, every new topic (≈ 400 topics in the curriculum) needs the same 40 parts.
 
 **Order of work:** L-021 parts 02 → 40, then L-022, L-023 … L-028.
 
@@ -96,7 +96,7 @@ Note: the planned separate `exercise-002` (L-011–020) was merged into **test-0
 | Item | Done | Planned |
 |---|---|---|
 | Lessons | 28 | ~420 |
-| Explained examples | 70 Level 0 + 800 Level 1 (of which **1084 in full 21-step form**) | **2,000 per topic** (≈ 800,000+ total) |
+| Explained examples | 70 Level 0 + 800 Level 1 (of which **1184 in full 21-step form**) | **2,000 per topic** (≈ 800,000+ total) |
 | Integrated examples (IX) | 0 | 10,000+ |
 | Combinations (C) | 0 | ~250 |
 | Stories (S) | 1 | ~120 |
@@ -108,8 +108,8 @@ Note: the planned separate `exercise-002` (L-011–020) was merged into **test-0
 
 ## 5. Next batch
 
-1. `05-example-banks/nouns/examples-021-what-is-a-noun-part-21.md` — EX-021-1001 – 1050 (theme: see the part table in the [L-021 index](05-example-banks/nouns/examples-021-what-is-a-noun.md)).
-2. Then part 22, and so on — as many parts as fit.
+1. `05-example-banks/nouns/examples-021-what-is-a-noun-part-23.md` — EX-021-1101 – 1150 (theme: see the part table in the [L-021 index](05-example-banks/nouns/examples-021-what-is-a-noun.md)).
+2. Then part 24, and so on — as many parts as fit.
 3. After each part: update the L-021 index table, the tracker above, EXAMPLE_CATALOG totals.
 
 (The *be* lessons L-029 – L-031 and flashcards-006 are **paused** until L-021 – L-028 reach 2,000.)

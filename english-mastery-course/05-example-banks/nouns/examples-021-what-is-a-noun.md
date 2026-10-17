@@ -26,8 +26,8 @@
 | [Part 18](examples-021-what-is-a-noun-part-18.md) | EX-021-851 – 900 | health & body | ✅ written (21-step) |
 | [Part 19](examples-021-what-is-a-noun-part-19.md) | EX-021-901 – 950 | sports & free time | ✅ written (21-step) |
 | [Part 20](examples-021-what-is-a-noun-part-20.md) | EX-021-951 – 1000 | sports & free time | ✅ written (21-step) |
-| Part 21 | EX-021-1001 – 1050 | nature & weather | ⬜ to do |
-| Part 22 | EX-021-1051 – 1100 | nature & weather | ⬜ to do |
+| [Part 21](examples-021-what-is-a-noun-part-21.md) | EX-021-1001 – 1050 | nature & weather | ✅ written (21-step) |
+| [Part 22](examples-021-what-is-a-noun-part-22.md) | EX-021-1051 – 1100 | nature & weather | ✅ written (21-step) |
 | Part 23 | EX-021-1101 – 1150 | animals | ⬜ to do |
 | Part 24 | EX-021-1151 – 1200 | animals | ⬜ to do |
 | Part 25 | EX-021-1201 – 1250 | technology & media | ⬜ to do |
@@ -47,4 +47,4 @@
 | Part 39 | EX-021-1901 – 1950 | stories | ⬜ to do |
 | Part 40 | EX-021-1951 – 2000 | mixed review & tricky cases | ⬜ to do |
 
-**Progress:** **1000 of 2,000** fully explained (12 in the lesson + 988 in parts 01–20).
+**Progress:** **1100 of 2,000** fully explained (12 in the lesson + 1088 in parts 01–22).
