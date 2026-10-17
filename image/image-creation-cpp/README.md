@@ -56,8 +56,8 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 22 | [Circles: the equation and the midpoint method](part-04-drawing-shapes/ch22-circles-equation-and-midpoint.md) |
 | 23 | [Ellipses](part-04-drawing-shapes/ch23-ellipses.md) |
 | 24 | [Triangles and edge functions](part-04-drawing-shapes/ch24-triangles-and-edge-functions.md) |
-| 25 | Filling shapes: scanline fill and flood fill |
-| 26 | Barycentric coordinates: colouring inside a triangle |
+| 25 | [Filling shapes: scanline fill and flood fill](part-04-drawing-shapes/ch25-filling-shapes-scanline-and-flood-fill.md) |
+| 26 | [Barycentric coordinates: colouring inside a triangle](part-04-drawing-shapes/ch26-barycentric-coordinates.md) |
 | 27 | Smooth edges, part 1: supersampling |
 | 28 | Smooth edges, part 2: Wu's lines and coverage |
 

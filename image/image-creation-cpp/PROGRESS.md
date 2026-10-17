@@ -4,20 +4,20 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 4, Chapter 25 — Filling shapes: scanline fill and flood fill.**
-File: `part-04-drawing-shapes/ch25-filling-shapes-scanline-and-flood-fill.md`, code in `code/ch25/` and a new
-`common/fill.h` (include `triangles.h`; use `PointF` from Ch 24).
-It should cover: why the Ch 24 fan fails for shapes with dents (Ch 24 P7 arrow-head), the even-odd idea
-(a ray from a point crosses the edge an odd number of times → inside), scanline polygon fill (for each row,
-at the pixel-centre y + 0.5 find where each edge crosses, sort the crossings, fill between pairs; half-open
-rule for edge end points so vertices are not counted twice: include y0 ≤ y < y1 on each edge), the even-odd
-vs non-zero winding rule (a star drawn as 5 points in "skip one" order: even-odd leaves the middle empty,
-non-zero fills it), a star WITHOUT sin/cos (give the 10 corners as numbers, or build it from a pentagon
-computed with known constants — sin/cos come in Ch 30), the letter shapes / a polygon with a hole;
-flood fill (the paint bucket): 4-neighbours vs 8-neighbours (promised in Ch 10/Ch 3), recursion danger
-(stack overflow — explain), an explicit stack with std::vector, a worked small grid, scanline flood fill
-as a faster idea; masks (a std::vector<bool> or Image used as a mask — promised in Ch 25 from earlier
-chapters). Pictures: a star, a "C"-shaped polygon, a paint-bucket demo on a drawn outline.
+**Part 4, Chapter 27 — Smooth edges, part 1: supersampling.**
+File: `part-04-drawing-shapes/ch27-smooth-edges-part-1-supersampling.md`, code in `code/ch27/` and a new
+`common/antialias.h` (include `barycentric.h`).
+It should cover: "the jaggies" (aliasing) — why an in/out decision per pixel makes stairs; coverage = the
+fraction of the pixel inside the shape (Ch 18 §18.2 promised "alpha = coverage"); supersampling with an
+n × n grid of sample points inside each pixel (positions (x + (i + 0.5)/n, y + (j + 0.5)/n)), the coverage
+estimate k / n², worked example for one edge pixel with n = 4; blend with blendPixel(…, coverage) in LINEAR
+light (Ch 17/18 promise: averages in linear light); cost n² times more tests; choose n = 4 (16 levels) vs 8;
+anti-aliased fillCircle / fillEllipse / fillTriangle / fillPolygon (scanline: sample sub-rows) built on a
+generic "is this point inside?" idea — without std::function: write one function per shape, or a
+small coverage helper per shape; the "many small masks" idea (Ch 3/25 promise: a coverage mask per pixel);
+why a regular grid still shows patterns on nearly-horizontal edges (only n + 1 levels there) and a short note
+that rotated/jittered grids help (random numbers wait for Ch 54); render-big-then-shrink (SSAA) as the same
+idea; comparison pictures: jagged vs smooth circle, triangle fan star, thin lines as thin polygons.
 
 ## Chapters done
 
@@ -47,8 +47,10 @@ chapters). Pictures: a star, a "C"-shaped polygon, a paint-bucket demo on a draw
 | 22 | part-04-drawing-shapes/ch22-circles-equation-and-midpoint.md | 6,443 | code/common/circles.h (new, 68 lines), code/ch22/circles.cpp |
 | 23 | part-04-drawing-shapes/ch23-ellipses.md | 12,305 | code/common/ellipses.h (new, 79 lines), code/ch23/ellipses.cpp |
 | 24 | part-04-drawing-shapes/ch24-triangles-and-edge-functions.md | 10,135 | code/common/triangles.h (new, 80 lines), code/ch24/triangles.cpp |
+| 25 | part-04-drawing-shapes/ch25-filling-shapes-scanline-and-flood-fill.md | 9,791 | code/common/fill.h (new, 190 lines), code/ch25/fill.cpp |
+| 26 | part-04-drawing-shapes/ch26-barycentric-coordinates.md | 7,564 | code/common/barycentric.h (new, 77 lines), code/ch26/barycentric.cpp |
 
-**Parts 1, 2 and 3 complete.** Part 4 in progress (Ch 19–24 done). Total so far: ~144,200 words (`wc -w`, code included).
+**Parts 1, 2 and 3 complete.** Part 4 in progress (Ch 19–26 done). Total so far: ~161,600 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -105,8 +107,20 @@ identical pixels to `drawCircle` when a = b — tested r = 0…79).
 w1 = E(c,a,p), w2 = E(a,b,p), top-left rule), `drawTriangle(img, Point, Point, Point, col)` (three drawLine,
 includeLast = false), `fillConvexPolygon(img, vector<PointF>, col, alpha = 1.0)` (fan from point 0).
 
+`code/common/fill.h` (Ch 25, includes `triangles.h`): `enum class FillRule {EvenOdd, NonZero}`, `struct Crossing {x,
+direction}`, `crossingIsLeft`, `findCrossings` (half-open top ≤ sy < bottom, skips horizontal edges, +1 = edge goes
+down), `fillPaths(img, vector<vector<PointF>>, col, rule = NonZero, alpha = 1.0)` (holes = extra paths; with non-zero
+the hole must be reversed), `fillPolygon` (one path), `struct Mask {width, height, vector<uint8_t> on}`, `makeMask`,
+`maskGet` (false outside), `maskSet`, `maskCount`, `sameColour`, `floodMask(img, x, y, eightWay = false)` (explicit
+std::vector<Point> stack), `paintMask(img, mask, c, alpha = 1.0)`, `floodFill(img, x, y, c, eightWay = false, alpha = 1.0)`
+(returns count). Scanline fill == fillTriangle for triangles (tested 2000 random half-integer triangles).
+
+`code/common/barycentric.h` (Ch 26, includes `fill.h`): `struct Barycentric {l0, l1, l2}`, `barycentric(a, b, c, p)`
+(w / signed area; flat triangle → −1, −1, −1), `fromBarycentric`, `allPositive` (≥ 0), `mixThree(ColourF×3, w)`,
+`fillTriangleColours(img, a, b, c, ca, cb, cc, linearLight = true)` (swaps colours with corners; top-left rule).
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
-← ellipses.h ← triangles.h}.
+← ellipses.h ← triangles.h ← fill.h ← barycentric.h}.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -132,9 +146,12 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 50: better choices than black for pixels outside the edge (getPixel returns black).
 - Ch 52: colour distance in the RGB cube for dithering.
 - Ch 54: our own random numbers (we never use `<random>`).
-- Ch 26: barycentric weights = w0, w1, w2 of Ch 24 divided by E(a, b, c) (Ch 24 §24.5 says "Chapter 26 turns
-  this fact into a way to mix colours"). Also the incremental stepping of Ch 24 §24.8 / P5.
-- Ch 25: fill any polygon (shapes with dents — Ch 24 P7, Ch 24 "Next chapter"); paint bucket.
+- (Ch 25 and 26 delivered: any polygon, flood fill 4/8, masks, barycentric weights, colour per corner.)
+- Ch 27: smooth edges with many samples / small masks per pixel (Ch 25 §25.7 says "In Chapter 27 we will use many
+  small masks to make smooth edges"); coverage = alpha (Ch 18).
+- Ch 35: bilinear blending again for resizing (Ch 26 §26.9).
+- Ch 68: lighting computed at the corners and blended (Ch 26 Example 4). Ch 70: texture mapping with barycentric
+  coordinates (Ch 26 §26.10).
 - Ch 29: the edge function is the 2D **cross product** (Ch 24 §24.4). Relate `PointF` (Ch 24) to the new vector type.
 - Ch 30: sine/cosine — orbits/planets via x = a·cos t, y = b·sin t (Ch 23 used y = b√(1 − (x/a)²) instead);
   hexagon/star corners with sin/cos (Ch 24 used √3/2).
