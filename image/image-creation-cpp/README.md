@@ -58,8 +58,8 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 24 | [Triangles and edge functions](part-04-drawing-shapes/ch24-triangles-and-edge-functions.md) |
 | 25 | [Filling shapes: scanline fill and flood fill](part-04-drawing-shapes/ch25-filling-shapes-scanline-and-flood-fill.md) |
 | 26 | [Barycentric coordinates: colouring inside a triangle](part-04-drawing-shapes/ch26-barycentric-coordinates.md) |
-| 27 | Smooth edges, part 1: supersampling |
-| 28 | Smooth edges, part 2: Wu's lines and coverage |
+| 27 | [Smooth edges, part 1: supersampling](part-04-drawing-shapes/ch27-smooth-edges-part-1-supersampling.md) |
+| 28 | [Smooth edges, part 2: Wu's lines and coverage](part-04-drawing-shapes/ch28-smooth-edges-part-2-wu-lines-and-coverage.md) |
 
 ## Part 5 — Moving and Bending Shapes
 

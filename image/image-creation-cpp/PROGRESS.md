@@ -4,20 +4,19 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 4, Chapter 27 — Smooth edges, part 1: supersampling.**
-File: `part-04-drawing-shapes/ch27-smooth-edges-part-1-supersampling.md`, code in `code/ch27/` and a new
-`common/antialias.h` (include `barycentric.h`).
-It should cover: "the jaggies" (aliasing) — why an in/out decision per pixel makes stairs; coverage = the
-fraction of the pixel inside the shape (Ch 18 §18.2 promised "alpha = coverage"); supersampling with an
-n × n grid of sample points inside each pixel (positions (x + (i + 0.5)/n, y + (j + 0.5)/n)), the coverage
-estimate k / n², worked example for one edge pixel with n = 4; blend with blendPixel(…, coverage) in LINEAR
-light (Ch 17/18 promise: averages in linear light); cost n² times more tests; choose n = 4 (16 levels) vs 8;
-anti-aliased fillCircle / fillEllipse / fillTriangle / fillPolygon (scanline: sample sub-rows) built on a
-generic "is this point inside?" idea — without std::function: write one function per shape, or a
-small coverage helper per shape; the "many small masks" idea (Ch 3/25 promise: a coverage mask per pixel);
-why a regular grid still shows patterns on nearly-horizontal edges (only n + 1 levels there) and a short note
-that rotated/jittered grids help (random numbers wait for Ch 54); render-big-then-shrink (SSAA) as the same
-idea; comparison pictures: jagged vs smooth circle, triangle fan star, thin lines as thin polygons.
+**Part 5 starts. Chapter 29 — 2D vectors.**
+New folder `part-05-moving-and-bending-shapes/`, file `ch29-2d-vectors.md`, code in `code/ch29/` and a new
+`common/vec2.h` (include `wu.h` so the whole drawing library is available).
+It should cover: a vector as an arrow / a movement (dx, dy) vs a point (a position) — relate to `PointF` (Ch 24)
+and decide: keep `PointF` for positions and add `struct Vec2 {x, y}` with conversions, OR make Vec2 the main type
+and keep PointF as is (do NOT change PointF — earlier line numbers depend on it); adding and subtracting vectors
+(point − point = vector, point + vector = point), scaling, length (Pythagoras), unit vectors / normalise (Ch 27
+§27.9 already normalised (−dy, dx)); the **dot product** (Ch 27 §27.9 promised "Chapter 29 will prove it with the dot
+product: 3 × (−4) + 4 × 3 = 0"), angle meaning (positive/zero/negative) without cos yet (cos comes in Ch 30 — say the
+exact link waits one chapter), projection of one vector onto another, distance from a point to a line (Ch 24 §24.4
+used |E| / length), the 2D **cross product** = the edge function (Ch 24 §24.4 promised this), perpendicular (−y, x),
+reflecting a vector (bouncing ball), pictures: an arrow-drawing helper (line + arrow head built from perpendiculars,
+smooth with fillThickLineAA / fillPolygonAA), a vector field, a bouncing-ball trail.
 
 ## Chapters done
 
@@ -49,8 +48,10 @@ idea; comparison pictures: jagged vs smooth circle, triangle fan star, thin line
 | 24 | part-04-drawing-shapes/ch24-triangles-and-edge-functions.md | 10,135 | code/common/triangles.h (new, 80 lines), code/ch24/triangles.cpp |
 | 25 | part-04-drawing-shapes/ch25-filling-shapes-scanline-and-flood-fill.md | 9,791 | code/common/fill.h (new, 190 lines), code/ch25/fill.cpp |
 | 26 | part-04-drawing-shapes/ch26-barycentric-coordinates.md | 7,564 | code/common/barycentric.h (new, 77 lines), code/ch26/barycentric.cpp |
+| 27 | part-04-drawing-shapes/ch27-smooth-edges-part-1-supersampling.md | 9,124 | code/common/antialias.h (new, 204 lines), code/ch27/antialias.cpp |
+| 28 | part-04-drawing-shapes/ch28-smooth-edges-part-2-wu-lines-and-coverage.md | 7,299 | code/common/wu.h (new, 106 lines), code/ch28/wu.cpp |
 
-**Parts 1, 2 and 3 complete.** Part 4 in progress (Ch 19–26 done). Total so far: ~161,600 words (`wc -w`, code included).
+**Parts 1, 2 and 3 complete.** **Part 4 complete** (Ch 19–28). Total so far: ~178,000 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -119,8 +120,20 @@ std::vector<Point> stack), `paintMask(img, mask, c, alpha = 1.0)`, `floodFill(im
 (w / signed area; flat triangle → −1, −1, −1), `fromBarycentric`, `allPositive` (≥ 0), `mixThree(ColourF×3, w)`,
 `fillTriangleColours(img, a, b, c, ca, cb, cc, linearLight = true)` (swaps colours with corners; top-left rule).
 
+`code/common/antialias.h` (Ch 27, includes `barycentric.h`): `sampleOffset(i, n)` = (i + 0.5)/n, `paintCoverage(img, x, y,
+c, coverage)` (≤ 0 skip, ≥ 1 set, else blendPixel), `circleCoverage`, `fillCircleAA(img, cx, cy, r, c, n = 4)` (half-
+diagonal 0.70711 shortcut), `ellipseCoverage`, `fillEllipseAA`, `fillPathsAA(img, paths, col, rule = NonZero, n = 4)`
+(n sub-rows, per-pixel sample counts — one call per shape avoids conflation seams), `fillPolygonAA`,
+`fillThickLineAA(img, a, b, thickness, col, n = 4)` (band from (−dy, dx)/len × t/2), `shrinkAverage(big, factor)`
+(linear-light average; identical to fillCircleAA for a 4× circle — tested).
+
+`code/common/wu.h` (Ch 28, includes `antialias.h`): `struct CoveragePixel {x, y, coverage}`, `wuLinePixels(a, b)`
+(steep swap, left-to-right, half-open columns ceil(x0 − 0.5)…ceil(x1 − 0.5), t = yc − 0.5, split 1 − f / f),
+`drawLineWu`, `drawPolylineWu`, `plotSplitRow`, `plotSplitColumn`, `drawCircleWu(img, cx, cy, r, c)` (two loops,
+limit r/√2; 0 or 4 pixels near 45° get paint twice — noted in the chapter).
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
-← ellipses.h ← triangles.h ← fill.h ← barycentric.h}.
+← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h}.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -147,8 +160,11 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 52: colour distance in the RGB cube for dithering.
 - Ch 54: our own random numbers (we never use `<random>`).
 - (Ch 25 and 26 delivered: any polygon, flood fill 4/8, masks, barycentric weights, colour per corner.)
-- Ch 27: smooth edges with many samples / small masks per pixel (Ch 25 §25.7 says "In Chapter 27 we will use many
-  small masks to make smooth edges"); coverage = alpha (Ch 18).
+- (Ch 27 and 28 delivered: coverage = alpha, linear-light edge blending, small sample masks, Wu lines.)
+- Ch 29: dot product proves (−dy, dx) is perpendicular (Ch 27 §27.9); edge function = cross product (Ch 24 §24.4);
+  Wu's √(1 + g²) brightness fix is a vector length (Ch 28 P6).
+- Ch 54: random / jittered sample positions for supersampling (Ch 27 §27.4).
+- Ch 35: nearest-neighbour enlarging was used in Ch 27 (`pasteEnlarged`) — Ch 35 explains it properly.
 - Ch 35: bilinear blending again for resizing (Ch 26 §26.9).
 - Ch 68: lighting computed at the corners and blended (Ch 26 Example 4). Ch 70: texture mapping with barycentric
   coordinates (Ch 26 §26.10).
