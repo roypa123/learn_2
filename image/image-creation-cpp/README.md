@@ -80,10 +80,10 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 36 | [The BMP format: headers and padding](part-06-real-file-formats/ch36-the-bmp-format-headers-and-padding.md) |
 | 37 | [Writing BMP files](part-06-real-file-formats/ch37-writing-bmp-files.md) |
 | 38 | [Reading BMP files](part-06-real-file-formats/ch38-reading-bmp-files.md) |
-| 39 | The TGA format |
-| 40 | PNG, part 1: chunks and CRC-32 |
-| 41 | PNG, part 2: zlib, stored blocks and Adler-32 |
-| 42 | PNG, part 3: writing a full PNG |
+| 39 | [The TGA format](part-06-real-file-formats/ch39-the-tga-format.md) |
+| 40 | [PNG, part 1: chunks and CRC-32](part-06-real-file-formats/ch40-png-part-1-chunks-and-crc-32.md) |
+| 41 | [PNG, part 2: zlib, stored blocks and Adler-32](part-06-real-file-formats/ch41-png-part-2-zlib-stored-blocks-and-adler-32.md) |
+| 42 | [PNG, part 3: writing a full PNG](part-06-real-file-formats/ch42-png-part-3-writing-a-full-png.md) |
 | 43 | PNG, part 4: filters |
 | 44 | Compression theory: Huffman coding |
 | 45 | Deflate with LZ77 and fixed Huffman codes |

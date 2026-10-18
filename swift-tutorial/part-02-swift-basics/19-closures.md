@@ -133,7 +133,7 @@ This is **the main reason** closures exist.
 ```swift
 func doTwice(action: () -> Void) {
     action()
-    action()
+    func action()
 }
 
 doTwice(action: {

@@ -4,23 +4,22 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 6, Chapter 39 — The TGA format.**
-File: `part-06-real-file-formats/ch39-the-tga-format.md`, code in `code/ch39/` and a new `common/tga.h` (include
-`bmpload.h` or just `bmp.h` — needs `Bytes`, put/get, `writeBytes`; keep the file-format branch: image.h ← bytes.h ←
-bmp.h ← bmpload.h ← tga.h).
-It should cover (promised at the end of Ch 38): the 18-byte TGA header field by field (id length, colour map type,
-image type 2 = uncompressed true-colour, 10 = RLE true-colour, colour-map spec (5 bytes, zero), x/y origin, width,
-height (16-bit LITTLE-endian — reuse putU16/getU16), pixel depth 24 or 32, image descriptor: bits 0–3 = alpha bits
-(8 for 32-bit), bit 5 = top-left origin (0 = bottom-up like BMP)); pixels B G R (A), NO row padding; the optional
-26-byte "TRUEVISION-XFILE" footer (mention, optional); ALPHA properly: 32-bit TGA with real transparency (Ch 18
-promised RGBA storage for Ch 42 PNG — TGA is a first taste; our Image has no alpha, so write alpha from a separate
-mask or coverage, e.g. a smooth circle whose alpha = coverage from Ch 27 — a small `std::vector<std::uint8_t> alpha`);
-RUN-LENGTH ENCODING (first compression!): packets with a header byte — top bit 1 = run (count = low 7 bits + 1,
-one pixel repeated), 0 = raw (count + 1 literal pixels), max 128 per packet, packets must not cross rows (good
-practice); encoder + decoder; worked bytes for a small row; compression ratio on flat pictures (a flag) vs noisy ones
-(may grow: worst case 1 extra byte per 128 pixels); saveTGA(image, name, rle), loadTGA with full validation (Ch 38
-style `tgaProblem`), round trips, broken-file tests. Then Ch 40 PNG part 1 (chunks, CRC-32, big-endian helpers —
-Ch 36 P5 gave putU32BigEndian/getU32BigEndian as an exercise answer).
+**Part 6, Chapter 43 — PNG, part 4: filters.**
+File: `part-06-real-file-formats/ch43-png-part-4-filters.md`, code in `code/ch43/` and a new `common/pngfilter.h`
+(include `pngfile.h`).
+It should cover (promised by Ch 42 "Next chapter"): why filters — neighbouring pixels are SIMILAR not equal;
+filters work on BYTES with bpp = 3 or 4 ("a" = byte bpp to the left, "b" = byte above, "c" = above-left; 0 outside);
+None (0), Sub (1): x − a, Up (2): x − b, Average (3): x − floor((a + b)/2), Paeth (4): x − PaethPredictor(a, b, c)
+(p = a + b − c, pick the nearest of a, b, c, ties a then b then c) — all mod 256 (uint8 wrap-around, Ch 4 §4.9);
+the REVERSE (unfilter) uses the already-reconstructed bytes; worked numbers on a small row; a gradient becomes
+mostly zeros/small numbers (show byte histograms or "count of zero bytes"); the minimum-sum-of-absolute-differences
+heuristic (treat bytes as signed −128..127) to choose a filter per row; `filterRows(rows, bpp, w, h, mode)` and
+`unfilterRows`; update decodePNG? — better: new `decodePNG2`/`loadPNG` path in pngfilter.h that unfilters instead of
+refusing filter ≠ 0 (keep Ch 42's pngfile.h unchanged; e.g. `decodePNGFiltered`); `makePngBytesFiltered`; NOTE
+stored blocks don't shrink — so show the effect by counting zero bytes / by a simple measure (e.g. RLE-size of the
+filtered rows or "sum of absolute values"), and promise the real size win in Ch 45. Then Ch 44 Huffman coding, Ch 45
+Deflate (LZ77 + fixed Huffman) — after Ch 45 our zlib becomes real compression and loadPNG reads other programs' PNGs
+(at least fixed-Huffman ones; dynamic Huffman type 2 decoding is needed for real-world files — plan it in Ch 45).
 
 ## Chapters done
 
@@ -64,8 +63,12 @@ Ch 36 P5 gave putU32BigEndian/getU32BigEndian as an exercise answer).
 | 36 | part-06-real-file-formats/ch36-the-bmp-format-headers-and-padding.md | 6,660 | code/common/bytes.h (new, 57 lines), code/ch36/bmp_layout.cpp |
 | 37 | part-06-real-file-formats/ch37-writing-bmp-files.md | 5,616 | code/common/bmp.h (new, 81 lines), code/ch37/write_bmp.cpp |
 | 38 | part-06-real-file-formats/ch38-reading-bmp-files.md | 6,059 | code/common/bmpload.h (new, 82 lines), code/ch38/read_bmp.cpp |
+| 39 | part-06-real-file-formats/ch39-the-tga-format.md | 7,724 | code/common/tga.h (new, 202 lines), code/ch39/tga.cpp |
+| 40 | part-06-real-file-formats/ch40-png-part-1-chunks-and-crc-32.md | 6,155 | code/common/png.h (new, 135 lines), code/ch40/png_chunks.cpp |
+| 41 | part-06-real-file-formats/ch41-png-part-2-zlib-stored-blocks-and-adler-32.md | 5,874 | code/common/zlib.h (new, 93 lines), code/ch41/zlib_store.cpp |
+| 42 | part-06-real-file-formats/ch42-png-part-3-writing-a-full-png.md | 5,898 | code/common/pngfile.h (new, 149 lines), code/ch42/write_png.cpp |
 
-**Parts 1–5 complete**, Part 6 in progress (Ch 36–38 done). Total so far: ~251,600 words (`wc -w`, code included).
+**Parts 1–5 complete**, Part 6 in progress (Ch 36–42 done). Total so far: ~277,200 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -203,9 +206,31 @@ Big-endian versions are Ch 36 Practice 5 (needed for PNG, Ch 40 — put them in 
 offset ≥ 54 & offset + rowSize·rows ≤ size — all in long long), `decodeBMP(bytes, image)` (top-down if height < 0;
 32-bit ignores the 4th byte), `loadBMP(fileName, image)`.
 
+`code/common/tga.h` (Ch 39, includes `bmpload.h`): `kTgaHeaderSize = 18`, `samePixel`, `appendPixelBytes`, `encodeRleRow(out,
+row, bpp)` (run packet if ≥ 2 equal, else raw packet stopping before a run; ≤ 128; packets never cross rows),
+`makeTgaBytes(image, const vector<uint8_t>* alpha, bool rle)` (writes TOP-DOWN, descriptor 0x20 / 0x28, type 2/10),
+`saveTGA(image, name, rle = false, alpha = nullptr)`, `std::string decodeTGA(bytes, image, alpha* = nullptr)` ("" = OK;
+checks + per-packet bounds), `loadTGA(name, image, alpha* = nullptr)`. Alpha is a separate vector (index y·w + x).
+
+`code/common/png.h` (Ch 40, includes `tga.h`): `putU32BE`, `getU32BE`, `crc32Bitwise(data, from, count)`, `makeCrcTable`,
+`crcTable()` (static), `crc32(data, from, count)` (table), `appendPngSignature`, `appendChunk(out, type, data)` (CRC over
+type + data), `makeIhdr(w, h, withAlpha)` (8-bit, colour type 2/6), `struct PngChunk {type, dataStart, length, crcOk}`,
+`std::string listChunks(file, chunks)` (signature, bounds in long long, CRC check, stops after IEND).
+
+`code/common/zlib.h` (Ch 41, includes `png.h`): `kAdlerModulus = 65521`, `kMaxStoredBlock = 65535`, `adler32(data, from,
+count)`, `zlibStore(data)` (78 01, stored blocks 0x00/0x01 + LEN/NLEN little-endian, Adler-32 big-endian; do-while so
+empty data → one empty final block), `std::string zlibUnstore(z, out)` (method 8, %31, no FDICT, BTYPE must be 0 →
+"compressed blocks are not supported yet", NLEN, bounds, Adler). Verified with Python's zlib.decompress.
+
+`code/common/pngfile.h` (Ch 42, includes `zlib.h`): `makePngRows(image, alpha*)` (filter byte 0 + R G B (A)),
+`makePngBytes(image, alpha* = nullptr)` (wrong-sized alpha → RGB), `savePNG(image, name, alpha* = nullptr)`,
+`isKnownChunk`, `std::string decodePNG(bytes, image, alpha* = nullptr)` (11 checks; joins IDATs; skips ancillary;
+refuses filter ≠ 0 with "row filters are not supported yet"), `loadPNG`. tiny 3×2 PNG = 88 bytes; heart 300² PNG
+270,388 vs BMP 270,054.
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
 ← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h ← vec2.h ← angles.h ← transform.h ← matrix.h
-← combine.h ← bezier.h ← resize.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h.
+← combine.h ← bezier.h ← resize.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h ← tga.h ← png.h ← zlib.h ← pngfile.h.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -241,8 +266,12 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 50: clamp-to-edge and other edge choices for blurring (Ch 35 §35.4); Gaussian is better than box for shrinking
   (Ch 35 §35.7).
 - (Ch 37 and 38 delivered: saveBMP, loadBMP, viewer, sizes, top-down, 32-bit, broken-file tests.)
-- Ch 39: TGA with real alpha and run-length encoding (Ch 38 "Next chapter"). Ch 40+: PNG is compressed, 3–10× smaller
-  (Ch 37 §37.6); PNG stores transparency properly (Ch 37 P5).
+- (Ch 39 and 40 delivered: TGA, alpha = coverage, RLE, PNG signature/chunks/IHDR/IEND, CRC-32.)
+- (Ch 41 and 42 delivered: zlib stored blocks, Adler-32, full PNG with alpha in browsers, decodePNG for our files.)
+- Ch 43: filters 1–4 (decodePNG currently refuses them); Ch 44–45: compressed blocks (zlibUnstore refuses BTYPE 1/2),
+  so loadPNG can open PNGs from other programs (Ch 42 §42.6 table).
+- Ch 43/45: PNG compresses smooth gradients well, unlike RLE (Ch 39 §39.7). PNG files 3–10× smaller (Ch 37 §37.6).
+- Ch 54: the linear congruential generator used for noise in Ch 39 (seed·1103515245 + 12345).
 - Ch 80: the windmill animation (Ch 31 P6) can now be saved as BMP frames.
 - Ch 46 (text): fonts are Bézier outlines (Ch 34 §34.10) — our bitmap font is simpler, but may mention it.
 - Ch 35: resizing with the same inverse idea (Ch 31 §31.10); bilinear sampling for transformed images.
