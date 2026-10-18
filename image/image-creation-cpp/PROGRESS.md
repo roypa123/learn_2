@@ -4,22 +4,17 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 6, Chapter 43 — PNG, part 4: filters.**
-File: `part-06-real-file-formats/ch43-png-part-4-filters.md`, code in `code/ch43/` and a new `common/pngfilter.h`
-(include `pngfile.h`).
-It should cover (promised by Ch 42 "Next chapter"): why filters — neighbouring pixels are SIMILAR not equal;
-filters work on BYTES with bpp = 3 or 4 ("a" = byte bpp to the left, "b" = byte above, "c" = above-left; 0 outside);
-None (0), Sub (1): x − a, Up (2): x − b, Average (3): x − floor((a + b)/2), Paeth (4): x − PaethPredictor(a, b, c)
-(p = a + b − c, pick the nearest of a, b, c, ties a then b then c) — all mod 256 (uint8 wrap-around, Ch 4 §4.9);
-the REVERSE (unfilter) uses the already-reconstructed bytes; worked numbers on a small row; a gradient becomes
-mostly zeros/small numbers (show byte histograms or "count of zero bytes"); the minimum-sum-of-absolute-differences
-heuristic (treat bytes as signed −128..127) to choose a filter per row; `filterRows(rows, bpp, w, h, mode)` and
-`unfilterRows`; update decodePNG? — better: new `decodePNG2`/`loadPNG` path in pngfilter.h that unfilters instead of
-refusing filter ≠ 0 (keep Ch 42's pngfile.h unchanged; e.g. `decodePNGFiltered`); `makePngBytesFiltered`; NOTE
-stored blocks don't shrink — so show the effect by counting zero bytes / by a simple measure (e.g. RLE-size of the
-filtered rows or "sum of absolute values"), and promise the real size win in Ch 45. Then Ch 44 Huffman coding, Ch 45
-Deflate (LZ77 + fixed Huffman) — after Ch 45 our zlib becomes real compression and loadPNG reads other programs' PNGs
-(at least fixed-Huffman ones; dynamic Huffman type 2 decoding is needed for real-world files — plan it in Ch 45).
+**Part 7, Chapter 51 — Sharpen and edge detection (Sobel).**
+File: `part-07-changing-images/ch51-sharpen-and-edge-detection-sobel.md`, code in `code/ch51/` and a new
+`common/edges.h` (include `blur.h`). Programs that save PNG also include `deflate.h`.
+It should cover (promised by Ch 50 "Next chapter", Ch 49 §49.4/§49.8/P3): sharpen kernel 0 −1 0 / −1 5 −1 / 0 −1 0
+explained as original + (original − blur) — the UNSHARP MASK (amount, radius σ, maybe threshold); halos/overshoot and
+clamping; sharpen in sRGB vs linear (choose and explain); noise gets sharpened too. Edges: the difference kernel → Sobel
+Gx = −1 0 1 / −2 0 2 / −1 0 1 and Gy; keep NEGATIVE values (work on a double grey plane, not clamped bytes — Ch 49 §49.8
+promised); magnitude √(gx² + gy²) (Pythagoras, Ch 29), direction atan2(gy, gx) (Ch 30); show magnitude as a grey picture
+(scale by max), direction as hue (hsv.h!) maybe; threshold the magnitude for a black/white edge map (Ch 47); blur first
+to reduce noise; the Laplacian (Ch 49 P3) as a second-derivative edge detector; worked numbers on small grids. Then
+Ch 52 dithering (ordered/Bayer + Floyd–Steinberg; colour distance in the RGB cube — promised Ch 5/52), Ch 53 warping.
 
 ## Chapters done
 
@@ -67,8 +62,16 @@ Deflate (LZ77 + fixed Huffman) — after Ch 45 our zlib becomes real compression
 | 40 | part-06-real-file-formats/ch40-png-part-1-chunks-and-crc-32.md | 6,155 | code/common/png.h (new, 135 lines), code/ch40/png_chunks.cpp |
 | 41 | part-06-real-file-formats/ch41-png-part-2-zlib-stored-blocks-and-adler-32.md | 5,874 | code/common/zlib.h (new, 93 lines), code/ch41/zlib_store.cpp |
 | 42 | part-06-real-file-formats/ch42-png-part-3-writing-a-full-png.md | 5,898 | code/common/pngfile.h (new, 149 lines), code/ch42/write_png.cpp |
+| 43 | part-06-real-file-formats/ch43-png-part-4-filters.md | 10,487 | code/common/pngfilter.h (new, 269 lines), code/ch43/filters.cpp |
+| 44 | part-06-real-file-formats/ch44-compression-theory-huffman-coding.md | 9,567 | code/common/huffman.h (new, 280 lines), code/ch44/huffman.cpp |
+| 45 | part-06-real-file-formats/ch45-deflate-with-lz77-and-fixed-huffman-codes.md | 11,658 | code/common/deflate.h (new, 408 lines), code/ch45/deflate.cpp |
+| 46 | part-06-real-file-formats/ch46-drawing-text-with-a-bitmap-font.md | 8,275 | code/common/font.h (new, 239 lines), code/ch46/text.cpp |
+| 47 | part-07-changing-images/ch47-point-operations-brightness-contrast-invert-threshold.md | 5,924 | code/common/pointops.h (new, 139 lines), code/ch47/pointops.cpp |
+| 48 | part-07-changing-images/ch48-histograms-and-histogram-equalisation.md | 6,106 | code/common/histogram.h (new, 122 lines), code/ch48/histogram.cpp |
+| 49 | part-07-changing-images/ch49-convolution-the-idea-and-the-maths.md | 6,616 | code/common/convolve.h (new, 96 lines), code/ch49/convolve.cpp |
+| 50 | part-07-changing-images/ch50-blur-box-blur-and-gaussian-blur.md | 6,726 | code/common/blur.h (new, 151 lines), code/ch50/blur.cpp |
 
-**Parts 1–5 complete**, Part 6 in progress (Ch 36–42 done). Total so far: ~277,200 words (`wc -w`, code included).
+**Parts 1–6 complete**, Part 7 in progress (Ch 47–50 done). Total so far: ~342,600 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -228,9 +231,84 @@ empty data → one empty final block), `std::string zlibUnstore(z, out)` (method
 refuses filter ≠ 0 with "row filters are not supported yet"), `loadPNG`. tiny 3×2 PNG = 88 bytes; heart 300² PNG
 270,388 vs BMP 270,054.
 
+`code/common/pngfilter.h` (Ch 43, includes `pngfile.h`): `kFilterNone/Sub/Up/Average/Paeth` = 0–4, `kFilterBest` = 5
+(our "adaptive" mode, never written to a file), `absInt`, `paethPredictor(a, b, c)` (ties a, b, c), `predictByte(filter,
+a, b, c)`, `filterRow(filter, row, above, bpp)` / `unfilterRow(filter, filtered, above, bpp)` (rows WITHOUT filter byte;
+above = zeros for the top row; a from the rebuilt row), `rowScore` (signed sizes), `bestFilter` (strictly smaller wins,
+ties keep the earlier filter), `filterScanlines(rows, rowLength, bpp, mode)` (input = Ch 42 rows with filter byte 0),
+`std::string unfilterScanlines(rows, rowLength, bpp, out)` (output has filter byte 0 again; type > 4 → "unknown filter
+type N"), `makePngBytesFiltered(image, mode, alpha*)`, `savePNGFiltered`, `struct PngInfo {width, height,
+bytesPerPixel}`, `readPngStart(file, info, zdata)` (Ch 42 checks 1–8), `pngPixels(info, rows, image, alpha*)` (checks
+10–11 with unfiltering), `decodePNGFiltered` (= readPngStart + zlibUnstore + pngPixels — Ch 45 swaps the middle),
+`loadPNGFiltered`. Ch 42's pngfile.h is UNCHANGED (its loadPNG still refuses filters). Five test pictures 300×200:
+flag, sky, sunset (horizontal lerp), blend (x·255/299, y·255/199, (x+y)·255/498), noise. Filtered PNG = 180,278 bytes
+(same as unfiltered: stored blocks).
+
+`code/common/huffman.h` (Ch 44, includes `pngfilter.h`): `kMaxCodeLength = 30`, `countBytes` (256 long long),
+`struct HuffmanNode {weight, symbol, left, right}`, `takeSmallest` (ties → lower index: leaves in symbol order, then
+joined nodes), `huffmanLengths(counts)` (any alphabet size; 1 symbol → length 1; depths by walking the node list
+backwards), `canonicalCodes(lengths)` (RFC 1951 rule; −1 = no code / does not fit), `codedBits`, `entropyBits`
+(std::log2), `struct BitWriter {bytes, used}`, `putBit` (fills from bit 0), `putBits` (value, lowest bit first),
+`putCode` (code, top bit first), `struct BitReader {const Bytes* bytes; long long bit}`, `getBit` (−1 at end),
+`getBits`, `struct DecodeNode {child[2], symbol}`, `buildDecoder(lengths, tree)` ("a code length is out of range",
+"too many codes for their lengths"), `decodeSymbol` (−1 = bad/missing), our OWN format `huffmanCompress` (4-byte BE
+count + 256 lengths + bits) / `huffmanDecompress`. Results: ABRACADABRA A 0, B 100, C 101, D 110, R 111, 23 bits,
+bytes 72 35 39; filtered sky 22,910 bytes (unfiltered 166,298), flag 22,815, blend 26,739, noise 180,460; 1-bit floor
+180,200 bits = 22,525 bytes.
+
+`code/common/deflate.h` (Ch 45, includes `huffman.h`): `kMinMatch 3`, `kMaxMatch 258`, `kWindowSize 32768`, `kEndOfBlock
+256`, `kMaxInflated 1e9`, tables `kLengthBase/kLengthExtra` (29), `kDistanceBase/kDistanceExtra` (30), `kCodeLengthOrder`
+(19), `struct Lz77Token {literal, length, distance}` (length 0 = literal), `hash3`, `findMatches(data, maxTries)` (hash
+chains head/previous, greedy, nearest wins ties, stop at max length), `lengthIndex`/`distanceIndex` (search from top),
+`fixedLiteralLengths()` (288: 8/9/7/8), `fixedDistanceLengths()` (30 × 5), `writeFixedBlock(w, tokens, last)`,
+`deflateFixed(data)` (one block, 64 tries), `zlibCompress(data)` (78 01; falls back to zlibStore if not smaller),
+`inflateCodes`, `readDynamicTrees`, `std::string zlibDecompress(z, out)` (BTYPE 0/1/2, all checks), `makePngBytesCompressed
+(image, alpha*)` (Best filters + zlibCompress; ≤ 1e8 row bytes), `savePNGCompressed`, `decodePNGFull` (readPngStart +
+zlibDecompress + pngPixels), `loadPNGFull`. Verified: Python zlib.decompress accepts our output; the Python port of
+inflate decodes zlib levels 0–9 (dynamic blocks). Sizes (300×200): flag 1,683, sky 1,746, sunset 1,769, blend 3,132,
+noise 131,616 (BMP 180,054); disk RGBA 3,278. ch45/deflate.cpp embeds a 174-byte PNG made by Python zlib level 9
+(8×8, dynamic block, HLIT 258, HDIST 12, HCLEN 18); ours = 100 bytes.
+
+`code/common/font.h` (Ch 46, includes `resize.h` — DRAWING chain): `kGlyphWidth 5`, `kGlyphHeight 8` (row 7 =
+descender), `kCharAdvance 6`, `kLineAdvance 10`, `kFirstChar 32`, `kLastChar 126`, `kFont` (95 × 8 bytes, bit 4 = left
+column; the table in font.h is the only copy of the design — edit its bytes directly), `glyphIndex(char)`
+(unsigned char; outside → '?'), `glyphPixel(c, x, y)` (false outside the grid), `lineCount`, `longestLine`, `textWidth(text,
+scale)` = (chars·6 − 1)·scale, `textHeight` = (lines·10 − 2)·scale, `drawText(img, x, y, text, c, scale = 1)` (top-left,
+fillRect squares, '\n' supported), `drawTextCentred(img, centreX, y, …)`, `textBox(x, y, text, scale, padding)` → Rect,
+`overlapLength`, `glyphCoverage(ch, left, top, size, px, py)` (exact area), `drawTextSmooth(img, x, y, text, c, size)`
+(double size of one font pixel; paintCoverage).
+
+`code/common/pointops.h` (Ch 47, includes `font.h` AND `grey.h`): `using LookupTable = std::array<uint8_t, 256>`,
+`clampByte(double)` (clamp 0..255, +0.5 round), `identityTable`, `brightnessTable(amount)`, `contrastTable(factor, centre =
+128)`, `invertTable`, `thresholdTable(level)` (≥ level → 255), `gammaTable(g)`, `exposureTable(factor)` (linear light),
+`levelsTable(low, high)` (high ≤ low → low + 1), `combineTables(first, second)` (= second[first[v]]), `applyTables(img, r,
+g, b)`, `applyTable(img, t)`, `makeGrey(img)`, `tableAverage`, `drawCurve(img, x, y, size, t, c)` (frame + identity
+diagonal + curve). Ch 47 program has `makeScene()` (160×110 sky/sun/hills/house) and `paste()` — not in a header.
+
+`code/common/histogram.h` (Ch 48, includes `pointops.h`): `using Histogram = std::array<long long, 256>`, `greyHistogram`
+(greyByte), `channelHistogram(img, 0/1/2)`, `cumulative`, `histogramTotal`, `lowestValue`, `highestValue` (0 if empty),
+`usedValues`, `histogramMean`, `percentile(h, fraction)` (first v with c[v] ≥ f·total and c[v] > 0), `autoLevelsTable(h,
+clip)`, `equaliseTable(h)` ((c − c_min)·255/(total − c_min); one value → identity), `drawHistogram(img, x, y, height, h, c)`
+(frame 258 × height+2, labels "0"/"255"). Ch 48 program: `makeDull()` 256×160 grey 81..151, `printStats`, `printBars`.
+
+`code/common/convolve.h` (Ch 49, includes `histogram.h`): `struct Kernel {size, std::vector<double> weights}` (row by row),
+`enum class EdgeMode {Zero, Clamp, Mirror, Wrap}`, `kernelSum`, `identityKernel`, `boxKernel(size)`, `edgeIndex(i, n,
+mode)` (−1 = Zero/black; Mirror repeats the edge pixel: −1 → 0, −2 → 1), `readPixel(src, x, y, mode, linearLight)` →
+ColourF 0..1, `writePixel(ColourF, linearLight)` (clamps), `convolvePixel`, `convolve(src, k, mode = Clamp, linearLight =
+false)` (CORRELATION, no flip — explained §49.5; new picture). Weights 1 → brightness kept, 0 → only changes.
+
+`code/common/blur.h` (Ch 50, includes `convolve.h`): `struct PixelsF {width, height, vector<ColourF> data}`, `toPixelsF(img,
+linear)`, `fromPixelsF(p, linear)`, `gaussianWeights(sigma)` (r = ceil(3σ), normalised), `boxWeights(r)`,
+`kernelFromWeights(w)` (2D = w[j]·w[i]), `blurRows`, `blurColumns` (PixelsF, any EdgeMode), `separableBlur(img, w, mode =
+Clamp, linearLight = TRUE)`, `gaussianBlur(img, sigma, mode = Clamp, linearLight = true)` (σ ≤ 0 → copy), `boxRowsFast`
+(running sum, clamp), `transposed`, `boxBlurFast(img, r, linearLight = true)`. Results: σ 1 weights .0044 .0540 .2420
+.3991; 2D vs separable and running sum identical on the test; 3 boxes r=1 ≈ Gaussian σ √2; red/green blur sRGB 170 85 0
+vs linear 213 156 0; stripes period 4 shrunk ×3 alias to 255 255 0 0…; blurred first ≈ 182–193 (≈ 188 = linear 0.5).
+Ch 49/50 programs copy Ch 47's `makeScene()`.
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
 ← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h ← vec2.h ← angles.h ← transform.h ← matrix.h
-← combine.h ← bezier.h ← resize.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h ← tga.h ← png.h ← zlib.h ← pngfile.h.
+← combine.h ← bezier.h ← resize.h ← font.h ← pointops.h (+ grey.h) ← histogram.h ← convolve.h ← blur.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h ← tga.h ← png.h ← zlib.h ← pngfile.h ← pngfilter.h ← huffman.h ← deflate.h.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -243,7 +321,7 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 20: line drawing fills the gaps in the Ch 13 graph of y = x².
 - Ch 27 / 35 / 50: averages of many colours (Ch 14 §14.9) — do them in **linear light** (Ch 17 Ex 1) and with premultiplied alpha (Ch 18 §18.6); alpha = coverage (Ch 18 §18.2).
 - Ch 42: PNG with RGBA to really store transparency (Ch 18 §18.8). Ch 67: painter's algorithm (Ch 18 §18.4). Ch 80: fades (Ch 18 Ex 3).
-- Ch 47: invert via remap backwards (Ch 13 Ex 4); Ch 68/73: lighting = colour × colour (Ch 14 §14.5).
+- Ch 68/73: lighting = colour × colour (Ch 14 §14.5).
 - Ch 15: turning colour into grey (PGM output).
 - Ch 17: why (128,128,128) is only ~22 % of white's light (gamma).
 - Ch 19+: drawing. Ch 22: circles using √(dx² + dy²) and pixel centres (Ch 10 already drew a disk with them).
@@ -252,8 +330,6 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 35: "nearest neighbour" (viewers that blur when zooming).
 - Ch 36: BMP bottom-up rows, **BGR** order (Ch 12 P5 swaps R and B), rows padded to a multiple of 4,
   little-endian (Ch 4 P8 `78 56 34 12`, Ch 9 §9.8).
-- Ch 47: invert (`255 − v`); Ch 12 already does a negative.
-- Ch 50: better choices than black for pixels outside the edge (getPixel returns black).
 - Ch 52: colour distance in the RGB cube for dithering.
 - Ch 54: our own random numbers (we never use `<random>`).
 - (Ch 25 and 26 delivered: any polygon, flood fill 4/8, masks, barycentric weights, colour per corner.)
@@ -263,17 +339,21 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - (Ch 31 and 32 delivered: rotation formula, tilted ellipse of Ch 23, matrices, homogeneous coordinates, determinant.)
 - (Ch 33 and 34 delivered: pivot matrices, hierarchies, inverse, transforming whole images, Bézier curves.)
 - (Ch 35 and 36 delivered: nearest/bilinear/box resizing, linear-light blending, BMP layout, little-endian, padding.)
-- Ch 50: clamp-to-edge and other edge choices for blurring (Ch 35 §35.4); Gaussian is better than box for shrinking
-  (Ch 35 §35.7).
 - (Ch 37 and 38 delivered: saveBMP, loadBMP, viewer, sizes, top-down, 32-bit, broken-file tests.)
 - (Ch 39 and 40 delivered: TGA, alpha = coverage, RLE, PNG signature/chunks/IHDR/IEND, CRC-32.)
 - (Ch 41 and 42 delivered: zlib stored blocks, Adler-32, full PNG with alpha in browsers, decodePNG for our files.)
-- Ch 43: filters 1–4 (decodePNG currently refuses them); Ch 44–45: compressed blocks (zlibUnstore refuses BTYPE 1/2),
-  so loadPNG can open PNGs from other programs (Ch 42 §42.6 table).
-- Ch 43/45: PNG compresses smooth gradients well, unlike RLE (Ch 39 §39.7). PNG files 3–10× smaller (Ch 37 §37.6).
+- (Ch 43 and 44 delivered: the five filters, unfiltering, adaptive choice, decodePNGFiltered; Huffman, entropy,
+  canonical codes, bit writer/reader in Deflate order, filters + Huffman size win.)
+- (Ch 45 and 46 delivered: LZ77, fixed + dynamic Deflate, real PNG sizes, loadPNGFull for other programs' PNGs, the
+  ≤ 15-bit explanation; bitmap font, blocky and smooth text, shadows and caption boxes. Part 6 complete.)
+- (Ch 47 and 48 delivered: point operations as curves and tables, invert/remap backwards (Ch 13 Ex 4), clamping vs
+  wrap-around, gamma/exposure in linear light; histograms, percentiles, auto levels, equalisation.)
+- (Ch 49 and 50 delivered: convolution, kernels, edge modes, in-place bug, cost; Gaussian, separable, running sum, linear
+  light blur, blur-before-shrink (Ch 35 §35.7), clamp-to-edge for blurring (Ch 35 §35.4).)
+- Ch 51: keep negative values for edges (Ch 49 §49.8), Laplacian (Ch 49 P3), Sobel magnitude/direction (Ch 50 "Next").
+- Ch 52: dithering keeps shading that a threshold loses (Ch 47 §47.7).
 - Ch 54: the linear congruential generator used for noise in Ch 39 (seed·1103515245 + 12345).
 - Ch 80: the windmill animation (Ch 31 P6) can now be saved as BMP frames.
-- Ch 46 (text): fonts are Bézier outlines (Ch 34 §34.10) — our bitmap font is simpler, but may mention it.
 - Ch 35: resizing with the same inverse idea (Ch 31 §31.10); bilinear sampling for transformed images.
 - Part 9: normals need a special matrix rule under non-uniform scale (Ch 32 §32.8); 4 × 4 matrices whose bottom row is
   not (0, 0, 0, 1) give perspective (Ch 32 §32.7). Ray tracing also uses "undo the transformation" (Ch 31 §31.10).

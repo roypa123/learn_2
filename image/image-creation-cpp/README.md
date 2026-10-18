@@ -84,19 +84,19 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 40 | [PNG, part 1: chunks and CRC-32](part-06-real-file-formats/ch40-png-part-1-chunks-and-crc-32.md) |
 | 41 | [PNG, part 2: zlib, stored blocks and Adler-32](part-06-real-file-formats/ch41-png-part-2-zlib-stored-blocks-and-adler-32.md) |
 | 42 | [PNG, part 3: writing a full PNG](part-06-real-file-formats/ch42-png-part-3-writing-a-full-png.md) |
-| 43 | PNG, part 4: filters |
-| 44 | Compression theory: Huffman coding |
-| 45 | Deflate with LZ77 and fixed Huffman codes |
-| 46 | Drawing text with a bitmap font |
+| 43 | [PNG, part 4: filters](part-06-real-file-formats/ch43-png-part-4-filters.md) |
+| 44 | [Compression theory: Huffman coding](part-06-real-file-formats/ch44-compression-theory-huffman-coding.md) |
+| 45 | [Deflate with LZ77 and fixed Huffman codes](part-06-real-file-formats/ch45-deflate-with-lz77-and-fixed-huffman-codes.md) |
+| 46 | [Drawing text with a bitmap font](part-06-real-file-formats/ch46-drawing-text-with-a-bitmap-font.md) |
 
 ## Part 7 — Changing Images (Image Processing)
 
 | Ch | Title |
 |---|---|
-| 47 | Point operations: brightness, contrast, invert, threshold |
-| 48 | Histograms and histogram equalisation |
-| 49 | Convolution: the idea and the maths |
-| 50 | Blur: box blur and Gaussian blur |
+| 47 | [Point operations: brightness, contrast, invert, threshold](part-07-changing-images/ch47-point-operations-brightness-contrast-invert-threshold.md) |
+| 48 | [Histograms and histogram equalisation](part-07-changing-images/ch48-histograms-and-histogram-equalisation.md) |
+| 49 | [Convolution: the idea and the maths](part-07-changing-images/ch49-convolution-the-idea-and-the-maths.md) |
+| 50 | [Blur: box blur and Gaussian blur](part-07-changing-images/ch50-blur-box-blur-and-gaussian-blur.md) |
 | 51 | Sharpen and edge detection (Sobel) |
 | 52 | Dithering: ordered and Floyd–Steinberg |
 | 53 | Warping and distortion effects |
