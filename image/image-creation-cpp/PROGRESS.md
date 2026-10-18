@@ -4,22 +4,24 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 5, Chapter 33 — Combining transforms.**
-File: `part-05-moving-and-bending-shapes/ch33-combining-transforms.md`, code in `code/ch33/` and a new
-`common/combine.h` (include `matrix.h`).
-It should cover: transforms about a pivot as ONE matrix — rotationAbout(c, θ) = T(c)·R(θ)·T(−c) and scalingAbout
-(Ch 32 P5 already gives rotationAbout as an exercise answer — build on it, do not contradict it); the general
-recipe "local → world" = translation × rotation × scaling; HIERARCHIES (parent × local: a robot arm — body, upper arm,
-forearm, hand; or a solar system with a moon around a planet around the Sun), each part drawn with
-world = parent × local; the INVERSE matrix: 2×2 part inverse = (1/det)·[d −b; −c a], translation part = −(inverse of
-the 2×2 part)·t; det = 0 → no inverse (Ch 32 §32.12 promised "use the determinant to undo a matrix"); check
-M × inverse(M) = identity in the program; TRANSFORMING WHOLE IMAGES (promised in Ch 31 §31.10 and Ch 32 "Next
-chapter"): for every destination pixel centre, apply the inverse to find where it came from in the source and copy
-that pixel (nearest — floor of the source position; outside → background colour) — explain why going forwards
-(source → destination) leaves holes; rotate a test picture (make one with earlier chapters, e.g. a checkerboard with
-a smiley/arrow, or loadPPM) by 30° about its centre, scale it, skew it; the bounding box of a transformed image =
-transform its 4 corners and take min/max. Leave bilinear sampling for Ch 35 (say so). Pictures: a robot arm,
-a sun–planet–moon system, a rotated/skewed photo-like test image, a "holes" picture showing forward mapping.
+**Part 5, Chapter 35 — Resizing images: nearest and bilinear** (the LAST chapter of Part 5).
+File: `part-05-moving-and-bending-shapes/ch35-resizing-images-nearest-and-bilinear.md`, code in `code/ch35/` and a new
+`common/resize.h` (include `bezier.h`).
+It should cover: resizing = inverse mapping with a scale (Ch 33 §33.5): destination pixel centre (x + 0.5) maps to
+source position (x + 0.5) × srcW / dstW (and the same for y) — derive it, show why NOT x × srcW / dstW (half-pixel
+shift); NEAREST neighbour (floor of the source position) — explain properly, as promised by Ch 27 (`pasteEnlarged`)
+and Ch 33 ("blocky"); the pixel-centre view of a picture: colours live at centres (k + 0.5); BILINEAR: subtract 0.5,
+floor → the 4 neighbours, fx/fy fractions, lerp across twice then down once (Ch 26 §26.9 / Ch 13 lerp; mention it
+equals the weights (1−fx)(1−fy) etc.), clamp at the edges (repeat the edge pixel — better than Ch 11's black outside,
+promised for Ch 50 but give the clamp idea here); blend in LINEAR light (Ch 17, toLinear/fromLinear) — show the dark
+fringe when blending sRGB bytes directly; worked numbers for a 2×2 picture enlarged to 4×4; SHRINKING: nearest and
+bilinear skip pixels → aliasing/shimmer (checkerboard shrunk to 1/3 shows moiré); the fix = average all source pixels
+under each destination pixel (box filter; generalises Ch 27's shrinkAverage to any factor — at least integer-friendly
+version, or area-weighted); mention better filters later (Ch 50 blur). Also a `sampleBilinear(image, PointF)` helper
+and a smooth version of Ch 33's drawImageTransformed (drawImageTransformedSmooth) — rotate the Ch 33 test picture
+again and compare edges. Pictures: an 8×8 pixel-art sprite enlarged ×16 by nearest vs bilinear; a gradient strip
+sRGB vs linear blend; a fine checkerboard shrunk by nearest vs box average; the rotated test picture nearest vs bilinear.
+Then Part 6 (Ch 36 BMP) — the Ch 36 promises list (BGR, bottom-up, padding, little-endian) is below.
 
 ## Chapters done
 
@@ -57,8 +59,10 @@ a sun–planet–moon system, a rotated/skewed photo-like test image, a "holes" 
 | 30 | part-05-moving-and-bending-shapes/ch30-angles-radians-sine-and-cosine.md | 6,774 | code/common/angles.h (new, 66 lines), code/ch30/angles.cpp |
 | 31 | part-05-moving-and-bending-shapes/ch31-move-scale-rotate.md | 9,863 | code/common/transform.h (new, 112 lines), code/ch31/transform.cpp |
 | 32 | part-05-moving-and-bending-shapes/ch32-matrices-and-homogeneous-coordinates.md | 8,011 | code/common/matrix.h (new, 83 lines), code/ch32/matrices.cpp |
+| 33 | part-05-moving-and-bending-shapes/ch33-combining-transforms.md | 7,629 | code/common/combine.h (new, 87 lines), code/ch33/combine.cpp |
+| 34 | part-05-moving-and-bending-shapes/ch34-bezier-curves.md | 8,016 | code/common/bezier.h (new, 99 lines), code/ch34/bezier.cpp |
 
-**Parts 1–4 complete**, Part 5 in progress (Ch 29–32 done). Total so far: ~210,500 words (`wc -w`, code included).
+**Parts 1–4 complete**, Part 5 in progress (Ch 29–34 done). Total so far: ~226,200 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -164,8 +168,21 @@ identity), `identity()`, `translation(tx, ty)`, `scaling(sx, sy)`, `rotation(rad
 `applyToPoints`, `determinant` (ad − bc = area factor; < 0 mirror). NOTE: chapter programs define their own small
 `closed(points)` helper (Ch 31, Ch 32) — it is not in a header.
 
+`code/common/combine.h` (Ch 33, includes `matrix.h`): `rotationAbout(c, radians)`, `scalingAbout(c, sx, sy)` (T(c)·X·T(−c)),
+`bool inverse(const Mat3& t, Mat3& result)` (|det| < 1e-12 → false, result untouched; (1/det)[d −b; −c a], move = −A⁻¹t),
+`transformedBox(t, width, height)` (4 picture CORNERS (0,0)…(w,h), floor/ceil), `drawImageForward` (the wrong way —
+holes), `drawImageTransformed(dest, source, t)` (inverse mapping, nearest neighbour, only inside the box and inside the
+source; other dest pixels untouched). Ch 33 program has `clean()` for printing −0 as 0.
+
+`code/common/bezier.h` (Ch 34, includes `combine.h`): `lerpPoint`, `quadraticPoint`, `cubicPoint` (de Casteljau),
+`cubicPointFormula` (u³, 3u²t, 3ut², t³), `cubicTangent`, `segmentsFor(controlLength)` = max(1, ceil(len/4)),
+`appendQuadratic(path, …)` / `appendCubic(path, …)` (add the start point only if the path is empty), `drawCubic`,
+`smoothPath(points)` (Catmull–Rom, handles ± (next − prev)/6, ends use the end stop), `bezierCircle(centre, r)`
+(k = 0.5522847498, 177 points for r = 100, max error 0.0272 px).
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
-← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h ← vec2.h ← angles.h ← transform.h ← matrix.h}.
+← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h ← vec2.h ← angles.h ← transform.h ← matrix.h
+← combine.h ← bezier.h}.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -196,8 +213,10 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - (Ch 29 and 30 delivered: dot/cross, perpendicular proof, edge function = cross, sin/cos, star constants of Ch 25,
   parametric orbits of Ch 23, hexagon √3/2 = sin 60°.)
 - (Ch 31 and 32 delivered: rotation formula, tilted ellipse of Ch 23, matrices, homogeneous coordinates, determinant.)
-- Ch 33: pivot matrices, hierarchies, the INVERSE (via the determinant, Ch 32 §32.12), and rotating/scaling/skewing whole
-  IMAGES with the inverse ("undo the transformation" trick, Ch 31 §31.10).
+- (Ch 33 and 34 delivered: pivot matrices, hierarchies, inverse, transforming whole images, Bézier curves.)
+- Ch 35: bilinear sampling to make Ch 33's turned/enlarged pictures smooth (Ch 33 §33.5 says "In Chapter 35 we will
+  blend the four nearest source pixels").
+- Ch 46 (text): fonts are Bézier outlines (Ch 34 §34.10) — our bitmap font is simpler, but may mention it.
 - Ch 35: resizing with the same inverse idea (Ch 31 §31.10); bilinear sampling for transformed images.
 - Part 9: normals need a special matrix rule under non-uniform scale (Ch 32 §32.8); 4 × 4 matrices whose bottom row is
   not (0, 0, 0, 1) give perspective (Ch 32 §32.7). Ray tracing also uses "undo the transformation" (Ch 31 §31.10).

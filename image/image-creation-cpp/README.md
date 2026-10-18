@@ -69,8 +69,8 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 30 | [Angles, radians, sine and cosine](part-05-moving-and-bending-shapes/ch30-angles-radians-sine-and-cosine.md) |
 | 31 | [Move, scale, rotate](part-05-moving-and-bending-shapes/ch31-move-scale-rotate.md) |
 | 32 | [Matrices and homogeneous coordinates](part-05-moving-and-bending-shapes/ch32-matrices-and-homogeneous-coordinates.md) |
-| 33 | Combining transforms |
-| 34 | Bézier curves |
+| 33 | [Combining transforms](part-05-moving-and-bending-shapes/ch33-combining-transforms.md) |
+| 34 | [Bézier curves](part-05-moving-and-bending-shapes/ch34-bezier-curves.md) |
 | 35 | Resizing images: nearest and bilinear |
 
 ## Part 6 — Real File Formats
