@@ -65,10 +65,10 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 
 | Ch | Title |
 |---|---|
-| 29 | 2D vectors |
-| 30 | Angles, radians, sine and cosine |
-| 31 | Move, scale, rotate |
-| 32 | Matrices and homogeneous coordinates |
+| 29 | [2D vectors](part-05-moving-and-bending-shapes/ch29-2d-vectors.md) |
+| 30 | [Angles, radians, sine and cosine](part-05-moving-and-bending-shapes/ch30-angles-radians-sine-and-cosine.md) |
+| 31 | [Move, scale, rotate](part-05-moving-and-bending-shapes/ch31-move-scale-rotate.md) |
+| 32 | [Matrices and homogeneous coordinates](part-05-moving-and-bending-shapes/ch32-matrices-and-homogeneous-coordinates.md) |
 | 33 | Combining transforms |
 | 34 | Bézier curves |
 | 35 | Resizing images: nearest and bilinear |

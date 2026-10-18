@@ -4,19 +4,22 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 5 starts. Chapter 29 — 2D vectors.**
-New folder `part-05-moving-and-bending-shapes/`, file `ch29-2d-vectors.md`, code in `code/ch29/` and a new
-`common/vec2.h` (include `wu.h` so the whole drawing library is available).
-It should cover: a vector as an arrow / a movement (dx, dy) vs a point (a position) — relate to `PointF` (Ch 24)
-and decide: keep `PointF` for positions and add `struct Vec2 {x, y}` with conversions, OR make Vec2 the main type
-and keep PointF as is (do NOT change PointF — earlier line numbers depend on it); adding and subtracting vectors
-(point − point = vector, point + vector = point), scaling, length (Pythagoras), unit vectors / normalise (Ch 27
-§27.9 already normalised (−dy, dx)); the **dot product** (Ch 27 §27.9 promised "Chapter 29 will prove it with the dot
-product: 3 × (−4) + 4 × 3 = 0"), angle meaning (positive/zero/negative) without cos yet (cos comes in Ch 30 — say the
-exact link waits one chapter), projection of one vector onto another, distance from a point to a line (Ch 24 §24.4
-used |E| / length), the 2D **cross product** = the edge function (Ch 24 §24.4 promised this), perpendicular (−y, x),
-reflecting a vector (bouncing ball), pictures: an arrow-drawing helper (line + arrow head built from perpendiculars,
-smooth with fillThickLineAA / fillPolygonAA), a vector field, a bouncing-ball trail.
+**Part 5, Chapter 33 — Combining transforms.**
+File: `part-05-moving-and-bending-shapes/ch33-combining-transforms.md`, code in `code/ch33/` and a new
+`common/combine.h` (include `matrix.h`).
+It should cover: transforms about a pivot as ONE matrix — rotationAbout(c, θ) = T(c)·R(θ)·T(−c) and scalingAbout
+(Ch 32 P5 already gives rotationAbout as an exercise answer — build on it, do not contradict it); the general
+recipe "local → world" = translation × rotation × scaling; HIERARCHIES (parent × local: a robot arm — body, upper arm,
+forearm, hand; or a solar system with a moon around a planet around the Sun), each part drawn with
+world = parent × local; the INVERSE matrix: 2×2 part inverse = (1/det)·[d −b; −c a], translation part = −(inverse of
+the 2×2 part)·t; det = 0 → no inverse (Ch 32 §32.12 promised "use the determinant to undo a matrix"); check
+M × inverse(M) = identity in the program; TRANSFORMING WHOLE IMAGES (promised in Ch 31 §31.10 and Ch 32 "Next
+chapter"): for every destination pixel centre, apply the inverse to find where it came from in the source and copy
+that pixel (nearest — floor of the source position; outside → background colour) — explain why going forwards
+(source → destination) leaves holes; rotate a test picture (make one with earlier chapters, e.g. a checkerboard with
+a smiley/arrow, or loadPPM) by 30° about its centre, scale it, skew it; the bounding box of a transformed image =
+transform its 4 corners and take min/max. Leave bilinear sampling for Ch 35 (say so). Pictures: a robot arm,
+a sun–planet–moon system, a rotated/skewed photo-like test image, a "holes" picture showing forward mapping.
 
 ## Chapters done
 
@@ -50,8 +53,12 @@ smooth with fillThickLineAA / fillPolygonAA), a vector field, a bouncing-ball tr
 | 26 | part-04-drawing-shapes/ch26-barycentric-coordinates.md | 7,564 | code/common/barycentric.h (new, 77 lines), code/ch26/barycentric.cpp |
 | 27 | part-04-drawing-shapes/ch27-smooth-edges-part-1-supersampling.md | 9,124 | code/common/antialias.h (new, 204 lines), code/ch27/antialias.cpp |
 | 28 | part-04-drawing-shapes/ch28-smooth-edges-part-2-wu-lines-and-coverage.md | 7,299 | code/common/wu.h (new, 106 lines), code/ch28/wu.cpp |
+| 29 | part-05-moving-and-bending-shapes/ch29-2d-vectors.md | 7,916 | code/common/vec2.h (new, 149 lines), code/ch29/vectors.cpp |
+| 30 | part-05-moving-and-bending-shapes/ch30-angles-radians-sine-and-cosine.md | 6,774 | code/common/angles.h (new, 66 lines), code/ch30/angles.cpp |
+| 31 | part-05-moving-and-bending-shapes/ch31-move-scale-rotate.md | 9,863 | code/common/transform.h (new, 112 lines), code/ch31/transform.cpp |
+| 32 | part-05-moving-and-bending-shapes/ch32-matrices-and-homogeneous-coordinates.md | 8,011 | code/common/matrix.h (new, 83 lines), code/ch32/matrices.cpp |
 
-**Parts 1, 2 and 3 complete.** **Part 4 complete** (Ch 19–28). Total so far: ~178,000 words (`wc -w`, code included).
+**Parts 1–4 complete**, Part 5 in progress (Ch 29–32 done). Total so far: ~210,500 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -132,8 +139,33 @@ diagonal 0.70711 shortcut), `ellipseCoverage`, `fillEllipseAA`, `fillPathsAA(img
 `drawLineWu`, `drawPolylineWu`, `plotSplitRow`, `plotSplitColumn`, `drawCircleWu(img, cx, cy, r, c)` (two loops,
 limit r/√2; 0 or 4 pixels near 45° get paint twice — noted in the chapter).
 
+`code/common/vec2.h` (Ch 29, includes `wu.h`): `using Vec2 = PointF;` (one type for points and vectors — PointF was
+NOT changed), operators `+ - (unary -) * (both sides) /`, `dot`, `cross` (= edgeFunction(a,b,p) with b−a, p−a),
+`length(Vec2)` (overloads Ch 14's length(ColourF)), `distance`, `normalize` (zero-safe), `perpendicular` = (−y, x)
+(clockwise quarter turn on screen), `project`, `reflect(v, normal)` (normalises the normal), `distanceToLine`,
+`closestPointOnSegment` (clamped t), `distanceToSegment`, `capsuleCoverage`, `fillCapsuleAA(img, a, b, radius, c,
+n = 4)` (round-ended smooth lines), `drawArrowAA(img, from, to, thickness, c)` (shaft + head in ONE fillPathsAA call).
+
+`code/common/angles.h` (Ch 30, includes `vec2.h`): `const double kPi`, `degreesToRadians`, `radiansToDegrees`,
+`fromAngle` (cos, sin), `pointOnCircle(centre, r, rad)`, `pointOnEllipse(centre, a, b, rad)` (parametric),
+`angleOf` (atan2(y, x)), `angleBetween` (acos of clamped dot/(|a||b|)), `regularPolygon(centre, r, sides, start)`,
+`starPoints(centre, outer, inner, tips, start)` (2n points, no crossings). Screen angles turn CLOCKWISE; −90° = up.
+
+`code/common/transform.h` (Ch 31, includes `angles.h`): `translate(p, offset)`, `scaleAbout(p, centre, sx, sy)` (−1 =
+mirror), `rotate(p, radians)` (about the origin; positive = clockwise on screen), `rotateAbout(p, centre, radians)`,
+`translatePoints`, `scalePoints`, `rotatePoints` (return NEW lists), `tiltedEllipsePoints(centre, a, b, radians,
+count)`, `insideTiltedEllipse(p, centre, a, b, radians)` (turn back by −θ, level test), `tiltedEllipseCoverage`,
+`tiltedEllipseBox` (half sizes √(a²c² + b²s²), √(a²s² + b²c²), derived with a dot product), `fillTiltedEllipseAA(img,
+centre, a, b, radians, c, n = 4)`.
+
+`code/common/matrix.h` (Ch 32, includes `transform.h`): `struct Mat3 { double m[3][3] }` (m[row][col], defaults to the
+identity), `identity()`, `translation(tx, ty)`, `scaling(sx, sy)`, `rotation(radians)`, `skew(kx, ky)`, `operator*`
+(A × B: B acts first — read right to left), `applyToPoint` (w = 1, skips the third row), `applyToDirection` (w = 0),
+`applyToPoints`, `determinant` (ad − bc = area factor; < 0 mirror). NOTE: chapter programs define their own small
+`closed(points)` helper (Ch 31, Ch 32) — it is not in a header.
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
-← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h}.
+← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h ← vec2.h ← angles.h ← transform.h ← matrix.h}.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -161,8 +193,17 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 54: our own random numbers (we never use `<random>`).
 - (Ch 25 and 26 delivered: any polygon, flood fill 4/8, masks, barycentric weights, colour per corner.)
 - (Ch 27 and 28 delivered: coverage = alpha, linear-light edge blending, small sample masks, Wu lines.)
-- Ch 29: dot product proves (−dy, dx) is perpendicular (Ch 27 §27.9); edge function = cross product (Ch 24 §24.4);
-  Wu's √(1 + g²) brightness fix is a vector length (Ch 28 P6).
+- (Ch 29 and 30 delivered: dot/cross, perpendicular proof, edge function = cross, sin/cos, star constants of Ch 25,
+  parametric orbits of Ch 23, hexagon √3/2 = sin 60°.)
+- (Ch 31 and 32 delivered: rotation formula, tilted ellipse of Ch 23, matrices, homogeneous coordinates, determinant.)
+- Ch 33: pivot matrices, hierarchies, the INVERSE (via the determinant, Ch 32 §32.12), and rotating/scaling/skewing whole
+  IMAGES with the inverse ("undo the transformation" trick, Ch 31 §31.10).
+- Ch 35: resizing with the same inverse idea (Ch 31 §31.10); bilinear sampling for transformed images.
+- Part 9: normals need a special matrix rule under non-uniform scale (Ch 32 §32.8); 4 × 4 matrices whose bottom row is
+  not (0, 0, 0, 1) give perspective (Ch 32 §32.7). Ray tracing also uses "undo the transformation" (Ch 31 §31.10).
+- Ch 80: a spinning windmill, frame by frame (Ch 31 P6).
+- Ch 68: "is the lamp in front of the wall?" with (L − W)·n > 0 (Ch 29 Example 2).
+- Exponential curves (Ch 30 P6 says "we do not use yet") — a later chapter may use std::exp (it is in <cmath>).
 - Ch 54: random / jittered sample positions for supersampling (Ch 27 §27.4).
 - Ch 35: nearest-neighbour enlarging was used in Ch 27 (`pasteEnlarged`) — Ch 35 explains it properly.
 - Ch 35: bilinear blending again for resizing (Ch 26 §26.9).
