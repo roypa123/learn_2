@@ -71,15 +71,15 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 32 | [Matrices and homogeneous coordinates](part-05-moving-and-bending-shapes/ch32-matrices-and-homogeneous-coordinates.md) |
 | 33 | [Combining transforms](part-05-moving-and-bending-shapes/ch33-combining-transforms.md) |
 | 34 | [Bézier curves](part-05-moving-and-bending-shapes/ch34-bezier-curves.md) |
-| 35 | Resizing images: nearest and bilinear |
+| 35 | [Resizing images: nearest and bilinear](part-05-moving-and-bending-shapes/ch35-resizing-images-nearest-and-bilinear.md) |
 
 ## Part 6 — Real File Formats
 
 | Ch | Title |
 |---|---|
-| 36 | The BMP format: headers and padding |
-| 37 | Writing BMP files |
-| 38 | Reading BMP files |
+| 36 | [The BMP format: headers and padding](part-06-real-file-formats/ch36-the-bmp-format-headers-and-padding.md) |
+| 37 | [Writing BMP files](part-06-real-file-formats/ch37-writing-bmp-files.md) |
+| 38 | [Reading BMP files](part-06-real-file-formats/ch38-reading-bmp-files.md) |
 | 39 | The TGA format |
 | 40 | PNG, part 1: chunks and CRC-32 |
 | 41 | PNG, part 2: zlib, stored blocks and Adler-32 |

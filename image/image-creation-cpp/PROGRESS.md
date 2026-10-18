@@ -4,24 +4,23 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 5, Chapter 35 — Resizing images: nearest and bilinear** (the LAST chapter of Part 5).
-File: `part-05-moving-and-bending-shapes/ch35-resizing-images-nearest-and-bilinear.md`, code in `code/ch35/` and a new
-`common/resize.h` (include `bezier.h`).
-It should cover: resizing = inverse mapping with a scale (Ch 33 §33.5): destination pixel centre (x + 0.5) maps to
-source position (x + 0.5) × srcW / dstW (and the same for y) — derive it, show why NOT x × srcW / dstW (half-pixel
-shift); NEAREST neighbour (floor of the source position) — explain properly, as promised by Ch 27 (`pasteEnlarged`)
-and Ch 33 ("blocky"); the pixel-centre view of a picture: colours live at centres (k + 0.5); BILINEAR: subtract 0.5,
-floor → the 4 neighbours, fx/fy fractions, lerp across twice then down once (Ch 26 §26.9 / Ch 13 lerp; mention it
-equals the weights (1−fx)(1−fy) etc.), clamp at the edges (repeat the edge pixel — better than Ch 11's black outside,
-promised for Ch 50 but give the clamp idea here); blend in LINEAR light (Ch 17, toLinear/fromLinear) — show the dark
-fringe when blending sRGB bytes directly; worked numbers for a 2×2 picture enlarged to 4×4; SHRINKING: nearest and
-bilinear skip pixels → aliasing/shimmer (checkerboard shrunk to 1/3 shows moiré); the fix = average all source pixels
-under each destination pixel (box filter; generalises Ch 27's shrinkAverage to any factor — at least integer-friendly
-version, or area-weighted); mention better filters later (Ch 50 blur). Also a `sampleBilinear(image, PointF)` helper
-and a smooth version of Ch 33's drawImageTransformed (drawImageTransformedSmooth) — rotate the Ch 33 test picture
-again and compare edges. Pictures: an 8×8 pixel-art sprite enlarged ×16 by nearest vs bilinear; a gradient strip
-sRGB vs linear blend; a fine checkerboard shrunk by nearest vs box average; the rotated test picture nearest vs bilinear.
-Then Part 6 (Ch 36 BMP) — the Ch 36 promises list (BGR, bottom-up, padding, little-endian) is below.
+**Part 6, Chapter 39 — The TGA format.**
+File: `part-06-real-file-formats/ch39-the-tga-format.md`, code in `code/ch39/` and a new `common/tga.h` (include
+`bmpload.h` or just `bmp.h` — needs `Bytes`, put/get, `writeBytes`; keep the file-format branch: image.h ← bytes.h ←
+bmp.h ← bmpload.h ← tga.h).
+It should cover (promised at the end of Ch 38): the 18-byte TGA header field by field (id length, colour map type,
+image type 2 = uncompressed true-colour, 10 = RLE true-colour, colour-map spec (5 bytes, zero), x/y origin, width,
+height (16-bit LITTLE-endian — reuse putU16/getU16), pixel depth 24 or 32, image descriptor: bits 0–3 = alpha bits
+(8 for 32-bit), bit 5 = top-left origin (0 = bottom-up like BMP)); pixels B G R (A), NO row padding; the optional
+26-byte "TRUEVISION-XFILE" footer (mention, optional); ALPHA properly: 32-bit TGA with real transparency (Ch 18
+promised RGBA storage for Ch 42 PNG — TGA is a first taste; our Image has no alpha, so write alpha from a separate
+mask or coverage, e.g. a smooth circle whose alpha = coverage from Ch 27 — a small `std::vector<std::uint8_t> alpha`);
+RUN-LENGTH ENCODING (first compression!): packets with a header byte — top bit 1 = run (count = low 7 bits + 1,
+one pixel repeated), 0 = raw (count + 1 literal pixels), max 128 per packet, packets must not cross rows (good
+practice); encoder + decoder; worked bytes for a small row; compression ratio on flat pictures (a flag) vs noisy ones
+(may grow: worst case 1 extra byte per 128 pixels); saveTGA(image, name, rle), loadTGA with full validation (Ch 38
+style `tgaProblem`), round trips, broken-file tests. Then Ch 40 PNG part 1 (chunks, CRC-32, big-endian helpers —
+Ch 36 P5 gave putU32BigEndian/getU32BigEndian as an exercise answer).
 
 ## Chapters done
 
@@ -61,8 +60,12 @@ Then Part 6 (Ch 36 BMP) — the Ch 36 promises list (BGR, bottom-up, padding, li
 | 32 | part-05-moving-and-bending-shapes/ch32-matrices-and-homogeneous-coordinates.md | 8,011 | code/common/matrix.h (new, 83 lines), code/ch32/matrices.cpp |
 | 33 | part-05-moving-and-bending-shapes/ch33-combining-transforms.md | 7,629 | code/common/combine.h (new, 87 lines), code/ch33/combine.cpp |
 | 34 | part-05-moving-and-bending-shapes/ch34-bezier-curves.md | 8,016 | code/common/bezier.h (new, 99 lines), code/ch34/bezier.cpp |
+| 35 | part-05-moving-and-bending-shapes/ch35-resizing-images-nearest-and-bilinear.md | 7,057 | code/common/resize.h (new, 115 lines), code/ch35/resize.cpp |
+| 36 | part-06-real-file-formats/ch36-the-bmp-format-headers-and-padding.md | 6,660 | code/common/bytes.h (new, 57 lines), code/ch36/bmp_layout.cpp |
+| 37 | part-06-real-file-formats/ch37-writing-bmp-files.md | 5,616 | code/common/bmp.h (new, 81 lines), code/ch37/write_bmp.cpp |
+| 38 | part-06-real-file-formats/ch38-reading-bmp-files.md | 6,059 | code/common/bmpload.h (new, 82 lines), code/ch38/read_bmp.cpp |
 
-**Parts 1–4 complete**, Part 5 in progress (Ch 29–34 done). Total so far: ~226,200 words (`wc -w`, code included).
+**Parts 1–5 complete**, Part 6 in progress (Ch 36–38 done). Total so far: ~251,600 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -180,9 +183,29 @@ source; other dest pixels untouched). Ch 33 program has `clean()` for printing �
 `smoothPath(points)` (Catmull–Rom, handles ± (next − prev)/6, ends use the end stop), `bezierCircle(centre, r)`
 (k = 0.5522847498, 177 points for r = 100, max error 0.0272 px).
 
+`code/common/resize.h` (Ch 35, includes `bezier.h`): `resizeNearest(src, w, h)` (source = (x + 0.5) × W/w, floor),
+`getPixelClamped` (clamp to edge), `pixelAsF(img, x, y, linearLight)`, `sampleBilinear(img, PointF, linearLight = true)`
+(−0.5 shift, 4 centres, lerp across then down), `resizeBilinear(src, w, h, linearLight = true)`, `firstCentreAtOrAfter(edge)`
+= ceil(edge − 0.5), `resizeBox(src, w, h)` (average of all source centres in the half-open cell, linear light, at least
+one pixel), `drawImageTransformedSmooth(dest, src, t)` (Ch 33 with bilinear; outer edge still hard — Ch 35 P7).
+
+`code/common/bytes.h` (Ch 36, includes ONLY `image.h` — the start of the file-format branch): `using Bytes =
+std::vector<std::uint8_t>`, `putU16`, `putU32`, `putS32` (little-endian), `getU16`, `getU32`, `getS32` (int pos; casts to
+uint32 before shifting), `hasBytes(in, pos, count)`, `hexByte(b)` (two hex digits), `bmpRowSize(width)` = (3w + 3)/4×4.
+Big-endian versions are Ch 36 Practice 5 (needed for PNG, Ch 40 — put them in a header then).
+
+`code/common/bmp.h` (Ch 37, includes `bytes.h`): `const int kBmpHeaderSize = 54`, `writeBytes(fileName, bytes)` (binary),
+`bmpSizeIsOk(w, h)` (w, h > 0; 54 + rowSize·h ≤ 2³¹ − 1 in long long), `makeBmpBytes(image)` (empty Bytes = failure),
+`saveBMP(image, fileName)` (picture FIRST). Image has NO default constructor — use `Image x(0, 0)` as a placeholder.
+
+`code/common/bmpload.h` (Ch 38, includes `bmp.h`): `std::string bmpProblem(const Bytes&)` ("" = OK; 10 checks: size ≤
+2³¹−1, ≥ 54, "BM", header ≥ 40, planes 1, bpp 24/32, compression 0, width > 0 & height ≠ 0 & height ≥ −1e8, w·rows ≤ 1e8,
+offset ≥ 54 & offset + rowSize·rows ≤ size — all in long long), `decodeBMP(bytes, image)` (top-down if height < 0;
+32-bit ignores the 4th byte), `loadBMP(fileName, image)`.
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
 ← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h ← vec2.h ← angles.h ← transform.h ← matrix.h
-← combine.h ← bezier.h}.
+← combine.h ← bezier.h ← resize.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -214,8 +237,13 @@ Earlier chapters point forward to these. The later chapters must deliver them:
   parametric orbits of Ch 23, hexagon √3/2 = sin 60°.)
 - (Ch 31 and 32 delivered: rotation formula, tilted ellipse of Ch 23, matrices, homogeneous coordinates, determinant.)
 - (Ch 33 and 34 delivered: pivot matrices, hierarchies, inverse, transforming whole images, Bézier curves.)
-- Ch 35: bilinear sampling to make Ch 33's turned/enlarged pictures smooth (Ch 33 §33.5 says "In Chapter 35 we will
-  blend the four nearest source pixels").
+- (Ch 35 and 36 delivered: nearest/bilinear/box resizing, linear-light blending, BMP layout, little-endian, padding.)
+- Ch 50: clamp-to-edge and other edge choices for blurring (Ch 35 §35.4); Gaussian is better than box for shrinking
+  (Ch 35 §35.7).
+- (Ch 37 and 38 delivered: saveBMP, loadBMP, viewer, sizes, top-down, 32-bit, broken-file tests.)
+- Ch 39: TGA with real alpha and run-length encoding (Ch 38 "Next chapter"). Ch 40+: PNG is compressed, 3–10× smaller
+  (Ch 37 §37.6); PNG stores transparency properly (Ch 37 P5).
+- Ch 80: the windmill animation (Ch 31 P6) can now be saved as BMP frames.
 - Ch 46 (text): fonts are Bézier outlines (Ch 34 §34.10) — our bitmap font is simpler, but may mention it.
 - Ch 35: resizing with the same inverse idea (Ch 31 §31.10); bilinear sampling for transformed images.
 - Part 9: normals need a special matrix rule under non-uniform scale (Ch 32 §32.8); 4 × 4 matrices whose bottom row is

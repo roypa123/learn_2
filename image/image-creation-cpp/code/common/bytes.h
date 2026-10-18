@@ -39,7 +39,7 @@ inline std::int32_t getS32(const Bytes& in, int pos) {
 }
 
 inline bool hasBytes(const Bytes& in, int pos, int count) {
-    return pos >= 0 && count >= 0 && static_cast<std::size_t>(pos + count) <= in.size();
+    return pos >= 0 && count >= 0 && pos + count <= static_cast<int>(in.size());
 }
 
 inline std::string hexByte(std::uint8_t b) {
