@@ -97,8 +97,8 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 48 | [Histograms and histogram equalisation](part-07-changing-images/ch48-histograms-and-histogram-equalisation.md) |
 | 49 | [Convolution: the idea and the maths](part-07-changing-images/ch49-convolution-the-idea-and-the-maths.md) |
 | 50 | [Blur: box blur and Gaussian blur](part-07-changing-images/ch50-blur-box-blur-and-gaussian-blur.md) |
-| 51 | Sharpen and edge detection (Sobel) |
-| 52 | Dithering: ordered and Floyd–Steinberg |
+| 51 | [Sharpen and edge detection (Sobel)](part-07-changing-images/ch51-sharpen-and-edge-detection-sobel.md) |
+| 52 | [Dithering: ordered and Floyd–Steinberg](part-07-changing-images/ch52-dithering-ordered-and-floyd-steinberg.md) |
 | 53 | Warping and distortion effects |
 
 ## Part 8 — Pictures From Maths (Procedural Images)

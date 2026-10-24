@@ -4,17 +4,17 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 7, Chapter 51 — Sharpen and edge detection (Sobel).**
-File: `part-07-changing-images/ch51-sharpen-and-edge-detection-sobel.md`, code in `code/ch51/` and a new
-`common/edges.h` (include `blur.h`). Programs that save PNG also include `deflate.h`.
-It should cover (promised by Ch 50 "Next chapter", Ch 49 §49.4/§49.8/P3): sharpen kernel 0 −1 0 / −1 5 −1 / 0 −1 0
-explained as original + (original − blur) — the UNSHARP MASK (amount, radius σ, maybe threshold); halos/overshoot and
-clamping; sharpen in sRGB vs linear (choose and explain); noise gets sharpened too. Edges: the difference kernel → Sobel
-Gx = −1 0 1 / −2 0 2 / −1 0 1 and Gy; keep NEGATIVE values (work on a double grey plane, not clamped bytes — Ch 49 §49.8
-promised); magnitude √(gx² + gy²) (Pythagoras, Ch 29), direction atan2(gy, gx) (Ch 30); show magnitude as a grey picture
-(scale by max), direction as hue (hsv.h!) maybe; threshold the magnitude for a black/white edge map (Ch 47); blur first
-to reduce noise; the Laplacian (Ch 49 P3) as a second-derivative edge detector; worked numbers on small grids. Then
-Ch 52 dithering (ordered/Bayer + Floyd–Steinberg; colour distance in the RGB cube — promised Ch 5/52), Ch 53 warping.
+**Part 7, Chapter 53 — Warping and distortion effects.**
+File: `part-07-changing-images/ch53-warping-and-distortion-effects.md`, code in `code/ch53/` and a new
+`common/warp.h` (include `dither.h`). Programs that save PNG also include `deflate.h`.
+It should cover (promised by Ch 52 "Next chapter"): moving pixels instead of changing them; work BACKWARDS (Ch 31
+§31.10, Ch 33 "transforming whole images"): for each new pixel, where did it come from?; bilinear sampling of the old
+picture (Ch 35's sampler — check its name in resize.h) and what to do outside (EdgeMode of Ch 49, or transparent);
+effects as small functions of (x, y) → (sx, sy): wave (sine, Ch 30), ripple (distance from centre, sin of distance),
+swirl (rotate by an angle that shrinks with distance — polar coordinates r, θ with atan2), fish-eye / barrel (r → r²
+or r^k scaled), pinch/bulge; worked numbers for single pixels; why forward mapping leaves holes (show a count). No
+lambdas: use an enum or a struct with a kind. Then Ch 54 random numbers (LCG of Ch 39, seed·1103515245 + 12345;
+jittered supersampling Ch 27 §27.4; noise for Ch 51/52-style tests), Ch 55 (see README).
 
 ## Chapters done
 
@@ -70,8 +70,10 @@ Ch 52 dithering (ordered/Bayer + Floyd–Steinberg; colour distance in the RGB c
 | 48 | part-07-changing-images/ch48-histograms-and-histogram-equalisation.md | 6,106 | code/common/histogram.h (new, 122 lines), code/ch48/histogram.cpp |
 | 49 | part-07-changing-images/ch49-convolution-the-idea-and-the-maths.md | 6,616 | code/common/convolve.h (new, 96 lines), code/ch49/convolve.cpp |
 | 50 | part-07-changing-images/ch50-blur-box-blur-and-gaussian-blur.md | 6,726 | code/common/blur.h (new, 151 lines), code/ch50/blur.cpp |
+| 51 | part-07-changing-images/ch51-sharpen-and-edge-detection-sobel.md | 8,599 | code/common/edges.h (new, 139 lines), code/ch51/edges.cpp |
+| 52 | part-07-changing-images/ch52-dithering-ordered-and-floyd-steinberg.md | 7,461 | code/common/dither.h (new, 129 lines), code/ch52/dither.cpp |
 
-**Parts 1–6 complete**, Part 7 in progress (Ch 47–50 done). Total so far: ~342,600 words (`wc -w`, code included).
+**Parts 1–6 complete**, Part 7 in progress (Ch 47–52 done). Total so far: ~358,700 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -306,9 +308,27 @@ Clamp, linearLight = TRUE)`, `gaussianBlur(img, sigma, mode = Clamp, linearLight
 vs linear 213 156 0; stripes period 4 shrunk ×3 alias to 255 255 0 0…; blurred first ≈ 182–193 (≈ 188 = linear 0.5).
 Ch 49/50 programs copy Ch 47's `makeScene()`.
 
+`code/common/edges.h` (Ch 51, includes `blur.h` and `hsv.h`): `struct GreyF {width, height, vector<double> data}` (grey
+in 0..255 sRGB-value units, may be negative), `makeGreyF`, `greyAt` (clamp), `toGreyF` (255·luma), `convolveGrey(src,
+Kernel)` (no rounding/clamping), `sharpenKernel` (0 −1 0/−1 5 −1/0 −1 0), `laplacianKernel`, `sobelX`, `sobelY`,
+`magnitudeOf(gx, gy)`, `sobelMagnitude(g)`, `directionDegrees(gx, gy)` (0..360, y down, points dark→bright),
+`largestValue` (abs), `greyFToImage(g, scale, offset = 0)` (clampByte), `edgeMap(mag, level)`, `directionColours(gx,
+gy, largest)` (hue = direction), `unsharpMask(img, sigma, amount, linearLight = FALSE)` (sRGB default: balanced halos).
+Results: row 100→160 sharpen 100 100 40 220 160 160; unsharp σ1 a1 100 96 82 178 164 160 (linear 100 95 69 173 163 160);
+Sobel edge grid 0 360 360 0 0; diagonal 270/270 → 381.8 at 45°; noisy edge ≥100: 920 vs 192 after blur σ1.
+
+`code/common/dither.h` (Ch 52, includes `edges.h`): `kBayer4[16]`, `bayerThreshold(x, y)` ((n + 0.5)/16),
+`nearestLevel(v, levels)`, `posterise(img, levels)` (sRGB nearest), `orderedChannel(v, t, levels, linear)`,
+`orderedDither(img, levels, linearLight = true)` (fraction between two sRGB levels measured in light), `cubePalette(levels)`
+(r outer, b inner), `distanceSquared(ColourF, ColourF)`, `nearestIndex(c, vector<ColourF>)` (tie → earlier),
+`addError`, `floydSteinberg(img, vector<Colour> palette, linearLight = true)` (7/3/5/1 sixteenths), `averageColour(img)`
+(average light as a Colour). Results: grey 128 16×16: ordered sRGB 128 white (looks 188), linear 48 (120); FS sRGB 128
+(188), linear 52 (124); orange 200 100 50 → red, 124.6; ramp avg 131 131 146, posterised 179 195 195, ordered 132 131
+146, FS 129 131 145. Ch 51/52 programs copy Ch 47's `makeScene()`.
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
 ← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h ← vec2.h ← angles.h ← transform.h ← matrix.h
-← combine.h ← bezier.h ← resize.h ← font.h ← pointops.h (+ grey.h) ← histogram.h ← convolve.h ← blur.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h ← tga.h ← png.h ← zlib.h ← pngfile.h ← pngfilter.h ← huffman.h ← deflate.h.
+← combine.h ← bezier.h ← resize.h ← font.h ← pointops.h (+ grey.h) ← histogram.h ← convolve.h ← blur.h ← edges.h (+ hsv.h) ← dither.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h ← tga.h ← png.h ← zlib.h ← pngfile.h ← pngfilter.h ← huffman.h ← deflate.h.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -330,7 +350,6 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 35: "nearest neighbour" (viewers that blur when zooming).
 - Ch 36: BMP bottom-up rows, **BGR** order (Ch 12 P5 swaps R and B), rows padded to a multiple of 4,
   little-endian (Ch 4 P8 `78 56 34 12`, Ch 9 §9.8).
-- Ch 52: colour distance in the RGB cube for dithering.
 - Ch 54: our own random numbers (we never use `<random>`).
 - (Ch 25 and 26 delivered: any polygon, flood fill 4/8, masks, barycentric weights, colour per corner.)
 - (Ch 27 and 28 delivered: coverage = alpha, linear-light edge blending, small sample masks, Wu lines.)
@@ -350,8 +369,11 @@ Earlier chapters point forward to these. The later chapters must deliver them:
   wrap-around, gamma/exposure in linear light; histograms, percentiles, auto levels, equalisation.)
 - (Ch 49 and 50 delivered: convolution, kernels, edge modes, in-place bug, cost; Gaussian, separable, running sum, linear
   light blur, blur-before-shrink (Ch 35 §35.7), clamp-to-edge for blurring (Ch 35 §35.4).)
-- Ch 51: keep negative values for edges (Ch 49 §49.8), Laplacian (Ch 49 P3), Sobel magnitude/direction (Ch 50 "Next").
-- Ch 52: dithering keeps shading that a threshold loses (Ch 47 §47.7).
+- (Ch 51 and 52 delivered: negative edge values kept (Ch 49 §49.8), Laplacian (Ch 49 P3), Sobel strength/direction,
+  unsharp mask; dithering keeps shading (Ch 47 §47.7), colour distance in the RGB cube (Ch 5).)
+- Ch 53: warping works backwards (Ch 31 §31.10) with bilinear sampling (Ch 35); Ch 52 "Next chapter" promises swirls,
+  waves, ripples, fish-eye.
+- Ch 54: random numbers would give real noise for Ch 51 §51.9 (it used a fixed pattern "until Chapter 54").
 - Ch 54: the linear congruential generator used for noise in Ch 39 (seed·1103515245 + 12345).
 - Ch 80: the windmill animation (Ch 31 P6) can now be saved as BMP frames.
 - Ch 35: resizing with the same inverse idea (Ch 31 §31.10); bilinear sampling for transformed images.

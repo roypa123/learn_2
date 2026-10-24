@@ -106,7 +106,6 @@ let url = URL(string: "https://jsonplaceholder.typicode.com/users/1")
 
 ```swift
 import Foundation
-
 func downloadText() async throws -> String {
     let url = URL(string: "https://jsonplaceholder.typicode.com/users/1")!
     let (data, _) = try await URLSession.shared.data(from: url)

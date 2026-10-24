@@ -250,7 +250,7 @@ struct ContentView: View {
                 .frame(width: 200, height: 280)
             Text(flipped ? "🎉" : "?")
                 .font(.system(size: 80))
-                .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
+                .rotation3DEffect(.degrees(flipped ? 188 : 20), axis: (x: 0, y: 1, z: 0))
         }
         .rotation3DEffect(.degrees(flipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
         .onTapGesture {
