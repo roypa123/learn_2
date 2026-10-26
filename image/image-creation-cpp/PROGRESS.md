@@ -4,17 +4,15 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 7, Chapter 53 — Warping and distortion effects.**
-File: `part-07-changing-images/ch53-warping-and-distortion-effects.md`, code in `code/ch53/` and a new
-`common/warp.h` (include `dither.h`). Programs that save PNG also include `deflate.h`.
-It should cover (promised by Ch 52 "Next chapter"): moving pixels instead of changing them; work BACKWARDS (Ch 31
-§31.10, Ch 33 "transforming whole images"): for each new pixel, where did it come from?; bilinear sampling of the old
-picture (Ch 35's sampler — check its name in resize.h) and what to do outside (EdgeMode of Ch 49, or transparent);
-effects as small functions of (x, y) → (sx, sy): wave (sine, Ch 30), ripple (distance from centre, sin of distance),
-swirl (rotate by an angle that shrinks with distance — polar coordinates r, θ with atan2), fish-eye / barrel (r → r²
-or r^k scaled), pinch/bulge; worked numbers for single pixels; why forward mapping leaves holes (show a count). No
-lambdas: use an enum or a struct with a kind. Then Ch 54 random numbers (LCG of Ch 39, seed·1103515245 + 12345;
-jittered supersampling Ch 27 §27.4; noise for Ch 51/52-style tests), Ch 55 (see README).
+**Part 8, Chapter 55 — Value noise.**
+File: `part-08-pictures-from-maths/ch55-value-noise.md`, code in `code/ch55/` and a new `common/noise.h` (include
+`random.h`). Programs that save PNG also include `deflate.h`.
+It should cover (promised by Ch 54 "Next chapter"): white noise is too wild (neighbours unrelated); random values only
+at grid corners from `hashDouble(ix, iy, seed)`; the cell of a point (floor), the fraction inside the cell; bilinear
+blend of the 4 corners (Ch 13 lerp, Ch 35 bilinear) → visible creases/diamonds; the "gentler curve" smoothstep
+3t² − 2t³ (and maybe 6t⁵ − 15t⁴ + 10t³), with worked values and why the slope is 0 at 0 and 1; scale (cell size /
+frequency); 1D value noise first as a graph (drawCurve-style), then 2D; worked numbers at a few points; noise → grey
+picture and → colour with a gradient map (lerpColour); seeds. Ch 56 Perlin (gradients at corners), Ch 57 fractal noise.
 
 ## Chapters done
 
@@ -72,8 +70,10 @@ jittered supersampling Ch 27 §27.4; noise for Ch 51/52-style tests), Ch 55 (see
 | 50 | part-07-changing-images/ch50-blur-box-blur-and-gaussian-blur.md | 6,726 | code/common/blur.h (new, 151 lines), code/ch50/blur.cpp |
 | 51 | part-07-changing-images/ch51-sharpen-and-edge-detection-sobel.md | 8,599 | code/common/edges.h (new, 139 lines), code/ch51/edges.cpp |
 | 52 | part-07-changing-images/ch52-dithering-ordered-and-floyd-steinberg.md | 7,461 | code/common/dither.h (new, 129 lines), code/ch52/dither.cpp |
+| 53 | part-07-changing-images/ch53-warping-and-distortion-effects.md | 5,689 | code/common/warp.h (new, 107 lines), code/ch53/warp.cpp |
+| 54 | part-08-pictures-from-maths/ch54-making-our-own-random-numbers.md | 6,608 | code/common/random.h (new, 69 lines), code/ch54/random.cpp |
 
-**Parts 1–6 complete**, Part 7 in progress (Ch 47–52 done). Total so far: ~358,700 words (`wc -w`, code included).
+**Parts 1–7 complete**, Part 8 in progress (Ch 54 done). Total so far: ~371,000 words (`wc -w`, code included).
 
 ## The shared library: `code/common/image.h`
 
@@ -326,9 +326,23 @@ Sobel edge grid 0 360 360 0 0; diagonal 270/270 → 381.8 at 45°; noisy edge �
 (188), linear 52 (124); orange 200 100 50 → red, 124.6; ramp avg 131 131 146, posterised 179 195 195, ordered 132 131
 146, FS 129 131 145. Ch 51/52 programs copy Ch 47's `makeScene()`.
 
+`code/common/warp.h` (Ch 53, includes `dither.h`): `enum class WarpKind {None, Wave, Ripple, Swirl, Bulge}`, `struct Warp
+{kind, centre, amount, size}` (amount = A px / angle rad / k; size = wavelength L / radius R), `waveSource`,
+`rippleSource`, `swirlSource` (angle·(1 − r/R)), `bulgeSource` (scale (r/R)^(k−1); k < 1 = pinch), `warpSource(p, w)`,
+`insideImage`, `warpImage(src, w, Colour outside, linearLight = true)` (backwards, pixel centres, sampleBilinear),
+`warpForward(src, w, background, int& holes)`. Results: wave (50,10) ← (56,10); ripple (85,55) ← (88,55); swirl
+(105,55) ← (97.68,72.68); bulge ← (92.5,55); pinch ← (115.36,55); forward swirl 1472 of 17600 holes.
+
+`code/common/random.h` (Ch 54, includes `warp.h`): `lcgNext(uint32&)` (Ch 39's), `xorshiftNext(uint32&)` (13, 17, 5),
+`struct Random {state = 2463534242u}`, `makeRandom(seed)` (0 → default), `nextNumber`, `randomDouble` (top 24 bits /
+2^24, < 1), `randomRange`, `randomInt(r, low, high)` (inclusive), `hash2(x, y, seed)` (×374761393, ×668265263, mix
+×1274126177), `hashDouble(x, y, seed)`, `jitteredOffset(i, n, r)`, `whiteNoise(w, h, r)`. Results: LCG low bit
+alternates; pair test 128 / 41308 / 41420 (ideal ≈ 41427); hashDouble(3, 7, 1) = 0.7641, (4, 7, 1) = 0.4679;
+nearly-flat edge: grid 5 values, jittered 15, error 1.0 vs 0.6.
+
 Header include chain so far: image.h ← colourf.h ← {grey.h, hsv.h, srgb.h ← alpha.h ← draw.h ← lines.h ← circles.h
 ← ellipses.h ← triangles.h ← fill.h ← barycentric.h ← antialias.h ← wu.h ← vec2.h ← angles.h ← transform.h ← matrix.h
-← combine.h ← bezier.h ← resize.h ← font.h ← pointops.h (+ grey.h) ← histogram.h ← convolve.h ← blur.h ← edges.h (+ hsv.h) ← dither.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h ← tga.h ← png.h ← zlib.h ← pngfile.h ← pngfilter.h ← huffman.h ← deflate.h.
+← combine.h ← bezier.h ← resize.h ← font.h ← pointops.h (+ grey.h) ← histogram.h ← convolve.h ← blur.h ← edges.h (+ hsv.h) ← dither.h ← warp.h ← random.h}; and the file-format branch image.h ← bytes.h ← bmp.h ← bmpload.h ← tga.h ← png.h ← zlib.h ← pngfile.h ← pngfilter.h ← huffman.h ← deflate.h.
 Note: programs that need HSV colours include `hsv.h` as well (it is not in the draw chain).
 
 Chapter programs from Ch 11 on use `#include "image.h"` and are built with `g++ -std=c++17 -Wall -Wextra -O2 -I ../common`.
@@ -350,7 +364,6 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 35: "nearest neighbour" (viewers that blur when zooming).
 - Ch 36: BMP bottom-up rows, **BGR** order (Ch 12 P5 swaps R and B), rows padded to a multiple of 4,
   little-endian (Ch 4 P8 `78 56 34 12`, Ch 9 §9.8).
-- Ch 54: our own random numbers (we never use `<random>`).
 - (Ch 25 and 26 delivered: any polygon, flood fill 4/8, masks, barycentric weights, colour per corner.)
 - (Ch 27 and 28 delivered: coverage = alpha, linear-light edge blending, small sample masks, Wu lines.)
 - (Ch 29 and 30 delivered: dot/cross, perpendicular proof, edge function = cross, sin/cos, star constants of Ch 25,
@@ -371,10 +384,10 @@ Earlier chapters point forward to these. The later chapters must deliver them:
   light blur, blur-before-shrink (Ch 35 §35.7), clamp-to-edge for blurring (Ch 35 §35.4).)
 - (Ch 51 and 52 delivered: negative edge values kept (Ch 49 §49.8), Laplacian (Ch 49 P3), Sobel strength/direction,
   unsharp mask; dithering keeps shading (Ch 47 §47.7), colour distance in the RGB cube (Ch 5).)
-- Ch 53: warping works backwards (Ch 31 §31.10) with bilinear sampling (Ch 35); Ch 52 "Next chapter" promises swirls,
-  waves, ripples, fish-eye.
-- Ch 54: random numbers would give real noise for Ch 51 §51.9 (it used a fixed pattern "until Chapter 54").
-- Ch 54: the linear congruential generator used for noise in Ch 39 (seed·1103515245 + 12345).
+- (Ch 53 and 54 delivered: backwards warps with bilinear sampling, wave/ripple/swirl/bulge/pinch, forward holes
+  counted; our own random numbers (Ch 1), the LCG of Ch 39 explained, jittered samples (Ch 27 §27.4).)
+- Ch 55: value noise from `hashDouble` at grid corners, blended with "a gentler curve" than lerp (Ch 54 "Next").
+- Ch 56/57: Perlin noise, then fractal noise for clouds, marble, wood (Ch 54 "Next chapter").
 - Ch 80: the windmill animation (Ch 31 P6) can now be saved as BMP frames.
 - Ch 35: resizing with the same inverse idea (Ch 31 §31.10); bilinear sampling for transformed images.
 - Part 9: normals need a special matrix rule under non-uniform scale (Ch 32 §32.8); 4 × 4 matrices whose bottom row is
@@ -382,7 +395,6 @@ Earlier chapters point forward to these. The later chapters must deliver them:
 - Ch 80: a spinning windmill, frame by frame (Ch 31 P6).
 - Ch 68: "is the lamp in front of the wall?" with (L − W)·n > 0 (Ch 29 Example 2).
 - Exponential curves (Ch 30 P6 says "we do not use yet") — a later chapter may use std::exp (it is in <cmath>).
-- Ch 54: random / jittered sample positions for supersampling (Ch 27 §27.4).
 - Ch 35: nearest-neighbour enlarging was used in Ch 27 (`pasteEnlarged`) — Ch 35 explains it properly.
 - Ch 35: bilinear blending again for resizing (Ch 26 §26.9).
 - Ch 68: lighting computed at the corners and blended (Ch 26 Example 4). Ch 70: texture mapping with barycentric

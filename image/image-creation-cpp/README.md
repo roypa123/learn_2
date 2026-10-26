@@ -99,13 +99,13 @@ See [PROGRESS.md](PROGRESS.md) for which chapters are written.
 | 50 | [Blur: box blur and Gaussian blur](part-07-changing-images/ch50-blur-box-blur-and-gaussian-blur.md) |
 | 51 | [Sharpen and edge detection (Sobel)](part-07-changing-images/ch51-sharpen-and-edge-detection-sobel.md) |
 | 52 | [Dithering: ordered and Floyd–Steinberg](part-07-changing-images/ch52-dithering-ordered-and-floyd-steinberg.md) |
-| 53 | Warping and distortion effects |
+| 53 | [Warping and distortion effects](part-07-changing-images/ch53-warping-and-distortion-effects.md) |
 
 ## Part 8 — Pictures From Maths (Procedural Images)
 
 | Ch | Title |
 |---|---|
-| 54 | Making our own random numbers |
+| 54 | [Making our own random numbers](part-08-pictures-from-maths/ch54-making-our-own-random-numbers.md) |
 | 55 | Value noise |
 | 56 | Perlin noise |
 | 57 | Fractal noise: clouds, marble, wood |
