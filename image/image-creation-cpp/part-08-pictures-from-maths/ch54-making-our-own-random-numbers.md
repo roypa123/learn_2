@@ -205,14 +205,15 @@ Our `hash2(x, y, seed)`:
 
 ```
 h = seed + x × 374761393 + y × 668265263     (wrapping at 2³²)
-h = (h ^ (h >> 13)) × 1274126177
+h = (h ^ (h >> 16)) × 2246822507
+h = (h ^ (h >> 13)) × 3266489909
 h = h ^ (h >> 16)
 ```
 
-The big odd multipliers spread x and y over all 32 bits; the shift-XORs mix the high bits back down into the low ones (like xorshift). `hashDouble` turns the result into 0 … 1, exactly like `randomDouble`.
+The first line spreads x and y over all 32 bits with big odd multipliers. That alone is not enough: neighbouring corners like (0, 0), (1, 0), (2, 0) would still get values with a visible pattern. The last three lines are the "finishing mix" of a well-known hash called MurmurHash3: each shift-XOR folds the high bits back down into the low ones (like xorshift), and each multiplication spreads the low bits up again. After that, changing one bit of the input changes about half of the output bits. `hashDouble` turns the result into 0 … 1, exactly like `randomDouble`.
 
 ```
-hash of (3, 7): 0.7641, again 0.7641, hash of (4, 7): 0.4679
+hash of (3, 7): 0.7420, again 0.7420, hash of (4, 7): 0.3396
 ```
 
 The same corner gives the same value; its neighbour gives a completely different one. In `random.png`, "hash per square" gives every 16 × 16 square its own random grey, from `hashDouble(x / 16, y / 16, 1)`. Change the seed (the last number) and you get a new, different pattern.
@@ -300,7 +301,8 @@ inline int randomInt(Random& r, int low, int high) {
 inline std::uint32_t hash2(int x, int y, std::uint32_t seed) {
     std::uint32_t h = seed + static_cast<std::uint32_t>(x) * 374761393u +
                       static_cast<std::uint32_t>(y) * 668265263u;
-    h = (h ^ (h >> 13)) * 1274126177u;
+    h = (h ^ (h >> 16)) * 2246822507u;
+    h = (h ^ (h >> 13)) * 3266489909u;
     return h ^ (h >> 16);
 }
 
@@ -347,21 +349,21 @@ inline Image whiteNoise(int width, int height, Random& r) {
 | 35–37 | `inline double randomRange(Random& r, double low, double high) { return low + (high - low) * randomDouble(r); }` | A double from `low` up to `high`. |
 | 39–41 | `inline int randomInt(Random& r, int low, int high) { return low + static_cast<int>(randomDouble(r) * (high - low + 1)); }` | A whole number from `low` to `high`, both included. `static_cast<int>` cuts off the fraction (for positive values that is ⌊ ⌋). |
 
-**Hashing (lines 43–52)**
+**Hashing (lines 43–53)**
 
 | Line | Code | What it does, in simple words |
 |---|---|---|
 | 43–45 | `inline std::uint32_t hash2(int x, int y, std::uint32_t seed) { std::uint32_t h = seed + static_cast<std::uint32_t>(x) * 374761393u + static_cast<std::uint32_t>(y) * 668265263u;` | Spread x and y over all 32 bits (Section 54.6). The casts make negative x and y work too: they wrap to big unsigned numbers. |
-| 46–48 | `h = (h ^ (h >> 13)) * 1274126177u; return h ^ (h >> 16); }` | Mix the bits twice. |
-| 50–52 | `inline double hashDouble(int x, int y, std::uint32_t seed) { return (hash2(x, y, seed) >> 8) / 16777216.0; }` | The hash as a double 0 … 1. |
+| 46–49 | `h = (h ^ (h >> 16)) * 2246822507u; h = (h ^ (h >> 13)) * 3266489909u; return h ^ (h >> 16); }` | The finishing mix (Section 54.6): fold down, spread up, twice, and a last fold. |
+| 51–53 | `inline double hashDouble(int x, int y, std::uint32_t seed) { return (hash2(x, y, seed) >> 8) / 16777216.0; }` | The hash as a double 0 … 1. |
 
-**Samples and noise (lines 54–69)**
+**Samples and noise (lines 55–70)**
 
 | Line | Code | What it does, in simple words |
 |---|---|---|
-| 54–56 | `inline double jitteredOffset(int i, int n, Random& r) { return (i + randomDouble(r)) / n; }` | A random position inside cell i of n (Section 54.7). |
-| 58–67 | `inline Image whiteNoise(int width, int height, Random& r) { ... const std::uint8_t v = static_cast<std::uint8_t>(nextNumber(r) >> 24); noise.setPixel(x, y, Colour{v, v, v}); ... }` | Every pixel its own random grey, from the top 8 bits. "White noise" because it has every kind of detail, fine and coarse, equally (like white light has every colour). |
-| 69 | `#endif` | End of the include guard. |
+| 55–57 | `inline double jitteredOffset(int i, int n, Random& r) { return (i + randomDouble(r)) / n; }` | A random position inside cell i of n (Section 54.7). |
+| 59–68 | `inline Image whiteNoise(int width, int height, Random& r) { ... const std::uint8_t v = static_cast<std::uint8_t>(nextNumber(r) >> 24); noise.setPixel(x, y, Colour{v, v, v}); ... }` | Every pixel its own random grey, from the top 8 bits. "White noise" because it has every kind of detail, fine and coarse, equally (like white light has every colour). |
+| 70 | `#endif` | End of the include guard. |
 
 ---
 
@@ -650,7 +652,7 @@ different pairs among 65536 pairs of bytes: low bits of Chapter 39's 128, its to
 
 100000 random doubles: average 0.4996, per tenth: 10116 10084 9763 10105 9985 9878 10175 9978 9904 10012
 6000 dice rolls, ones to sixes: 1001 958 991 1062 1015 973
-hash of (3, 7): 0.7641, again 0.7641, hash of (4, 7): 0.4679
+hash of (3, 7): 0.7420, again 0.7420, hash of (4, 7): 0.3396
 
 nearly flat edge, samples inside (of 16), first 10 pixels:
   exact:    15.8 15.4 15.0 14.6 14.2 13.8 13.4 13.0 12.6 12.2

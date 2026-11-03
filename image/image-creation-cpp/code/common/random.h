@@ -43,7 +43,8 @@ inline int randomInt(Random& r, int low, int high) {
 inline std::uint32_t hash2(int x, int y, std::uint32_t seed) {
     std::uint32_t h = seed + static_cast<std::uint32_t>(x) * 374761393u +
                       static_cast<std::uint32_t>(y) * 668265263u;
-    h = (h ^ (h >> 13)) * 1274126177u;
+    h = (h ^ (h >> 16)) * 2246822507u;
+    h = (h ^ (h >> 13)) * 3266489909u;
     return h ^ (h >> 16);
 }
 
