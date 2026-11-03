@@ -4,11 +4,14 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 1, Chapter 5 — The parts of a robot: body, sensors, brain, actuators, power.**
-File: `part-01-welcome-to-robots/ch005-parts-of-a-robot.md`, code and `figures.py` in `code/ch005/`, figures in `images/ch005/`.
-Promised by Ch 4 "Next chapter": open a robot and look inside; the five main parts every robot has (body, sensors,
-brain, actuators, power); how they connect with wires and signals; the reader draws the complete **block diagram of
-Rover**. Good applications: a power budget (W, Wh, time = energy ÷ power from Ch 4), weight budget, signal paths.
+**Part 1, Chapter 7 — Safety first: electricity, moving parts, batteries, tools.**
+File: `part-01-welcome-to-robots/ch007-safety-first.md`, code and `figures.py` in `code/ch007/`, figures in `images/ch007/`.
+Promised by Ch 6 "Next chapter": dangers of electricity, batteries (especially lithium), spinning motors and propellers,
+and tools; simple safety habits; design the **emergency stop** that every robot in the course will have. Ch 1 gave 5
+rules (simulation first, a way to stop, start slow, no propellers on the table, respect batteries); Ch 5 put switch +
+fuse in Rover's power path and said an e-stop should cut motor **power**, not only send a message. Keep electrical
+explanations qualitative (volts/amps fully in Part 5). Good applications: stopping distance / e-stop reaction (Ch 2
+blind-distance idea), fuse choice, battery storage, propeller tip speed.
 
 ## Chapters done
 
@@ -18,6 +21,8 @@ Rover**. Good applications: a power budget (W, Wh, time = energy ÷ power from C
 | 2 | part-01-welcome-to-robots/ch002-what-is-a-robot.md | 10,580 | code/ch002/wall_stop.py, cliff_check.py, stop_distance.py, figures.py → images/ch002/fig01–fig06 |
 | 3 | part-01-welcome-to-robots/ch003-a-short-history-of-robots.md | 11,380 | code/ch003/governor.py, tortoise.py, figures.py → images/ch003/fig01–fig06 |
 | 4 | part-01-welcome-to-robots/ch004-kinds-of-robots.md | 10,590 | code/ch004/choose_robot.py, robot_range.py, figures.py → images/ch004/fig01–fig07 |
+| 5 | part-01-welcome-to-robots/ch005-parts-of-a-robot.md | 9,150 | code/ch005/power_budget.py, centre_of_mass.py, figures.py → images/ch005/fig01–fig06 |
+| 6 | part-01-welcome-to-robots/ch006-how-a-robot-thinks.md | 9,420 | code/ch006/catch.py, wall_proportional.py, follow.py, figures.py → images/ch006/fig01–fig07 |
 
 ## Notes for writers
 
@@ -46,6 +51,24 @@ Rover**. Good applications: a power budget (W, Wh, time = energy ÷ power from C
   → 28.8 ha. No dedicated underwater part: underwater ideas live in 🌊 applications.
   Forward refs: Ch 70, 67, 122, 146, 150, 270 (MPC), 284, 285, 301–309, 334, 344, 348–349, 368, 370, 390, 476,
   594, 615, 624, 630, 668, 671, 687–690, 740–743, 749.
+- Ch 5 fixed Rover's design (stage 3): 6 × AA NiMH 7.2 V 2.0 Ah = 14.4 Wh (80% usable = 11.52 Wh), switch + fuse,
+  5 V regulator (brain + sensors), TB6612 driver fed 7.2 V direct, Arduino, bumpers, line sensor, distance sensor,
+  2 gearmotors with encoders, caster at −9 cm behind the axle. Typical watts: Arduino 0.25, driver 0.3, motors 3.0,
+  line 0.15, distance 0.08 → 3.78 W → 3.05 h; stage 7 adds Pi 4.0 + camera 1.0 → 8.78 W → 79 min.
+  Masses: chassis 150 g (−3), motors+wheels 160 (0), Arduino+driver 35 (−4), sensors 30 (+7), battery 165 (−5 back)
+  → CoM −2.23 cm (battery front +5 → +0.82, tips). Rover loop 50 Hz = 20 ms (sense 2, think 1, send 0.5 ms).
+  Taught: signal vs power wires, common ground, digital/analog/PWM, two-level brains, Wh = V × Ah (trust until Ch 89),
+  CoM = Σ m·x ÷ Σ m (Ch 70 full), "moment" word (Ch 65). Diagram colours here: power = thick black, signal = blue,
+  motor power = green.
+- Ch 6 defined the control-loop vocabulary (setpoint, measurement, error = setpoint − measurement, controller,
+  command, actuator, system/plant, output, disturbance, gain, overshoot, delay, steady-state error) and proportional
+  control (command = gain × error) as a PREVIEW of Ch 210. Key rule taught: for x += gain·(sp − x)·dt the "fraction per
+  loop" gain·dt should be well below 1 and must be < 2. Results to stay consistent with: catch gain 4, dt 0.05 → 1.186 m
+  at 1 s; gains 1/30/45 → 0.79 / settles / unstable (2.7, −0.675, 3.544); 0.2 s delay with gain 4 → peak 1.68, dip 1.02;
+  gain 8 + delay unstable; follower error = v ÷ gain (gain 2 → 1.5 m, gain 5 → 1.2 m); feedforward removes the gap
+  (Ch 227); chase vs aim: 0.90 vs 1.19 m. Rover wall with P (gain 1, dt 0.5, limit 0.25) → 0.301 m, no overshoot.
+  Ruler-drop table (Ch 59 formula): 5/10/15/20/25/30 cm → 0.10/0.14/0.18/0.20/0.23/0.25 s.
+  Forward refs: 103, 210–216, 212, 218–219, 227, 228, 270, 298, 306, 310–312, 385, 416, 637.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
