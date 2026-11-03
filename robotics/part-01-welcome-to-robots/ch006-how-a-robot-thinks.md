@@ -185,7 +185,7 @@ How big should the gain be? Let us try four values. Look at Figure 6.3.
 
 | Gain | Fraction per loop (gain × 0.05) | What happens | Catch? |
 |---|---|---|---|
-| **1** (grey, dotted) | 5% | the hand moves **too slowly**; at 1.0 s it is only at 0.79 m | ❌ missed |
+| **1** (grey, dotted) | 5% | the hand moves **too slowly**; at 1.0 s it is only at 0.77 m | ❌ missed |
 | **4** (blue, solid) | 20% | smooth, steady approach; at 1.0 s it is at 1.19 m | ✅ caught |
 | **30** (orange, dashed) | 150% | each step goes **past** the target (overshoot), then back, then past again, but the swings get smaller | ✅ caught, but shaky |
 | **45** (red, dash-dot) | 225% | each step goes past by **more** than the step before; the swings **grow**; the hand flies off | ❌ disaster |

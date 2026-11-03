@@ -4,14 +4,14 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 1, Chapter 7 — Safety first: electricity, moving parts, batteries, tools.**
-File: `part-01-welcome-to-robots/ch007-safety-first.md`, code and `figures.py` in `code/ch007/`, figures in `images/ch007/`.
-Promised by Ch 6 "Next chapter": dangers of electricity, batteries (especially lithium), spinning motors and propellers,
-and tools; simple safety habits; design the **emergency stop** that every robot in the course will have. Ch 1 gave 5
-rules (simulation first, a way to stop, start slow, no propellers on the table, respect batteries); Ch 5 put switch +
-fuse in Rover's power path and said an e-stop should cut motor **power**, not only send a message. Keep electrical
-explanations qualitative (volts/amps fully in Part 5). Good applications: stopping distance / e-stop reaction (Ch 2
-blind-distance idea), fuse choice, battery storage, propeller tip speed.
+**Part 1, Chapter 9 — Simulation or real hardware: what you need (and what is optional).**
+File: `part-01-welcome-to-robots/ch009-simulation-or-real-hardware.md`, code and `figures.py` in `code/ch009/`, figures in `images/ch009/`.
+Promised by Ch 8 "Next chapter": plan the reader's path; what you can do with only a computer (every chapter has a
+simulation track), what a first hardware kit for Rover contains and roughly what it costs (use ROBOTS.md shopping list
+and prices; Rover's parts from Ch 5: 6 × AA NiMH, switch, 4 A slow fuse (Ch 7), e-stop, 5 V regulator, TB6612,
+Arduino, bumpers, line sensor, distance sensor, 2 gearmotors with encoders, caster; Pi + camera at stage 7), how to
+choose parts safely and cheaply (Ch 7 safety: no mains, low voltage, NiMH before LiPo). Good program idea: a shopping
+/ budget calculator over a parts list. Keep it shorter (~7,000–8,000 words).
 
 ## Chapters done
 
@@ -23,6 +23,8 @@ blind-distance idea), fuse choice, battery storage, propeller tip speed.
 | 4 | part-01-welcome-to-robots/ch004-kinds-of-robots.md | 10,590 | code/ch004/choose_robot.py, robot_range.py, figures.py → images/ch004/fig01–fig07 |
 | 5 | part-01-welcome-to-robots/ch005-parts-of-a-robot.md | 9,150 | code/ch005/power_budget.py, centre_of_mass.py, figures.py → images/ch005/fig01–fig06 |
 | 6 | part-01-welcome-to-robots/ch006-how-a-robot-thinks.md | 9,420 | code/ch006/catch.py, wall_proportional.py, follow.py, figures.py → images/ch006/fig01–fig07 |
+| 7 | part-01-welcome-to-robots/ch007-safety-first.md | 13,650 | code/ch007/watchdog.py, e_stop_distance.py, prop_tip.py, figures.py → images/ch007/fig01–fig08 |
+| 8 | part-01-welcome-to-robots/ch008-setting-up-your-computer.md | 9,230 | code/ch008/hello_robot.py, hello_error.py, hello_syntax.py, check_setup.py, plot_catch.py, figures.py → images/ch008/fig01–fig06 (fig05 = real output of plot_catch.py) |
 
 ## Notes for writers
 
@@ -64,11 +66,41 @@ blind-distance idea), fuse choice, battery storage, propeller tip speed.
   command, actuator, system/plant, output, disturbance, gain, overshoot, delay, steady-state error) and proportional
   control (command = gain × error) as a PREVIEW of Ch 210. Key rule taught: for x += gain·(sp − x)·dt the "fraction per
   loop" gain·dt should be well below 1 and must be < 2. Results to stay consistent with: catch gain 4, dt 0.05 → 1.186 m
-  at 1 s; gains 1/30/45 → 0.79 / settles / unstable (2.7, −0.675, 3.544); 0.2 s delay with gain 4 → peak 1.68, dip 1.02;
+  at 1 s; gains 1/30/45 → 0.77 / settles / unstable (2.7, −0.675, 3.544); 0.2 s delay with gain 4 → peak 1.68, dip 1.02;
   gain 8 + delay unstable; follower error = v ÷ gain (gain 2 → 1.5 m, gain 5 → 1.2 m); feedforward removes the gap
   (Ch 227); chase vs aim: 0.90 vs 1.19 m. Rover wall with P (gain 1, dt 0.5, limit 0.25) → 0.301 m, no overshoot.
   Ruler-drop table (Ch 59 formula): 5/10/15/20/25/30 cm → 0.10/0.14/0.18/0.20/0.23/0.25 s.
   Forward refs: 103, 210–216, 212, 218–219, 227, 228, 270, 298, 306, 310–312, 385, 416, 637.
+- Ch 7 defined hazard, risk = how likely × how bad (1–3 each; 1–2 low, 3–4 medium, 6–9 high), mains vs low voltage
+  (water picture: voltage = how hard the pump pushes, current = how much flows; dry skin = narrow pipe), short circuit,
+  fuse rules (near battery on +, above peak and below wire limit, never replace with bigger/wire), lithium types table,
+  thermal runaway as a GROWING loop (×1.5 per round picture), LiPo 4.2 V full / 3.8 V storage per cell, coin-cell
+  swallowing danger, pinch points, fail-safe brakes, propeller rules, tools table, e-stop 6 properties (red on yellow,
+  reachable, mushroom, latching, cuts MOTOR power with a real switch while brain stays on, release does not restart),
+  two stop kinds (cut at once / brake then cut = stop cat. 0 / 1, Ch 744), drone arm/disarm + failsafe + kill switch,
+  "safe state depends on the robot", watchdog/heartbeat ("if I hear nothing, I stop"), 5 safety layers (design,
+  software, sensors, hardware, people), 8-item pre-power checklist incl. "wheels up". Rover now has an e-stop in the
+  MOTOR power path (after the regulator split; 2nd contact to an Arduino pin) and a 4 A slow fuse (normal 0.53 A,
+  start peak 3.1 A = 2 × 1.5 A + 0.1, wires ~5 A, current = power ÷ voltage preview of Ch 76).
+  Results: watchdog (0.5 m/s, dt 0.1, link lost step 20, 3 silent loops) → STOP at 2.2 s, 0.1 m vs 1.55 m without;
+  e-stop totals at 1.5 m/s: 1.535 / 2.66 / 5.66 m (human 0.25/1.0/3.0 s, circuit 0.02 s) vs own sensor 1.355 m;
+  prop tips: toy 62.8, racing 199.5 (500 turns/s), camera 88.0, farm 119.4 m/s; saw ~55, motorway 33 m/s;
+  cobot zone 1.6 m/s × 0.6 s + 0.2 + 0.1 ≈ 1.3 m (simplified; real rule Ch 744); battery room 40 × 100 Wh, 6S
+  25.2 / 22.8 V. Introduced π = 3.14159 and circumference = π × d (Ch 48 full), rpm ÷ 60, m/s × 3.6 = km/h.
+  Forward refs: 26, 48, 59, 67, 68, 73–93, 76, 80, 81, 87–88, 89, 92, 129, 151, 385, 523, 544, 615, 618, 621, 640,
+  718, 729, 743, 744. Ch 7 ran long (~13,650 words): Part 1 chapters keep growing; aim shorter for Ch 8–12.
+- Ch 8 set up: Python ≥ 3.12 (tested 3.14), Thonny (beginners) or VS Code + Python extension; `python` on Windows
+  (`py` also), `python3` on macOS/Linux; `python -m pip install numpy matplotlib`; Linux "externally-managed-
+  environment" → venv `~/robotics-venv` (source …/activate each terminal). Terminal commands taught: pwd, dir/ls, cd,
+  cd .., mkdir (mkdir -p), python file.py, Tab, ↑, Ctrl+C ("software e-stop", not enough on a real robot). Rules for
+  file names (lowercase, _, no spaces, not a library name, start with a letter). Four steps to read an error (last
+  line, line number, ^^^, fix/save/run); error table (SyntaxError, NameError, IndentationError, TypeError,
+  ModuleNotFoundError, ZeroDivisionError). Introduced (lightly): comment, print, variable, import, `as plt`, list
+  `.append`, indexing from 0, `str()`, `**`, plt.plot/axhline/xlabel/ylabel/title/legend/savefig/show.
+  Results: plot_catch gains 1/4/30 at 1.0 s → 0.77 / 1.186 / 1.2 m (Ch 6 table fixed from 0.79 to 0.77);
+  gain 20 → 1.2 in one loop; 39 swings (0.77 at 1 s); 45 unstable (−102.9 at 1 s); watchdog max_silent 10 → STOP
+  2.9 s, 0.45 m; max_silent 1 → 2.0 s, 0.0 m. Application 1: requirements.txt, version comparison (3.10 > 3.9).
+  Forward refs: 11, 12, 13, 14, 15, 18, 21, 25, 26, 27, 33, 34–35, 96, 111, 112, 214, 549, 554, 639, Part 27/28.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
@@ -77,6 +109,8 @@ blind-distance idea), fuse choice, battery storage, propeller tip speed.
 
 ## Status
 
+- 2026-11-03: Chapter 8 written (setup, terminal, errors, first plot; 6 figures, 5 programs). Ch 6 gain-1 value corrected 0.79 → 0.77.
+- 2026-11-03: Chapter 7 written (safety, e-stop, watchdog; 8 figures, 3 programs).
 - 2026-11-03: Chapter 1 written. `matplotlib` 3.11 and `numpy` 2.5 installed (Python 3.14).
 - 2026-11-03: Every theory chapter gets a 🏭 Real robot applications section (MASTER_PLAN §5.2): at least 5 applications from at least 3 fields, 2 worked in full. Catalogue in `APPLICATIONS.md`. Estimate now about 21,000 pages.
 - 2026-11-03: Full tutorials added: Part 30 Drones (53 ch), Part 31 Legged robots (24 ch), Part 32 Humanoids (48 ch), all under the lecture and figure rules. Robots Hero and Buddy added to `ROBOTS.md`. The course now has 33 parts, 749 chapters, about 16,500 pages.
