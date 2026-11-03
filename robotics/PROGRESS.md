@@ -17,6 +17,12 @@ how to read a line-by-line code table, that hardware is optional (simulation is 
 
 ## Status
 
+- 2026-11-03: Every theory chapter gets a 🏭 Real robot applications section (MASTER_PLAN §5.2): at least 5 applications from at least 3 fields, 2 worked in full. Catalogue in `APPLICATIONS.md`. Estimate now about 21,000 pages.
+
+- 2026-11-03: Full tutorials added: Part 30 Drones (53 ch), Part 31 Legged robots (24 ch), Part 32 Humanoids (48 ch), all under the lecture and figure rules. Robots Hero and Buddy added to `ROBOTS.md`. The course now has 33 parts, 749 chapters, about 16,500 pages.
+
+- 2026-11-03: More practice: 24 project chapters added (now 631 chapters, about 13,500 pages), `ROBOTS.md` lists the 26 robots, and every chapter gets a 🔧 hands-on lab (MASTER_PLAN §5.1).
+
 - 2026-11-03: Control split into 3 parts (PID; classical analysis; state-space, LQR, MPC, nonlinear). Mobile robots, frames, arms, IK, dynamics, trajectories and planning expanded (nonholonomic, MPC tracking, Dubins/Reeds–Shepp, Hybrid A*, D* Lite, trajectory optimisation, mobile manipulators, LQG, point clouds). Lecture and figure rules added (MASTER_PLAN §6). The course now has 30 parts, 607 chapters, about 13,000 pages.
 - Setup note: `matplotlib` and `numpy` are **not installed** yet (`pip install matplotlib numpy`), and they are needed for the figures.
 

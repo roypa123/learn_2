@@ -12,24 +12,29 @@ Read it before writing any new chapter. Every chapter must follow it.
 | 1 | Robotics from scratch | We assume no knowledge of robots, electronics, programming or higher maths. |
 | 4 | Theories and mathematics, descriptively | Every topic starts with the idea, then the maths step by step with real numbers, then the code. |
 | 5 | Very beginner friendly | School maths up to age 12 is enough. Everything above that is taught (Parts 3, 9, 10, 11). |
-| 6 | Very descriptive, about 10,000 pages | 1 page ≈ 300 words. The core robotics and control parts were made bigger on request ("don't compromise anything"), so the course is now about 13,000 pages (see §2). |
+| 6 | Very descriptive, about 10,000 pages | 1 page ≈ 300 words. The core robotics and control parts were made bigger on request ("don't compromise anything"), so the course is now about 21,000 pages (see §2). |
 | 7 | Small examples | Every section has at least one tiny example (one wheel, one sensor reading, a 2×2 matrix). |
 | 8 | Everything in order | A chapter only uses ideas from earlier chapters. No forward references except "we will see this in Chapter N". |
 | 9 | Every bit of code explained | Every code block is followed by a line-by-line table. No line is skipped. |
 | 10 | Simple English, a 10-year-old can follow | Short sentences. One idea per sentence. No idioms. Many readers are not fluent in English. |
 | 11 | Put it in this folder | Everything lives in `robotics/`. |
 | 12 | Syllabus first | The syllabus is `README.md`. |
-| 13 | Beginner to advanced | Parts 1–11 are beginner, Parts 12–20 are middle, Parts 21–30 are advanced. |
-| 14 | Detailed lectures with many images for core robotics and control | Parts 12–20 and 23 follow the lecture rules in §6: at least 15 real figures per chapter, every derivation in full. |
+| 13 | Beginner to advanced | Parts 1–11 are beginner, Parts 12–20 are middle, Parts 21–33 are advanced. |
+| 14 | Detailed lectures with many images for core robotics and control | Parts 12–20, 23 and 30–32 follow the lecture rules in §6: at least 15 real figures per chapter, every derivation in full. |
+| 15 | Theory and a lot of practice | Every chapter has a 🔧 hands-on lab (§5.1). Every part ends with at least one project. 28 robots are built across the course (`ROBOTS.md`). |
+| 16 | Complete drone and humanoid tutorials, nothing skipped | Part 30 (drones, 53 chapters), Part 31 (legged robots, 24) and Part 32 (humanoids, 48), from the first idea to research-level control and learning. |
+| 17 | Not only outlines: complex real applications of every theory | Every theory chapter has a 🏭 Real robot applications section (§5.2) with at least 5 applications from at least 3 fields, 2 of them worked in full. Catalogue: `APPLICATIONS.md`. |
 
 ---
 
 ## 2. Page budget
 
 - 1 page ≈ 300 words (code and tables count).
-- **Core robotics and control chapters (Parts 12–20 and 23, 227 chapters): 7,000–8,500 words** (about 25–28 pages), plus figures.
-- **All other chapters (380 chapters): 5,500–6,500 words** (about 18–22 pages).
-- Total ≈ 1,750,000 + 2,250,000 ≈ 4,000,000 words ≈ **13,000 pages**, plus the figures.
+- **Core robotics, control, drone, legged and humanoid chapters (Parts 12–20, 23, 30–32): 7,000–8,500 words** (about 25–28 pages), plus figures.
+- **All other chapters: 5,500–6,500 words** (about 18–22 pages).
+- **Project chapters: 6,500–8,000 words.** They have a parts list, wiring, build steps, the full code, testing, and fixing problems.
+- **The 🏭 applications section adds 2,000–3,000 words** to every theory chapter.
+- 749 chapters in total ≈ 6,500,000 words ≈ **21,000 pages**, plus the figures.
 - Chapters are listed in `README.md`. Do not change the order without updating README and PROGRESS.
 
 ---
@@ -43,6 +48,7 @@ Read it before writing any new chapter. Every chapter must follow it.
 | NumPy | From Ch 34 | First we write the maths by hand. Then we show the NumPy way. |
 | Arduino C++ | Part 6 onwards | Taught from zero in Ch 93–94. Every sketch also runs in the free **Wokwi** simulator. |
 | OpenCV | Part 24 | Only after we have written the basic filters by hand. |
+| PX4, MAVSDK | Part 30 | PX4 in simulation (SITL with Gazebo) first, then the real drone. |
 | PyTorch | Ch 495 onwards | Only after the network from scratch (Ch 492). |
 | FreeRTOS on ESP32 | Part 26 | Real-time tasks. CAN uses an MCP2515 board or the ESP32's built-in CAN (TWAI). |
 | Linux, Docker, ROS 2 | Parts 27, 29 | Ubuntu (or WSL on Windows). Python (`rclpy`) first, then C++ (`rclcpp`). |
@@ -80,6 +86,8 @@ Read it before writing any new chapter. Every chapter must follow it.
 | 🧠 **Remember** | The most important idea of the section. |
 | 🏋️ **Practice** | A small task. Answers are at the end of the chapter. |
 | 🖼️ **Figure** | A picture, followed by "How to read this picture". |
+| 🏭 **Application** | A real robot from industry, medicine, space, farms, homes and so on, that uses this theory. |
+| 🔧 **Lab** | Hands-on work: build it, run it, measure it. |
 | 🧪 **Experiment** | Change one number, run again, and see what happens in the plot. |
 
 ---
@@ -89,7 +97,7 @@ Read it before writing any new chapter. Every chapter must follow it.
 ```
 # Chapter N — Title
 
-> **Part X · Chapter N of 607**
+> **Part X · Chapter N of 749**
 > **You need:** Chapters … · **You will make:** <program / circuit / robot>
 
 ## What you will learn            (3–6 bullet points)
@@ -100,10 +108,50 @@ Read it before writing any new chapter. Every chapter must follow it.
 ## Common mistakes                (⚠️ list)
 ## Practice                       (🏋️ 6–10 tasks, easy → hard)
 ## Answers                        (full answers, explained step by step)
+## 🏭 Real robot applications     (every theory chapter, see §5.2)
+## 🔧 Hands-on lab                (every chapter, see §5.1)
 ## Experiments                    (core and control parts only: 🧪 "what if?" runs, see §6)
 ## Summary                        (🧠 5–8 short points)
 ## Next chapter                   (one or two sentences)
 ```
+
+### 5.1 Hands-on lab (every chapter)
+
+About half of every chapter is practical. The lab has two tracks:
+
+| Track | What the reader does |
+|---|---|
+| 🖥️ **Simulation track** (always) | Runs the idea in Python, Wokwi or a simulator. Everyone can do this. |
+| 🔩 **Hardware track** (when it makes sense) | Builds or changes the real robot: parts list, wiring diagram, photos/figures of each step, the code, how to test, and what to do if it does not work. |
+
+Each lab ends with:
+- **What you should see**: the expected output, plot or robot behaviour.
+- **If it does not work**: a table of problem → likely cause → fix.
+- **Challenge**: a harder version for readers who finish early.
+
+Maths and theory chapters also get a lab. Example: Ch 49 (sin, cos, tan) measures a real ramp angle with a phone and checks it in Python.
+
+### 5.2 Real robot applications (every theory chapter)
+
+Theory is never left as an outline. After the theory sections, every chapter shows where the theory is used in real robots.
+
+- **At least 5 applications**, from **at least 3 different fields** (the field list is in `APPLICATIONS.md`).
+- **At least 2 are worked in full, as complex applications.** Each one has:
+  1. **The real problem**: what the robot must do, with a figure of the robot.
+  2. **Why this theory**: which part of the theory solves it.
+  3. **The numbers**: real sizes, masses, speeds and limits.
+  4. **The maths**, step by step with those numbers.
+  5. **The code**, with a line-by-line table, and its output or plot.
+  6. **The result**: what it means for the robot, and what would go wrong without it.
+  7. **Going further**: how the real product or research robot does it.
+- The other applications get 1–3 paragraphs each, with real numbers, and one figure where it helps.
+- Applications **grow in difficulty**: the first is simple, and the last one combines this theory with earlier chapters.
+- Start from the list in `APPLICATIONS.md`, and add new applications to it when a chapter finds them.
+
+### Project chapters
+
+A project chapter builds one robot from `ROBOTS.md`, or adds a new stage to it. Its order is:
+goal → parts list → figures of the design → build step by step → code (line-by-line table) → test → measure and plot → improve → what we learned.
 
 ### Code explanation format
 
@@ -119,7 +167,7 @@ Then show the **exact output** when the program runs, and explain it.
 
 ## 6. Detailed lectures and figures (core robotics and control)
 
-These rules apply to **Parts 12–20 and 23**: control (12–14), mobile robots, frames, forward and inverse kinematics, dynamics, trajectories, and path planning.
+These rules apply to **Parts 12–20, 23 and 30–32**: control (12–14), mobile robots, frames, forward and inverse kinematics, dynamics, trajectories, path planning, drones, legged robots and humanoid robots.
 Do not cut anything in these parts. Each one is taught like a full university lecture, but in simple English.
 
 ### 6.1 Lecture rules
@@ -158,6 +206,8 @@ Do not cut anything in these parts. Each one is taught like a full university le
 | Arms | The arm drawn with every length and angle labelled. Workspace shading. Elbow-up and elbow-down answers. DH frames on each joint. Jacobian velocity arrows. Manipulability ellipses. Singular poses. |
 | Dynamics | Free-body diagrams with every force and torque. Energy over time. Torque plots for each joint. Controlled vs uncontrolled motion. |
 | Trajectories | Position, velocity, acceleration and jerk plots stacked under each other. Paths in 2D and 3D. |
+| Drones | Thrust and force arrows on the drone. The four motor speeds for each move. The cascade of control loops. 3D flight paths. Attitude plots. Flight-log plots. |
+| Legged and humanoid | Leg drawings with angles. Support polygon with the centre of mass and ZMP marked. Gait diagrams (which foot is down when). Walking snapshot strips. CoM and ZMP paths seen from above. |
 | Planning | Search frame by frame (open/closed cells coloured). Trees growing (RRT). Final paths compared. C-space pictures next to the real workspace. |
 
 - **Style:** large labels (12 pt or more). Colour-blind safe colours, and lines also differ by style (solid, dashed, dotted). The same thing always has the same colour across the whole course: **setpoint = black dashed, output = blue, error = red, control signal = green, robot = orange, obstacles = grey.**
@@ -171,7 +221,9 @@ Do not cut anything in these parts. Each one is taught like a full university le
 ```
 robotics/
   t.md                 the original request
-  README.md            syllabus (all 607 chapters)
+  README.md            syllabus (all 749 chapters)
+  ROBOTS.md            every robot built in the course
+  APPLICATIONS.md      real applications of every theory, by field
   MASTER_PLAN.md       this file
   PROGRESS.md          what is done, what is next
   part-01-welcome-to-robots/
