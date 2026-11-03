@@ -4,14 +4,19 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 1, Chapter 9 — Simulation or real hardware: what you need (and what is optional).**
-File: `part-01-welcome-to-robots/ch009-simulation-or-real-hardware.md`, code and `figures.py` in `code/ch009/`, figures in `images/ch009/`.
-Promised by Ch 8 "Next chapter": plan the reader's path; what you can do with only a computer (every chapter has a
-simulation track), what a first hardware kit for Rover contains and roughly what it costs (use ROBOTS.md shopping list
-and prices; Rover's parts from Ch 5: 6 × AA NiMH, switch, 4 A slow fuse (Ch 7), e-stop, 5 V regulator, TB6612,
-Arduino, bumpers, line sensor, distance sensor, 2 gearmotors with encoders, caster; Pi + camera at stage 7), how to
-choose parts safely and cheaply (Ch 7 safety: no mains, low voltage, NiMH before LiPo). Good program idea: a shopping
-/ budget calculator over a parts list. Keep it shorter (~7,000–8,000 words).
+**Part 2, Chapter 11 — What is a program? Instructions in order.** (First chapter of Part 2, Ch 11–36.)
+File: `part-02-python-from-zero/ch011-what-is-a-program.md` (new folder, MASTER_PLAN §7), code and `figures.py` in
+`code/ch011/`, figures in `images/ch011/`.
+Promised by Ch 10 "Next chapter": what a program really is, why the ORDER of instructions matters, a computer follows
+them exactly, one at a time, like the "human robot" game (Ch 1 Lab 1.3: FORWARD n / TURN LEFT / TURN RIGHT, cup on a
+chair). Part 1 programs were READ only; Part 2 teaches WRITING from zero. Things already previewed in Part 1 (do not
+pretend they are unknown, but now teach properly): print, variables, round, for/range, lists, if/elif/else,
+and/or/not, True/False, ==, %, //, **, max/min, len, sum, abs, import math/random, random.seed/uniform, .append,
+int(), str(), "x if c else y", nested loops, lists of lists. Ch 8 set up Python/editor/terminal; Ch 12 covers shell
+vs scripts. Good Ch 11 ideas: algorithms in daily life (recipe, LEGO instructions), sequence → order bugs, a robot
+"program" on a grid by hand, then the same in Python with print, flowcharts. Applications: robot task sequences
+(pick-and-place steps), drone pre-flight sequences, factory PLC step order. Python-part chapters are normal chapters
+(MASTER_PLAN §2: 5,500–6,500 words) — Part 1 chapters ran 8,600–13,650; aim much nearer the target.
 
 ## Chapters done
 
@@ -25,6 +30,8 @@ choose parts safely and cheaply (Ch 7 safety: no mains, low voltage, NiMH before
 | 6 | part-01-welcome-to-robots/ch006-how-a-robot-thinks.md | 9,420 | code/ch006/catch.py, wall_proportional.py, follow.py, figures.py → images/ch006/fig01–fig07 |
 | 7 | part-01-welcome-to-robots/ch007-safety-first.md | 13,650 | code/ch007/watchdog.py, e_stop_distance.py, prop_tip.py, figures.py → images/ch007/fig01–fig08 |
 | 8 | part-01-welcome-to-robots/ch008-setting-up-your-computer.md | 9,230 | code/ch008/hello_robot.py, hello_error.py, hello_syntax.py, check_setup.py, plot_catch.py, figures.py → images/ch008/fig01–fig06 (fig05 = real output of plot_catch.py) |
+| 9 | part-01-welcome-to-robots/ch009-simulation-or-real-hardware.md | 8,760 | code/ch009/sim_vs_real.py, robust_test.py, budget.py, figures.py → images/ch009/fig01–fig06 |
+| 10 | part-01-welcome-to-robots/ch010-your-first-robot-on-paper.md | 11,450 | code/ch010/clean_sim.py, lawnmower.py, design_check.py, figures.py → images/ch010/fig01–fig08 |
 
 ## Notes for writers
 
@@ -101,6 +108,31 @@ choose parts safely and cheaply (Ch 7 safety: no mains, low voltage, NiMH before
   gain 20 → 1.2 in one loop; 39 swings (0.77 at 1 s); 45 unstable (−102.9 at 1 s); watchdog max_silent 10 → STOP
   2.9 s, 0.45 m; max_silent 1 → 2.0 s, 0.0 m. Application 1: requirements.txt, version comparison (3.10 > 3.9).
   Forward refs: 11, 12, 13, 14, 15, 18, 21, 25, 26, 27, 33, 34–35, 96, 111, 112, 214, 549, 554, 639, Part 27/28.
+- Ch 9 defined simulation, model ("all models are wrong, some are useful"), reality gap (table of effects), noise,
+  friction/stiction (Ch 63), robust, Monte Carlo, domain randomization (Ch 687), BOM, datasheet, compatible boards.
+  Taught `random.seed`, `random.uniform`, `==`, nested if, `len()`, running total, `abs()`. Key formula: friction
+  stuck error ≤ smallest moving command ÷ gain; bigger gain shrinks it but amplifies noise.
+  Results: sim_vs_real (gain 2, dt 0.1, 0.85 motors, stiction 0.05, noise ±1 cm, seed 1) → perfect 0.300, real 0.315 m;
+  robust_test (seed 2; strength 0.6–1.2, stiction 0–0.08, 2 cm test) → gain 2: 78/100, gain 4: 100, gain 8: 100 (all
+  slightly past the setpoint: noise). Rover stage 3 BOM $83–153 (avg $118); full hardware track ≈ $870 (midpoints,
+  bought when needed); core (steps 1–5, to Ch ~446) ≈ $160; nothing needed before Ch 81. Paths A ($0) / B ($100–200) /
+  C (full). Club example: 6 Rovers, shared chargers, compatible boards ≈ $605. Tools table: Python, Wokwi, Tinkercad,
+  Webots, Gazebo, MuJoCo, Isaac Sim/Lab. Forward refs: 17, 31, 63, 81, 91, 92, 93, 141, 151, 212, 423–424, 548, 615,
+  687, 747–749, Part 28, Part 30.
+- Ch 10 (end of Part 1) taught the design loop (requirements → ideas → choose → details → check → improve; "a
+  control loop for designs"), checkable requirements, must / nice to have, constraint, trade-off, coverage,
+  behaviour + priority (cliff > bump > battery low > clean; subsumption / Rodney Brooks; Ch 104), verification, BOM,
+  prototype. Tiny cleaner: round 20 cm × 8 cm, 0.6 kg, 0.2 m/s, differential drive, caster front, battery in front of
+  the axis, 2 bumpers, 4 cliff sensors 4 cm ahead, 2 encoders, Arduino Nano, TB6612 + MOSFET (brush), 4 × AA NiMH
+  4.8 V 2.0 Ah, 3 A slow fuse, buck-boost 5 V regulator, STOP button in motor power. Power 4.35 W → 106 min; cliff
+  stop 0.2 × 0.02 + 0.02 = 0.024 m; BOM $96. Sims (4 × 3 m room, 5 cm cells, brush r 0.08, robot r 0.10):
+  clean_sim seed 3 → 0.2/49.4/75.8/84.1/88.7/92.3/93.8% at 0–30 min (90% at ~21 min); lawnmower row gap 0.15 →
+  19 rows, 96.1% in 6.3 min (missing top row bug) → fixed 20 rows 99.5% in 6.6 min; reachable max 99.9%. App 1: +6 W
+  fan → 10.35 W → 44.5 min FAIL, $104 FAIL; fixes (a) 2.5 Ah 55.7 min, (b) drop brush 52.1 min $98, (c) question the
+  45-min requirement. Lab 10.2 results: brush 0.10 → 98.2%, speed 0.3 → 95.5%, turn 180 → 6.0%, gap 0.20 → 92.6% in
+  4.7 min. Previewed math.cos/sin/radians, Pythagoras, `//`, `**`, `not`, `or`, while, tuples, sum, x-if-else.
+  Part 1 review checklist + quiz R1–R8 at the end. Forward refs: 18, 19, 21, 22, 26, 47–50, 48, 88, 90, 94, 104, 122,
+  130, 151, 288, 454, 747, Part 23, Part 30.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
@@ -109,6 +141,8 @@ choose parts safely and cheaply (Ch 7 safety: no mains, low voltage, NiMH before
 
 ## Status
 
+- 2026-11-03: Chapter 10 written (paper design of a tiny cleaner, coverage sims, requirements checker; 8 figures, 3 programs). Part 1 complete.
+- 2026-11-03: Chapter 9 written (simulation vs hardware, reality gap, Monte Carlo test, budgets; 6 figures, 3 programs).
 - 2026-11-03: Chapter 8 written (setup, terminal, errors, first plot; 6 figures, 5 programs). Ch 6 gain-1 value corrected 0.79 → 0.77.
 - 2026-11-03: Chapter 7 written (safety, e-stop, watchdog; 8 figures, 3 programs).
 - 2026-11-03: Chapter 1 written. `matplotlib` 3.11 and `numpy` 2.5 installed (Python 3.14).
