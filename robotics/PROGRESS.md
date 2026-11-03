@@ -4,19 +4,16 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 2, Chapter 11 — What is a program? Instructions in order.** (First chapter of Part 2, Ch 11–36.)
-File: `part-02-python-from-zero/ch011-what-is-a-program.md` (new folder, MASTER_PLAN §7), code and `figures.py` in
-`code/ch011/`, figures in `images/ch011/`.
-Promised by Ch 10 "Next chapter": what a program really is, why the ORDER of instructions matters, a computer follows
-them exactly, one at a time, like the "human robot" game (Ch 1 Lab 1.3: FORWARD n / TURN LEFT / TURN RIGHT, cup on a
-chair). Part 1 programs were READ only; Part 2 teaches WRITING from zero. Things already previewed in Part 1 (do not
-pretend they are unknown, but now teach properly): print, variables, round, for/range, lists, if/elif/else,
-and/or/not, True/False, ==, %, //, **, max/min, len, sum, abs, import math/random, random.seed/uniform, .append,
-int(), str(), "x if c else y", nested loops, lists of lists. Ch 8 set up Python/editor/terminal; Ch 12 covers shell
-vs scripts. Good Ch 11 ideas: algorithms in daily life (recipe, LEGO instructions), sequence → order bugs, a robot
-"program" on a grid by hand, then the same in Python with print, flowcharts. Applications: robot task sequences
-(pick-and-place steps), drone pre-flight sequences, factory PLC step order. Python-part chapters are normal chapters
-(MASTER_PLAN §2: 5,500–6,500 words) — Part 1 chapters ran 8,600–13,650; aim much nearer the target.
+**Part 2, Chapter 14 — Variables: boxes with names.**
+File: `part-02-python-from-zero/ch014-variables.md`, code and `figures.py` in `code/ch014/`, figures in `images/ch014/`.
+Promised by Ch 13 "Next chapter": how a variable stores a value, what happens when you change it (replace, x = x + 1,
+shortcuts += -= *= /=), naming rules (letters, digits, _, not starting with a digit, case-sensitive, no keywords —
+`import keyword; keyword.kwlist` to show them; snake_case; units in names) and good vs bad names, several variables
+together = the STATE of a robot (Ch 11 introduced state), the swap puzzle (temp variable, then Python's a, b = b, a),
+multiple assignment (x, y = 0, 0 already seen in Ch 10). Possibly: names point to values (keep it simple; no
+mutability yet), constants in CAPITALS by convention (MAX_SPEED). Robot ideas: Rover state (x, y, heading, battery,
+speed), counters (ticks += 1), swapping left/right motor wiring in software, a robot "status" printout.
+Target 5,500–6,500 words (Ch 13: 6,200).
 
 ## Chapters done
 
@@ -32,6 +29,9 @@ vs scripts. Good Ch 11 ideas: algorithms in daily life (recipe, LEGO instruction
 | 8 | part-01-welcome-to-robots/ch008-setting-up-your-computer.md | 9,230 | code/ch008/hello_robot.py, hello_error.py, hello_syntax.py, check_setup.py, plot_catch.py, figures.py → images/ch008/fig01–fig06 (fig05 = real output of plot_catch.py) |
 | 9 | part-01-welcome-to-robots/ch009-simulation-or-real-hardware.md | 8,760 | code/ch009/sim_vs_real.py, robust_test.py, budget.py, figures.py → images/ch009/fig01–fig06 |
 | 10 | part-01-welcome-to-robots/ch010-your-first-robot-on-paper.md | 11,450 | code/ch010/clean_sim.py, lawnmower.py, design_check.py, figures.py → images/ch010/fig01–fig08 |
+| 11 | part-02-python-from-zero/ch011-what-is-a-program.md | 7,270 | code/ch011/order_matters.py, grid_trip.py, grid_trip_b.py, pick_place.py, pick_place_wrong.py, figures.py → images/ch011/fig01–fig05 |
+| 12 | part-02-python-from-zero/ch012-running-python.md | 5,760 | code/ch012/quiet.py, robot_calc.py, wall_check.py, morning_check.py, figures.py → images/ch012/fig01–fig04 |
+| 13 | part-02-python-from-zero/ch013-numbers-and-arithmetic.md | 6,200 | code/ch013/encoder.py, heading.py, trip_time.py, figures.py → images/ch013/fig01–fig05 |
 
 ## Notes for writers
 
@@ -133,6 +133,34 @@ vs scripts. Good Ch 11 ideas: algorithms in daily life (recipe, LEGO instruction
   4.7 min. Previewed math.cos/sin/radians, Pythagoras, `//`, `**`, `not`, `or`, while, tuples, sum, x-if-else.
   Part 1 review checklist + quiz R1–R8 at the end. Forward refs: 18, 19, 21, 22, 26, 47–50, 48, 88, 90, 94, 104, 122,
   130, 151, 288, 454, 747, Part 23, Part 30.
+- Ch 11 (start of Part 2) defined instruction, program, programming language, algorithm, sequence, statement, state,
+  trace table, flowchart (oval start/end, rectangle instruction, arrows; diamond comes in Ch 18, back-arrows Ch 19),
+  bug (Harvard Mark II moth, 9 Sep 1947, Grace Hopper), debugging; three kinds of bugs (syntax, runtime, logic: "no
+  error message ≠ no bug"). Ada Lovelace 1843. Results: order_matters 80→+20→/2 = 50.0 vs /2→+20 = 60.0;
+  grid_trip (3E,2N,1E,1N) corners (0,0)(3,0)(3,2)(4,2)(4,3) avoids TABLE at (1,2),(2,2); grid_trip_b (2N,3E,1N,1E)
+  passes through the table; 16 of the 24 orders of those moves are safe. pick_place state z / gripper / holding with
+  `holding = z == 0`: right order → True; close-before-down → False. Drone start-up order C→B→D→E→A→F (never arm
+  before the propeller check); "topological sorting" named. Previewed `==` (Ch 17), text values (Ch 15), True/False.
+  Forward refs: 13, 14, 15, 17, 18, 19, 36, 149, 643, 748, Part 23.
+- Ch 12 taught the shell (REPL = read, evaluate, print, loop; prompt >>>; exit()/exit/Ctrl+Z Enter/Ctrl+D; echo of
+  expressions, no echo for assignments; session-only variables; `<python-input-0>` in tracebacks), `_` last answer
+  (shell only; NameError in scripts), ↑ history, help() (q to leave), type() → float/int/str (preview), `...` for
+  multi-line, scripts only show what is printed (quiet.py → only 0.01), shell-or-script flowchart (diamond = question,
+  preview of Ch 18), `python -i` (wall_check.py: distance 0.5, step 3, 0.125), working habits list (folder per chapter,
+  header comment, names with units like power_w / usable_wh, save, small steps, predict, scratch.py), `import this`.
+  Results: robot_calc → 0.01 m, 183 min, 199.5 m/s; 0.8 × 14.4 = 11.520000000000001 (Ch 54); with Pi+camera 8.78 W →
+  79 min; drone field: 15 min flight, 980 m, ≈2.04 min. Forward refs: 13, 15, 17, 18, 20, 27, 54, 111, 112, 651, 664,
+  Part 25, Part 27.
+- Ch 13 taught int (counting) vs float (measuring), type(), int+float → float, 1e3 / 2.5e-3 / 1_000_000, the
+  operators + - * / // % ** (/ always float; ** 0.5 = sqrt; ** -1), // and % with check (a//b)*b + a%b = a, negative
+  // rounds down (-7//2 = -4, -7%2 = 1), order of operations (brackets → ** (right to left) → * / // % → + -; -2**2 =
+  -4; average bug a + b / 2), round(x), round(x, n), round(x, -2), round half to even (0.5→0, 1.5→2, 2.5→2, 3.5→4),
+  round(2.675, 2) = 2.67, 0.1 + 0.2 = 0.30000000000000004, never == with floats (Ch 17), int() cuts, unit
+  conversions (÷100, ÷60, ×3.6, //60 %60), Mars Climate Orbiter units story. Results: encoder.py 2000 ticks, 540/turn,
+  65 mm wheel → 3 full turns, 380 leftover, 3.704 turns, 0.2042 m circumference, 0.756 m; heading.py 350+30 → 20,
+  −50 → 330, +725 → 335; trip_time.py 120 rpm, 0.2 m wheel, 900 m → 1.257 m/s = 4.52 km/h, 716 s = 11 min 56 s;
+  field 10 ha in 6 h 10 min; Mars delay 750 s = 12 min 30 s; 0.02 added 50 times = 1.0000000000000004.
+  Forward refs: 17, 21, 26, 47, 48, 54, 59, 122, 126, 288, 298, Part 23.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
@@ -141,6 +169,9 @@ vs scripts. Good Ch 11 ideas: algorithms in daily life (recipe, LEGO instruction
 
 ## Status
 
+- 2026-11-03: Chapter 13 written (int/float, operators, // %, order of operations, rounding, units; 5 figures, 3 programs).
+- 2026-11-03: Chapter 12 written (shell vs scripts, echo, _, help, python -i, habits; 4 figures, 4 programs). On word target.
+- 2026-11-03: Chapter 11 written (programs, order, trace tables, flowcharts, bugs; 5 figures, 5 programs). Part 2 started.
 - 2026-11-03: Chapter 10 written (paper design of a tiny cleaner, coverage sims, requirements checker; 8 figures, 3 programs). Part 1 complete.
 - 2026-11-03: Chapter 9 written (simulation vs hardware, reality gap, Monte Carlo test, budgets; 6 figures, 3 programs).
 - 2026-11-03: Chapter 8 written (setup, terminal, errors, first plot; 6 figures, 5 programs). Ch 6 gain-1 value corrected 0.79 → 0.77.
