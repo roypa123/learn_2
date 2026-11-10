@@ -4,11 +4,9 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**User instruction (2026-11-10): write straight through to the end of Part 2 (Ch 36), and only then ask for "next".**
-
-**Part 2, Chapter 34 — NumPy part 1.** Then continue with Ch 35 and 36 per README.
-Promises to keep: Ch 26 must mention copy.deepcopy, statistics.median, math.isclose, virtual environments. Ch 36 GridBot
-must have obstacles. Ch 25 must fix ValueError in the command console (forward fast). Ch 30 makes the loop run on time.
+**Part 3, Chapter 37 — Numbers: whole numbers, decimals, fractions, negative numbers.** Part 3 is The Maths You Need, From School Level (Ch 37–55).
+Part 2 (Ch 11–36) is complete. The user asked (2026-11-10) to write straight through Part 2 before asking for "next". Check whether they want the same for Part 3.
+Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target (see the table). Each has the full template, but consider expanding them if the user wants more length.
 
 ## Chapters done
 
@@ -35,18 +33,21 @@ must have obstacles. Ch 25 must fix ValueError in the command console (forward f
 | 19 | part-02-python-from-zero/ch019-while-loops.md | 5,240 | code/ch019/wall_drive.py, rover_console.py, homing.py, figures.py → images/ch019/fig01–fig05 |
 | 20 | part-02-python-from-zero/ch020-for-loops.md | 5,210 | code/ch020/route_runner.py, coverage_grid.py, gain_sweep.py, joint_path.py, figures.py → images/ch020/fig01–fig05 |
 | 21 | part-02-python-from-zero/ch021-lists.md | 5,200 | code/ch021/sensor_clean.py, waypoints.py, moving_average.py, delivery_log.py, figures.py → images/ch021/fig01–fig06 |
-| 22 | part-02-python-from-zero/ch022-tuples-and-dictionaries.md | 5,000 | code/ch022/rover_config.py, command_table.py, joint_limits.py, error_count.py, figures.py → images/ch022/fig01–fig05 |
+| 22 | part-02-python-from-zero/ch022-tuples-and-dictionaries.md | 4,930 | code/ch022/rover_config.py, command_table.py, joint_limits.py, error_count.py, figures.py → images/ch022/fig01–fig05 |
 | 23 | part-02-python-from-zero/ch023-functions-part-1.md | 4,400 | code/ch023/wall_drive_v2.py, units.py, function_table.py, route_function.py, figures.py → images/ch023/fig01–fig04 |
-| 24 | part-02-python-from-zero/ch024-functions-part-2.md | 4,600 | code/ch024/trip_planner.py, summarise.py, fleet_move.py, figures.py → images/ch024/fig01–fig04 |
-| 25 | part-02-python-from-zero/ch025-errors-and-debugging.md | 4,900 | code/ch025/crash_demo.py, safe_console.py, sensor_stream.py, motor_guard.py, test_tools.py, buggy_average.py, figures.py → images/ch025/fig01–fig04 |
-| 26 | part-02-python-from-zero/ch026-modules-and-math.md | 5,000 | code/ch026/rover_math.py, drive_any_way.py, go_to_goal.py, gps_distance.py, figures.py → images/ch026/fig01–fig05 |
-| 27 | part-02-python-from-zero/ch027-files.md | 5,000 | code/ch027/trip_logger.py, settings_file.py, analyse_log.py, drive_log.csv, figures.py → images/ch027/fig01–fig04 |
-| 28 | part-02-python-from-zero/ch028-classes-part-1.md | 5,000 | code/ch028/robot.py, safe_rover.py, sensor_filter.py, figures.py → images/ch028/fig01–fig04 |
-| 29 | part-02-python-from-zero/ch029-classes-part-2.md | 4,500 | code/ch029/robots.py, composed_rover.py, fake_sensor.py, figures.py → images/ch029/fig01–fig03 |
-| 30 | part-02-python-from-zero/ch030-time-and-loops.md | 4,800 | code/ch030/naive_loop.py, steady_loop.py, multi_rate.py, watchdog.py, figures.py → images/ch030/fig01–fig04 |
-| 31 | part-02-python-from-zero/ch031-random-numbers.md | 4,500 | code/ch031/noisy_sensor.py, average_helps.py, monte_carlo_wall.py, random_cleaner.py, figures.py → images/ch031/fig01–fig05 |
-| 32 | part-02-python-from-zero/ch032-turtle.md | 4,500 | code/ch032/route_on_screen.py, lawnmower.py, two_link_arm.py, drive_with_keys.py, figures.py (matplotlib redraws) → images/ch032/fig01–fig05 |
+| 24 | part-02-python-from-zero/ch024-functions-part-2.md | 4,620 | code/ch024/trip_planner.py, summarise.py, fleet_move.py, figures.py → images/ch024/fig01–fig04 |
+| 25 | part-02-python-from-zero/ch025-errors-and-debugging.md | 4,930 | code/ch025/crash_demo.py, safe_console.py, sensor_stream.py, motor_guard.py, test_tools.py, buggy_average.py, figures.py → images/ch025/fig01–fig04 |
+| 26 | part-02-python-from-zero/ch026-modules-and-math.md | 4,600 | code/ch026/rover_math.py, drive_any_way.py, go_to_goal.py, gps_distance.py, figures.py → images/ch026/fig01–fig05 |
+| 27 | part-02-python-from-zero/ch027-files.md | 4,640 | code/ch027/trip_logger.py, settings_file.py, analyse_log.py, drive_log.csv, figures.py → images/ch027/fig01–fig04 |
+| 28 | part-02-python-from-zero/ch028-classes-part-1.md | 4,540 | code/ch028/robot.py, safe_rover.py, sensor_filter.py, figures.py → images/ch028/fig01–fig04 |
+| 29 | part-02-python-from-zero/ch029-classes-part-2.md | 4,490 | code/ch029/robots.py, composed_rover.py, fake_sensor.py, figures.py → images/ch029/fig01–fig03 |
+| 30 | part-02-python-from-zero/ch030-time-and-loops.md | 4,370 | code/ch030/naive_loop.py, steady_loop.py, multi_rate.py, watchdog.py, figures.py → images/ch030/fig01–fig04 |
+| 31 | part-02-python-from-zero/ch031-random-numbers.md | 4,250 | code/ch031/noisy_sensor.py, average_helps.py, monte_carlo_wall.py, random_cleaner.py, figures.py → images/ch031/fig01–fig05 |
+| 32 | part-02-python-from-zero/ch032-turtle.md | 4,120 | code/ch032/route_on_screen.py, lawnmower.py, two_link_arm.py, drive_with_keys.py, figures.py (matplotlib redraws) → images/ch032/fig01–fig05 |
 | 33 | part-02-python-from-zero/ch033-matplotlib.md | 3,900 | code/ch033/first_plot.py, plot_drive_log.py, sensor_calibration.py, chart_kinds.py, figures.py → images/ch033/ |
+| 34 | part-02-python-from-zero/ch034-numpy-part-1.md | 4,170 | code/ch034/sensor_array.py, lidar_scan.py, drive_log_stats.py, figures.py → images/ch034/fig01–fig05 |
+| 35 | part-02-python-from-zero/ch035-numpy-part-2.md | 4,120 | code/ch035/speed_test.py, vector_monte_carlo.py, scan_to_world.py, wheel_mixer.py, figures.py → images/ch035/fig01–fig05 |
+| 36 | part-02-python-from-zero/ch036-project-gridbot.md | 4,810 | code/ch036/gridbot.py, run_gridbot.py, test_gridbot.py, noisy_gridbot.py, worlds/maze.txt, figures.py → images/ch036/ |
 
 ## Notes for writers
 
@@ -238,6 +239,8 @@ must have obstacles. Ch 25 must fix ValueError in the command console (forward f
 - Ch 23 taught def, call, parameters/arguments, return vs print, None, flow, docstrings, help, one job, DRY, refactor,
   functions as values, dispatch table. Results: wall_drive_v2 same as Ch 19 (9 steps, 0.306); units 2640 ticks = 1.012 m,
   1 m = 2609 ticks, 72.5 rpm, round trip 1.0001 m; run_route returns (x, y, heading). Ch 26 must import units.py as a module.
+- Ch 30–36 results to stay consistent with: steady loop 50 Hz average 20.01 ms vs naive 26 ms; watchdog 0.25 s; Monte Carlo wall (noise 3 cm, near miss < 0.25 m) gains 1/2/3 → 1.2/46/88% of 500 runs and 1.8/49.3/88.9% of 100,000; averaging N divides noise by sqrt(N); random cleaner 20x20: 11/32/74/99% at 100/400/1600/6400 steps; sensor fit 1.0439 x + 0.0137; scan_to_world first point (2.866, 1.5); wheel mixer track 0.15 m; GridBot right-hand 55 moves, left-hand 29, BFS shortest 29, 43 free cells; sensor error 0/1/5/10/20% → 100/100/84/55/23% reach goal.
+- Part 2 now provides: rover_math-style modules, Robot and SafeRover classes, MovingAverage with update(), Watchdog, Every timer, NoisySensor, FakeSensor, GridBot. Later chapters can refer back to them.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
@@ -246,6 +249,7 @@ must have obstacles. Ch 25 must fix ValueError in the command console (forward f
 
 ## Status
 
+- 2026-11-10: Chapters 34, 35, 36 written. Part 2 complete (Ch 11–36, about 135,700 words). Next: Part 3.
 - 2026-11-10: Chapter 33 written (matplotlib fig/ax, chart kinds, graph rules, best-fit line; 5 figures, 4 programs).
 - 2026-11-10: Chapter 32 written (turtle, logo mode, scale, callbacks, event loop; 5 figures, 4 programs).
 - 2026-11-10: Chapter 31 written (random, seed, distributions, noise, sqrt N, Monte Carlo: gain 2 near misses 231/500; 5 figures, 4 programs).
