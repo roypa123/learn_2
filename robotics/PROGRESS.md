@@ -4,14 +4,13 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 2, Chapter 15 — Text: strings.**
-File: `part-02-python-from-zero/ch015-strings.md`, code and `figures.py` in `code/ch015/`, figures in `images/ch015/`.
-Promised by Ch 14 "Next chapter": storing text (quotes ' and ", escapes such as backslash-n and backslash-t, triple quotes), joining with + and
-repeating with *, len(), indexing and slicing (s[0], s[-1], s[2:5]), methods .upper() .lower() .strip() .split()
-.replace() .startswith() .find(), `in`, turning "0.25" into a number with float()/int() and back with str(),
-f-strings with units and rounding (f"{x:.2f} m"), strings are unchangeable (no s[0] = "X"). Robot ideas: parsing a
-radio command "forward 0.25", a sensor line "DIST:0.42", a robot name tag / status line, log lines with time stamps.
-Ch 14 came out at ~10,000 words (wc -w) vs the 5,500–6,500 target: aim nearer the target for Ch 15 (about 7,000).
+**Part 2, Chapter 18 — Making decisions: `if`, `elif`, `else`.**
+File: `part-02-python-from-zero/ch018-if-elif-else.md`, code and `figures.py` in `code/ch018/`, figures in `images/ch018/`.
+Promised by Ch 17 "Next chapter" (and Ch 8 for indentation): if, else, elif, the colon and indentation (IndentationError,
+blocks), flowcharts for branches, order of elif tests matters, nested if vs and, Rover stopping at a wall, the drone
+program printing "DO NOT FLY" (Ch 16/17), the Ch 15 command parser choosing forward/back/stop and rejecting unknown
+words, guarding against bad input with if (zero speed, percent over 100 from Ch 16 labs), deadband and speed limits
+(clamp). No loops yet (Ch 19). Target about 6,000–7,000 words (Ch 17: 6,300).
 
 ## Chapters done
 
@@ -31,6 +30,9 @@ Ch 14 came out at ~10,000 words (wc -w) vs the 5,500–6,500 target: aim nearer 
 | 12 | part-02-python-from-zero/ch012-running-python.md | 5,760 | code/ch012/quiet.py, robot_calc.py, wall_check.py, morning_check.py, figures.py → images/ch012/fig01–fig04 |
 | 13 | part-02-python-from-zero/ch013-numbers-and-arithmetic.md | 6,200 | code/ch013/encoder.py, heading.py, trip_time.py, figures.py → images/ch013/fig01–fig05 |
 | 14 | part-02-python-from-zero/ch014-variables.md | 10,030 | code/ch014/rover_state.py, swap_motors.py, deliveries.py, figures.py → images/ch014/fig01–fig06 |
+| 15 | part-02-python-from-zero/ch015-strings.md | 6,200 | code/ch015/parse_command.py, gps_line.py, sensor_log.py, status_board.py, figures.py → images/ch015/fig01–fig06 |
+| 16 | part-02-python-from-zero/ch016-print-and-input.md | 6,200 | code/ch016/keyboard_rover.py, preflight.py, calibrate_wheel.py, trip_ask.py, battery_bar.py, figures.py → images/ch016/fig01–fig06 |
+| 17 | part-02-python-from-zero/ch017-booleans-and-comparisons.md | 6,300 | code/ch017/safe_to_drive.py, go_no_go.py, docking.py, truth_table.py, figures.py → images/ch017/fig01–fig06 |
 
 ## Notes for writers
 
@@ -171,6 +173,34 @@ Ch 14 came out at ~10,000 words (wc -w) vs the 5,500–6,500 target: aim nearer 
   deliveries 120 + 85.5 + 240 = 445.5 m, average 148.5 m, 354 s = 5 min 54 s; float swap trick → b =
   0.10000000000000003. Forward refs: 15, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 49–50, 96, 141, 288, 563, 569, 646,
   Part 32.
+- Ch 15 taught str, the digits trap ("5" + "1" = '51', "5" + 1 TypeError), escapes (newline, tab, quote, backslash; Windows
+  path trap; r"" raw), triple quotes, repr() to see hidden characters, + * len, index from 0 and negative, IndexError,
+  slices as cuts between characters (forgiving past the end, [::2], [::-1]), immutable (TypeError on item assignment),
+  methods strip lower upper split split(sep) replace startswith endswith find count, `in`, first look at lists from
+  split (unpack into names, or pick by index; lists are Ch 21), chaining left to right, "parse" = clean, cut, convert,
+  float/int/str, ValueError (int("0.25"), float("abc"), float("")), "10" < "9" is True, f-strings (.2f, width, < > ^,
+  03d, .0%, comma, x=). From Ch 15 on, shell error examples show only the last line of the traceback. Results:
+  parse_command "  FORWARD 0.25" → 0.25 m/s, 73.5 rpm; gps_line (standard GGA example) → 12:35:19, 48.11730 N,
+  11.51667 E, 8 sats, 545.4 m; sensor_log → cell 1.188 V and 1.163 V; status_board widths 10 + 8 + 10 = 28.
+  Forward refs: 16, 17, 18, 20, 21, 25, 27, 33, 111, 130, 426, 533, 559, 630, Part 32.
+- Ch 16 taught argument, keyword argument, print with several values, sep, end, print(), print returns None (Ch 24),
+  staying on a line, carriage return and leftover characters (fixed width), buffer and flush=True, input pauses and
+  always returns str, prompts with units and a trailing space, inside-out float(input(...)), strip/lower on input,
+  input removes the newline but keeps spaces, Enter as a go button, Ctrl+C KeyboardInterrupt, EOFError with no keyboard,
+  rule: never input in a robot's control loop, input-process-output = sense-think-act, ZeroDivisionError (lab),
+  f-string +.2f, fill-and-centre (=^21), CSV with sep=",". Sessions in the text came from running the real programs
+  with typed answers echoed. Results: keyboard_rover "0.25 8" and "-0.1 5" → 1.50 m, 11.5063 Wh; trip_ask 900, 1.257 →
+  11 min 56 s; preflight 4S 16.2 V → 4.05 V/cell, 79%, 11.8 min (3.5–4.2 V linear, 15 min full); calibrate_wheel 2640
+  ticks, 1.012 m → believed 0.998, -1.35 %, true D 0.06589 m; battery_bar 87% → 17 of 20.
+  Forward refs: 17, 18, 19, 24, 25, 27, 30, 33, 89, 112, 289, 643.
+- Ch 17 taught bool, flag, six comparisons, = vs ==, > vs >= at the edge, storing conditions, chained 0 < x < 1,
+  and/or/not with truth tables and series/parallel switches, order arithmetic → comparisons → not → and → or, the
+  x == 1 or 2 bug, short-circuit guard (speed != 0 and ...), De Morgan, text comparison (clean first, "Z" < "a",
+  "10" < "9"), floats with tolerance abs(a - b) <= tol (math.isclose in Ch 26), True = 1 / False = 0, truthy/falsy,
+  bool("False") trap, f-string !s for bools with a width, fail-safe rules (flags name the good state, unknown means
+  unsafe, edge on the safe side), heading error (a - b + 180) % 360 - 180 in −180..179. Results: safe_to_drive 0.25 m/s
+  or 0.0; go_no_go (3.7 V/cell, 6 sats, 10 m/s) 16.2/8/6/y GO, 14.4/5/6/yes 3 failed; docking 0.015 m, −1 deg, docked.
+  Forward refs: 18, 26, 50, 119, 208, 299, 643, 664.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
@@ -179,6 +209,9 @@ Ch 14 came out at ~10,000 words (wc -w) vs the 5,500–6,500 target: aim nearer 
 
 ## Status
 
+- 2026-11-10: Chapter 17 written (booleans, comparisons, and/or/not, tolerance, fail-safe; 6 figures, 4 programs). On word target.
+- 2026-11-10: Chapter 16 written (print sep/end, carriage return, flush, input, input-process-output; 6 figures, 5 programs). On word target.
+- 2026-11-10: Chapter 15 written (strings, index and slice, methods, parsing, conversions, f-strings; 6 figures, 4 programs). On word target.
 - 2026-11-03: Chapter 14 written (variables, updates, names, state, swap, constants; 6 figures, 3 programs). Long: ~10,000 words.
 - 2026-11-03: Chapter 13 written (int/float, operators, // %, order of operations, rounding, units; 5 figures, 3 programs).
 - 2026-11-03: Chapter 12 written (shell vs scripts, echo, _, help, python -i, habits; 4 figures, 4 programs). On word target.
