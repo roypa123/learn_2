@@ -65,7 +65,7 @@ fig, ax = plt.subplots(figsize=(13, 5.0))
 ax.plot(range(N), naive, "o-", color=RED, ms=4, lw=1.5, label="work, then sleep 20 ms")
 ax.plot(range(N), steady, "o-", color=BLUE, ms=4, lw=1.5, label="steady loop")
 ax.axhline(20, color=BLACK, ls="--", lw=2, label="wanted: 20 ms")
-ax.set_xlabel("loop number"); ax.set_ylabel("measured period (ms)"); ax.grid(alpha=0.3); ax.set_ylim(15, 32); ax.legend(loc="center right", framealpha=1)
+ax.set_xlabel("loop number"); ax.set_ylabel("measured period (ms)"); ax.grid(alpha=0.3); ax.set_ylim(10, 48); ax.legend(loc="upper right", framealpha=1)
 save(fig, "fig02-measured-periods.png")
 
 # ---------- Figure 3: jobs at different rates ----------

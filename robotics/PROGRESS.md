@@ -6,7 +6,7 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 **User instruction (2026-11-10): write straight through to the end of Part 2 (Ch 36), and only then ask for "next".**
 
-**Part 2, Chapter 30 — Time and loops.** Then continue with Ch 31 onward per README.
+**Part 2, Chapter 34 — NumPy part 1.** Then continue with Ch 35 and 36 per README.
 Promises to keep: Ch 26 must mention copy.deepcopy, statistics.median, math.isclose, virtual environments. Ch 36 GridBot
 must have obstacles. Ch 25 must fix ValueError in the command console (forward fast). Ch 30 makes the loop run on time.
 
@@ -43,6 +43,10 @@ must have obstacles. Ch 25 must fix ValueError in the command console (forward f
 | 27 | part-02-python-from-zero/ch027-files.md | 5,000 | code/ch027/trip_logger.py, settings_file.py, analyse_log.py, drive_log.csv, figures.py → images/ch027/fig01–fig04 |
 | 28 | part-02-python-from-zero/ch028-classes-part-1.md | 5,000 | code/ch028/robot.py, safe_rover.py, sensor_filter.py, figures.py → images/ch028/fig01–fig04 |
 | 29 | part-02-python-from-zero/ch029-classes-part-2.md | 4,500 | code/ch029/robots.py, composed_rover.py, fake_sensor.py, figures.py → images/ch029/fig01–fig03 |
+| 30 | part-02-python-from-zero/ch030-time-and-loops.md | 4,800 | code/ch030/naive_loop.py, steady_loop.py, multi_rate.py, watchdog.py, figures.py → images/ch030/fig01–fig04 |
+| 31 | part-02-python-from-zero/ch031-random-numbers.md | 4,500 | code/ch031/noisy_sensor.py, average_helps.py, monte_carlo_wall.py, random_cleaner.py, figures.py → images/ch031/fig01–fig05 |
+| 32 | part-02-python-from-zero/ch032-turtle.md | 4,500 | code/ch032/route_on_screen.py, lawnmower.py, two_link_arm.py, drive_with_keys.py, figures.py (matplotlib redraws) → images/ch032/fig01–fig05 |
+| 33 | part-02-python-from-zero/ch033-matplotlib.md | 3,900 | code/ch033/first_plot.py, plot_drive_log.py, sensor_calibration.py, chart_kinds.py, figures.py → images/ch033/ |
 
 ## Notes for writers
 
@@ -242,6 +246,10 @@ must have obstacles. Ch 25 must fix ValueError in the command console (forward f
 
 ## Status
 
+- 2026-11-10: Chapter 33 written (matplotlib fig/ax, chart kinds, graph rules, best-fit line; 5 figures, 4 programs).
+- 2026-11-10: Chapter 32 written (turtle, logo mode, scale, callbacks, event loop; 5 figures, 4 programs).
+- 2026-11-10: Chapter 31 written (random, seed, distributions, noise, sqrt N, Monte Carlo: gain 2 near misses 231/500; 5 figures, 4 programs).
+- 2026-11-10: Chapter 30 written (clocks, sleep, drift, steady loop, jitter, overruns, multi-rate timers, watchdog; 4 figures, 4 programs).
 - 2026-11-10: Chapter 29 written (inheritance, super, polymorphism, composition, properties, dunders, dataclass, fakes; 3 figures, 3 programs).
 - 2026-11-10: Chapter 28 written (classes, __init__, self, methods, class attributes, __str__, encapsulation, filter objects; 4 figures, 3 programs).
 - 2026-11-10: Chapter 27 written (files, modes, with, paths, CSV, JSON, atomic save; 4 figures, 3 programs + data).
