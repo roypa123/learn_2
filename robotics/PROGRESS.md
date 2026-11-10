@@ -6,7 +6,7 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 **User instruction (2026-11-10): write straight through to the end of Part 2 (Ch 36), and only then ask for "next".**
 
-**Part 2, Chapter 25 — Errors and debugging.** Then continue with Ch 26 onward per README.
+**Part 2, Chapter 30 — Time and loops.** Then continue with Ch 31 onward per README.
 Promises to keep: Ch 26 must mention copy.deepcopy, statistics.median, math.isclose, virtual environments. Ch 36 GridBot
 must have obstacles. Ch 25 must fix ValueError in the command console (forward fast). Ch 30 makes the loop run on time.
 
@@ -38,6 +38,11 @@ must have obstacles. Ch 25 must fix ValueError in the command console (forward f
 | 22 | part-02-python-from-zero/ch022-tuples-and-dictionaries.md | 5,000 | code/ch022/rover_config.py, command_table.py, joint_limits.py, error_count.py, figures.py → images/ch022/fig01–fig05 |
 | 23 | part-02-python-from-zero/ch023-functions-part-1.md | 4,400 | code/ch023/wall_drive_v2.py, units.py, function_table.py, route_function.py, figures.py → images/ch023/fig01–fig04 |
 | 24 | part-02-python-from-zero/ch024-functions-part-2.md | 4,600 | code/ch024/trip_planner.py, summarise.py, fleet_move.py, figures.py → images/ch024/fig01–fig04 |
+| 25 | part-02-python-from-zero/ch025-errors-and-debugging.md | 4,900 | code/ch025/crash_demo.py, safe_console.py, sensor_stream.py, motor_guard.py, test_tools.py, buggy_average.py, figures.py → images/ch025/fig01–fig04 |
+| 26 | part-02-python-from-zero/ch026-modules-and-math.md | 5,000 | code/ch026/rover_math.py, drive_any_way.py, go_to_goal.py, gps_distance.py, figures.py → images/ch026/fig01–fig05 |
+| 27 | part-02-python-from-zero/ch027-files.md | 5,000 | code/ch027/trip_logger.py, settings_file.py, analyse_log.py, drive_log.csv, figures.py → images/ch027/fig01–fig04 |
+| 28 | part-02-python-from-zero/ch028-classes-part-1.md | 5,000 | code/ch028/robot.py, safe_rover.py, sensor_filter.py, figures.py → images/ch028/fig01–fig04 |
+| 29 | part-02-python-from-zero/ch029-classes-part-2.md | 4,500 | code/ch029/robots.py, composed_rover.py, fake_sensor.py, figures.py → images/ch029/fig01–fig03 |
 
 ## Notes for writers
 
@@ -237,6 +242,11 @@ must have obstacles. Ch 25 must fix ValueError in the command console (forward f
 
 ## Status
 
+- 2026-11-10: Chapter 29 written (inheritance, super, polymorphism, composition, properties, dunders, dataclass, fakes; 3 figures, 3 programs).
+- 2026-11-10: Chapter 28 written (classes, __init__, self, methods, class attributes, __str__, encapsulation, filter objects; 4 figures, 3 programs).
+- 2026-11-10: Chapter 27 written (files, modes, with, paths, CSV, JSON, atomic save; 4 figures, 3 programs + data).
+- 2026-11-10: Chapter 26 written (modules, math, radians, sin/cos heading, atan2, own modules, __name__, pip/venv; 5 figures, 4 programs).
+- 2026-11-10: Chapter 25 written (traceback, try/except/finally, raise, assert, debugging loop; 4 figures, 6 programs).
 - 2026-11-10: Chapter 24 written (defaults, keywords, several returns, scope, mutable default, key functions; 4 figures, 3 programs).
 - 2026-11-10: Chapter 23 written (functions part 1; 4 figures, 4 programs).
 - 2026-11-10: Chapter 22 written (tuples, dictionaries, sets, list of records; 5 figures, 4 programs).

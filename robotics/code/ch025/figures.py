@@ -67,18 +67,18 @@ R = 3.0
 pos = []
 for i, (t, c) in enumerate(steps):
     a = math.radians(90 - i * 60)
-    x, y = R * math.cos(a) * 1.25, R * math.sin(a)
+    x, y = R * math.cos(a) * 1.5, R * math.sin(a)
     pos.append((x, y))
-    rbox(ax, x - 1.55, y - 0.55, 3.1, 1.1, t, c, 10.8)
+    rbox(ax, x - 1.9, y - 0.55, 3.8, 1.1, t, c, 10.8)
 for i in range(len(steps)):
     a1, a2 = math.radians(90 - i * 60), math.radians(90 - (i + 1) * 60)
-    p1 = (R * 0.68 * math.cos(a1 - math.radians(22)) * 1.25, R * 0.68 * math.sin(a1 - math.radians(22)))
-    p2 = (R * 0.68 * math.cos(a2 + math.radians(22)) * 1.25, R * 0.68 * math.sin(a2 + math.radians(22)))
+    p1 = (R * 0.68 * math.cos(a1 - math.radians(22)) * 1.55, R * 0.68 * math.sin(a1 - math.radians(22)))
+    p2 = (R * 0.68 * math.cos(a2 + math.radians(22)) * 1.55, R * 0.68 * math.sin(a2 + math.radians(22)))
     if i < 5:
         arrow(ax, p1, p2, BLACK, 2.2, rad=-0.15)
 ax.text(0, 0.15, "Never change\nanything at random", ha="center", va="center", fontsize=13.5, weight="bold", color=RED)
 ax.text(0, -1.1, "not fixed? go back to 2", ha="center", fontsize=11.5, color=GREY, style="italic")
-ax.set_xlim(-5.6, 5.6); ax.set_ylim(-4.0, 4.0); ax.set_aspect("equal"); ax.axis("off")
+ax.set_xlim(-6.6, 6.6); ax.set_ylim(-4.0, 4.0); ax.set_aspect("equal"); ax.axis("off")
 save(fig, "fig03-debugging-loop.png")
 
 # ---------- Figure 4: three kinds of bug ----------
@@ -93,7 +93,7 @@ for i, (t, d, c, e, col) in enumerate(cols):
     ax.text(x + 2.05, 2.8, d, ha="center", va="center", fontsize=12.5)
     ax.text(x + 2.05, 1.65, c, ha="center", fontsize=13, family=MONO, weight="bold")
     ax.text(x + 2.05, 0.8, e, ha="center", fontsize=12.5, family=MONO, color=RED, weight="bold")
-ax.text(9.0, -0.15, "easiest to find  <------------------------------------------------>  hardest to find", ha="center", fontsize=12.5, style="italic")
+ax.text(6.85, -0.15, "easiest to find  <------------------------------------------------>  hardest to find", ha="center", fontsize=12.5, style="italic")
 ax.set_xlim(0, 13.7); ax.set_ylim(-0.4, 4.4); ax.axis("off")
 save(fig, "fig04-three-kinds-of-bug.png")
 print("figures saved in", os.path.abspath(OUT))
