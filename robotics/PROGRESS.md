@@ -4,16 +4,14 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 2, Chapter 14 — Variables: boxes with names.**
-File: `part-02-python-from-zero/ch014-variables.md`, code and `figures.py` in `code/ch014/`, figures in `images/ch014/`.
-Promised by Ch 13 "Next chapter": how a variable stores a value, what happens when you change it (replace, x = x + 1,
-shortcuts += -= *= /=), naming rules (letters, digits, _, not starting with a digit, case-sensitive, no keywords —
-`import keyword; keyword.kwlist` to show them; snake_case; units in names) and good vs bad names, several variables
-together = the STATE of a robot (Ch 11 introduced state), the swap puzzle (temp variable, then Python's a, b = b, a),
-multiple assignment (x, y = 0, 0 already seen in Ch 10). Possibly: names point to values (keep it simple; no
-mutability yet), constants in CAPITALS by convention (MAX_SPEED). Robot ideas: Rover state (x, y, heading, battery,
-speed), counters (ticks += 1), swapping left/right motor wiring in software, a robot "status" printout.
-Target 5,500–6,500 words (Ch 13: 6,200).
+**Part 2, Chapter 15 — Text: strings.**
+File: `part-02-python-from-zero/ch015-strings.md`, code and `figures.py` in `code/ch015/`, figures in `images/ch015/`.
+Promised by Ch 14 "Next chapter": storing text (quotes ' and ", escapes such as backslash-n and backslash-t, triple quotes), joining with + and
+repeating with *, len(), indexing and slicing (s[0], s[-1], s[2:5]), methods .upper() .lower() .strip() .split()
+.replace() .startswith() .find(), `in`, turning "0.25" into a number with float()/int() and back with str(),
+f-strings with units and rounding (f"{x:.2f} m"), strings are unchangeable (no s[0] = "X"). Robot ideas: parsing a
+radio command "forward 0.25", a sensor line "DIST:0.42", a robot name tag / status line, log lines with time stamps.
+Ch 14 came out at ~10,000 words (wc -w) vs the 5,500–6,500 target: aim nearer the target for Ch 15 (about 7,000).
 
 ## Chapters done
 
@@ -32,6 +30,7 @@ Target 5,500–6,500 words (Ch 13: 6,200).
 | 11 | part-02-python-from-zero/ch011-what-is-a-program.md | 7,270 | code/ch011/order_matters.py, grid_trip.py, grid_trip_b.py, pick_place.py, pick_place_wrong.py, figures.py → images/ch011/fig01–fig05 |
 | 12 | part-02-python-from-zero/ch012-running-python.md | 5,760 | code/ch012/quiet.py, robot_calc.py, wall_check.py, morning_check.py, figures.py → images/ch012/fig01–fig04 |
 | 13 | part-02-python-from-zero/ch013-numbers-and-arithmetic.md | 6,200 | code/ch013/encoder.py, heading.py, trip_time.py, figures.py → images/ch013/fig01–fig05 |
+| 14 | part-02-python-from-zero/ch014-variables.md | 10,030 | code/ch014/rover_state.py, swap_motors.py, deliveries.py, figures.py → images/ch014/fig01–fig06 |
 
 ## Notes for writers
 
@@ -161,6 +160,17 @@ Target 5,500–6,500 words (Ch 13: 6,200).
   −50 → 330, +725 → 335; trip_time.py 120 rpm, 0.2 m wheel, 900 m → 1.257 m/s = 4.52 km/h, 716 s = 11 min 56 s;
   field 10 ha in 6 h 10 min; Mars delay 750 s = 12 min 30 s; 0.02 added 50 times = 1.0000000000000004.
   Forward refs: 17, 21, 26, 47, 48, 54, 59, 122, 126, 288, 298, Part 23.
+- Ch 14 taught variable = name + value (box picture, then labels in 14.8), = means store (right side first),
+  NameError before assignment, replace vs update, += -= *= /= //= %= **=, the =+ trap, computing without storing,
+  trace tables, naming rules (letters/digits/_, no digit first, 35 keywords in Python 3.14 via keyword.kwlist,
+  case-sensitive, don't shadow round/max/print: TypeError 'int' object is not callable), snake_case, units in names
+  (x_cm + x_m = 12.3 bug), state = group of variables, multiple assignment and unpack ValueError, a = b = 0.0, swap
+  (wrong 8 8, temp, a, b = b, a), CAPITALS constants (not locked), b = a + 3 is one-time. Results: rover_state.py
+  (POWER_W 3.78, SPEED_MS 0.25, 11.52 Wh) → (2.0, 0.0) 11.5116 Wh, (2.0, 1.5) heading 0 11.5053 Wh, odometer 3.5 m,
+  used 0.0147 Wh = 0.13 %; lab leg 3 west 0.5 m → x 1.5, heading 270, 11.5032 Wh, 4.0 m, 0.15 %; swap_motors pins 5/6;
+  deliveries 120 + 85.5 + 240 = 445.5 m, average 148.5 m, 354 s = 5 min 54 s; float swap trick → b =
+  0.10000000000000003. Forward refs: 15, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 49–50, 96, 141, 288, 563, 569, 646,
+  Part 32.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
@@ -169,6 +179,7 @@ Target 5,500–6,500 words (Ch 13: 6,200).
 
 ## Status
 
+- 2026-11-03: Chapter 14 written (variables, updates, names, state, swap, constants; 6 figures, 3 programs). Long: ~10,000 words.
 - 2026-11-03: Chapter 13 written (int/float, operators, // %, order of operations, rounding, units; 5 figures, 3 programs).
 - 2026-11-03: Chapter 12 written (shell vs scripts, echo, _, help, python -i, habits; 4 figures, 4 programs). On word target.
 - 2026-11-03: Chapter 11 written (programs, order, trace tables, flowcharts, bugs; 5 figures, 5 programs). Part 2 started.
