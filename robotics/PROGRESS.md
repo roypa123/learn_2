@@ -4,13 +4,9 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 2, Chapter 18 — Making decisions: `if`, `elif`, `else`.**
-File: `part-02-python-from-zero/ch018-if-elif-else.md`, code and `figures.py` in `code/ch018/`, figures in `images/ch018/`.
-Promised by Ch 17 "Next chapter" (and Ch 8 for indentation): if, else, elif, the colon and indentation (IndentationError,
-blocks), flowcharts for branches, order of elif tests matters, nested if vs and, Rover stopping at a wall, the drone
-program printing "DO NOT FLY" (Ch 16/17), the Ch 15 command parser choosing forward/back/stop and rejecting unknown
-words, guarding against bad input with if (zero speed, percent over 100 from Ch 16 labs), deadband and speed limits
-(clamp). No loops yet (Ch 19). Target about 6,000–7,000 words (Ch 17: 6,300).
+**User instruction (2026-11-10): write straight through to the end of Part 2 (Ch 36), and only then ask for "next".**
+
+**Part 2, Chapter 20 — Repeating part 2: `for` loops and `range`.** Then continue with Ch 21 onward per README.
 
 ## Chapters done
 
@@ -33,6 +29,8 @@ words, guarding against bad input with if (zero speed, percent over 100 from Ch 
 | 15 | part-02-python-from-zero/ch015-strings.md | 6,200 | code/ch015/parse_command.py, gps_line.py, sensor_log.py, status_board.py, figures.py → images/ch015/fig01–fig06 |
 | 16 | part-02-python-from-zero/ch016-print-and-input.md | 6,200 | code/ch016/keyboard_rover.py, preflight.py, calibrate_wheel.py, trip_ask.py, battery_bar.py, figures.py → images/ch016/fig01–fig06 |
 | 17 | part-02-python-from-zero/ch017-booleans-and-comparisons.md | 6,300 | code/ch017/safe_to_drive.py, go_no_go.py, docking.py, truth_table.py, figures.py → images/ch017/fig01–fig06 |
+| 18 | part-02-python-from-zero/ch018-if-elif-else.md | 5,200 | code/ch018/rover_commands.py, wall_controller.py, flight_decision.py, battery_bar_safe.py, figures.py → images/ch018/fig01–fig05 |
+| 19 | part-02-python-from-zero/ch019-while-loops.md | 5,240 | code/ch019/wall_drive.py, rover_console.py, homing.py, figures.py → images/ch019/fig01–fig05 |
 
 ## Notes for writers
 
@@ -201,6 +199,15 @@ words, guarding against bad input with if (zero speed, percent over 100 from Ch 
   unsafe, edge on the safe side), heading error (a - b + 180) % 360 - 180 in −180..179. Results: safe_to_drive 0.25 m/s
   or 0.0; go_no_go (3.7 V/cell, 6 sats, 10 m/s) 16.2/8/6/y GO, 14.4/5/6/yes 3 failed; docking 0.015 m, −1 deg, docked.
   Forward refs: 18, 26, 50, 119, 208, 299, 643, 664.
+- Ch 18 taught if, block, indentation rules and real error messages, pass, else, one-line conditional, elif (first True
+  wins), order, elif vs separate ifs, nesting vs and, truthy in if, guard / clamp / deadband. In wall_controller the
+  error is distance − setpoint (flipped vs Ch 6, explained). Results: wall_controller (0.30, gain 1, ±0.25, ±0.01) at
+  1.0/0.5/0.305/0.25/0.0 → +.25/+.20/0/−.05/−.25; rover_commands; flight_decision prints each problem; battery tiers
+  3.7 normal, 3.5 return home, else land. Forward refs: 19, 23, 25, 208, 210, 212, 640, 664, 718.
+- Ch 19 taught while, iteration, trace, start/condition/update, Ctrl+C, while True, floats and loop conditions (t != 1.0
+  never ends; t < 1.0 takes 11 passes), break, continue trap, sentinel, retry until valid, max-steps guard. Results:
+  wall_drive (1.0 m, gain 1, clamp .25, deadband .01, dt .5) → 9 steps, 0.306 m; gains .5/3/4/6 → 16 steps .308,
+  8 steps .291, 50 steps .25 (bounces), 50 steps .25; homing 74 steps, broken switch FAULT after 400. Refs: 20, 30, 115.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
@@ -209,6 +216,8 @@ words, guarding against bad input with if (zero speed, percent over 100 from Ch 
 
 ## Status
 
+- 2026-11-10: Chapter 19 written (while, break, continue, max-steps guard, a real control loop; 5 figures, 3 programs).
+- 2026-11-10: Chapter 18 written (if, elif, else, indentation, guard, clamp, deadband; 5 figures, 4 programs).
 - 2026-11-10: Chapter 17 written (booleans, comparisons, and/or/not, tolerance, fail-safe; 6 figures, 4 programs). On word target.
 - 2026-11-10: Chapter 16 written (print sep/end, carriage return, flush, input, input-process-output; 6 figures, 5 programs). On word target.
 - 2026-11-10: Chapter 15 written (strings, index and slice, methods, parsing, conversions, f-strings; 6 figures, 4 programs). On word target.
