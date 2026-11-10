@@ -6,7 +6,9 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 **User instruction (2026-11-10): write straight through to the end of Part 2 (Ch 36), and only then ask for "next".**
 
-**Part 2, Chapter 20 — Repeating part 2: `for` loops and `range`.** Then continue with Ch 21 onward per README.
+**Part 2, Chapter 25 — Errors and debugging.** Then continue with Ch 26 onward per README.
+Promises to keep: Ch 26 must mention copy.deepcopy, statistics.median, math.isclose, virtual environments. Ch 36 GridBot
+must have obstacles. Ch 25 must fix ValueError in the command console (forward fast). Ch 30 makes the loop run on time.
 
 ## Chapters done
 
@@ -31,6 +33,11 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 | 17 | part-02-python-from-zero/ch017-booleans-and-comparisons.md | 6,300 | code/ch017/safe_to_drive.py, go_no_go.py, docking.py, truth_table.py, figures.py → images/ch017/fig01–fig06 |
 | 18 | part-02-python-from-zero/ch018-if-elif-else.md | 5,200 | code/ch018/rover_commands.py, wall_controller.py, flight_decision.py, battery_bar_safe.py, figures.py → images/ch018/fig01–fig05 |
 | 19 | part-02-python-from-zero/ch019-while-loops.md | 5,240 | code/ch019/wall_drive.py, rover_console.py, homing.py, figures.py → images/ch019/fig01–fig05 |
+| 20 | part-02-python-from-zero/ch020-for-loops.md | 5,210 | code/ch020/route_runner.py, coverage_grid.py, gain_sweep.py, joint_path.py, figures.py → images/ch020/fig01–fig05 |
+| 21 | part-02-python-from-zero/ch021-lists.md | 5,200 | code/ch021/sensor_clean.py, waypoints.py, moving_average.py, delivery_log.py, figures.py → images/ch021/fig01–fig06 |
+| 22 | part-02-python-from-zero/ch022-tuples-and-dictionaries.md | 5,000 | code/ch022/rover_config.py, command_table.py, joint_limits.py, error_count.py, figures.py → images/ch022/fig01–fig05 |
+| 23 | part-02-python-from-zero/ch023-functions-part-1.md | 4,400 | code/ch023/wall_drive_v2.py, units.py, function_table.py, route_function.py, figures.py → images/ch023/fig01–fig04 |
+| 24 | part-02-python-from-zero/ch024-functions-part-2.md | 4,600 | code/ch024/trip_planner.py, summarise.py, fleet_move.py, figures.py → images/ch024/fig01–fig04 |
 
 ## Notes for writers
 
@@ -208,6 +215,20 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
   never ends; t < 1.0 takes 11 passes), break, continue trap, sentinel, retry until valid, max-steps guard. Results:
   wall_drive (1.0 m, gain 1, clamp .25, deadband .01, dt .5) → 9 steps, 0.306 m; gains .5/3/4/6 → 16 steps .308,
   8 steps .291, 50 steps .25 (bounces), 50 steps .25; homing 74 steps, broken switch FAULT after 400. Refs: 20, 30, 115.
+- Ch 20 taught for, loop variable, iterable, range forms, stop never included, count with int and calculate floats,
+  off-by-one, for vs while, _ variable, nested loops, four patterns (count, total, largest so far, search). Results:
+  route_runner FFRFFLFRFF → (4,3), 7 m, 5.0 m; coverage 6x4 → 24 cells, 23 moves; gain_sweep best 2.0 in 6 steps
+  (.5:16, 1:9, 1.5:7, 2:6, 2.5:7, 3:8, 3.5:12, 4:60); joint_path 20→80 in 6 steps.
+- Ch 21 taught list, mutable, append/insert/pop/remove/del/clear, methods return None, queue/stack, enumerate, zip, no
+  removing while looping, sum/min/max/sorted/sort/in/index/count, join, comprehensions, alias/copy, is, x = y = [],
+  [[0]*3]*2 trap, nested lists, waypoints, mean/median/outlier. Results: sensor_clean mean 1.082, median 0.520;
+  waypoints 6.00 m, 24 s, 0.0252 Wh; moving average window 3 (spike 30 → 16.7/17.0/17.3); delivery_log 510 m, 127.5 avg.
+- Ch 22 taught tuple, unpacking, (5,), dict, key, KeyError, in/get, pop/del, items/values, unhashable list keys, tuple keys,
+  nested dict, set, list of dicts, lookup table. Results: rover_config one tick 0.383 mm, 3.05 h; command_table
+  forward/back/left/right/stop as (left, right) fractions, SPEED 0.2; joint_limits left_knee 140→135, right_ankle 31→25.
+- Ch 23 taught def, call, parameters/arguments, return vs print, None, flow, docstrings, help, one job, DRY, refactor,
+  functions as values, dispatch table. Results: wall_drive_v2 same as Ch 19 (9 steps, 0.306); units 2640 ticks = 1.012 m,
+  1 m = 2609 ticks, 72.5 rpm, round trip 1.0001 m; run_route returns (x, y, heading). Ch 26 must import units.py as a module.
 - Chapter length: theory chapters with the full 🏭 applications section come out at ~10,000 words (Ch 2: 10,580).
   That matches MASTER_PLAN §2 (base + 2,000–3,000 for applications) only loosely; it is on the long side, not short.
 - Figures: the matplotlib default font has no emoji, so do not put emoji inside figures (only in the Markdown text).
@@ -216,6 +237,10 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Status
 
+- 2026-11-10: Chapter 24 written (defaults, keywords, several returns, scope, mutable default, key functions; 4 figures, 3 programs).
+- 2026-11-10: Chapter 23 written (functions part 1; 4 figures, 4 programs).
+- 2026-11-10: Chapter 22 written (tuples, dictionaries, sets, list of records; 5 figures, 4 programs).
+- 2026-11-10: Chapters 20 and 21 written (for and range; lists). 5 and 6 figures, 4 and 4 programs.
 - 2026-11-10: Chapter 19 written (while, break, continue, max-steps guard, a real control loop; 5 figures, 3 programs).
 - 2026-11-10: Chapter 18 written (if, elif, else, indentation, guard, clamp, deadband; 5 figures, 4 programs).
 - 2026-11-10: Chapter 17 written (booleans, comparisons, and/or/not, tolerance, fail-safe; 6 figures, 4 programs). On word target.
