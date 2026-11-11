@@ -692,7 +692,7 @@ A robot's motor is slow. You measure 12.00 V at the battery, 11.20 V at the moto
 
 ### Lab 75.3 — Choose a fuse (simulation)
 
-Chapter 7 gave three fuse rules: above the normal peak, below the wire limit, as near the battery as possible. Write `choose_fuse(loads, wire_limit_a, standard=[1, 2, 3, 4, 5, 7.5, 10, 15, 20])` where `loads` is a list of (volts, ohms) pairs for everything that can be on at once (each current is V / R), and the function returns the smallest standard fuse above the total current with a 25% margin, or `None` if that is above the wire limit.
+Chapter 7 gave three fuse rules: above the normal peak, below the wire limit, as near the battery as possible. Write `choose_fuse(loads, wire_limit_a, standard=[1, 2, 3, 4, 5, 7.5, 10, 15, 20])` where `loads` is a list of (volts, ohms) pairs for everything that can be on at once (each current is V / R), and the function returns the smallest standard fuse at or above 1.25 times the total current, or `None` if that is above the wire limit.
 
 1. Rover: two motors (7.2 V, 4.8 Ω each, stalled), a brain (7.2 V, 36 Ω), wire limit 5 A.
 2. A bigger robot: two motors (12 V, 1.5 Ω), a computer (12 V, 6 Ω), wire limit 15 A.
