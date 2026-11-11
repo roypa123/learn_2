@@ -4,7 +4,7 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 4, Chapter 56 — Position, distance and displacement.** Part 4 is Physics for Robots (Ch 56–72).
+**Part 4, Chapter 61 — Forces and Newton's three laws.** Part 4 is Physics for Robots (Ch 56–72).
 Part 3 (Ch 37–55) is complete: about 120,800 words, 112 figures. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 4 straight through, then report and wait for "next".
 Promises made in Part 3 that Part 4 must keep: Ch 57 speed (m/s, slope of a distance-time graph); Ch 59 derives v^2/(2a) stopping distance and the equations used in Ch 38, 44, 45; Ch 60 projectile motion (Ch 45 throw: horizontal and vertical parts independent); Ch 61 forces, m g sin(angle) on a ramp (Ch 49); Ch 62 mass vs weight, g = 9.81; Ch 65 torque (Ch 37 gears); Ch 67 energy E = P t and kinetic energy 1/2 m v^2 (Ch 40, 41); Ch 68 gears again; Ch 71 Euler steps; Ch 72 project.
 Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target. All Part 3 chapters are 5,600–8,900 words.
@@ -68,6 +68,11 @@ Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500�
 | 53 | part-03-maths-you-need/ch053-sequences-and-sums.md | 5,620 | code/ch053/sequences.py, sigma.py, odometry_sum.py, repeatability.py, figures.py → images/ch053/fig01–fig07 |
 | 54 | part-03-maths-you-need/ch054-error-and-rounding-in-computers.md | 6,610 | code/ch054/float_surprises.py, clock_drift.py, encoder_overflow.py, cancellation.py, figures.py → images/ch054/fig01–fig05 |
 | 55 | part-03-maths-you-need/ch055-project-measuring-a-room.md | 8,890 | code/ch055/survey_data.py, room_survey.py, heights.py, survey_errors.py, room_map.py, figures.py → images/ch055/fig01–fig07. Ends with the Part 3 review and quiz R1–R10 |
+| 56 | part-04-physics-for-robots/ch056-position-distance-and-displacement.md | 8,920 | code/ch056/corridor_trip.py, path_2d.py, encoder_trip.py, drone_home.py, figures.py → images/ch056/fig01–fig06 |
+| 57 | part-04-physics-for-robots/ch057-speed-and-velocity.md | 8,150 | code/ch057/speed_basics.py, encoder_speed.py, route_time.py, figures.py → images/ch057/fig01–fig06 |
+| 58 | part-04-physics-for-robots/ch058-acceleration.md | 8,270 | code/ch058/accel_basics.py, ramp_limiter.py, lift_ride.py, figures.py → images/ch058/fig01–fig06 |
+| 59 | part-04-physics-for-robots/ch059-equations-of-motion.md | 8,340 | code/ch059/suvat.py, stopping.py, move_time.py, figures.py → images/ch059/fig01–fig06. Derives v^2/(2a) promised in Ch 2, 7, 38, 44, 45; ruler table of Ch 6; arm cycle of Ch 40 |
+| 60 | part-04-physics-for-robots/ch060-motion-in-two-directions.md | 8,400 | code/ch060/vectors.py, projectile.py, aim_throw.py, drone_drop.py, figures.py → images/ch060/fig01–fig06. Keeps the Ch 45 promise (independent parts of a throw) |
 
 ## Notes for writers
 
