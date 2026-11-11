@@ -4,10 +4,10 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 3, Chapter 44 — Functions and graphs.** Part 3 is The Maths You Need, From School Level (Ch 37–55). Ch 37–43 are written.
-Chapter 43 promised: Ch 44 shows how to read any graph and find where a curve reaches a value when algebra cannot help (numerical root finding, e.g. bisection). Ch 48 gives the straight-line distance (Pythagoras; (1,1) to (5,4) is 5). Ch 49 rotates shapes.
-The user said "next part" (2026-11-10), then interrupted during Ch 42 and said "next" (2026-11-11). Ch 42 was finished; the user then said "next" again for Ch 43 (one chapter per "next" for now). User (2026-11-11): "one part completed then only show next". Write the whole part straight through, then report.
-Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target. Part 3 chapters so far are 5,600–7,400.
+**Part 4, Chapter 56 — Position, distance and displacement.** Part 4 is Physics for Robots (Ch 56–72).
+Part 3 (Ch 37–55) is complete: about 120,800 words, 112 figures. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 4 straight through, then report and wait for "next".
+Promises made in Part 3 that Part 4 must keep: Ch 57 speed (m/s, slope of a distance-time graph); Ch 59 derives v^2/(2a) stopping distance and the equations used in Ch 38, 44, 45; Ch 60 projectile motion (Ch 45 throw: horizontal and vertical parts independent); Ch 61 forces, m g sin(angle) on a ramp (Ch 49); Ch 62 mass vs weight, g = 9.81; Ch 65 torque (Ch 37 gears); Ch 67 energy E = P t and kinetic energy 1/2 m v^2 (Ch 40, 41); Ch 68 gears again; Ch 71 Euler steps; Ch 72 project.
+Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target. All Part 3 chapters are 5,600–8,900 words.
 
 ## Chapters done
 
@@ -49,13 +49,25 @@ Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500�
 | 34 | part-02-python-from-zero/ch034-numpy-part-1.md | 4,170 | code/ch034/sensor_array.py, lidar_scan.py, drive_log_stats.py, figures.py → images/ch034/fig01–fig05 |
 | 35 | part-02-python-from-zero/ch035-numpy-part-2.md | 4,120 | code/ch035/speed_test.py, vector_monte_carlo.py, scan_to_world.py, wheel_mixer.py, figures.py → images/ch035/fig01–fig05 |
 | 36 | part-02-python-from-zero/ch036-project-gridbot.md | 4,810 | code/ch036/gridbot.py, run_gridbot.py, test_gridbot.py, noisy_gridbot.py, worlds/maze.txt, figures.py → images/ch036/ |
-| 37 | part-03-maths-you-need/ch037-numbers.md | 7,390 | code/ch037/fractions_by_hand.py, gear_train.py, signed_ticks.py, motor_command.py, figures.py → images/ch037/fig01–fig05 |
-| 38 | part-03-maths-you-need/ch038-powers-roots-scientific-notation.md | 6,240 | code/ch038/bits_table.py, my_sqrt.py, sci_notation.py, encoder_resolution.py, hover_rpm.py, figures.py → images/ch038/fig01–fig05 |
-| 39 | part-03-maths-you-need/ch039-units-and-measurement.md | 5,620 | code/ch039/convert.py, speed_and_temperature.py, orbiter_units.py, spec_sheet.py, figures.py → images/ch039/fig01–fig06 |
-| 40 | part-03-maths-you-need/ch040-algebra-part-1.md | 6,300 | code/ch040/formula.py, check_rules.py, balance.py, mission_energy.py, cycle_time.py, figures.py → images/ch040/fig01–fig05 |
-| 41 | part-03-maths-you-need/ch041-algebra-part-2.md | 5,750 | code/ch041/solve_linear.py, rearrange_check.py, intercept.py, drone_range.py, figures.py → images/ch041/fig01–fig04 |
+| 37 | part-03-maths-you-need/ch037-numbers.md | 7,580 | code/ch037/fractions_by_hand.py, gear_train.py, signed_ticks.py, motor_command.py, figures.py → images/ch037/fig01–fig05 |
+| 38 | part-03-maths-you-need/ch038-powers-roots-scientific-notation.md | 6,470 | code/ch038/bits_table.py, my_sqrt.py, sci_notation.py, encoder_resolution.py, hover_rpm.py, figures.py → images/ch038/fig01–fig05 |
+| 39 | part-03-maths-you-need/ch039-units-and-measurement.md | 5,760 | code/ch039/convert.py, speed_and_temperature.py, orbiter_units.py, spec_sheet.py, figures.py → images/ch039/fig01–fig06 |
+| 40 | part-03-maths-you-need/ch040-algebra-part-1.md | 6,470 | code/ch040/formula.py, check_rules.py, balance.py, mission_energy.py, cycle_time.py, figures.py → images/ch040/fig01–fig05 |
+| 41 | part-03-maths-you-need/ch041-algebra-part-2.md | 5,910 | code/ch041/solve_linear.py, rearrange_check.py, intercept.py, drone_range.py, figures.py → images/ch041/fig01–fig04 |
 | 42 | part-03-maths-you-need/ch042-coordinates.md | 6,700 | code/ch042/plane_basics.py, move_points.py, warehouse_route.py, world_and_cell.py, figures.py → images/ch042/fig01–fig06 |
 | 43 | part-03-maths-you-need/ch043-straight-lines.md | 6,420 | code/ch043/slope_and_line.py, linear_map.py, load_cell.py, lane_centre.py, figures.py → images/ch043/fig01–fig06 |
+| 44 | part-03-maths-you-need/ch044-functions-and-graphs.md | 6,420 | code/ch044/function_table.py, piecewise.py, ir_lookup.py, stopping_bisection.py, figures.py → images/ch044/fig01–fig06 |
+| 45 | part-03-maths-you-need/ch045-quadratics-and-parabolas.md | 6,440 | code/ch045/quadratic.py, parabola_parts.py, stopping_exact.py, launcher.py, figures.py → images/ch045/fig01–fig06 |
+| 46 | part-03-maths-you-need/ch046-simultaneous-equations.md | 6,600 | code/ch046/solve_2x2.py, solve_3x3.py, wheel_speeds.py, ball_fit.py, figures.py → images/ch046/fig01–fig05 |
+| 47 | part-03-maths-you-need/ch047-angles-degrees-and-radians.md | 5,760 | code/ch047/convert_angles.py, wrap_angle.py, wheel_odometry.py, heading_hold.py, figures.py → images/ch047/fig01–fig06 |
+| 48 | part-03-maths-you-need/ch048-triangles-pythagoras-circles.md | 5,940 | code/ch048/distance.py, estimate_pi.py, arm_reach.py, flower_bed.py, figures.py → images/ch048/fig01–fig07 |
+| 49 | part-03-maths-you-need/ch049-trigonometry-part-1.md | 6,010 | code/ch049/trig_ratios.py, find_angle.py, rotate_points.py, scan_to_xy.py, ramp_force.py, figures.py → images/ch049/fig01–fig07 |
+| 50 | part-03-maths-you-need/ch050-trigonometry-part-2.md | 5,930 | code/ch050/unit_circle.py, atan_vs_atan2.py, wrap_radians.py, go_to_goal.py, average_heading.py, figures.py → images/ch050/fig01–fig07 |
+| 51 | part-03-maths-you-need/ch051-trigonometry-part-3.md | 5,710 | code/ch051/solve_triangle.py, two_link_ik.py, stereo_range.py, figures.py → images/ch051/fig01–fig06 |
+| 52 | part-03-maths-you-need/ch052-exponentials-and-logarithms.md | 5,600 | code/ch052/growth_and_decay.py, find_e.py, motor_cooling.py, ema_filter.py, figures.py → images/ch052/fig01–fig06 |
+| 53 | part-03-maths-you-need/ch053-sequences-and-sums.md | 5,620 | code/ch053/sequences.py, sigma.py, odometry_sum.py, repeatability.py, figures.py → images/ch053/fig01–fig07 |
+| 54 | part-03-maths-you-need/ch054-error-and-rounding-in-computers.md | 6,610 | code/ch054/float_surprises.py, clock_drift.py, encoder_overflow.py, cancellation.py, figures.py → images/ch054/fig01–fig05 |
+| 55 | part-03-maths-you-need/ch055-project-measuring-a-room.md | 8,890 | code/ch055/survey_data.py, room_survey.py, heights.py, survey_errors.py, room_map.py, figures.py → images/ch055/fig01–fig07. Ends with the Part 3 review and quiz R1–R10 |
 
 ## Notes for writers
 
