@@ -676,10 +676,10 @@ for k in range(0, 200):
     p = k / 10
     if max_climb_acceleration(25.0, 27.5, 3.0, p) >= 0.1:
         steepest = p
-print(steepest)    # 8.9
+print(steepest)    # 9.0
 ```
 
-The robot can still reach 0.1 m/s² on ramps up to 8.9%.
+The robot can still reach 0.1 m/s² on ramps up to 9.0%.
 
 ---
 
