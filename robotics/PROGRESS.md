@@ -4,7 +4,7 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 5, Chapter 73 — What is electricity? Charge and electrons.** Part 5 is Electricity and Electronics (Ch 73–93).
+**Part 5, Chapter 75 — Ohm's law with many worked examples.** Part 5 is Electricity and Electronics (Ch 73–93).
 Part 4 (Ch 56–72) is complete: about 133,400 words, 97 figures, all programs run, all figures viewed. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 5 straight through, then report and wait for "next".
 Part 4 chapters run 7,100–8,950 words (above the 5,500–6,500 target; projects 6,500–8,000).
 Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target.
@@ -86,6 +86,8 @@ Rover's official numbers: encoder 540 ticks/turn, wheel 0.06589 m (Ch 47, 69); C
 | 70 | part-04-physics-for-robots/ch070-centre-of-mass-and-balance.md | 8,100 | code/ch070/com.py, tip_limits.py, forklift.py, figures.py → images/ch070/fig01–fig06. Keeps Ch 4/5 centre-of-mass and Ch 62/63/64/69 tipping promises |
 | 71 | part-04-physics-for-robots/ch071-simulating-physics-euler.md | 7,980 | code/ch071/euler_fall.py, drag_fall.py, spring_euler.py, rover_speedup.py, figures.py → images/ch071/fig01–fig05. Answers the Ch 59 dt challenge; drag for Ch 60/62 |
 | 72 | part-04-physics-for-robots/ch072-project-rolling-cart.md | 8,950 | code/ch072/ramp_data.py, analyse_ramp.py, coast_down.py, models.py, figures.py → images/ch072/fig01–fig06. Example measurement set (replace with your own). Ends with the Part 4 review and quiz R1–R10 |
+| 73 | part-05-electricity-and-electronics/ch073-what-is-electricity.md | 9,040 | code/ch073/charge_count.py, drift_speed.py, esd.py, drone_charge.py, figures.py → images/ch073/fig01–fig06. Coulomb, ampere = C/s, conventional current, drift speed, closed loop, ESD |
+| 74 | part-05-electricity-and-electronics/ch074-voltage-current-and-resistance.md | 8,450 | code/ch074/volts_and_joules.py, wire_resistance.py, drone_energy.py, thermistor.py, figures.py → images/ch074/fig01–fig06. V = J/C (proves Ch 5's Wh = V × Ah), ground, series cells (NiMH 1.4/1.2/1.0, Li 4.2/3.7/3.3), R = ρ L / A (Rover wire 10 mΩ), NTC thermistor 10 kΩ B 3950 |
 
 ## Notes for writers
 
