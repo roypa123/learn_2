@@ -291,7 +291,7 @@ This looks simple, but there is a catch. Ticks are **whole numbers**. In 0.01 s,
 
 📖 **New word: resolution** — the smallest change a measurement can show. For speed from ticks, it is "one tick per loop": metres per tick ÷ sample time.
 
-🔢 **Maths.** Rover's small wheel is 65 mm across. Its encoder has 360 ticks per turn. The loop runs at 100 Hz.
+🔢 **Maths.** Take a small robot with a 65 mm wheel and a cheap encoder of 360 ticks per turn. (Rover's own encoder has 540, Chapter 47; a coarser one shows the problem more clearly.) The loop runs at 100 Hz.
 
 ```
 metres per tick  = π × 0.065 / 360 = 0.000567 m   (0.567 mm)
@@ -482,9 +482,9 @@ one tick is 0.567 mm, so one tick per loop means 0.0567 m/s
 
 ## 🏭 Real robot applications
 
-### Application 1 (worked in full) — 🤖 A speed meter for Rover's slow, careful driving
+### Application 1 (worked in full) — 🤖 A speed meter for a small robot's slow, careful driving
 
-**1. The real problem.** Rover must drive very slowly, at 0.05 m/s, when it docks onto its charger. Its speed controller (Part 12) needs a speed reading 100 times a second. With a simple one-loop speed estimate, the reading jumps between 0 and 0.057 m/s, so the controller thinks Rover keeps stopping and starting. It pushes the motor harder, Rover jerks forward, and it bumps the dock.
+**1. The real problem.** A small delivery robot must drive very slowly, at 0.05 m/s, when it docks onto its charger. Its speed controller (Part 12) needs a speed reading 100 times a second. With a simple one-loop speed estimate, the reading jumps between 0 and 0.057 m/s, so the controller thinks the robot keeps stopping and starting. It pushes the motor harder, the robot jerks forward, and it bumps the dock.
 
 **2. Why this theory.** Speed is distance ÷ time. With whole ticks, the distance in one short loop is too coarse. Measuring the distance over a **longer** time (several loops) makes the resolution finer, at the cost of a small delay.
 
@@ -511,7 +511,7 @@ ten_loops = [sum(counts[i - window:i]) * M_PER_TICK / (window * LOOP_DT_S) for i
 
 On the real robot, we do not keep a list of every count. We keep only the last 10 counts in a small list, add the newest one, and drop the oldest one, exactly like Chapter 21's moving average.
 
-**6. The result.** With the ten-loop window, Rover's speed reading at 0.05 m/s stays between 0.045 and 0.051 m/s instead of jumping between 0 and 0.057. The controller sees a steady speed and stops pushing the motor in bursts, so Rover glides onto the dock. At normal speed (0.5 m/s), the same window gives a reading within about 1%.
+**6. The result.** With the ten-loop window, the robot's speed reading at 0.05 m/s stays between 0.045 and 0.051 m/s instead of jumping between 0 and 0.057. The controller sees a steady speed and stops pushing the motor in bursts, so the robot glides onto the dock. At normal speed (0.5 m/s), the same window gives a reading within about 1%.
 
 **7. Going further.** Better encoders help most: a 2048-tick encoder on the motor shaft, before a 30:1 gearbox, gives 61,440 ticks per wheel turn, so even very slow speeds give many ticks per loop (Chapter 123). Many motor drivers measure the **time between ticks** at slow speed and switch to counting ticks at high speed. Chapter 181 compares ways to estimate speed from position, and Chapter 191 does it with a real encoder log.
 

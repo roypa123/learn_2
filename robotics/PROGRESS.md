@@ -4,10 +4,11 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 4, Chapter 70 — Centre of mass and balance: why robots fall over.** Part 4 is Physics for Robots (Ch 56–72).
-Part 3 (Ch 37–55) is complete: about 120,800 words, 112 figures. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 4 straight through, then report and wait for "next".
-Promises made in Part 3 that Part 4 must keep: Ch 57 speed (m/s, slope of a distance-time graph); Ch 59 derives v^2/(2a) stopping distance and the equations used in Ch 38, 44, 45; Ch 60 projectile motion (Ch 45 throw: horizontal and vertical parts independent); Ch 61 forces, m g sin(angle) on a ramp (Ch 49); Ch 62 mass vs weight, g = 9.81; Ch 65 torque (Ch 37 gears); Ch 67 energy E = P t and kinetic energy 1/2 m v^2 (Ch 40, 41); Ch 68 gears again; Ch 71 Euler steps; Ch 72 project.
-Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target. All Part 3 chapters are 5,600–8,900 words.
+**Part 5, Chapter 73 — What is electricity? Charge and electrons.** Part 5 is Electricity and Electronics (Ch 73–93).
+Part 4 (Ch 56–72) is complete: about 133,400 words, 97 figures, all programs run, all figures viewed. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 5 straight through, then report and wait for "next".
+Part 4 chapters run 7,100–8,950 words (above the 5,500–6,500 target; projects 6,500–8,000).
+Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target.
+Rover's official numbers: encoder 540 ticks/turn, wheel 0.06589 m (Ch 47, 69); Ch 57's 360-tick, 65 mm example is now a generic small robot. Rover's gearbox is 30:1, motor stall 0.010 N m, free 12,000 rpm (Ch 68), effective mass 5.65 kg (Ch 66), track 0.15 m.
 
 ## Chapters done
 
@@ -68,20 +69,23 @@ Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500�
 | 53 | part-03-maths-you-need/ch053-sequences-and-sums.md | 5,620 | code/ch053/sequences.py, sigma.py, odometry_sum.py, repeatability.py, figures.py → images/ch053/fig01–fig07 |
 | 54 | part-03-maths-you-need/ch054-error-and-rounding-in-computers.md | 6,610 | code/ch054/float_surprises.py, clock_drift.py, encoder_overflow.py, cancellation.py, figures.py → images/ch054/fig01–fig05 |
 | 55 | part-03-maths-you-need/ch055-project-measuring-a-room.md | 8,890 | code/ch055/survey_data.py, room_survey.py, heights.py, survey_errors.py, room_map.py, figures.py → images/ch055/fig01–fig07. Ends with the Part 3 review and quiz R1–R10 |
-| 56 | part-04-physics-for-robots/ch056-position-distance-and-displacement.md | 8,920 | code/ch056/corridor_trip.py, path_2d.py, encoder_trip.py, drone_home.py, figures.py → images/ch056/fig01–fig06 |
-| 57 | part-04-physics-for-robots/ch057-speed-and-velocity.md | 8,150 | code/ch057/speed_basics.py, encoder_speed.py, route_time.py, figures.py → images/ch057/fig01–fig06 |
-| 58 | part-04-physics-for-robots/ch058-acceleration.md | 8,270 | code/ch058/accel_basics.py, ramp_limiter.py, lift_ride.py, figures.py → images/ch058/fig01–fig06 |
-| 59 | part-04-physics-for-robots/ch059-equations-of-motion.md | 8,340 | code/ch059/suvat.py, stopping.py, move_time.py, figures.py → images/ch059/fig01–fig06. Derives v^2/(2a) promised in Ch 2, 7, 38, 44, 45; ruler table of Ch 6; arm cycle of Ch 40 |
-| 60 | part-04-physics-for-robots/ch060-motion-in-two-directions.md | 8,400 | code/ch060/vectors.py, projectile.py, aim_throw.py, drone_drop.py, figures.py → images/ch060/fig01–fig06. Keeps the Ch 45 promise (independent parts of a throw) |
-| 61 | part-04-physics-for-robots/ch061-forces-and-newtons-laws.md | 7,710 | code/ch061/newton2.py, hover.py, ramp_accel.py, figures.py → images/ch061/fig01–fig06. Keeps the Ch 49 promise (m g sin angle) and Ch 58 landing force |
+| 56 | part-04-physics-for-robots/ch056-position-distance-and-displacement.md | 8,790 | code/ch056/corridor_trip.py, path_2d.py, encoder_trip.py, drone_home.py, figures.py → images/ch056/fig01–fig06 |
+| 57 | part-04-physics-for-robots/ch057-speed-and-velocity.md | 8,030 | code/ch057/speed_basics.py, encoder_speed.py, route_time.py, figures.py → images/ch057/fig01–fig06 |
+| 58 | part-04-physics-for-robots/ch058-acceleration.md | 8,150 | code/ch058/accel_basics.py, ramp_limiter.py, lift_ride.py, figures.py → images/ch058/fig01–fig06 |
+| 59 | part-04-physics-for-robots/ch059-equations-of-motion.md | 8,170 | code/ch059/suvat.py, stopping.py, move_time.py, figures.py → images/ch059/fig01–fig06. Derives v^2/(2a) promised in Ch 2, 7, 38, 44, 45; ruler table of Ch 6; arm cycle of Ch 40 |
+| 60 | part-04-physics-for-robots/ch060-motion-in-two-directions.md | 8,230 | code/ch060/vectors.py, projectile.py, aim_throw.py, drone_drop.py, figures.py → images/ch060/fig01–fig06. Keeps the Ch 45 promise (independent parts of a throw) |
+| 61 | part-04-physics-for-robots/ch061-forces-and-newtons-laws.md | 7,580 | code/ch061/newton2.py, hover.py, ramp_accel.py, figures.py → images/ch061/fig01–fig06. Keeps the Ch 49 promise (m g sin angle) and Ch 58 landing force |
 | 62 | part-04-physics-for-robots/ch062-mass-weight-and-gravity.md | 7,320 | code/ch062/weight_and_g.py, lift_scale.py, tilt.py, figures.py → images/ch062/fig01–fig05. Explains the still accelerometer reading (Ch 58 promise) |
-| 63 | part-04-physics-for-robots/ch063-friction-and-grip.md | 7,750 | code/ch063/friction_basics.py, gripper.py, grip_limits.py, figures.py → images/ch063/fig01–fig06. Keeps Ch 1 promise (load slides at a > mu g) and Ch 9 stiction |
+| 63 | part-04-physics-for-robots/ch063-friction-and-grip.md | 7,600 | code/ch063/friction_basics.py, gripper.py, grip_limits.py, figures.py → images/ch063/fig01–fig06. Keeps Ch 1 promise (load slides at a > mu g) and Ch 9 stiction |
 | 64 | part-04-physics-for-robots/ch064-turning.md | 7,090 | code/ch064/spin.py, turn_radius.py, cornering.py, figures.py → images/ch064/fig01–fig05 |
-| 65 | part-04-physics-for-robots/ch065-torque-and-levers.md | 7,700 | code/ch065/torque_basics.py, arm_torque.py, rug_edge.py, figures.py → images/ch065/fig01–fig06. Keeps Ch 5 (moment), Ch 37 (gear torque), Ch 49/61 (F = torque / r) promises |
+| 65 | part-04-physics-for-robots/ch065-torque-and-levers.md | 7,580 | code/ch065/torque_basics.py, arm_torque.py, rug_edge.py, figures.py → images/ch065/fig01–fig06. Keeps Ch 5 (moment), Ch 37 (gear torque), Ch 49/61 (F = torque / r) promises |
 | 66 | part-04-physics-for-robots/ch066-moment-of-inertia.md | 7,290 | code/ch066/inertia.py, arm_swing.py, reaction_wheel.py, figures.py → images/ch066/fig01–fig05 |
 | 67 | part-04-physics-for-robots/ch067-work-energy-and-power.md | 7,460 | code/ch067/energy_basics.py, drone_flight_time.py, shift_battery.py, figures.py → images/ch067/fig01–fig06. Keeps Ch 4 (Wh), Ch 7 (crash energy), Ch 40 (E = P t, hills), Ch 41 (1/2 m v^2) promises |
-| 68 | part-04-physics-for-robots/ch068-gears-pulleys-and-belts.md | 7,600 | code/ch068/gearbox.py, choose_ratio.py, belt_axis.py, figures.py → images/ch068/fig01–fig06. Keeps Ch 7, Ch 37 (gears, strain wave) and Ch 66 (N^2) promises |
-| 69 | part-04-physics-for-robots/ch069-wheels-and-rolling.md | 7,600 | code/ch069/rolling.py, roll_race.py, slip_check.py, lawn_wheel.py, figures.py → images/ch069/fig01–fig05. Answers the Ch 66 rolling challenge |
+| 68 | part-04-physics-for-robots/ch068-gears-pulleys-and-belts.md | 7,320 | code/ch068/gearbox.py, choose_ratio.py, belt_axis.py, figures.py → images/ch068/fig01–fig06. Keeps Ch 7, Ch 37 (gears, strain wave) and Ch 66 (N^2) promises |
+| 69 | part-04-physics-for-robots/ch069-wheels-and-rolling.md | 7,750 | code/ch069/rolling.py, roll_race.py, slip_check.py, lawn_wheel.py, figures.py → images/ch069/fig01–fig05. Answers the Ch 66 rolling challenge |
+| 70 | part-04-physics-for-robots/ch070-centre-of-mass-and-balance.md | 8,100 | code/ch070/com.py, tip_limits.py, forklift.py, figures.py → images/ch070/fig01–fig06. Keeps Ch 4/5 centre-of-mass and Ch 62/63/64/69 tipping promises |
+| 71 | part-04-physics-for-robots/ch071-simulating-physics-euler.md | 7,980 | code/ch071/euler_fall.py, drag_fall.py, spring_euler.py, rover_speedup.py, figures.py → images/ch071/fig01–fig05. Answers the Ch 59 dt challenge; drag for Ch 60/62 |
+| 72 | part-04-physics-for-robots/ch072-project-rolling-cart.md | 8,950 | code/ch072/ramp_data.py, analyse_ramp.py, coast_down.py, models.py, figures.py → images/ch072/fig01–fig06. Example measurement set (replace with your own). Ends with the Part 4 review and quiz R1–R10 |
 
 ## Notes for writers
 

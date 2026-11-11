@@ -573,7 +573,7 @@ Copy `com.py`.
 2. Put the box back to 0.5 kg. Move the battery forward from −0.06 m to −0.12 m (further back) and repeat step 1. How much heavier a box can it hold now?
 3. Add a check for tipping when braking: with the arm reaching, at what braking does the robot tip forward? Use d = front edge − x_com and h = z_com.
 
-**What you should see:** The robot tips forward when the box is about 1.3 kg. Moving the battery 6 cm further back lets it hold about 1.7 kg. With the 0.5 kg box, d = 0.042 m and h = 0.103 m, so it tips forward when braking harder than 9.81 × 0.042 / 0.103 = 4.0 m/s².
+**What you should see:** The robot tips forward when the box is about 1.17 kg. Moving the battery 6 cm further back lets it hold about 1.37 kg. With the 0.5 kg box, d = 0.042 m and h = 0.103 m, so it tips forward when braking harder than 9.81 × 0.042 / 0.103 = 4.0 m/s².
 
 | If it does not work | Likely cause | Fix |
 |---|---|---|
