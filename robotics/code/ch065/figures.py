@@ -78,7 +78,11 @@ for ax, (title, pivot, load, effort) in zip(axes, setups):
     ax.plot([-1.2, 2.2], [0, 0], color=ORANGE, lw=8)
     ax.fill([pivot - 0.15, pivot + 0.15, pivot], [-0.45, -0.45, -0.04], color=BLACK)
     arrow(ax, load, 0.05, load, -0.75, BLUE); ax.text(load, -0.95, "load", ha="center", fontsize=11, color=BLUE)
-    arrow(ax, effort, 0.8, effort, 0.06, RED); ax.text(effort, 0.9, "effort", ha="center", fontsize=11, color=RED)
+    if pivot < min(load, effort):          # pivot at one end: the effort must lift
+        arrow(ax, effort, 0.06, effort, 0.8, RED)
+    else:                                  # pivot in the middle: the effort pushes down on the other side
+        arrow(ax, effort, 0.8, effort, 0.06, RED)
+    ax.text(effort, 0.9, "effort", ha="center", fontsize=11, color=RED)
     ax.text(pivot, -0.65, "pivot", ha="center", fontsize=10.5) if pivot != load else None
     ax.set_title(title, fontsize=11.5); ax.set_xlim(-1.4, 2.4); ax.set_ylim(-1.2, 1.2); ax.axis("off")
 save(fig, "fig04-lever-classes.png")
@@ -93,8 +97,8 @@ ax.fill_between(ang, arm, arm + pay, color=L_BLUE, label="the payload (0.25 kg a
 ax.plot(ang, arm + pay, color=BLUE, lw=3, label="total holding torque")
 ax.axhline(3.0, color=RED, ls="--", lw=2, label="motor limit 3.0 N m")
 ax.set_xticks([-90, -60, -30, 0, 30, 60, 90])
-ax.set_xlabel("arm angle above the horizontal (deg)"); ax.set_ylabel("torque (N m)"); ax.set_ylim(0, 3.6)
-ax.grid(alpha=0.3); ax.legend(loc="upper left", fontsize=10.5)
+ax.set_xlabel("arm angle above the horizontal (deg)"); ax.set_ylabel("torque (N m)"); ax.set_ylim(0, 4.4)
+ax.grid(alpha=0.3); ax.legend(loc="upper center", ncol=2, fontsize=10.5)
 ax.set_title("the arm is hardest to hold straight out (0 deg)", fontsize=12.5)
 save(fig, "fig05-arm-torque.png")
 

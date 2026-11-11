@@ -4,7 +4,7 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 4, Chapter 65 — Torque and levers.** Part 4 is Physics for Robots (Ch 56–72).
+**Part 4, Chapter 70 — Centre of mass and balance: why robots fall over.** Part 4 is Physics for Robots (Ch 56–72).
 Part 3 (Ch 37–55) is complete: about 120,800 words, 112 figures. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 4 straight through, then report and wait for "next".
 Promises made in Part 3 that Part 4 must keep: Ch 57 speed (m/s, slope of a distance-time graph); Ch 59 derives v^2/(2a) stopping distance and the equations used in Ch 38, 44, 45; Ch 60 projectile motion (Ch 45 throw: horizontal and vertical parts independent); Ch 61 forces, m g sin(angle) on a ramp (Ch 49); Ch 62 mass vs weight, g = 9.81; Ch 65 torque (Ch 37 gears); Ch 67 energy E = P t and kinetic energy 1/2 m v^2 (Ch 40, 41); Ch 68 gears again; Ch 71 Euler steps; Ch 72 project.
 Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target. All Part 3 chapters are 5,600–8,900 words.
@@ -77,6 +77,11 @@ Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500�
 | 62 | part-04-physics-for-robots/ch062-mass-weight-and-gravity.md | 7,320 | code/ch062/weight_and_g.py, lift_scale.py, tilt.py, figures.py → images/ch062/fig01–fig05. Explains the still accelerometer reading (Ch 58 promise) |
 | 63 | part-04-physics-for-robots/ch063-friction-and-grip.md | 7,750 | code/ch063/friction_basics.py, gripper.py, grip_limits.py, figures.py → images/ch063/fig01–fig06. Keeps Ch 1 promise (load slides at a > mu g) and Ch 9 stiction |
 | 64 | part-04-physics-for-robots/ch064-turning.md | 7,090 | code/ch064/spin.py, turn_radius.py, cornering.py, figures.py → images/ch064/fig01–fig05 |
+| 65 | part-04-physics-for-robots/ch065-torque-and-levers.md | 7,700 | code/ch065/torque_basics.py, arm_torque.py, rug_edge.py, figures.py → images/ch065/fig01–fig06. Keeps Ch 5 (moment), Ch 37 (gear torque), Ch 49/61 (F = torque / r) promises |
+| 66 | part-04-physics-for-robots/ch066-moment-of-inertia.md | 7,290 | code/ch066/inertia.py, arm_swing.py, reaction_wheel.py, figures.py → images/ch066/fig01–fig05 |
+| 67 | part-04-physics-for-robots/ch067-work-energy-and-power.md | 7,460 | code/ch067/energy_basics.py, drone_flight_time.py, shift_battery.py, figures.py → images/ch067/fig01–fig06. Keeps Ch 4 (Wh), Ch 7 (crash energy), Ch 40 (E = P t, hills), Ch 41 (1/2 m v^2) promises |
+| 68 | part-04-physics-for-robots/ch068-gears-pulleys-and-belts.md | 7,600 | code/ch068/gearbox.py, choose_ratio.py, belt_axis.py, figures.py → images/ch068/fig01–fig06. Keeps Ch 7, Ch 37 (gears, strain wave) and Ch 66 (N^2) promises |
+| 69 | part-04-physics-for-robots/ch069-wheels-and-rolling.md | 7,600 | code/ch069/rolling.py, roll_race.py, slip_check.py, lawn_wheel.py, figures.py → images/ch069/fig01–fig05. Answers the Ch 66 rolling challenge |
 
 ## Notes for writers
 
