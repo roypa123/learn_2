@@ -4,9 +4,10 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 3, Chapter 37 — Numbers: whole numbers, decimals, fractions, negative numbers.** Part 3 is The Maths You Need, From School Level (Ch 37–55).
-Part 2 (Ch 11–36) is complete. The user asked (2026-11-10) to write straight through Part 2 before asking for "next". Check whether they want the same for Part 3.
-Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target (see the table). Each has the full template, but consider expanding them if the user wants more length.
+**Part 3, Chapter 44 — Functions and graphs.** Part 3 is The Maths You Need, From School Level (Ch 37–55). Ch 37–43 are written.
+Chapter 43 promised: Ch 44 shows how to read any graph and find where a curve reaches a value when algebra cannot help (numerical root finding, e.g. bisection). Ch 48 gives the straight-line distance (Pythagoras; (1,1) to (5,4) is 5). Ch 49 rotates shapes.
+The user said "next part" (2026-11-10), then interrupted during Ch 42 and said "next" (2026-11-11). Ch 42 was finished; the user then said "next" again for Ch 43 (one chapter per "next" for now). User (2026-11-11): "one part completed then only show next". Write the whole part straight through, then report.
+Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target. Part 3 chapters so far are 5,600–7,400.
 
 ## Chapters done
 
@@ -48,6 +49,13 @@ Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500�
 | 34 | part-02-python-from-zero/ch034-numpy-part-1.md | 4,170 | code/ch034/sensor_array.py, lidar_scan.py, drive_log_stats.py, figures.py → images/ch034/fig01–fig05 |
 | 35 | part-02-python-from-zero/ch035-numpy-part-2.md | 4,120 | code/ch035/speed_test.py, vector_monte_carlo.py, scan_to_world.py, wheel_mixer.py, figures.py → images/ch035/fig01–fig05 |
 | 36 | part-02-python-from-zero/ch036-project-gridbot.md | 4,810 | code/ch036/gridbot.py, run_gridbot.py, test_gridbot.py, noisy_gridbot.py, worlds/maze.txt, figures.py → images/ch036/ |
+| 37 | part-03-maths-you-need/ch037-numbers.md | 7,390 | code/ch037/fractions_by_hand.py, gear_train.py, signed_ticks.py, motor_command.py, figures.py → images/ch037/fig01–fig05 |
+| 38 | part-03-maths-you-need/ch038-powers-roots-scientific-notation.md | 6,240 | code/ch038/bits_table.py, my_sqrt.py, sci_notation.py, encoder_resolution.py, hover_rpm.py, figures.py → images/ch038/fig01–fig05 |
+| 39 | part-03-maths-you-need/ch039-units-and-measurement.md | 5,620 | code/ch039/convert.py, speed_and_temperature.py, orbiter_units.py, spec_sheet.py, figures.py → images/ch039/fig01–fig06 |
+| 40 | part-03-maths-you-need/ch040-algebra-part-1.md | 6,300 | code/ch040/formula.py, check_rules.py, balance.py, mission_energy.py, cycle_time.py, figures.py → images/ch040/fig01–fig05 |
+| 41 | part-03-maths-you-need/ch041-algebra-part-2.md | 5,750 | code/ch041/solve_linear.py, rearrange_check.py, intercept.py, drone_range.py, figures.py → images/ch041/fig01–fig04 |
+| 42 | part-03-maths-you-need/ch042-coordinates.md | 6,700 | code/ch042/plane_basics.py, move_points.py, warehouse_route.py, world_and_cell.py, figures.py → images/ch042/fig01–fig06 |
+| 43 | part-03-maths-you-need/ch043-straight-lines.md | 6,420 | code/ch043/slope_and_line.py, linear_map.py, load_cell.py, lane_centre.py, figures.py → images/ch043/fig01–fig06 |
 
 ## Notes for writers
 
