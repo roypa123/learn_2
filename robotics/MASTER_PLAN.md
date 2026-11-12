@@ -46,7 +46,7 @@ Read it before writing any new chapter. Every chapter must follow it.
 | Python 3 | From Part 2 | The main language. Taught from zero. |
 | `matplotlib` | From Ch 33 | Plots and simple robot animations. Also draws every figure in the course (§6). |
 | NumPy | From Ch 34 | First we write the maths by hand. Then we show the NumPy way. |
-| Arduino C++ | Part 6 onwards | Taught from zero in Ch 93–94. Every sketch also runs in the free **Wokwi** simulator. |
+| Arduino C++ | Part 6 onwards | Taught from zero in Ch 96–97. Every sketch also runs in the free **Wokwi** simulator, and on the PC test bench `code/common/arduino_sim/` (g++), which produces every sketch output printed in the book. |
 | OpenCV | Part 24 | Only after we have written the basic filters by hand. |
 | PX4, MAVSDK | Part 30 | PX4 in simulation (SITL with Gazebo) first, then the real drone. |
 | PyTorch | Ch 495 onwards | Only after the network from scratch (Ch 492). |
@@ -245,6 +245,6 @@ Part folder names: `part-NN-short-name`. Chapter files: `chNNN-short-name.md` (t
 
 - Run every Python program before saving it, and paste the real output.
 - Check every worked number with a quick Python calculation.
-- Arduino sketches: check them in Wokwi if possible. Otherwise check them carefully by hand and say so in PROGRESS.
+- Arduino sketches: run every sketch on the PC test bench (`python code/common/arduino_sim/simrun.py test.cpp`) and paste its real output. Wokwi and real hardware are not available to the writer; say so in PROGRESS. Remember the bench uses 32-bit `int` (Uno: 16-bit).
 - Run `figures.py` and look at every figure before saving the chapter. Check that the numbers in the text match the plot.
 - After writing a chapter, update `PROGRESS.md` (word count, code files, and the promises made in "Next chapter").
