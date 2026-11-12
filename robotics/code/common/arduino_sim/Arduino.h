@@ -128,8 +128,16 @@ inline void advance(uint64_t ns) {                // let simulated time pass
 }  // namespace sim
 
 // ---------------------------------------------------------------- time
-inline unsigned long millis() { return (unsigned long)(sim::now_ns / 1000000ULL); }   // 32 bits: wraps after 49.7 days
-inline unsigned long micros() { return (unsigned long)(sim::now_ns / 1000ULL); }      // wraps after 71.6 minutes
+inline unsigned long millis() {                   // 32 bits: wraps after 49.7 days
+    unsigned long m = (unsigned long)(sim::now_ns / 1000000ULL);
+    sim::advance(1000);                           // reading the clock takes about 1 us on an Uno
+    return m;
+}
+inline unsigned long micros() {                   // wraps after 71.6 minutes
+    unsigned long u = (unsigned long)(sim::now_ns / 1000ULL);
+    sim::advance(3000);                           // about 3 us
+    return u;
+}
 inline void delay(unsigned long ms) { sim::advance((uint64_t)ms * 1000000ULL); }
 inline void delayMicroseconds(unsigned int us) { sim::advance((uint64_t)us * 1000ULL); }
 
@@ -213,7 +221,7 @@ inline void interrupts() {
 }
 
 // ---------------------------------------------------------------- small helpers from the Arduino core
-template <class T, class L, class H> T constrain(T x, L lo, H hi) { return x < lo ? lo : (x > hi ? hi : x); }
+template <class T, class L, class H> T constrain(T x, L lo, H hi) { return x < lo ? (T)lo : (x > hi ? (T)hi : x); }
 inline long map(long x, long in_min, long in_max, long out_min, long out_max) {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
@@ -343,6 +351,8 @@ class HardwareSerial {
     size_t print(int v, int base = DEC) { return print((long)v, base); }
     size_t print(unsigned char v, int base = DEC) { return print((unsigned long)v, base); }
     size_t print(bool v) { return print((int)v); }
+    size_t print(long long v, int base = DEC) { return print((long)v, base); }
+    size_t print(unsigned long long v, int base = DEC) { return print((unsigned long)v, base); }
     size_t print(double v, int digits = 2) {        // the same method as the real Arduino Print class
         if (std::isnan(v)) return print("nan");
         if (std::isinf(v)) return print("inf");
