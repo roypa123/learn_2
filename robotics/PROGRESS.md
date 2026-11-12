@@ -4,7 +4,7 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 5, Chapter 79 — Voltage dividers.** Part 5 is Electricity and Electronics (Ch 73–93).
+**Part 5, Chapter 83 — Switches and buttons, pull-up and pull-down resistors.** Part 5 is Electricity and Electronics (Ch 73–93).
 Part 4 (Ch 56–72) is complete: about 133,400 words, 97 figures, all programs run, all figures viewed. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 5 straight through, then report and wait for "next".
 Part 4 chapters run 7,100–8,950 words (above the 5,500–6,500 target; projects 6,500–8,000).
 Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target.
@@ -92,6 +92,10 @@ Rover's official numbers: encoder 540 ticks/turn, wheel 0.06589 m (Ch 47, 69); C
 | 76 | part-05-electricity-and-electronics/ch076-power-and-heat.md | 8,900 | code/ch076/power_forms.py, wire_heat.py, temperature_rise.py, driver_heat.py, motor_heating.py, figures.py → images/ch076/fig01–fig06. P = V I = I² R = V² / R (keeps Ch 7's I = P / V), wire heat I² ρ / A, thermal resistance θ (driver 60 / 25 °C/W, 2.25 W stall → 150 °C after 234 s), time constant C θ, leg motor 120 W → 100 °C in 6.6 min |
 | 77 | part-05-electricity-and-electronics/ch077-series-and-parallel.md | 8,720 | code/ch077/series_parallel.py, reduce_circuit.py, current_split.py, rail_load.py, pack_builder.py, figures.py → images/ch077/fig01–fig06. Series/parallel rules, shrink-then-expand (100 + 200||300 + 50 = 270 Ω, 44.4 mA), Rover's 5 V rail 187 mA (Pi → 987 mA, needs own regulator Ch 90), xSyP packs, current hogging |
 | 78 | part-05-electricity-and-electronics/ch078-kirchhoffs-laws.md | 9,000 | code/ch078/check_laws.py, nodal.py (solve(n, resistors, sources), reused later), dock.py, bridge.py, ground_offset.py, figures.py → images/ch078/fig01–fig06. KCL, KVL with sign rule, nodal analysis with NumPy, dock (rail 7.414 V, 1.427 A charging, stops at 8.10 V), Wheatstone bridge 1.25 mV at 500 µε, ground offset 60 mV / star ground |
+| 79 | part-05-electricity-and-electronics/ch079-voltage-dividers.md | 7,790 | code/ch079/divider.py, battery_monitor.py, light_sensor.py, thermistor_reader.py, figures.py → images/ch079/fig01–fig06. Vout = Vin R2/(R1+R2), output resistance R1||R2 (rule of ten), pot, R_fixed = √(Rlow Rhigh) (LDR 4.7 kΩ for Moth), 4S monitor 22k/4.7k (453 mAh/month drain), Rover thermistor counts 153 (70 °C) / 100 (85 °C) with 10 kΩ |
+| 80 | part-05-electricity-and-electronics/ch080-breadboards-and-diagrams.md | 8,340 | code/ch080/breadboard.py (net finder + checker using nodal.py), wire_gauge.py (AWG, 5 W/m inside a robot: AWG 20 = 12.4 A), breadboard_current.py (0.26 Ω path, 1 A rating), figures.py → images/ch080/fig01–fig06. Symbols chart, dot = joined, same name = same net, strips a–e/f–j, check-before-power routine |
+| 81 | part-05-electricity-and-electronics/ch081-the-multimeter.md | 8,910 | code/ch081/meter_loading.py, accuracy.py, burden.py, voltage_walk.py (uses nodal.py), internal_resistance.py, figures.py → images/ch081/fig01–fig06. V across / I in series / R power off, rule of a hundred, ±(0.5% + 2 digits), burden (1 Ω mA, 0.01 Ω 10A), voltage walk (corroded connector 2.4 V), Rover pack internal resistance 0.146 Ω (example data) |
+| 82 | part-05-electricity-and-electronics/ch082-leds-and-resistors.md | 8,800 | code/ch082/led_resistor.py (next_standard E12), led_model.py (exponential LED, bisection), colour_code.py, pin_budget.py (Rover 7 status LEDs = 60 mA, 30% of Uno), ir_emitter.py (220 Ω, 14.9–19.9 mA worst case), figures.py → images/ch082/fig01–fig06. Vf by colour, R = (Vs − Vf)/I, E12, colour code, pin limits 20 mA/200 mA |
 
 ## Notes for writers
 

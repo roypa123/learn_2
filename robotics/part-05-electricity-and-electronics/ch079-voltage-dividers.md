@@ -636,7 +636,7 @@ Copy `light_sensor.py`.
 
 **4.** I = 24 ÷ 147,000 = 0.163 mA. P = 24² ÷ 147,000 = 3.9 mW.
 
-**5.** 3.3 ÷ 25.2 ÷ 1.1 = 0.1190. Checking the pairs with a total of at least 20 kΩ, the largest ratio under 0.1190 is **22 kΩ over 2.2 kΩ**: 2.2 ÷ 24.2 = 0.0909, so 25.2 V gives 2.29 V. (Pairs such as 33 kΩ over 4.7 kΩ, 0.1247, are just over the limit.) The standard list is coarse; with a 3.9 kΩ resistor, 27 kΩ over 3.9 kΩ = 0.126 would also be too big, and 33 kΩ over 3.9 kΩ = 0.1057 would be closer. Program 11 does the search.
+**5.** 3.3 ÷ 25.2 ÷ 1.1 = 0.1190. Checking the pairs with a total of at least 20 kΩ, the largest ratio under 0.1190 is **22 kΩ over 2.2 kΩ**: 2.2 ÷ 24.2 = 0.0909, so 25.2 V gives 2.29 V. (Pairs such as 33 kΩ over 4.7 kΩ, 0.1247, are just over the limit.) The standard list is coarse, so the best ratio is well under the limit. Program 11 does the search.
 
 **6.** 1.1 ÷ 3.3 = one third of the way up from the ground end.
 
