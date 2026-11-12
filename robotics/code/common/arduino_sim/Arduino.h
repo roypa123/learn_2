@@ -65,7 +65,6 @@ inline int isr_mode[2] = {0, 0};
 inline int isr_last[2] = {0, 0};
 inline bool isr_pending[2] = {false, false};
 inline std::vector<std::function<void()>> tick_hooks;   // other simulated hardware (timers, buses)
-inline int analog_ref_mv = 5000;
 
 inline double t() { return now_ns / 1e9; }
 inline const char *stamp() {
@@ -162,14 +161,23 @@ inline int digitalRead(uint8_t p) {
     sim::advance(4000);                           // about 4 us
     return sim::pin_from_outside(p);
 }
+#define DEFAULT 1
+#define INTERNAL 3
+#define EXTERNAL 0
+namespace sim {
+inline std::function<double(double)> vcc = [](double) { return 5.0; };   // the 5 V rail, which may sag
+inline double internal_ref = 1.1;                 // this chip's own "1.1 V" reference (each chip differs a little)
+inline int ref_mode = DEFAULT;
+}  // namespace sim
 inline int analogRead(uint8_t p) {
     if (p < 14) p += 14;                          // analogRead(0) means A0
     sim::advance(112000);                         // one ADC conversion takes about 112 us (Chapter 101)
-    double v = sim::ain[p] ? sim::ain[p](sim::t()) : (sim::next_random() % 1024) * 5.0 / 1024;
-    int n = (int)(v / (sim::analog_ref_mv / 1000.0) * 1024.0);
+    double vref = sim::ref_mode == INTERNAL ? sim::internal_ref : sim::vcc(sim::t());
+    double v = sim::ain[p] ? sim::ain[p](sim::t()) : (sim::next_random() % 1024) * vref / 1024;
+    int n = (int)(v / vref * 1024.0);             // the ADC rounds down to a whole step
     return n < 0 ? 0 : (n > 1023 ? 1023 : n);
 }
-inline void analogReference(uint8_t) {}
+inline void analogReference(uint8_t mode) { sim::ref_mode = mode; }
 inline void analogWrite(uint8_t p, int v) {
     sim::advance(5000);
     if (v < 0) v = 0;
