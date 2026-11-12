@@ -620,7 +620,7 @@ the winding reaches 100 C after 6.6 min: the robot must sit or change pose befor
 
 **6. The result.** The robot can hold the half-squat for about six minutes, then must stand up straight (where the knee current drops to a few amps) or sit down. Its controller keeps a running estimate of each motor's temperature with exactly this model, updated every control cycle, and the motion planner treats "thermal budget" as a limit just like torque. Without the model, the first warning would be the smell of hot insulation.
 
-**7. Going further.** Real motors have two time constants (the winding warms fast, the housing slowly), and the resistance rises with temperature (Chapter 74), which makes the heating worse: a hot winding at 0.36 Ω makes 144 W, not 120. Chapter 143 models motor thermals properly, and Chapter 733 uses the thermal budget in Hero's walking controller.
+**7. Going further.** Real motors have two time constants (the winding warms fast, the housing slowly), and the resistance rises with temperature (Chapter 74), which makes the heating worse: a hot winding at 0.36 Ω makes 144 W, not 120. Chapter 224 models heating properly, and Chapter 694 uses the thermal budget when choosing Hero's actuators.
 
 ### Application 3 — 🚁 Heat in a drone's wiring and connectors
 

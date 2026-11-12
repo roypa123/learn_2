@@ -211,7 +211,7 @@ with a perfect short:  I = 7.2 ÷ 0.15 = 48 A
 
 Forty-eight amperes through a thin wire makes it red hot in a second (Chapter 76 gives the heat). This is why Chapter 7's rules are what they are: a fuse **near the battery**, rated **above the normal peak** (3.1 A) and **below what the wires can take** (5 A). Ohm's law gives the numbers behind the rules.
 
-🤖 **Robot link.** A motor's **stall** is a mild short circuit: Rover's 4.8 Ω motor stalled on 7.2 V draws 1.5 A, three times its running current, and it heats up fast. Motor drivers (Chapter 139) watch for this and cut the power, and Application 1 shows the simplest way to detect it.
+🤖 **Robot link.** A motor's **stall** is a mild short circuit: Rover's 4.8 Ω motor stalled on 7.2 V draws 1.5 A, three times its running current, and it heats up fast. Motor drivers (Chapter 141) watch for this and cut the power, and Application 1 shows the simplest way to detect it.
 
 ---
 
@@ -554,7 +554,7 @@ that is ADC reading above 20
 
 **How to read this picture:** On the left, the bars show the voltage across each shunt at stall (log scale); the red dashed line is one ADC step. The 0.01 Ω shunt is barely above it. On the right, the bars show the share of the motor's voltage each shunt takes; the dashed line is a 5% limit. Only 0.1 Ω and below pass; 0.1 Ω is the compromise.
 
-**6. The result.** With a 0.1 Ω shunt, the Arduino sees a stall as a reading above 20 (100 mV), while normal driving reads about 10. The program on the Arduino (Chapter 139) can cut the motor within a few milliseconds. Without the shunt, Rover would keep pushing against the wall until the motor overheated or the battery emptied. Real motor drivers include a shunt and a comparator for exactly this.
+**6. The result.** With a 0.1 Ω shunt, the Arduino sees a stall as a reading above 20 (100 mV), while normal driving reads about 10. The program on the Arduino (Chapter 141) can cut the motor within a few milliseconds. Without the shunt, Rover would keep pushing against the wall until the motor overheated or the battery emptied. Real motor drivers include a shunt and a comparator for exactly this.
 
 **7. Going further.** Dedicated current-sense chips amplify the shunt's tiny voltage by 50 or 100 times, so an even smaller shunt (1 mΩ) can be used on a 40 A drone motor with almost no loss. Chapter 129 covers current sensors, including Hall-effect sensors that measure current without any resistor at all. Chapter 76 shows how much heat the shunt itself makes.
 
@@ -631,7 +631,7 @@ so the wire needs at least 3.36 mm2: choose 4 mm2 (about 12 AWG)
 
 **6. The result.** The drone needs 4 mm² wire from the battery to the power board: about 2.3 mm in diameter, stiff and heavy, but necessary. With the 1 mm² wire that looks "big enough" to a beginner, the motors would lose 0.67 V (4.5% of the pack) at full throttle, and Chapter 76 will show that the wire would also get hot. Drone builders use the same calculation for the connector: a cheap connector with 10 mΩ of contact resistance loses 0.4 V on its own.
 
-**7. Going further.** At 40 A the wire's own resistance rises as it warms (Chapter 74), which raises the loss further; good designs allow for a hot wire. Chapter 615 covers the complete power system of the course's drone, and Chapter 618 the ESC, where the same current is switched on and off thousands of times a second.
+**7. Going further.** At 40 A the wire's own resistance rises as it warms (Chapter 74), which raises the loss further; good designs allow for a hot wire. Chapter 616 covers the complete power system of the course's drone, and Chapter 620 the ESC, where the same current is switched on and off thousands of times a second.
 
 ### Application 3 — 🏥 Leakage current in a hospital robot
 
@@ -643,7 +643,7 @@ A farm robot's base station reads a soil sensor 100 m away over a cheap 0.5 mm²
 
 ### Application 5 — 🦿 Why leg motors need current limits
 
-A quadruped robot's leg motor has a winding of 0.3 Ω and runs from 48 V. Stalled, which happens whenever the robot stands still under load or lands from a jump, Ohm's law gives 48 ÷ 0.3 = 160 A: enough to melt the winding in a second and far beyond what the battery can give. So every leg motor driver measures its current (with a shunt as in Application 1, thousands of times a second) and **limits** it to a safe value, typically 20 to 40 A, by switching the voltage on and off (Chapter 139's PWM). The motor then delivers a controlled torque instead of a burst of smoke. Chapters 143 and 653 show how the current limit sets the maximum force a leg can push with.
+A quadruped robot's leg motor has a winding of 0.3 Ω and runs from 48 V. Stalled, which happens whenever the robot stands still under load or lands from a jump, Ohm's law gives 48 ÷ 0.3 = 160 A: enough to melt the winding in a second and far beyond what the battery can give. So every leg motor driver measures its current (with a shunt as in Application 1, thousands of times a second) and **limits** it to a safe value, typically 20 to 40 A, by switching the voltage on and off (Chapter 140's PWM). The motor then delivers a controlled torque instead of a burst of smoke. Chapters 223 and 668 show how the current limit sets the maximum force a leg can push with.
 
 ---
 

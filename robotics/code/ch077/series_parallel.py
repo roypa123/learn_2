@@ -15,7 +15,7 @@ cases = [
     ("10 and 1000 ohm", [10, 1000]),
     ("four 1 kohm", [1000, 1000, 1000, 1000]),
     ("Rover's two stalled motors (4.8 ohm each)", [4.8, 4.8]),
-    ("motor 4.8 + wire 0.01 + battery inside 0.15", [4.8, 0.01, 0.15]),
+    ("10 kohm resistor and a 10 Mohm meter", [10000, 10e6]),
 ]
 print(f"{'resistors':46s} {'series':>10s} {'parallel':>10s}")
 for name, rs in cases:

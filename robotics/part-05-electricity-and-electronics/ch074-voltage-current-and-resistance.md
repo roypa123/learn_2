@@ -526,7 +526,7 @@ that is 45% of the usable energy
 
 **6. The result.** The flight will use about 1,800 mAh, 45% of the usable charge: a comfortable margin, with room to fly back against a headwind. Notice how small the climb is: 35 mAh, 2% of the flight. Almost all the energy goes into **staying up**, which is why flight time, not height, is what limits survey drones. Without the "energy per coulomb" link, the pilot could not turn the physics (joules) into what the battery meter shows (mAh).
 
-**7. Going further.** The pack's real voltage falls from 16.8 V to 13.2 V during the flight, so the coulombs per joule change as it goes; a flight controller integrates both voltage and current to track energy in watt-hours. Chapter 76 brings in power (joules per second), which is what the "180 W" above really is, and Chapters 615 to 621 cover drone power systems in full.
+**7. Going further.** The pack's real voltage falls from 16.8 V to 13.2 V during the flight, so the coulombs per joule change as it goes; a flight controller integrates both voltage and current to track energy in watt-hours. Chapter 76 brings in power (joules per second), which is what the "180 W" above really is, and Chapters 616 to 621 cover drone power systems in full.
 
 ### Application 2 (worked in full) — 🏭 A thermistor watching a motor driver
 
@@ -626,7 +626,7 @@ A small robot runs at 7 V, a drone at 15–25 V, a cobot at 48 V, and an electri
 
 ### Application 4 — 🦿 A humanoid's 13S battery pack
 
-Full-size humanoid robots usually carry a pack labelled "13S" or "14S": 13 or 14 lithium cells in series, 48.1 or 51.8 V nominal, 54.6 or 58.8 V full, and 42.9 or 46.2 V at the "empty" limit. Every leg motor driver is designed for that range. The pack also holds a thermistor against the cells (Application 2) and a small circuit that watches each cell's voltage separately, because in a series string the charge through every cell is identical, so a weak cell empties first and would be driven below its 3.0 V limit while the others are still fine. Chapter 89 explains this "balancing" problem and Chapter 729 shows the power system of the course's humanoid, Hero.
+Full-size humanoid robots usually carry a pack labelled "13S" or "14S": 13 or 14 lithium cells in series, 48.1 or 51.8 V nominal, 54.6 or 58.8 V full, and 42.9 or 46.2 V at the "empty" limit. Every leg motor driver is designed for that range. The pack also holds a thermistor against the cells (Application 2) and a small circuit that watches each cell's voltage separately, because in a series string the charge through every cell is identical, so a weak cell empties first and would be driven below its 3.0 V limit while the others are still fine. Chapter 89 explains this "balancing" problem and Chapter 696 shows the power system of the course's humanoid, Hero.
 
 ### Application 5 — 🌾 Soil moisture from resistance
 

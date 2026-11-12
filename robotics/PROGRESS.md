@@ -4,7 +4,7 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 5, Chapter 77 — Series and parallel circuits.** Part 5 is Electricity and Electronics (Ch 73–93).
+**Part 5, Chapter 79 — Voltage dividers.** Part 5 is Electricity and Electronics (Ch 73–93).
 Part 4 (Ch 56–72) is complete: about 133,400 words, 97 figures, all programs run, all figures viewed. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 5 straight through, then report and wait for "next".
 Part 4 chapters run 7,100–8,950 words (above the 5,500–6,500 target; projects 6,500–8,000).
 Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target.
@@ -90,6 +90,8 @@ Rover's official numbers: encoder 540 ticks/turn, wheel 0.06589 m (Ch 47, 69); C
 | 74 | part-05-electricity-and-electronics/ch074-voltage-current-and-resistance.md | 8,450 | code/ch074/volts_and_joules.py, wire_resistance.py, drone_energy.py, thermistor.py, figures.py → images/ch074/fig01–fig06. V = J/C (proves Ch 5's Wh = V × Ah), ground, series cells (NiMH 1.4/1.2/1.0, Li 4.2/3.7/3.3), R = ρ L / A (Rover wire 10 mΩ), NTC thermistor 10 kΩ B 3950 |
 | 75 | part-05-electricity-and-electronics/ch075-ohms-law.md | 8,310 | code/ch075/ohm.py, wire_drop.py, short_circuit.py, shunt.py, drone_wire.py, figures.py → images/ch075/fig01–fig06. V = I R three ways, voltage drop, Rover motor stall 4.8 Ω / 1.5 A, battery internal resistance 0.15 Ω (short 48 A, fuse 4 A), non-ohmic parts, 0.1 Ω shunt, 4 mm² drone wire |
 | 76 | part-05-electricity-and-electronics/ch076-power-and-heat.md | 8,900 | code/ch076/power_forms.py, wire_heat.py, temperature_rise.py, driver_heat.py, motor_heating.py, figures.py → images/ch076/fig01–fig06. P = V I = I² R = V² / R (keeps Ch 7's I = P / V), wire heat I² ρ / A, thermal resistance θ (driver 60 / 25 °C/W, 2.25 W stall → 150 °C after 234 s), time constant C θ, leg motor 120 W → 100 °C in 6.6 min |
+| 77 | part-05-electricity-and-electronics/ch077-series-and-parallel.md | 8,720 | code/ch077/series_parallel.py, reduce_circuit.py, current_split.py, rail_load.py, pack_builder.py, figures.py → images/ch077/fig01–fig06. Series/parallel rules, shrink-then-expand (100 + 200||300 + 50 = 270 Ω, 44.4 mA), Rover's 5 V rail 187 mA (Pi → 987 mA, needs own regulator Ch 90), xSyP packs, current hogging |
+| 78 | part-05-electricity-and-electronics/ch078-kirchhoffs-laws.md | 9,000 | code/ch078/check_laws.py, nodal.py (solve(n, resistors, sources), reused later), dock.py, bridge.py, ground_offset.py, figures.py → images/ch078/fig01–fig06. KCL, KVL with sign rule, nodal analysis with NumPy, dock (rail 7.414 V, 1.427 A charging, stops at 8.10 V), Wheatstone bridge 1.25 mV at 500 µε, ground offset 60 mV / star ground |
 
 ## Notes for writers
 

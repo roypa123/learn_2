@@ -39,7 +39,10 @@ def resistor(ax, x0, y0, x1, y1, label, color=BLACK):
         xs.append(x0 + dx * f + px * s); ys.append(y0 + dy * f + py * s)
     xs.append(x1); ys.append(y1)
     ax.plot(xs, ys, color=color, lw=2)
-    ax.text((x0 + x1) / 2 + px * 0.5, (y0 + y1) / 2 + py * 0.5, label, ha="center", va="center", fontsize=10.5, color=RED)
+    if abs(dx) < 1e-9:
+        ax.text(x0 + 0.3, (y0 + y1) / 2, label, ha="left", va="center", fontsize=10.5, color=RED)
+    else:
+        ax.text((x0 + x1) / 2 + px * 0.5, (y0 + y1) / 2 + py * 0.5, label, ha="center", va="center", fontsize=10.5, color=RED)
 
 
 def arrow(ax, x0, y0, x1, y1, color=GREEN, text="", tx=0, ty=0.25):
@@ -66,7 +69,7 @@ save(fig, "fig01-series.png")
 
 # Figure 2: parallel circuit
 fig, ax = plt.subplots(figsize=(10, 4.8))
-ax.set_aspect("equal"); ax.axis("off"); ax.set_xlim(-2, 10.5); ax.set_ylim(-1.3, 3.8)
+ax.set_aspect("equal"); ax.axis("off"); ax.set_xlim(-2, 10.5); ax.set_ylim(-2.4, 3.8)
 battery(ax, 0, 1.2)
 ax.plot([0, 0], [1.35, 3.0], color=BLACK, lw=2); ax.plot([0, 0], [-0.5, 1.05], color=BLACK, lw=2)
 ax.plot([0, 8.5], [3.0, 3.0], color=BLACK, lw=2); ax.plot([0, 8.5], [-0.5, -0.5], color=BLACK, lw=2)
@@ -75,20 +78,21 @@ for x, lab, cur in [(3.0, "R1 = 100", "120 mA"), (5.75, "R2 = 200", "60 mA"), (8
     ax.plot(x, 3.0, "o", color=BLACK, ms=5); ax.plot(x, -0.5, "o", color=BLACK, ms=5)
     arrow(ax, x + 0.3, 2.9, x + 0.3, 2.3, text=cur, tx=0.55, ty=0.0)
 arrow(ax, 0.3, 3.3, 1.5, 3.3, text="I = 220 mA", ty=0.2)
-ax.text(1.4, 1.2, "PARALLEL: three paths,\nthe same 12 V across each;\nthe currents add up:\n120 + 60 + 40 = 220 mA;\nR total = 12 / 0.22 = 54.5 ohm", ha="center", fontsize=10.5)
+ax.text(4.25, -1.6, "PARALLEL: three paths, the same 12 V across each; the currents add up:\n120 + 60 + 40 = 220 mA, so R total = 12 / 0.22 = 54.5 ohm", ha="center", fontsize=10.5)
 save(fig, "fig02-parallel.png")
 
 # Figure 3: reducing a mixed circuit step by step
 fig, axes = plt.subplots(1, 3, figsize=(12, 4.4))
 for ax in axes:
-    ax.set_aspect("equal"); ax.axis("off"); ax.set_xlim(-2, 7); ax.set_ylim(-1.3, 4.2)
+    ax.set_aspect("equal"); ax.axis("off"); ax.set_xlim(-2, 7.5); ax.set_ylim(-1.3, 4.2)
     battery(ax, 0, 1.2)
     ax.plot([0, 0], [1.35, 3.5], color=BLACK, lw=2); ax.plot([0, 0], [-0.5, 1.05], color=BLACK, lw=2)
 ax = axes[0]
 ax.plot([0, 1.0], [3.5, 3.5], color=BLACK, lw=2); resistor(ax, 1.0, 3.5, 2.8, 3.5, "R1 100")
 ax.plot([2.8, 3.5], [3.5, 3.5], color=BLACK, lw=2)
 ax.plot([3.5, 3.5], [3.5, 2.8], color=BLACK, lw=2); ax.plot([3.5, 5.5], [2.8, 2.8], color=BLACK, lw=2); ax.plot([3.5, 5.5], [0.5, 0.5], color=BLACK, lw=2)
-resistor(ax, 4.0, 2.8, 4.0, 0.5, "R2\n200"); resistor(ax, 5.5, 2.8, 5.5, 0.5, "R3\n300")
+ax.plot([5.5, 6.0], [2.8, 2.8], color=BLACK, lw=2); ax.plot([5.5, 6.0], [0.5, 0.5], color=BLACK, lw=2)
+resistor(ax, 3.5, 2.8, 3.5, 0.5, "R2\n200"); resistor(ax, 6.0, 2.8, 6.0, 0.5, "R3\n300")
 ax.plot([3.5, 3.5], [0.5, -0.5], color=BLACK, lw=2); ax.plot([3.5, 1.8], [-0.5, -0.5], color=BLACK, lw=2); resistor(ax, 1.8, -0.5, 0.4, -0.5, "R4 50"); ax.plot([0.4, 0], [-0.5, -0.5], color=BLACK, lw=2)
 ax.set_title("1. the circuit", fontsize=11.5)
 ax = axes[1]
@@ -99,7 +103,7 @@ ax.set_title("2. R2 || R3 = 120 ohm", fontsize=11.5)
 ax = axes[2]
 ax.plot([0, 2.0, 2.0], [3.5, 3.5, 2.8], color=BLACK, lw=2); resistor(ax, 2.0, 2.8, 2.0, 0.5, "R total\n270", color=BLUE)
 ax.plot([2.0, 2.0, 0], [0.5, -0.5, -0.5], color=BLACK, lw=2)
-ax.text(4.5, 1.5, "I = 12 / 270\n= 44.4 mA", ha="center", fontsize=11.5, color=GREEN)
+ax.text(5.6, 1.5, "I = 12 / 270\n= 44.4 mA", ha="center", fontsize=11.5, color=GREEN)
 ax.set_title("3. all in series: 100 + 120 + 50", fontsize=11.5)
 save(fig, "fig03-reduce.png")
 
@@ -110,35 +114,35 @@ axes[0].plot(n, 1000 / n, "o-", color=BLUE, lw=2, ms=7, mec=BLACK)
 for k in [1, 2, 4, 10]:
     axes[0].text(k + 0.15, 1000 / k + 30, f"{1000 / k:.0f}", fontsize=10.5)
 axes[0].set_xlabel("number of 1 kohm resistors in parallel"); axes[0].set_ylabel("total resistance (ohm)"); axes[0].grid(alpha=0.3)
-axes[0].set_title("n equal resistors in parallel: R / n", fontsize=11.5); axes[0].set_ylim(0, 1100)
+axes[0].set_title("n equal resistors in parallel: R / n", fontsize=11.5); axes[0].set_ylim(0, 1100); axes[0].set_xlim(0.5, 11)
 r2 = np.linspace(1, 1000, 300)
 axes[1].plot(r2, 100 * r2 / (100 + r2), color=BLUE, lw=2.5, label="100 ohm || R2")
 axes[1].axhline(100, color=GREY, ls="--", label="never above 100 ohm (the smaller one)")
 for r, lab in [(100, "100 || 100 = 50"), (300, "100 || 300 = 75"), (1000, "100 || 1000 = 90.9")]:
-    y = 100 * r / (100 + r); axes[1].plot(r, y, "o", color=ORANGE, mec=BLACK, ms=8); axes[1].text(r - 20, y - 14, lab, fontsize=10, ha="right")
+    y = 100 * r / (100 + r); axes[1].plot(r, y, "o", color=ORANGE, mec=BLACK, ms=8)
+    axes[1].text(r + 25 if r < 1000 else r - 20, y - 8 if r < 1000 else y + 4, lab, fontsize=10, ha="left" if r < 1000 else "right")
 axes[1].set_xlabel("R2 (ohm)"); axes[1].set_ylabel("100 ohm in parallel with R2 (ohm)"); axes[1].grid(alpha=0.3); axes[1].legend(fontsize=10, loc="lower right")
 axes[1].set_title("a parallel pair is always less than the smaller one", fontsize=11.5); axes[1].set_ylim(0, 115)
 save(fig, "fig04-parallel-rules.png")
 
 # Figure 5: battery pack configurations
-fig, axes = plt.subplots(1, 3, figsize=(12, 4.2))
-for ax, (s, p, title) in zip(axes, [(4, 1, "4S1P: 14.8 V, 2.5 Ah"), (4, 2, "4S2P: 14.8 V, 5 Ah"), (8, 1, "8S1P: 29.6 V, 2.5 Ah")]):
-    ax.set_aspect("equal"); ax.axis("off"); ax.set_xlim(-0.8, 8 * 1.1 + 0.3); ax.set_ylim(-0.6, 3.2)
-    for row in range(p):
-        y = 0.3 + row * 1.5
-        for k in range(s):
-            x = k * 1.1 * (8 / s) if s == 8 else k * 1.1 * 2
-            w = 1.1 * (8 / s) - 0.25 if s == 8 else 1.95
-            ax.add_patch(plt.Rectangle((x, y), w, 0.9, color=BLUE, ec=BLACK))
-            ax.text(x + w / 2, y + 0.45, "3.7 V", ha="center", va="center", fontsize=9, color="white")
-            if k < s - 1:
-                ax.plot([x + w, x + w + 0.25], [y + 0.45, y + 0.45], color=BLACK, lw=2)
-    if p == 2:
-        ax.plot([-0.3, -0.3], [0.75, 2.25], color=BLACK, lw=2); ax.plot([-0.3, 0], [0.75, 0.75], color=BLACK, lw=2); ax.plot([-0.3, 0], [2.25, 2.25], color=BLACK, lw=2)
-        xe = 8 * 1.1 - 0.05
-        ax.plot([xe, xe + 0.3], [0.75, 0.75], color=BLACK, lw=2); ax.plot([xe, xe + 0.3], [2.25, 2.25], color=BLACK, lw=2); ax.plot([xe + 0.3, xe + 0.3], [0.75, 2.25], color=BLACK, lw=2)
+fig, axes = plt.subplots(1, 3, figsize=(12, 2.8))
+for ax, (s_, p_, title) in zip(axes, [(4, 1, "4S1P: 14.8 V, 2.5 Ah"), (4, 2, "4S2P: 14.8 V, 5 Ah"), (8, 1, "8S1P: 29.6 V, 2.5 Ah")]):
+    ax.set_aspect("equal"); ax.axis("off"); ax.set_xlim(-0.6, 9.4); ax.set_ylim(-0.3, 2.7)
+    for row in range(p_):
+        y = 0.3 + row * 1.2
+        for k in range(s_):
+            x = k * 1.15
+            ax.add_patch(plt.Rectangle((x, y), 0.9, 0.7, color=BLUE, ec=BLACK))
+            ax.text(x + 0.45, y + 0.35, "3.7", ha="center", va="center", fontsize=9, color="white")
+            if k < s_ - 1:
+                ax.plot([x + 0.9, x + 1.15], [y + 0.35, y + 0.35], color=BLACK, lw=2)
+    if p_ == 2:
+        xe = (s_ - 1) * 1.15 + 0.9
+        ax.plot([-0.3, -0.3], [0.65, 1.85], color=BLACK, lw=2); ax.plot([-0.3, 0], [0.65, 0.65], color=BLACK, lw=2); ax.plot([-0.3, 0], [1.85, 1.85], color=BLACK, lw=2)
+        ax.plot([xe, xe + 0.3], [0.65, 0.65], color=BLACK, lw=2); ax.plot([xe, xe + 0.3], [1.85, 1.85], color=BLACK, lw=2); ax.plot([xe + 0.3, xe + 0.3], [0.65, 1.85], color=BLACK, lw=2)
     ax.set_title(title, fontsize=11)
-fig.suptitle("S = cells in series (voltages add); P = strings in parallel (capacities add); all three use 4 or 8 cells", fontsize=11.5, y=0.02)
+fig.suptitle("S = cells in series (voltages add); P = strings in parallel (capacities add)", fontsize=11.5, y=0.02)
 save(fig, "fig05-packs.png")
 
 # Figure 6: current split between Rover's two motors with different wire lengths

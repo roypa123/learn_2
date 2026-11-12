@@ -235,7 +235,7 @@ So why does the motor start at once? Because the wire is already **full** of fre
 
 The push itself (an electric field, if you want the proper name) travels along a wire at about 200,000,000 m/s, two thirds of the speed of light. A 1 m wire passes the message in about 5 nanoseconds. That is why the motor starts at once.
 
-🤖 **Robot link.** This matters for fast robot signals. A signal wire 30 cm long adds about 1.5 nanoseconds of delay. For an Arduino that is nothing. For the gigahertz signals between a camera and a computer, wires of different lengths can deliver the bits at measurably different times, which is why high-speed cables are made with exactly matched lengths (Chapter 538).
+🤖 **Robot link.** This matters for fast robot signals. A signal wire 30 cm long adds about 1.5 nanoseconds of delay. For an Arduino that is nothing. For the gigahertz signals between a camera and a computer, wires of different lengths can deliver the bits at measurably different times, which is why high-speed cables are made with exactly matched lengths.
 
 ---
 
@@ -607,7 +607,7 @@ wrist strap: time constant R x C = 100 microseconds
 
 ### Application 3 — 🌾 Electrostatic crop spraying
 
-Orchard-spraying robots use static electricity on purpose. The spray nozzle gives each droplet a small charge of the same sign, about 1 to 5 millicoulombs per kilogram of liquid. Like charges repel, so the droplets spread out instead of clumping; and the charged droplets attract the leaves (which are nearly neutral but conduct a little), so they curve round and land on the **undersides** of leaves, where pests hide and where an ordinary spray never reaches. Trials show two to three times more spray landing on the plant and much less on the ground, so the robot can carry less liquid and spray fewer chemicals. The same idea, with the sign reversed, is how a paint robot in a car factory coats a car body with almost no paint lost in the air (Chapter 408 looks at spraying paths).
+Orchard-spraying robots use static electricity on purpose. The spray nozzle gives each droplet a small charge of the same sign, about 1 to 5 millicoulombs per kilogram of liquid. Like charges repel, so the droplets spread out instead of clumping; and the charged droplets attract the leaves (which are nearly neutral but conduct a little), so they curve round and land on the **undersides** of leaves, where pests hide and where an ordinary spray never reaches. Trials show two to three times more spray landing on the plant and much less on the ground, so the robot can carry less liquid and spray fewer chemicals. The same idea, with the sign reversed, is how a paint robot in a car factory coats a car body with almost no paint lost in the air.
 
 ### Application 4 — 🚀 Charging in space and dust on Mars
 
@@ -615,7 +615,7 @@ In space there is no air to carry charge away, so a satellite's surfaces can bui
 
 ### Application 5 — 🏭 Touch skin for collaborative robot arms
 
-Some cobots (Chapter 4) can feel a person's hand before it touches them. Their arm is covered with a thin "skin" of conducting pads. Each pad is held with a small charge on it, and a person's body, which is a conductor, disturbs that charge as it comes within a few centimetres: a little charge is pushed onto or pulled off the pad. The electronics measure that tiny change (a few picocoulombs) a thousand times a second and slow the arm down before contact. It is the same effect as the balloon and the hair, used as a sensor. Chapter 84 explains the part that stores the charge (a capacitor), Chapter 129 covers these capacitive sensors in detail, and Chapter 743 looks at how humans and robots share a workspace safely.
+Some cobots (Chapter 4) can feel a person's hand before it touches them. Their arm is covered with a thin "skin" of conducting pads. Each pad is held with a small charge on it, and a person's body, which is a conductor, disturbs that charge as it comes within a few centimetres: a little charge is pushed onto or pulled off the pad. The electronics measure that tiny change (a few picocoulombs) a thousand times a second and slow the arm down before contact. It is the same effect as the balloon and the hair, used as a sensor. Chapter 84 explains the part that stores the charge (a capacitor), Chapter 695 looks at the sensors in a robot's skin and feet, and Chapter 743 looks at how humans and robots share a workspace safely.
 
 ---
 

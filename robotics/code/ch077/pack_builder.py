@@ -17,5 +17,5 @@ for s, p in [(4, 1), (4, 2), (8, 1), (2, 4), (6, 2)]:
     print(f"{s}S{p}P   {volts:6.1f} {ah:5.1f} {wh:6.0f} {ohm:7.3f} {amps:6.1f} {sag:6.2f} V {heat:5.0f} W")
 
 print()
-print("same energy (74 Wh) as 4S2P or 8S1P; the 8S pack needs half the current, so a quarter of the heat per ohm,")
-print("but has four times the ohms: the heat comes out the same. What changes is the wire size (Chapter 75).")
+print("4S2P, 8S1P and 2S4P all store 74 Wh and all make 66 W of heat inside at 600 W.")
+print("The 8S pack needs half the current of 4S2P, so its wires can be much thinner (Chapter 75).")
