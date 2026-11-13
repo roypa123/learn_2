@@ -247,6 +247,20 @@ inline void interrupts() {
         if (sim::isr_pending[n]) { sim::isr_pending[n] = false; sim::run_isr(n); }
 }
 
+// ---------------------------------------------------------------- shiftOut (Chapter 109)
+#define LSBFIRST 0
+#define MSBFIRST 1
+// Send 8 bits on dataPin, one clock pulse on clockPin per bit, as the Arduino core does (in software:
+// three digitalWrite calls per bit, so about 100 us per byte on an Uno).
+inline void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t val) {
+    for (int i = 0; i < 8; i++) {
+        int bit = bitOrder == LSBFIRST ? (val >> i) & 1 : (val >> (7 - i)) & 1;
+        digitalWrite(dataPin, bit);
+        digitalWrite(clockPin, HIGH);
+        digitalWrite(clockPin, LOW);
+    }
+}
+
 // ---------------------------------------------------------------- small helpers from the Arduino core
 template <class T, class L, class H> T constrain(T x, L lo, H hi) { return x < lo ? (T)lo : (x > hi ? (T)hi : x); }
 inline long map(long x, long in_min, long in_max, long out_min, long out_max) {
