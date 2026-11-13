@@ -127,17 +127,36 @@ inline void advance(uint64_t ns) {                // let simulated time pass
 }  // namespace sim
 
 // ---------------------------------------------------------------- time
+namespace sim {
+// millis(), micros() and delay() are driven by Timer0. If a sketch changes Timer0's prescaler
+// (avr_regs.h), they run at t0_rate times the right speed (1.0 = normal).
+inline double t0_rate = 1.0;
+inline uint64_t t0_base_now = 0;                  // when t0_rate last changed
+inline double t0_base_val = 0.0;                  // the Timer0 clock (ns) at that moment
+inline uint64_t t0_ns() {                         // what Timer0 believes the time is, in ns
+    if (t0_rate == 1.0 && t0_base_now == 0) return now_ns;
+    return (uint64_t)(t0_base_val + (double)(now_ns - t0_base_now) * t0_rate);
+}
+inline void set_t0_rate(double r) {
+    t0_base_val = (double)t0_ns();
+    t0_base_now = now_ns;
+    t0_rate = r;
+}
+}  // namespace sim
 inline unsigned long millis() {                   // 32 bits: wraps after 49.7 days
-    unsigned long m = (unsigned long)(sim::now_ns / 1000000ULL);
+    unsigned long m = (unsigned long)(sim::t0_ns() / 1000000ULL);
     sim::advance(1000);                           // reading the clock takes about 1 us on an Uno
     return m;
 }
 inline unsigned long micros() {                   // wraps after 71.6 minutes
-    unsigned long u = (unsigned long)(sim::now_ns / 1000ULL);
+    unsigned long u = (unsigned long)(sim::t0_ns() / 1000ULL);
     sim::advance(3000);                           // about 3 us
     return u;
 }
-inline void delay(unsigned long ms) { sim::advance((uint64_t)ms * 1000000ULL); }
+inline void delay(unsigned long ms) {             // counts Timer0's time, like the real delay()
+    if (sim::t0_rate <= 0) { while (true) sim::advance(1000000ULL); }   // Timer0 stopped: waits for ever
+    sim::advance((uint64_t)((double)ms * 1000000.0 / sim::t0_rate));
+}
 inline void delayMicroseconds(unsigned int us) { sim::advance((uint64_t)us * 1000ULL); }
 
 // ---------------------------------------------------------------- pins
@@ -324,6 +343,7 @@ class HardwareSerial {
     uint64_t tx_free_ns = 0;                          // when the transmitter will have sent everything
     bool at_line_start = true;
     unsigned long lost = 0;                           // characters lost because the receive buffer was full
+    std::function<void(uint8_t)> tx_hook;            // if set, sent bytes go here instead of to the screen
 
     void begin(unsigned long b) { baud = b; }
     void end() { baud = 0; }
@@ -337,12 +357,14 @@ class HardwareSerial {
         // the transmit buffer holds 64 characters; if it is full, wait (this is where printing gets slow)
         while (tx_free_ns > sim::now_ns && (tx_free_ns - sim::now_ns) / per >= 64) sim::advance(per / 4 + 1);
         tx_free_ns = (tx_free_ns > sim::now_ns ? tx_free_ns : sim::now_ns) + per;
+        if (tx_hook) { tx_hook(c); return 1; }      // a test that reads binary data takes the byte
         if (at_line_start && sim::serial_time) std::fputs(sim::stamp(), stdout);
         std::fputc(c, stdout);
         at_line_start = (c == '\n');
         return 1;
     }
     size_t write(const char *str) { size_t n = 0; while (*str) n += write((uint8_t)*str++); return n; }
+    size_t write(const uint8_t *buf, size_t len) { size_t n = 0; for (size_t i = 0; i < len; i++) n += write(buf[i]); return n; }
     void flush() { if (tx_free_ns > sim::now_ns) sim::advance(tx_free_ns - sim::now_ns); }
     int availableForWrite() {
         if (tx_free_ns <= sim::now_ns || !baud) return 63;
@@ -427,5 +449,10 @@ namespace sim {
 inline void serial_send(double at_ms, const char *text) {
     uint64_t t0 = (uint64_t)(at_ms * 1e6);           // each character arrives one character-time after the one before
     for (size_t i = 0; text[i]; i++) Serial.incoming.push_back({t0, i, text[i]});
+}
+// The same for any bytes, including 0 and values above 127 (binary packets, Chapter 107).
+inline void serial_send_bytes(double at_ms, const std::vector<uint8_t> &bytes) {
+    uint64_t t0 = (uint64_t)(at_ms * 1e6);
+    for (size_t i = 0; i < bytes.size(); i++) Serial.incoming.push_back({t0, i, (char)bytes[i]});
 }
 }  // namespace sim
