@@ -4,8 +4,8 @@ Read `MASTER_PLAN.md` first. Then continue from **Next up**.
 
 ## Next up
 
-**Part 6, Chapter 112 — Raspberry Pi: a small computer, GPIO with Python** Part 6 is the next part in README.md (starts at Ch 94).
-Part 5 (Ch 73–93) is complete: about 179,700 words, 126 figures, all programs run, all figures viewed. Part 4 (Ch 56–72) is complete: about 133,400 words, 97 figures. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 6 straight through only after the user says "next", then report and wait.
+**Part 7, Chapter 114 — What is a sensor? Range, resolution, accuracy, noise** Part 7 is the next part in README.md (starts at Ch 114).
+Part 6 (Ch 94–113) is complete: about 180,700 words, 132 figures, all sketches and programs run on the PC test bench, all figures viewed. Honest limits recorded in the chapters: pyserial and gpiozero were not installable (pip denied), so Ch 111/113 Python programs ran unchanged through code/common/bench_link (a pyserial stand-in driving the real sketch on the bench) and Ch 112 GPIO programs through code/common/pi_mock; Ch 112's jitter numbers are real measurements on the Windows 11 PC, not a Pi. Part 5 (Ch 73–93) is complete: about 179,700 words, 126 figures, all programs run, all figures viewed. Part 4 (Ch 56–72) is complete: about 133,400 words, 97 figures. Pace (user, 2026-11-11): "one part completed then only show next" — write the whole of Part 6 straight through only after the user says "next", then report and wait.
 Part 5 chapters run 6,900–11,650 words. Moth (Ch 93): 4 x AA 6 V, LDR 20 kΩ at 10 lux (γ 0.7), R_B 4.7 kΩ, BD139 β 150 (θ 100 °C/W), motor 15 Ω, start 80 mA, full 387 mA; steers 39–282 lux; reaches a 400 lux@1 m lamp from 1.8 m in 11.0 s; 13 kΩ bias makes it search. Rover: Arduino TX → Pi RX through 1 k/2 k divider on a stripboard signal board (Ch 91–92); Pi TX → Uno RX through a BSS138 shifter; battery wire AWG 20.
 Part 4 chapters run 7,100–8,950 words (above the 5,500–6,500 target; projects 6,500–8,000).
 Open quality point: Ch 22–35 came out at 3,900–4,900 words, below the 5,500–6,500 target.
@@ -126,6 +126,8 @@ Rover's official numbers: encoder 540 ticks/turn, wheel 0.06589 m (Ch 47, 69); C
 | 109 | part-06-microcontrollers-and-arduino/ch109-communication-part-3-spi.md | 7,820 | bench: new SPI.h + sim_spi_devices.h (74HC595 via pins or SPI, MPU-6000), shiftOut in Arduino.h; code/ch109 spi_ring.py, bus_compare.py, shift_speed (shiftOut 104 us vs SPI 9.8 us), battery_bar (8.09 V → 7 LEDs … 6.09 V → 0), imu_spi (38 us per 14-byte read; 143 us at 1 MHz) + pc_tests, figures.py → images/ch109/fig01–fig06 |
 | 110 | part-06-microcontrollers-and-arduino/ch110-libraries-and-how-they-work-inside.md | 8,200 | bench: simrun.py '// simrun-include:' lines + raw byte output, new sim_probe.h (UartSniffer decoder); code/ch110 soft_tx_naive (19200 → 11 framing errors), soft_tx (planned bit times: OK at 9600/19200/57600), debouncer.py, RoverLib/ (library.properties, src/Debouncer.h/.cpp, BatteryMonitor.h/.cpp, RoverLib.h, examples/BumpersAndBattery: 207/607/907 ms, 7.60 V 67 %) + pc_tests, figures.py → images/ch110/fig01–fig06 |
 | 111 | part-06-microcontrollers-and-arduino/ch111-arduino-talking-to-python-pyserial.md | 6,430 | pyserial NOT installed (pip denied): programs run unchanged through new code/common/bench_link (bench_serial.py stand-in + run_on_bench.py; pipe_main.h, run_until_ns in run.h, simrun --exe; 0.5 s boot on open); code/ch111 list_ports.py, sensor_stream.ino + pc_tests/world_stream.h, stream_logger.py (31 readings; --no-wait 25 + header skipped), rover_driver.py (8 cmds, failsafe 1201 ms; --no-wait first 5 lost), joint_log.csv, figures.py → images/ch111/fig01–fig06 |
+| 112 | part-06-microcontrollers-and-arduino/ch112-raspberry-pi-gpio-with-python.md | 6,350 | gpiozero NOT installed and no Pi: GPIO programs run unchanged through new code/common/pi_mock (mock_gpiozero.py stand-in, run_with_mock_gpio.py); jitter.py measured for REAL on the Windows 11 PC (10 ms: median 10065 us, max 51905 us; 1 ms: median 1055 us, 92/500 late); code/ch112 pi_start_button.py, jitter.py, jitter_gaps_*.txt, figures.py → images/ch112/fig01–fig06 |
+| 113 | part-06-microcontrollers-and-arduino/ch113-project-traffic-light-and-reaction-game.md | 7,530 | code/ch113 traffic_light (7-state crossing, request flag, RoverLib Debouncer; test presses 3/4/13/30 s → WALK 12–18 s, 37.5–43.5 s), reaction_game (ISR micros on pin 2, PWM glow, tone, random wait; pretend player world_reaction.h → 231.4/198.0/false start/264.7/187.3, avg 220.4), scores.py via bench_link (avg prints 220.3: float rounding), scores.csv, figures.py → images/ch113/fig01–fig06; Part 6 review table + quiz R1–R10 |
 
 ## Notes for writers
 
@@ -327,6 +329,7 @@ Rover's official numbers: encoder 540 ticks/turn, wheel 0.06589 m (Ch 47, 69); C
 
 ## Status
 
+- 2026-11-13: Chapters 105–113 written. Part 6 complete (Ch 94–113, about 180,700 words, 132 figures). Bench grew: avr_regs.h (ports, timers, ISR), Wire.h + sim_i2c_devices.h, SPI.h + sim_spi_devices.h, sim_probe.h, pipe_main.h + bench_link, pi_mock. Next: Part 7 (Ch 114).
 - 2026-11-10: Chapters 34, 35, 36 written. Part 2 complete (Ch 11–36, about 135,700 words). Next: Part 3.
 - 2026-11-10: Chapter 33 written (matplotlib fig/ax, chart kinds, graph rules, best-fit line; 5 figures, 4 programs).
 - 2026-11-10: Chapter 32 written (turtle, logo mode, scale, callbacks, event loop; 5 figures, 4 programs).

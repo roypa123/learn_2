@@ -118,9 +118,9 @@ smallest 2 us, median 10065 us, largest 51905 us
 gaps more than 10 % late: 6 of 500
 ```
 
-![Figure 112.5 — A 10 ms loop with an operating system](../images/ch112/fig05-jitter-10ms.png)
+![Figure 112.3 — A 10 ms loop with an operating system](../images/ch112/fig03-jitter-10ms.png)
 
-*Figure 112.5 — The gap before each of 500 steps of `jitter.py` (red, measured), and the Uno's timer-driven loop (green, Chapter 106).*
+*Figure 112.3 — The gap before each of 500 steps of `jitter.py` (red, measured), and the Uno's timer-driven loop (green, Chapter 106).*
 
 **How to read this picture:** The green line is flat at 10 ms: the Uno's timer never wavers. The red line is the Python loop. Most of the time it stays close to 10 ms, wobbling by a fraction of a millisecond. But twice, around steps 340 and 405, the operating system held the program back for 30 to 50 ms: a few steps came very late, and then, because each step is planned from the start, the missed steps ran immediately, almost 0 ms apart (the drops to the bottom). The "smallest 2 µs" in the output is one of those catch-up steps.
 
@@ -289,7 +289,7 @@ Rover: stop
 
 **6. The result.** The button started and stopped Rover once per press, the LED showed the state, and the program did nothing at all between events: no polling loop, no `sleep`. With gpiozero, a Pi program reads like a description of the behaviour. Lab 112.3 shows what the 50 ms `bounce_time` is protecting against.
 
-**7. Going further.** A real robot's start button should also be checked by the Arduino's failsafe logic (Chapter 107): if the Pi's program crashes while Rover is driving, the Arduino stops the motors within 500 ms whatever the LED shows. And the Pi can start the program automatically at boot, as a Linux **service** (Chapter 550), so Rover needs no keyboard: power on, wait for the blinking, press the button.
+**7. Going further.** A real robot's start button should also be checked by the Arduino's failsafe logic (Chapter 107): if the Pi's program crashes while Rover is driving, the Arduino stops the motors within 500 ms whatever the LED shows. And the Pi can start the program automatically at boot, as a Linux **service** (Part 27 shows how), so Rover needs no keyboard: power on, wait for the blinking, press the button.
 
 ### Application 2 (worked in full) — 🤖 Why Rover has two brains
 
@@ -301,19 +301,19 @@ Rover: stop
 
 **4. The maths.** A step 21.8 ms after the previous one, in a loop that assumes 10 ms, makes "counts ÷ 0.010 s" 118% too high: the controller would think Rover was driving at more than twice its real speed, and brake hard. A 51.9 ms delay is five whole missed steps, during which the motors run unwatched. Encoder pulses 0.77 ms apart cannot be caught by a program that can be held back for 50 ms (that is 65 pulses), unless special hardware counts them.
 
-**5. The code.** `jitter.py` (above) is the measurement. Figure 112.6 shows the 1 ms run:
+**5. The code.** `jitter.py` (above) is the measurement. Figure 112.5 shows the 1 ms run:
 
-![Figure 112.6 — How the gaps of a 1 ms loop spread](../images/ch112/fig06-jitter-1ms.png)
+![Figure 112.5 — How the gaps of a 1 ms loop spread](../images/ch112/fig05-jitter-1ms.png)
 
-*Figure 112.6 — How many of the 500 steps of the 1 ms loop had each gap (measured).*
+*Figure 112.5 — How many of the 500 steps of the 1 ms loop had each gap (measured).*
 
 **How to read this picture:** Each bar counts the steps whose gap fell in its range. A perfect loop would be one tall bar at the green line (1,000 µs). Here the gaps spread from about 550 to 1,560 µs: many come a little late (just right of the green line), almost a fifth come more than 10% late (right of the red dashed line), and the early ones (left) are the catch-up steps after late ones.
 
-**6. The result.** On the measured computer, a Python loop kept its period **on average**, but individual steps came up to five periods late. That is fine for planning a route (a few milliseconds do not matter), for a camera (30 frames per second), or for a user interface. It is not fine for a motor speed controller, encoder counting, or a balance loop. So Rover splits the work (Figure 112.3): the Pi decides **where** to go and **how fast**, about 20 times per second, and sends wheel speeds over the link; the Uno counts every encoder pulse with interrupts, runs the speed controller exactly every 10 ms with a timer, and stops the motors if the Pi goes quiet.
+**6. The result.** On the measured computer, a Python loop kept its period **on average**, but individual steps came up to five periods late. That is fine for planning a route (a few milliseconds do not matter), for a camera (30 frames per second), or for a user interface. It is not fine for a motor speed controller, encoder counting, or a balance loop. So Rover splits the work (Figure 112.6): the Pi decides **where** to go and **how fast**, about 20 times per second, and sends wheel speeds over the link; the Uno counts every encoder pulse with interrupts, runs the speed controller exactly every 10 ms with a timer, and stops the motors if the Pi goes quiet.
 
-![Figure 112.3 — Rover's two brains](../images/ch112/fig03-rover-split.png)
+![Figure 112.6 — Rover's two brains](../images/ch112/fig06-rover-split.png)
 
-*Figure 112.3 — The Pi does the thinking; the Uno does everything that must happen exactly on time; packets carry wheel speeds one way and status the other.*
+*Figure 112.6 — The Pi does the thinking; the Uno does everything that must happen exactly on time; packets carry wheel speeds one way and status the other.*
 
 **How to read this picture:** Left, the Pi's jobs: heavy, flexible, not time-critical. Right, the Uno's: light, but each must happen on time. The arrows are Chapter 107's packets: `M` (wheel speeds) one way, `S` (status) back.
 
@@ -378,7 +378,7 @@ Run from `code/ch112`, through the gpiozero stand-in:
 1. `python ../common/pi_mock/run_with_mock_gpio.py --press 17:1.5-1.8 --press 17:4.0-4.1 --end 5.5 pi_start_button.py`
 2. Remove `, bounce_time=0.05` from line 7 and run it again.
 
-**What you should see:** Step 1: as in Application 1. Step 2: each press now prints `Rover: start` and `Rover: stop` several times (the stand-in's button bounces 7 times in 3 ms, at both the press and the release), and Rover ends each press **stopped**, whatever it was doing before: the first press makes the LED blink once at 1.703 s instead of going steady. Without debouncing, a start button is worse than useless.
+**What you should see:** Step 1: as in Application 1. Step 2: the output fills with `Rover: start` and `Rover: stop` lines. The stand-in's button bounces 7 times in 3 ms at the press **and** at the release, and every bounce that closes the contact counts as a press: each press toggles Rover 4 times (ending stopped: the LED gives one short blink, off at 1.703 s) and each release 3 more times (ending driving: steady from 1.8 s). The final states happen to match what the person wanted, but only by luck, and on a real Rover each of those 7 toggles would have started or stopped the motors. Without debouncing, a start button is worse than useless.
 
 | If it does not work | Likely cause | Fix |
 |---|---|---|
@@ -451,7 +451,7 @@ Run from `code/ch112`, through the gpiozero stand-in:
 
 **7.** It ignores any further changes for 50 ms after an accepted one, so the contact bounce of a press or release does not cause extra events (debouncing, Chapter 99).
 
-**8.** 51.9 ÷ 10 = about **5 steps** fall due while it is held back; a planned-time loop then runs them one after another with almost no gap (catching up), as in Figure 112.5.
+**8.** 51.9 ÷ 10 = about **5 steps** fall due while it is held back; a planned-time loop then runs them one after another with almost no gap (catching up), as in Figure 112.3.
 
 **9.** Pi: camera and vision (heavy computing, Linux libraries); planning the route (needs memory and maths; a few ms of delay do not matter); also logging, Wi-Fi, ROS 2. Uno: counting encoder pulses (must catch every 0.77 ms pulse: interrupts); the 100 Hz speed controller (needs exactly 10 ms steps: a timer); the failsafe stop (must work even if the Pi crashes).
 
@@ -466,7 +466,7 @@ smallest 7 us, median 1055 us, largest 1565 us
 gaps more than 10 % late: 92 of 500
 ```
 
-The median is 1,055 µs (5% above the target, where the 10 ms run was 0.65% above), and **92 of 500** steps were more than 10% late, against 6 of 500 for 10 ms. The OS's small delays (about 50 µs each time, plus occasional longer ones) are the same size in both runs, but a much bigger share of a 1 ms step. In this run no long delay happened, so the largest gap was only 1,565 µs; another run might show one. Your own numbers will differ.
+The median is 1,055 µs (5% above the target, where the 10 ms run was 0.65% above), and **92 of 500** steps were more than 10% late, against 6 of 500 for 10 ms. The OS's small delays (the median step is 55 to 65 µs too long in both runs, plus occasional longer ones) are the same size, but a much bigger share of a 1 ms step. In this run no long delay happened, so the largest gap was only 1,565 µs; another run might show one. Your own numbers will differ.
 
 ---
 

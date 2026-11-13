@@ -71,7 +71,7 @@ ax.text(5.3, -1.3, "red 5 V, orange 3.3 V, black ground, green: used in this cou
 ax.set_xlim(0.5, 10); ax.set_ylim(-1.8, 20.5); ax.axis("off")
 save(fig, "fig02-header.png")
 
-# Figure 3: why Rover has both
+# Figure 6: why Rover has both
 fig, ax = plt.subplots(figsize=(12, 4.4))
 box(ax, 0.0, 0.5, 4.6, 3.2, "", L_RED)
 ax.text(2.3, 3.35, "Raspberry Pi: thinking", ha="center", fontsize=12)
@@ -87,7 +87,7 @@ ax.text(6.0, 2.6, "M packets: wheel speeds", ha="center", fontsize=9.5)
 ax.text(6.0, 1.35, "S packets: status", ha="center", fontsize=9.5)
 ax.text(6.0, 0.6, "UART or USB\n(Chapters 107, 111)", ha="center", fontsize=9.5)
 ax.set_xlim(-0.2, 12.2); ax.set_ylim(0.3, 3.9); ax.axis("off")
-save(fig, "fig03-rover-split.png")
+save(fig, "fig06-rover-split.png")
 
 # Figure 4: the start-button program on the mock (from its printed output)
 fig, ax = plt.subplots(figsize=(11, 3.6))
@@ -111,21 +111,21 @@ def load(name):
         return np.array([float(v) for v in f.read().split()])
 
 
-# Figure 5: the 10 ms loop on a PC with an operating system, against the Uno's timer (Chapter 106)
+# Figure 3: the 10 ms loop on a PC with an operating system, against the Uno's timer (Chapter 106)
 g10 = load("jitter_gaps_10ms.txt") / 1000
 fig, ax = plt.subplots(figsize=(11, 4.4))
 ax.plot(np.arange(1, len(g10) + 1), g10, color=RED, lw=1, label="Python loop on a PC with an operating system (measured)")
 ax.plot([1, len(g10)], [10, 10], color=GREEN, lw=2.5, label="Uno, Timer1 interrupt (Chapter 106): 10.000 ms every time")
 ax.set_xlabel("step number"); ax.set_ylabel("gap since the previous step (ms)"); ax.legend(fontsize=10, loc="upper right")
 ax.set_ylim(0, max(g10) * 1.15); ax.grid(alpha=0.3)
-save(fig, "fig05-jitter-10ms.png")
+save(fig, "fig03-jitter-10ms.png")
 
-# Figure 6: how the gaps of the 1 ms loop are spread
+# Figure 5: how the gaps of the 1 ms loop are spread
 g1 = load("jitter_gaps_1ms.txt")
 fig, ax = plt.subplots(figsize=(10, 4.2))
 ax.hist(g1, bins=60, color=BLUE)
 ax.axvline(1000, color=GREEN, lw=2); ax.text(1010, ax.get_ylim()[1] * 0.9, "target 1,000 us", color=GREEN, fontsize=10)
 ax.axvline(1100, color=RED, ls="--", lw=1.5); ax.text(1110, ax.get_ylim()[1] * 0.75, "10 % late", color=RED, fontsize=10)
 ax.set_xlabel("gap between steps (us)"); ax.set_ylabel("how many steps")
-save(fig, "fig06-jitter-1ms.png")
+save(fig, "fig05-jitter-1ms.png")
 print("figures saved in", os.path.abspath(OUT))
